@@ -1,0 +1,17 @@
+<div class="accordion{{ class|space }}" id="accordion-{{ id }}"{{ attributes|space|raw }}>
+    {% for title,body in items %}
+        {% set collapse_id = id ~ loop.index %}
+
+        <div class="accordion-item{{ item_class|space }}">
+            <h2 class="accordion-header" id="heading-{{ collapse_id }}">
+                <button class="accordion-button{{ first_open and loop.first ? '' : ' collapsed' }}" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapse-{{ collapse_id }}" aria-expanded="true"
+                        aria-controls="collapse-{{ collapse_id }}">{{ title|raw }}</button>
+            </h2>
+            <div id="collapse-{{ collapse_id }}" class="accordion-collapse collapse{{ first_open and loop.first ? ' show' : '' }}"
+                 aria-labelledby="heading-{{ collapse_id }}" data-bs-parent="#accordion-{{ id }}">
+                <div class="accordion-body">{{ body|raw }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

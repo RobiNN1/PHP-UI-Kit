@@ -1,0 +1,5 @@
+<ul class="list-group{{ class|space }}"{{ attributes|space|raw }}>
+    {% for item in items %}
+        <li class="list-group-item{{ item_class|space }}">{{ item|raw }}</li>
+    {% endfor %}
+</ul>

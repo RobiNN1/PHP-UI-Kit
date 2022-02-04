@@ -1,0 +1,9 @@
+<ol class="breadcrumb{{ class|space }}" aria-label="breadcrumb"{{ attributes|space|raw }}>
+    {% for title,link in links %}
+        {% if loop.last %}
+            <li class="breadcrumb-item{{ item_class|space }} active" aria-current="page">{{ title|raw }}</li>
+        {% else %}
+            <li class="breadcrumb-item{{ item_class|space }}"><a href="{{ link }}">{{ title|raw }}</a></li>
+        {% endif %}
+    {% endfor %}
+</ol>
