@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace UiKit\TplEngine;
+namespace RobiNN\UiKit\TplEngine;
 
 use League\Plates\Engine;
-use UiKit\Config;
-use UiKit\ITplEngine;
-use UiKit\UiKit;
+use RobiNN\UiKit\Config;
+use RobiNN\UiKit\ITplEngine;
+use RobiNN\UiKit\UiKit;
 
 class Plates implements ITplEngine {
     /**

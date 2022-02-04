@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace UiKit\Layout;
+namespace RobiNN\UiKit\Layout;
 
-use UiKit\OutputHandler;
-use UiKit\UiKit;
+use RobiNN\UiKit\OutputHandler;
+use RobiNN\UiKit\UiKit;
 
 class Layout {
     /**

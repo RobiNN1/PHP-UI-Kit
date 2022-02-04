@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace UiKit\Components;
+namespace RobiNN\UiKit\Components;
 
-use UiKit\UiKit;
+use RobiNN\UiKit\UiKit;
 
 class Dropdown {
     /**

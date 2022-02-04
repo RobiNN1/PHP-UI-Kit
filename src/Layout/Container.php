@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace UiKit\Layout;
+namespace RobiNN\UiKit\Layout;
 
-use UiKit\UiKit;
+use RobiNN\UiKit\UiKit;
 
 class Container {
     /**

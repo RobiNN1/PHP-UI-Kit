@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace UiKit;
+namespace RobiNN\UiKit;
 
-use UiKit\TplEngine\Twig;
+use RobiNN\UiKit\TplEngine\Twig;
 
 final class UiKit {
     /**

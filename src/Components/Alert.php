@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace UiKit\Components;
+namespace RobiNN\UiKit\Components;
 
-use UiKit\Dom;
-use UiKit\UiKit;
+use RobiNN\UiKit\Dom;
+use RobiNN\UiKit\UiKit;
 
 class Alert {
     /**
