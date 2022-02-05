@@ -9,7 +9,7 @@
  */
 
 
-namespace RobiNN\UiKit\TplEngine;
+namespace RobiNN\UiKit\TplEngines;
 
 use Latte\Engine;
 use RobiNN\UiKit\Config;

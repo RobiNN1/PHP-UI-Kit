@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace RobiNN\UiKit\TplEngine;
+namespace RobiNN\UiKit\TplEngines;
 
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
