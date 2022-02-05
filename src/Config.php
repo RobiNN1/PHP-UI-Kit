@@ -53,6 +53,11 @@ class Config {
         $this->cdn = (bool)$options['cdn'];
         $this->site_path = $options['site_path'];
         $this->assets_path = $options['assets_path'];
+
+        if (!is_dir($options['cache'])) {
+            @mkdir($options['cache'], 0777, true);
+        }
+
         $this->cache = $options['cache'];
         $this->framework = $options['framework'];
     }

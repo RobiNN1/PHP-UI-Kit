@@ -2,7 +2,7 @@
   "name": "robinn/uikit",
   "description": "UI Kit with support for multiple CSS frameworks.",
   "type": "library",
-  "keywords": ["templating", "twig", "css", "framework"],
+  "keywords": ["templating", "twig", "latte", "plates","css", "framework"],
   "license": "MIT",
   "authors": [
     {
@@ -14,9 +14,7 @@
   "require": {
     "php": ">=7.4",
     "ext-dom": "*",
-    "twig/twig": "^3",
-    "league/plates": "^3.4",
-    "latte/latte": "^2.10"
+    "twig/twig": "^3"
   },
   "require-dev": {
     "phpstan/phpstan": "^1.4"

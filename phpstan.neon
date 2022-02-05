@@ -5,3 +5,5 @@ parameters:
     - examples
   excludePaths:
     - examples/cache
+    - src/TplEngine/Latte.php
+    - src/TplEngine/Plates.php
