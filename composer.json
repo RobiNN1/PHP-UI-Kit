@@ -1,8 +1,8 @@
 {
   "name": "robinn/uikit",
-  "description": "UI Kit with support for multiple CSS frameworks.",
+  "description": "UI Kit with support for multiple CSS frameworks and template engines.",
   "type": "library",
-  "keywords": ["templating", "twig", "latte", "plates","css", "framework"],
+  "keywords": ["templating", "twig", "latte", "plates", "bootstrap", "semantic0ui", "css", "framework"],
   "license": "MIT",
   "authors": [
     {
