@@ -29,13 +29,19 @@ class Config {
     private string $framework;
 
     /**
+     * @var array
+     */
+    private array $framework_path;
+
+    /**
      * @param array $options
      */
     public function __construct(array $options = []) {
         $options = array_merge([
-            'assets_path' => __DIR__.'/../assets/', // Absolute path to assets.
-            'cache'       => false, // Cache object (depends on tpl engine), absolute path or false.
-            'framework'   => 'bootstrap5' // CSS Framework. Possible value: bootstrap5|semanticui2
+            'assets_path'    => __DIR__.'/../assets/', // Absolute path to assets.
+            'cache'          => false, // Cache object (depends on tpl engine), absolute path or false.
+            'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|semanticui2
+            'framework_path' => [] // Path to CSS Framework, each Framework can be in different path.
         ], $options);
 
         $this->assets_path = $options['assets_path'];
@@ -46,6 +52,7 @@ class Config {
 
         $this->cache = $options['cache'];
         $this->framework = $options['framework'];
+        $this->framework_path = $options['framework_path'];
     }
 
     /**
@@ -94,6 +101,19 @@ class Config {
      * @return string
      */
     public function getFrameworkPath(): string {
+        if (isset($this->framework_path[$this->framework]) && is_dir($this->framework_path[$this->framework])) {
+            return $this->framework_path[$this->framework];
+        }
         return $this->assets_path.$this->framework.'/';
+    }
+
+    /**
+     * @param string $framework
+     * @param string $path
+     *
+     * @return void
+     */
+    public function setFrameworkPath(string $framework, string $path): void {
+        $this->framework_path[$framework] = $path;
     }
 }
