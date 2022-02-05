@@ -68,7 +68,7 @@ final class UiKit {
     public static function getFrameworkOptions(string $key = '') {
         global $init;
 
-        require_once self::$config->getFrameworkPath(false).'init.php';
+        require_once self::$config->getFrameworkPath().'init.php';
 
         if (!empty(self::$fw_options)) {
             $custom = [];
@@ -131,27 +131,18 @@ final class UiKit {
      * Load framework files.
      */
     public static function loadFrameworkFiles(): void {
-        $path = !self::$config->isCdn() ? self::$config->getFrameworkPath() : '';
-
         $fwoptions = self::getFrameworkOptions();
-        $files = $fwoptions['files'][self::$config->isCdn() ? 'cdn' : 'local'];
 
-        foreach ($files['css'] as $css) {
-            OutputHandler::addToHead('<link rel="stylesheet" href="'.$path.$css.'">');
+        foreach ($fwoptions['files']['css'] as $css) {
+            OutputHandler::addToHead('<link rel="stylesheet" href="'.$css.'">');
         }
 
         if (!empty($fwoptions['jquery']) && $fwoptions['jquery'] === true) {
-            if (self::$config->isCdn()) {
-                $jquery = 'https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js';
-            } else {
-                $jquery = self::$config->getSitePath().'shared_resources/jquery.min.js';
-            }
-
-            OutputHandler::addToFooter('<script src="'.$jquery.'"></script>');
+            OutputHandler::addToFooter('<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>');
         }
 
-        foreach ($files['js'] as $js) {
-            OutputHandler::addToFooter('<script src="'.$path.$js.'"></script>');
+        foreach ($fwoptions['files']['js'] as $js) {
+            OutputHandler::addToFooter('<script src="'.$js.'"></script>');
         }
     }
 
@@ -186,8 +177,7 @@ final class UiKit {
             'add_to_head'   => [OutputHandler::class, 'addToHead'],
             'add_to_footer' => [OutputHandler::class, 'addToFooter'],
             'add_to_js'     => [OutputHandler::class, 'addToJs'],
-            'add_to_jquery' => [OutputHandler::class, 'addToJquery'],
-            'fw_path'       => fn() => self::$config->getFrameworkPath()
+            'add_to_jquery' => [OutputHandler::class, 'addToJquery']
         ];
     }
 

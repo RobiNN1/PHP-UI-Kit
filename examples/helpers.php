@@ -13,8 +13,6 @@
  */
 function get_ui(): RobiNN\UiKit\UiKit {
     $config = new RobiNN\UiKit\Config([
-        'cdn'       => false, // CDN for CSS Frameworks and libs.
-        'site_path' => '/assets/', // Path to assests. If site is in the root change it to /assets/.
         'cache'     => __DIR__.'/cache', // Cache object (depends on tpl engine), absolute path or false.
         // 'framework'    => 'bootstrap5' // CSS Framework. Possible value: bootstrap5|semanticui2
         'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5' // for development purposes

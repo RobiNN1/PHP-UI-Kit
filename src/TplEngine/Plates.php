@@ -31,7 +31,7 @@ class Plates implements ITplEngine {
      * @return Engine
      */
     public function init(UiKit $uikit, Config $config, bool $debug = false): Engine {
-        $this->plates = new Engine($config->getFrameworkPath(false).'templates/plates', 'tpl');
+        $this->plates = new Engine($config->getFrameworkPath().'templates/plates', 'tpl');
 
         foreach ($uikit->tplFunctions() as $function => $callback) {
             $this->plates->registerFunction($function, $callback);

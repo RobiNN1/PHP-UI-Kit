@@ -2,14 +2,8 @@
 $init = [
     'jquery'       => true,
     'files'        => [
-        'local' => [
-            'css' => ['css/semantic.min.css'],
-            'js'  => ['js/semantic.min.js']
-        ],
-        'cdn'   => [
-            'css' => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css'],
-            'js'  => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js']
-        ]
+        'css' => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css'],
+        'js'  => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js']
     ],
     'layout'       => [
         'grid_func' => 'semanticui2_grid'/** @uses semanticui2_grid() */

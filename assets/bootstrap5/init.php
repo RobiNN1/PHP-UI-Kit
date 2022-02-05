@@ -2,14 +2,8 @@
 $init = [
     'jquery'       => false,
     'files'        => [
-        'local' => [
-            'css' => ['css/bootstrap.min.css'],
-            'js'  => ['js/bootstrap.bundle.min.js']
-        ],
-        'cdn'   => [
-            'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
-            'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js']
-        ]
+        'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
+        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js']
     ],
     'layout'       => [
         'grid_func' => 'bootstrap5_grid'/** @uses bootstrap5_grid() */
