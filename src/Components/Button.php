@@ -10,22 +10,21 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Button {
+class Button extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $title   Button title.
      * @param string $type    Button type. Possible value: button|submit|reset
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $title, string $type = 'button', array $options = []): string {
+    public function render(string $title, string $type = 'button', array $options = []): string {
         $component = 'button';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -65,15 +64,15 @@ class Button {
 
         $attributes += $options['attributes'];
 
-        $fwoptions = $uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'title'      => $title,
-            'color'      => $uikit->getOption('colors', $options['color'], $fwoptions),
+            'color'      => $this->uikit->getOption('colors', $options['color'], $fwoptions),
             'type'       => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
-            'size'       => $uikit->getOption('sizes', $options['size'], $fwoptions),
+            'size'       => $this->uikit->getOption('sizes', $options['size'], $fwoptions),
             'disabled'   => $options['disabled'],
             'active'     => $options['active'],
             'link'       => $options['link'],
@@ -81,6 +80,6 @@ class Button {
             'icon_right' => $options['icon_right']
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

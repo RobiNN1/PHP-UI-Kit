@@ -10,22 +10,21 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Carousel {
+class Carousel extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $id      The ID of Carousel.
      * @param array  $slides  Array. E.g. ['Slide 1', 'Slide 2',]
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $id, array $slides, array $options = []): string {
+    public function render(string $id, array $slides, array $options = []): string {
         $component = 'carousel';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -44,12 +43,12 @@ class Carousel {
             'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'slides'     => $slides,
             'indicators' => $options['indicators'],
             'controls'   => $options['controls']
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

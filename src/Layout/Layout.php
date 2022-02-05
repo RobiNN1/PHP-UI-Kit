@@ -10,18 +10,17 @@
 
 namespace RobiNN\UiKit\Layout;
 
+use RobiNN\UiKit\Component;
 use RobiNN\UiKit\OutputHandler;
-use RobiNN\UiKit\UiKit;
 
-class Layout {
+class Layout extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $body
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $body, array $options = []): string {
+    public function render(string $body, array $options = []): string {
         $options = array_merge([
             'lang'  => 'en', // Page lang.
             'title' => 'Ui Kit', // Page title.
@@ -32,7 +31,7 @@ class Layout {
             OutputHandler::addToFooter('<script>'.OutputHandler::$jsCode.'</script>');
         }
 
-        if (!empty(OutputHandler::$jqueryCode) && $uikit->getFrameworkOptions('jquery')) {
+        if (!empty(OutputHandler::$jqueryCode) && $this->uikit->getFrameworkOptions('jquery')) {
             OutputHandler::addToFooter('<script>$(function(){'.OutputHandler::$jqueryCode.'});</script>');
         }
 
@@ -44,6 +43,6 @@ class Layout {
             'footer_tags' => OutputHandler::$pageFooterTags
         ];
 
-        return $uikit->render('layout/layout', $context);
+        return $this->uikit->renderTpl('layout/layout', $context);
     }
 }

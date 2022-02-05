@@ -10,21 +10,20 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class ListGroup {
+class ListGroup extends Component {
     /**
-     * @param UiKit $uikit
      * @param array $items   Multidimensional array. E.g. ['Item 1', 'Item 2']
      * @param array $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, array $items, array $options = []): string {
+    public function render(array $items, array $options = []): string {
         $component = 'list_group';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -45,10 +44,10 @@ class ListGroup {
         $context = [
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'items'      => $items
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

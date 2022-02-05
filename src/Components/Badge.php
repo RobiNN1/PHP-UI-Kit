@@ -10,22 +10,21 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Badge {
+class Badge extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $text    Badge text.
      * @param string $color   Badge color. Possible value: default|primary|success|warning|error|info
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $text, string $color = 'default', array $options = []): string {
+    public function render(string $text, string $color = 'default', array $options = []): string {
         $component = 'badge';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -43,16 +42,16 @@ class Badge {
 
         $attributes += $options['attributes'];
 
-        $fwoptions = $uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'text'       => $text,
-            'color'      => $uikit->getOption('colors', $color, $fwoptions),
+            'color'      => $this->uikit->getOption('colors', $color, $fwoptions),
             'rounded'    => $options['rounded']
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

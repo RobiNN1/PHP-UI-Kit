@@ -33,7 +33,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
  * @return string
  */
 function layout(string $body, array $options = []): string {
-    return RobiNN\UiKit\Layout\Layout::render(get_ui(), $body, $options);
+    return get_ui()->layout->render($body, $options);
 }
 
 /**
@@ -48,8 +48,7 @@ function layout(string $body, array $options = []): string {
  * @return string
  */
 function opencontainer(bool $fluid = false, array $options = []): string {
-    $options = array_merge(['open' => true], $options);
-    return RobiNN\UiKit\Layout\Container::render(get_ui(), $fluid, $options);
+    return get_ui()->container->render($fluid, array_merge(['open' => true], $options));
 }
 
 /**
@@ -61,7 +60,7 @@ function opencontainer(bool $fluid = false, array $options = []): string {
  * @return string
  */
 function closecontainer(): string {
-    return RobiNN\UiKit\Layout\Container::render(get_ui(), false, ['close' => true]);
+    return get_ui()->container->render(false, ['close' => true]);
 }
 
 /**
@@ -75,8 +74,7 @@ function closecontainer(): string {
  * @return string
  */
 function openrow(array $options = []): string {
-    $options = array_merge(['open' => true], $options);
-    return RobiNN\UiKit\Layout\Row::render(get_ui(), $options);
+    return get_ui()->row->render(array_merge(['open' => true], $options));
 }
 
 /**
@@ -88,7 +86,7 @@ function openrow(array $options = []): string {
  * @return string
  */
 function closerow(): string {
-    return RobiNN\UiKit\Layout\Row::render(get_ui(), ['close' => true]);
+    return get_ui()->row->render(['close' => true]);
 }
 
 /**
@@ -103,8 +101,7 @@ function closerow(): string {
  * @return string
  */
 function opengrid($col_sizes = [100], array $options = []): string {
-    $options = array_merge(['open' => true], $options);
-    return RobiNN\UiKit\Layout\Grid::render(get_ui(), $col_sizes, $options);
+    return get_ui()->grid->render($col_sizes, array_merge(['open' => true], $options));
 }
 
 /**
@@ -116,7 +113,7 @@ function opengrid($col_sizes = [100], array $options = []): string {
  * @return string
  */
 function closegrid(): string {
-    return RobiNN\UiKit\Layout\Grid::render(get_ui(), [], ['close' => true]);
+    return get_ui()->grid->render([], ['close' => true]);
 }
 
 /**
@@ -135,7 +132,7 @@ function closegrid(): string {
  * @return string
  */
 function accordion(string $id, array $items, array $options = []): string {
-    return RobiNN\UiKit\Components\Accordion::render(get_ui(), $id, $items, $options);
+    return get_ui()->accordion->render($id, $items, $options);
 }
 
 /**
@@ -151,7 +148,7 @@ function accordion(string $id, array $items, array $options = []): string {
  * @return string
  */
 function alert(string $text, string $color = 'default', array $options = []): string {
-    return RobiNN\UiKit\Components\Alert::render(get_ui(), $text, $color, $options);
+    return get_ui()->alert->render($text, $color, $options);
 }
 
 /**
@@ -167,7 +164,7 @@ function alert(string $text, string $color = 'default', array $options = []): st
  * @return string
  */
 function badge(string $text, string $color = 'default', array $options = []): string {
-    return RobiNN\UiKit\Components\Badge::render(get_ui(), $text, $color, $options);
+    return get_ui()->badge->render($text, $color, $options);
 }
 
 /**
@@ -185,7 +182,7 @@ function badge(string $text, string $color = 'default', array $options = []): st
  * @return string
  */
 function breadcrumbs(array $links, array $options = []): string {
-    return RobiNN\UiKit\Components\Breadcrumbs::render(get_ui(), $links, $options);
+    return get_ui()->breadcrumbs->render($links, $options);
 }
 
 /**
@@ -201,7 +198,7 @@ function breadcrumbs(array $links, array $options = []): string {
  * @return string
  */
 function button(string $title, string $type = 'button', array $options = []): string {
-    return RobiNN\UiKit\Components\Button::render(get_ui(), $title, $type, $options);
+    return get_ui()->button->render($title, $type, $options);
 }
 
 /**
@@ -221,7 +218,7 @@ function button(string $title, string $type = 'button', array $options = []): st
  * @return string
  */
 function button_group(array $options = []): string {
-    return RobiNN\UiKit\Components\ButtonGroup::render(get_ui(), $options);
+    return get_ui()->buttongroup->render($options);
 }
 
 /**
@@ -240,7 +237,7 @@ function button_group(array $options = []): string {
  * @return string
  */
 function card(array $options = []): string {
-    return RobiNN\UiKit\Components\Card::render(get_ui(), $options);
+    return get_ui()->card->render($options);
 }
 
 /**
@@ -259,7 +256,7 @@ function card(array $options = []): string {
  * @return string
  */
 function carousel(string $id, array $slides, array $options = []): string {
-    return RobiNN\UiKit\Components\Carousel::render(get_ui(), $id, $slides, $options);
+    return get_ui()->carousel->render($id, $slides, $options);
 }
 
 /**
@@ -281,7 +278,7 @@ function carousel(string $id, array $slides, array $options = []): string {
  * @return string
  */
 function dropdown(string $id, string $title, array $items, array $options = []): string {
-    return RobiNN\UiKit\Components\Dropdown::render(get_ui(), $id, $title, $items, $options);
+    return get_ui()->dropdown->render($id, $title, $items, $options);
 }
 
 /**
@@ -296,7 +293,7 @@ function dropdown(string $id, string $title, array $items, array $options = []):
  * @return string
  */
 function list_group(array $items, array $options = []): string {
-    return RobiNN\UiKit\Components\ListGroup::render(get_ui(), $items, $options);
+    return get_ui()->listgroup->render($items, $options);
 }
 
 /**
@@ -317,5 +314,5 @@ function list_group(array $items, array $options = []): string {
  * @return string
  */
 function modal(string $id, array $content, array $options = []): string {
-    return RobiNN\UiKit\Components\Modal::render(get_ui(), $id, $content, $options);
+    return get_ui()->modal->render($id, $content, $options);
 }

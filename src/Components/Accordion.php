@@ -10,22 +10,21 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Accordion {
+class Accordion extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $id      The ID of Accordion.
      * @param array  $items   Associative array. E.g. ['Title 1' => 'Content 1', 'Title 2' => 'Content 2',]
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $id, array $items, array $options = []): string {
+    public function render(string $id, array $items, array $options = []): string {
         $component = 'accordion';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -39,11 +38,11 @@ class Accordion {
             'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $uikit->getAttributes($options['attributes']),
+            'attributes' => $this->getAttributes($options['attributes']),
             'items'      => $items,
             'first_open' => $options['first_open']
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

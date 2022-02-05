@@ -10,21 +10,20 @@
 
 namespace RobiNN\UiKit\Components;
 
+use RobiNN\UiKit\Component;
 use RobiNN\UiKit\Dom;
-use RobiNN\UiKit\UiKit;
 
-class Card {
+class Card extends Component {
     /**
-     * @param UiKit $uikit
      * @param array $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, array $options = []): string {
+    public function render(array $options = []): string {
         $component = 'card';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -47,11 +46,11 @@ class Card {
 
         $attributes += $options['attributes'];
 
-        $fwoptions = $uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'top_img'    => $options['top_img'],
             'header'     => $options['header'],
             'body'       => $options['body'],
@@ -60,7 +59,7 @@ class Card {
             'bottom'     => $options['bottom']
         ];
 
-        $html = $uikit->render('components/'.$component, $context);
+        $html = $this->uikit->renderTpl('components/'.$component, $context);
 
         $dom = new Dom($html);
 

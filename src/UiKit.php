@@ -12,7 +12,7 @@ namespace RobiNN\UiKit;
 
 use RobiNN\UiKit\TplEngine\Twig;
 
-final class UiKit {
+final class UiKit extends ComponentsList {
     /**
      * @var Config
      */
@@ -27,6 +27,10 @@ final class UiKit {
      * @var ITplEngine
      */
     private static ITplEngine $tpl_engine;
+
+    public function __construct() {
+        parent::__construct($this);
+    }
 
     /**
      * Get instance.
@@ -99,22 +103,6 @@ final class UiKit {
     }
 
     /**
-     * Get attributes.
-     *
-     * @param array $attributes
-     *
-     * @return string
-     */
-    public function getAttributes(array $attributes): string {
-        $attributes_ = [];
-        foreach ($attributes as $attr => $value) {
-            $attributes_[] = $attr.(!empty($value) ? '="'.$value.'"' : '');
-        }
-
-        return implode(' ', $attributes_);
-    }
-
-    /**
      * Get correct value from options.
      *
      * @param string $option
@@ -154,7 +142,7 @@ final class UiKit {
      *
      * @return string
      */
-    public function render(string $tpl, array $context = []): string {
+    public function renderTpl(string $tpl, array $context = []): string {
         return self::$tpl_engine->render($tpl, $context);
     }
 
@@ -208,33 +196,5 @@ final class UiKit {
      */
     public function addToFooter(string $tag): void {
         OutputHandler::addToFooter($tag);
-    }
-
-    /**
-     * Check component.
-     *
-     * @param string $key
-     *
-     * @return bool
-     */
-    public function checkComponent(string $key): bool {
-        return in_array($key, $this->getFrameworkOptions('components'));
-    }
-
-    /**
-     * Message when component is not supported.
-     *
-     * @param string $key
-     * @param string $requires
-     *
-     * @return string
-     */
-    public function noComponentMsg(string $key, string $requires = ''): string {
-        if (!empty($requires) && !$this->checkComponent($requires)) {
-            return sprintf('Component <b>%s</b> requires support for <b>%s</b> component in <b>%s</b> framework.',
-                $key, $requires, self::$config->getFramework());
-        }
-
-        return sprintf('Component <b>%s</b> is not supported in <b>%s</b> framework.', $key, self::$config->getFramework());
     }
 }

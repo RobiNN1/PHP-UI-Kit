@@ -10,16 +10,15 @@
 
 namespace RobiNN\UiKit\Layout;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Row {
+class Row extends Component {
     /**
-     * @param UiKit $uikit
      * @param array $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, array $options = []): string {
+    public function render(array $options = []): string {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
@@ -29,11 +28,11 @@ class Row {
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $uikit->getAttributes($options['attributes']),
+            'attributes' => $this->getAttributes($options['attributes']),
             'open'       => $options['open'],
             'close'      => $options['close']
         ];
 
-        return $uikit->render('layout/row', $context);
+        return $this->uikit->renderTpl('layout/row', $context);
     }
 }

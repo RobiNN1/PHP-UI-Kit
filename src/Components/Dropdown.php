@@ -10,11 +10,10 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Dropdown {
+class Dropdown extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $id      The ID of Dropdown.
      * @param string $title   Button title.
      * @param array  $items   Multidimensional array. E.g. [['title' => 'Item 1', 'link' => 'link1.php'], ['title' => 'Item 2']]
@@ -22,13 +21,13 @@ class Dropdown {
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $id, string $title, array $items, array $options = []): string {
+    public function render(string $id, string $title, array $items, array $options = []): string {
         $component = 'dropdown';
 
-        if (!$uikit->checkComponent('button')) {
-            return $uikit->noComponentMsg($component, 'button');
-        } else if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent('button')) {
+            return $this->noComponentMsg($component, 'button');
+        } else if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -38,7 +37,7 @@ class Dropdown {
             'button'     => [] // Button options.
         ], $options);
 
-        $fwoptions = $uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         if (!empty($fwoptions['button']['class'])) {
             $class = !empty($options['button']['class']) ? $options['button']['class'].' ' : '';
@@ -54,17 +53,17 @@ class Dropdown {
             $title = $title.' '.$fwoptions['button']['title'];
         }
 
-        $button = Button::render($uikit, $title, 'button', $options['button']);
+        $button = $this->uikit->button->render($title, 'button', $options['button']);
 
         $context = [
             'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $uikit->getAttributes($options['attributes']),
+            'attributes' => $this->getAttributes($options['attributes']),
             'button'     => $button,
             'items'      => $items
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

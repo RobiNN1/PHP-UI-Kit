@@ -10,24 +10,23 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Modal {
+class Modal extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $id      The ID of Modal.
      * @param array  $content Associative array. E.g. ['Title 1' => 'Content 1', 'Title 2' => 'Content 2',]
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $id, array $content, array $options = []): string {
+    public function render(string $id, array $content, array $options = []): string {
         $component = 'modal';
 
-        if (!$uikit->checkComponent('button')) {
-            return $uikit->noComponentMsg($component, 'button');
-        } else if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent('button')) {
+            return $this->noComponentMsg($component, 'button');
+        } else if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -40,7 +39,7 @@ class Modal {
             'always_open'  => false // Always open.
         ], $options);
 
-        $fwoptions = $uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         if (!empty($fwoptions['button']['attributes'])) {
             foreach ($fwoptions['button']['attributes'] as $attr => $value) {
@@ -51,13 +50,13 @@ class Modal {
             $options['button']['attributes'] = array_merge($attr, $fwoptions['button']['attributes']);
         }
 
-        $button = Button::render($uikit, $options['button']['title'], 'button', $options['button']);
+        $button = $this->uikit->button->render($options['button']['title'], 'button', $options['button']);
 
         $context = [
             'id'           => $id,
             'class'        => $options['class'],
-            'attributes'   => $uikit->getAttributes($options['attributes']),
-            'size'         => $uikit->getOption('sizes', $options['size'], $fwoptions),
+            'attributes'   => $this->getAttributes($options['attributes']),
+            'size'         => $this->uikit->getOption('sizes', $options['size'], $fwoptions),
             'content'      => $content,
             'close_button' => $options['close_button'],
             'always_open'  => $options['always_open'],
@@ -65,6 +64,6 @@ class Modal {
             'button'       => $button
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

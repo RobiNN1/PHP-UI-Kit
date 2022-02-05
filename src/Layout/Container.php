@@ -10,17 +10,16 @@
 
 namespace RobiNN\UiKit\Layout;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Container {
+class Container extends Component {
     /**
-     * @param UiKit $uikit
      * @param bool  $fluid   Container without maximum width.
      * @param array $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, bool $fluid = false, array $options = []): string {
+    public function render(bool $fluid = false, array $options = []): string {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
@@ -30,12 +29,12 @@ class Container {
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $uikit->getAttributes($options['attributes']),
+            'attributes' => $this->getAttributes($options['attributes']),
             'open'       => $options['open'],
             'close'      => $options['close'],
             'fluid'      => $fluid
         ];
 
-        return $uikit->render('layout/container', $context);
+        return $this->uikit->renderTpl('layout/container', $context);
     }
 }

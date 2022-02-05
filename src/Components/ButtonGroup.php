@@ -10,22 +10,21 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class ButtonGroup {
+class ButtonGroup extends Component {
     /**
-     * @param UiKit $uikit
      * @param array $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, array $options = []): string {
+    public function render(array $options = []): string {
         $component = 'button_group';
 
-        if (!$uikit->checkComponent('button')) {
-            return $uikit->noComponentMsg($component, 'button');
-        } else if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent('button')) {
+            return $this->noComponentMsg($component, 'button');
+        } else if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -45,11 +44,11 @@ class ButtonGroup {
 
         $attributes += $options['attributes'];
 
-        $fwoptions = $uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $size = '';
         if (!empty($fwoptions['sizes'])) {
-            $size = $uikit->getOption('sizes', $options['size'], $fwoptions);
+            $size = $this->uikit->getOption('sizes', $options['size'], $fwoptions);
         }
 
         $buttons = [];
@@ -74,17 +73,17 @@ class ButtonGroup {
                     'size'  => empty($size) ? $options['size'] : ''
                 ];
 
-                $buttons[] = Button::render($uikit, $title, $type, array_merge($btn, $btn_options));
+                $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options));
             }
         }
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'size'       => $size,
             'buttons'    => $buttons
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

@@ -10,21 +10,20 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\UiKit;
+use RobiNN\UiKit\Component;
 
-class Breadcrumbs {
+class Breadcrumbs extends Component {
     /**
-     * @param UiKit $uikit
      * @param array $links   Associative array. E.g. ['Link 1' => 'link1.php', 'Link 2' => 'link2.php',]
      * @param array $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, array $links, array $options = []): string {
+    public function render(array $links, array $options = []): string {
         $component = 'breadcrumbs';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -45,10 +44,10 @@ class Breadcrumbs {
         $context = [
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'links'      => $links
         ];
 
-        return $uikit->render('components/'.$component, $context);
+        return $this->uikit->renderTpl('components/'.$component, $context);
     }
 }

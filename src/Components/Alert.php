@@ -10,23 +10,22 @@
 
 namespace RobiNN\UiKit\Components;
 
+use RobiNN\UiKit\Component;
 use RobiNN\UiKit\Dom;
-use RobiNN\UiKit\UiKit;
 
-class Alert {
+class Alert extends Component {
     /**
-     * @param UiKit  $uikit
      * @param string $text    Alert text.
      * @param string $color   Alert color. Possible value: default|success|warning|error|info
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public static function render(UiKit $uikit, string $text, string $color = 'default', array $options = []): string {
+    public function render(string $text, string $color = 'default', array $options = []): string {
         $component = 'alert';
 
-        if (!$uikit->checkComponent($component)) {
-            return $uikit->noComponentMsg($component);
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
         }
 
         $options = array_merge([
@@ -44,17 +43,17 @@ class Alert {
 
         $attributes += $options['attributes'];
 
-        $fwoptions = $uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $uikit->getAttributes($attributes),
+            'attributes' => $this->getAttributes($attributes),
             'text'       => $text,
-            'color'      => $uikit->getOption('colors', $color, $fwoptions),
+            'color'      => $this->uikit->getOption('colors', $color, $fwoptions),
             'dismiss'    => $options['dismiss']
         ];
 
-        $html = $uikit->render('components/'.$component, $context);
+        $html = $this->uikit->renderTpl('components/'.$component, $context);
 
         $dom = new Dom($html);
 
