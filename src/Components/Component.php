@@ -8,7 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace RobiNN\UiKit;
+namespace RobiNN\UiKit\Components;
+
+use RobiNN\UiKit\UiKit;
 
 class Component {
     /**

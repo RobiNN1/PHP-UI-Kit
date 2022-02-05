@@ -10,8 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
-
 class Button extends Component {
     /**
      * @param string $title   Button title.

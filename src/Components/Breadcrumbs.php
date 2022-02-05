@@ -10,8 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
-
 class Breadcrumbs extends Component {
     /**
      * @param array $links   Associative array. E.g. ['Link 1' => 'link1.php', 'Link 2' => 'link2.php',]

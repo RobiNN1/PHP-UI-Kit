@@ -10,7 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
 use RobiNN\UiKit\Dom;
 
 class Alert extends Component {

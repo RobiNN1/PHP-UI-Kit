@@ -10,8 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
-
 class Dropdown extends Component {
     /**
      * @param string $id      The ID of Dropdown.

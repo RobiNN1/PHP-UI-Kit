@@ -10,8 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
-
 class ListGroup extends Component {
     /**
      * @param array $items   Multidimensional array. E.g. ['Item 1', 'Item 2']

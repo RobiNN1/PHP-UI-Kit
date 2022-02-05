@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace RobiNN\UiKit\Layout;
+namespace RobiNN\UiKit\Components\Layout;
 
-use RobiNN\UiKit\Component;
+use RobiNN\UiKit\Components\Component;
 
 class Grid extends Component {
     /**

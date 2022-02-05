@@ -8,17 +8,18 @@
  * file that was distributed with this source code.
  */
 
-namespace RobiNN\UiKit\Layout;
+namespace RobiNN\UiKit\Components\Layout;
 
-use RobiNN\UiKit\Component;
+use RobiNN\UiKit\Components\Component;
 
-class Row extends Component {
+class Container extends Component {
     /**
+     * @param bool  $fluid   Container without maximum width.
      * @param array $options Additional options. Default value: []
      *
      * @return string
      */
-    public function render(array $options = []): string {
+    public function render(bool $fluid = false, array $options = []): string {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
@@ -30,9 +31,10 @@ class Row extends Component {
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'open'       => $options['open'],
-            'close'      => $options['close']
+            'close'      => $options['close'],
+            'fluid'      => $fluid
         ];
 
-        return $this->uikit->renderTpl('layout/row', $context);
+        return $this->uikit->renderTpl('layout/container', $context);
     }
 }

@@ -10,8 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
-
 class Accordion extends Component {
     /**
      * @param string $id      The ID of Accordion.

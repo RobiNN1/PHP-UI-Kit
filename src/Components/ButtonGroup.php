@@ -10,8 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
-
 class ButtonGroup extends Component {
     /**
      * @param array $options Additional options. Default value: []
