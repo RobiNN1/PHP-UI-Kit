@@ -10,56 +10,29 @@
 
 namespace RobiNN\UiKit;
 
-use RobiNN\UiKit\Components\Accordion;
-use RobiNN\UiKit\Components\Alert;
-use RobiNN\UiKit\Components\Badge;
-use RobiNN\UiKit\Components\Breadcrumbs;
-use RobiNN\UiKit\Components\Button;
-use RobiNN\UiKit\Components\ButtonGroup;
-use RobiNN\UiKit\Components\Card;
-use RobiNN\UiKit\Components\Carousel;
-use RobiNN\UiKit\Components\Dropdown;
-use RobiNN\UiKit\Components\ListGroup;
-use RobiNN\UiKit\Components\Modal;
-use RobiNN\UiKit\Layout\Container;
-use RobiNN\UiKit\Layout\Grid;
-use RobiNN\UiKit\Layout\Layout;
-use RobiNN\UiKit\Layout\Row;
-
 class ComponentsList {
-    public Layout $layout;
-    public Container $container;
-    public Row $row;
-    public Grid $grid;
+    public \RobiNN\UiKit\Layout\Layout $layout;
+    public \RobiNN\UiKit\Layout\Container $container;
+    public \RobiNN\UiKit\Layout\Row $row;
+    public \RobiNN\UiKit\Layout\Grid $grid;
 
-    public Accordion $accordion;
-    public Alert $alert;
-    public Badge $badge;
-    public Breadcrumbs $breadcrumbs;
-    public Button $button;
-    public ButtonGroup $buttongroup;
-    public Card $card;
-    public Carousel $carousel;
-    public Dropdown $dropdown;
-    public ListGroup $listgroup;
-    public Modal $modal;
+    public \RobiNN\UiKit\Components\Accordion $accordion;
+    public \RobiNN\UiKit\Components\Alert $alert;
+    public \RobiNN\UiKit\Components\Badge $badge;
+    public \RobiNN\UiKit\Components\Breadcrumbs $breadcrumbs;
+    public \RobiNN\UiKit\Components\Button $button;
+    public \RobiNN\UiKit\Components\ButtonGroup $buttongroup;
+    public \RobiNN\UiKit\Components\Card $card;
+    public \RobiNN\UiKit\Components\Carousel $carousel;
+    public \RobiNN\UiKit\Components\Dropdown $dropdown;
+    public \RobiNN\UiKit\Components\ListGroup $listgroup;
+    public \RobiNN\UiKit\Components\Modal $modal;
 
     public function __construct(UiKit $uikit) {
-        $this->layout = new Layout($uikit);
-        $this->container = new Container($uikit);
-        $this->row = new Row($uikit);
-        $this->grid = new Grid($uikit);
-
-        $this->accordion = new Accordion($uikit);
-        $this->alert = new Alert($uikit);
-        $this->badge = new Badge($uikit);
-        $this->breadcrumbs = new Breadcrumbs($uikit);
-        $this->button = new Button($uikit);
-        $this->buttongroup = new ButtonGroup($uikit);
-        $this->card = new Card($uikit);
-        $this->carousel = new Carousel($uikit);
-        $this->dropdown = new Dropdown($uikit);
-        $this->listgroup = new ListGroup($uikit);
-        $this->modal = new Modal($uikit);
+        foreach (get_class_vars(__CLASS__) as $var => $value) {
+            $type = ($var === 'layout' || $var === 'container' || $var === 'row' || $var === 'grid') ? 'Layout' : 'Components';
+            $class = '\\RobiNN\\UiKit\\'.$type.'\\'.$var;
+            $this->$var = new $class($uikit);
+        }
     }
 }
