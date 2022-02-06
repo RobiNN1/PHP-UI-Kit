@@ -316,3 +316,22 @@ function list_group(array $items, array $options = []): string {
 function modal(string $id, array $content, array $options = []): string {
     return get_ui()->modal->render($id, $content, $options);
 }
+
+/**
+ * Tabs
+ *
+ * Usage:
+ * echo tabs('test', [
+ * ['title' => 'Tab 1', 'content' => 'Content 1'],
+ * ['title' => 'Tab 2', 'content' => 'Content 2'],
+ * ]);
+ *
+ * @param string $id
+ * @param array  $items
+ * @param array  $options
+ *
+ * @return string
+ */
+function tabs(string $id, array $items, array $options = []): string {
+    return get_ui()->tabs->render($id, $items, $options);
+}

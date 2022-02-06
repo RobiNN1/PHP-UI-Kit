@@ -27,6 +27,7 @@ class ComponentsList {
     public Components\Dropdown $dropdown;
     public Components\ListGroup $listgroup;
     public Components\Modal $modal;
+    public Components\Tabs $tabs;
 
     public function __construct(UiKit $uikit) {
         foreach (get_class_vars(__CLASS__) as $var => $value) {

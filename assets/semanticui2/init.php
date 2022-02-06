@@ -10,7 +10,8 @@ $init = [
     ],
     'components'   => [
         // List of supported components
-        'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card', 'carousel', 'dropdown', 'list_group', 'modal'
+        'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
+        'carousel', 'dropdown', 'list_group', 'modal', 'tabs'
     ],
     'alert'        => [
         'colors' => [

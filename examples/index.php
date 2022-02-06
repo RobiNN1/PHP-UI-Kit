@@ -173,6 +173,14 @@ echo modal('test', [
 ]);
 echo '<hr>';
 
+echo '<h4>Tabs</h4>';
+echo tabs('test', [
+    ['title' => 'Tab 1', 'content' => 'Content 1'],
+    ['title' => 'Tab 2', 'content' => 'Content 2', 'active' => true],
+    ['title' => 'Tab 3', 'content' => 'Content 3'],
+]);
+echo '<hr>';
+
 echo '<div>Other components W.I.P.</div>';
 
 echo closecontainer();
