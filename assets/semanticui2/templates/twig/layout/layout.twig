@@ -5,7 +5,7 @@
     <title>{{ title }}</title>
     {{ head_tags|raw }}
 </head>
-<body>
+<body{{ attributes|space|raw }}>
 {{ body|raw }}
 {{ footer_tags|raw }}
 </body>

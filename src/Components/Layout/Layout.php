@@ -22,9 +22,10 @@ class Layout extends Component {
      */
     public function render(string $body, array $options = []): string {
         $options = array_merge([
-            'lang'  => 'en', // Page lang.
-            'title' => 'Ui Kit', // Page title.
-            'body'  => $body // Body conetnt.
+            'lang'       => 'en', // Page lang.
+            'title'      => 'Ui Kit', // Page title.
+            'body'       => $body, // Body conetnt.
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
         ], $options);
 
         if (!empty(OutputHandler::$jsCode)) {
@@ -39,6 +40,7 @@ class Layout extends Component {
             'lang'        => $options['lang'],
             'title'       => $options['title'],
             'body'        => $options['body'],
+            'attributes'  => $this->getAttributes($options['attributes']),
             'head_tags'   => OutputHandler::$pageHeadTags,
             'footer_tags' => OutputHandler::$pageFooterTags
         ];

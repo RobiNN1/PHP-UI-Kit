@@ -43,8 +43,6 @@ $class = '<?php
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Component;
-
 class '.$name.' extends Component {
     /**
      * @param array $options Additional options. Default value: []
