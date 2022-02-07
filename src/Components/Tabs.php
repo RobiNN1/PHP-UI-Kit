@@ -30,6 +30,7 @@ class Tabs extends Component {
             'attributes' => [] // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
         ], $options);
 
+        // Add 'active' item if missing
         foreach ($items as $key => $item) {
             if (empty($item['active'])) {
                 $items[$key]['active'] = false;
@@ -40,12 +41,15 @@ class Tabs extends Component {
         $active_tab = !empty($active_tab) ? $active_tab : 0;
 
         $items_ = [];
+        $i = 0;
         foreach ($items as $key => $content) {
-            $items_[] = [
+            $items_[$key] = [
                 'title'   => $content['title'],
                 'content' => $content['content'],
-                'active'  => $active_tab === $key
+                'active'  => $active_tab === $i
             ];
+
+            $i++;
         }
 
         $context = [
