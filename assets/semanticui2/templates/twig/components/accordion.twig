@@ -1,4 +1,4 @@
-{{ add_to_jquery("$('#accordion-"~ id ~"').accordion();") }}
+{{ add_to_jquery("$('.ui.accordion').accordion();") }}
 
 <div class="ui styled fluid accordion{{ class|space }}" id="accordion-{{ id }}"{{ attributes|space|raw }}>
     {% for title,body in items %}
