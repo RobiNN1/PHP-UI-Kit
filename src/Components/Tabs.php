@@ -27,7 +27,7 @@ class Tabs extends Component {
 
         $options = array_merge([
             'class'      => '', // Class for wrapper.
-            'attributes' => [] // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
         ], $options);
 
         // Add 'active' item if missing
@@ -46,7 +46,7 @@ class Tabs extends Component {
             $items_[$key] = [
                 'title'   => $content['title'],
                 'content' => $content['content'],
-                'active'  => $active_tab === $i
+                'active'  => $active_tab === $i,
             ];
 
             $i++;
@@ -56,7 +56,7 @@ class Tabs extends Component {
             'id'         => $id,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
-            'items'      => $items_
+            'items'      => $items_,
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

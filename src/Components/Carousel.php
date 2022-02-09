@@ -30,7 +30,7 @@ class Carousel extends Component {
             'item_class' => '', // Class for item.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
             'indicators' => true, // Carousel indicators.
-            'controls'   => true // Carousel controls buttons.
+            'controls'   => true, // Carousel controls buttons.
         ], $options);
 
         $attributes = [];
@@ -44,7 +44,7 @@ class Carousel extends Component {
             'attributes' => $this->getAttributes($attributes),
             'slides'     => $slides,
             'indicators' => $options['indicators'],
-            'controls'   => $options['controls']
+            'controls'   => $options['controls'],
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

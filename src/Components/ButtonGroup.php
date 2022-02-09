@@ -31,7 +31,7 @@ class ButtonGroup extends Component {
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
             'options'    => [], // Array of buttons. E.g. [0 => 'Button 1', 1 => ['title' => 'Button 2', 'btn_options' => ['color' => 'error']]]
             'size'       => 'default', // Button size, this sets the same for all buttons. Possible value: default|sm|lg
-            'type'       => 'button' // Button type, this sets the same for all buttons. Possible value: button|submit|reset
+            'type'       => 'button', // Button type, this sets the same for all buttons. Possible value: button|submit|reset
         ], $options);
 
         $attributes = [];
@@ -68,7 +68,7 @@ class ButtonGroup extends Component {
                 $btn = [
                     'value' => $value,
                     'link'  => !empty($button['link']) ? $button['link'] : '',
-                    'size'  => empty($size) ? $options['size'] : ''
+                    'size'  => empty($size) ? $options['size'] : '',
                 ];
 
                 $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options));
@@ -79,7 +79,7 @@ class ButtonGroup extends Component {
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($attributes),
             'size'       => $size,
-            'buttons'    => $buttons
+            'buttons'    => $buttons,
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

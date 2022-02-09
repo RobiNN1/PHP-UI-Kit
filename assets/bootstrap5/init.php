@@ -3,7 +3,7 @@ $init = [
     'jquery'       => false,
     'files'        => [
         'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
-        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js']
+        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'],
     ],
     'layout'       => [
         'grid_func' => 'bootstrap5_grid'/** @uses bootstrap5_grid() */
@@ -11,7 +11,7 @@ $init = [
     'components'   => [
         // List of supported components
         'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
-        'carousel', 'dropdown', 'list_group', 'modal', 'tabs'
+        'carousel', 'dropdown', 'list_group', 'modal', 'tabs',
     ],
     'alert'        => [
         'colors'  => [
@@ -19,11 +19,11 @@ $init = [
             'success' => 'alert-success',
             'warning' => 'alert-warning',
             'error'   => 'alert-danger',
-            'info'    => 'alert-info'
+            'info'    => 'alert-info',
         ],
         'classes' => [
-            'a' => 'alert-link'
-        ]
+            'a' => 'alert-link',
+        ],
     ],
     'badge'        => [
         'colors' => [
@@ -32,8 +32,8 @@ $init = [
             'success' => 'bg-success',
             'warning' => 'bg-warning',
             'error'   => 'bg-danger',
-            'info'    => 'bg-info'
-        ]
+            'info'    => 'bg-info',
+        ],
     ],
     'button'       => [
         'colors' => [
@@ -42,48 +42,48 @@ $init = [
             'success' => 'btn-success',
             'warning' => 'btn-warning',
             'error'   => 'btn-danger',
-            'info'    => 'btn-info'
+            'info'    => 'btn-info',
         ],
         'sizes'  => [
             'default' => '',
             'sm'      => 'btn-sm',
-            'lg'      => 'btn-lg'
-        ]
+            'lg'      => 'btn-lg',
+        ],
     ],
     'button_group' => [
         'sizes' => [
             'default' => '',
             'sm'      => 'btn-group-sm',
-            'lg'      => 'btn-group-lg'
-        ]
+            'lg'      => 'btn-group-lg',
+        ],
     ],
     'card'         => [
         'classes' => [
             'p'        => 'card-text',
             'title'    => 'card-title',
-            'subtitle' => 'card-subtitle'
-        ]
+            'subtitle' => 'card-subtitle',
+        ],
     ],
     'dropdown'     => [
         'button' => [
             'class'      => 'dropdown-toggle',
-            'attributes' => ['data-bs-toggle' => 'dropdown']
-        ]
+            'attributes' => ['data-bs-toggle' => 'dropdown'],
+        ],
     ],
     'modal'        => [
         'sizes'  => [
             'default'    => '',
             'sm'         => 'modal-sm',
             'lg'         => 'modal-lg',
-            'fullscreen' => 'modal-fullscreen'
+            'fullscreen' => 'modal-fullscreen',
         ],
         'button' => [
             'attributes' => [
                 'data-bs-toggle' => 'modal',
-                'data-bs-target' => '#modal-{id}'
-            ]
-        ]
-    ]
+                'data-bs-target' => '#modal-{id}',
+            ],
+        ],
+    ],
 ];
 
 /**

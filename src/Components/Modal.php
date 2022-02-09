@@ -34,7 +34,7 @@ class Modal extends Component {
             'hide_button'  => false,
             'button'       => [], // Button options.
             'close_button' => true, // Show close button.
-            'always_open'  => false // Always open.
+            'always_open'  => false, // Always open.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -59,7 +59,7 @@ class Modal extends Component {
             'close_button' => $options['close_button'],
             'always_open'  => $options['always_open'],
             'hide_button'  => $options['hide_button'],
-            'button'       => $button
+            'button'       => $button,
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

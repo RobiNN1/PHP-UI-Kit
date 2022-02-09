@@ -29,7 +29,7 @@ class Badge extends Component {
             'id'         => '', // Badge ID.
             'class'      => '', // Badge class.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
-            'rounded'    => false // Rounded badge.
+            'rounded'    => false, // Rounded badge.
         ], $options);
 
         $attributes = [];
@@ -47,7 +47,7 @@ class Badge extends Component {
             'attributes' => $this->getAttributes($attributes),
             'text'       => $text,
             'color'      => $this->uikit->getOption('colors', $color, $fwoptions),
-            'rounded'    => $options['rounded']
+            'rounded'    => $options['rounded'],
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

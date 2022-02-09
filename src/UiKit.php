@@ -147,15 +147,6 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * Get TPL Instance.
-     *
-     * @return object
-     */
-    public function getTplInstance(): object {
-        return self::$tpl_engine->getTplInstance();
-    }
-
-    /**
      * Get custom TPL functions.
      *
      * @return array
@@ -165,7 +156,7 @@ final class UiKit extends ComponentsList {
             'add_to_head'   => [OutputHandler::class, 'addToHead'],
             'add_to_footer' => [OutputHandler::class, 'addToFooter'],
             'add_to_js'     => [OutputHandler::class, 'addToJs'],
-            'add_to_jquery' => [OutputHandler::class, 'addToJquery']
+            'add_to_jquery' => [OutputHandler::class, 'addToJquery'],
         ];
     }
 
@@ -176,25 +167,7 @@ final class UiKit extends ComponentsList {
      */
     public function tplFilters(): array {
         return [
-            'space' => fn($value, $right = false) => (!empty($value) ? ($right === true ? $value.' ' : ' '.$value) : '')
+            'space' => fn($value, $right = false) => (!empty($value) ? ($right === true ? $value.' ' : ' '.$value) : ''),
         ];
-    }
-
-    /**
-     * @param string $tag
-     *
-     * @return void
-     */
-    public function addToHead(string $tag): void {
-        OutputHandler::addToHead($tag);
-    }
-
-    /**
-     * @param string $tag
-     *
-     * @return void
-     */
-    public function addToFooter(string $tag): void {
-        OutputHandler::addToFooter($tag);
     }
 }

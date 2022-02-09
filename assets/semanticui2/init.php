@@ -3,7 +3,7 @@ $init = [
     'jquery'       => true,
     'files'        => [
         'css' => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css'],
-        'js'  => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js']
+        'js'  => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js'],
     ],
     'layout'       => [
         'grid_func' => 'semanticui2_grid'/** @uses semanticui2_grid() */
@@ -11,7 +11,7 @@ $init = [
     'components'   => [
         // List of supported components
         'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
-        'carousel', 'dropdown', 'list_group', 'modal', 'tabs'
+        'carousel', 'dropdown', 'list_group', 'modal', 'tabs',
     ],
     'alert'        => [
         'colors' => [
@@ -19,8 +19,8 @@ $init = [
             'success' => 'green',
             'warning' => 'yellow',
             'error'   => 'red',
-            'info'    => 'info'
-        ]
+            'info'    => 'info',
+        ],
     ],
     'badge'        => [
         'colors' => [
@@ -29,8 +29,8 @@ $init = [
             'success' => 'green',
             'warning' => 'orange',
             'error'   => 'red',
-            'info'    => 'teal'
-        ]
+            'info'    => 'teal',
+        ],
     ],
     'button'       => [
         'colors' => [
@@ -39,39 +39,39 @@ $init = [
             'success' => 'positive',
             'warning' => 'orange',
             'error'   => 'negative',
-            'info'    => 'teal'
+            'info'    => 'teal',
         ],
         'sizes'  => [
             'default' => '',
             'sm'      => 'small',
-            'lg'      => 'large'
-        ]
+            'lg'      => 'large',
+        ],
     ],
     'button_group' => [
         'sizes' => [
             'default' => '',
             'sm'      => 'small',
-            'lg'      => 'large'
-        ]
+            'lg'      => 'large',
+        ],
     ],
     'dropdown'     => [
         'button' => [
-            'title' => '<i class="dropdown icon"></i>'
-        ]
+            'title' => '<i class="dropdown icon"></i>',
+        ],
     ],
     'modal'        => [
         'sizes'  => [
             'default'    => 'tiny',
             'sm'         => 'mini',
             'lg'         => 'large',
-            'fullscreen' => 'overlay fullscreen'
+            'fullscreen' => 'overlay fullscreen',
         ],
         'button' => [
             'attributes' => [
-                'id' => 'toggle-modal-{id}'
-            ]
-        ]
-    ]
+                'id' => 'toggle-modal-{id}',
+            ],
+        ],
+    ],
 ];
 
 /**
@@ -106,7 +106,7 @@ function semanticui2_grid($col_sizes): string {
         return implode(' ', array_map(function ($size, $column) {
             $words = [
                 '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
-                'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen'
+                'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
             ];
             return $words[$column].' wide '.$size;
         }, array_keys($columns), array_values($columns)));

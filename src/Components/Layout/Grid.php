@@ -29,7 +29,7 @@ class Grid extends Component {
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
             'open'       => false, // Opening div
-            'close'      => false // Closing div
+            'close'      => false, // Closing div
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions('layout');
@@ -40,7 +40,7 @@ class Grid extends Component {
             'attributes' => $this->getAttributes($options['attributes']),
             'grid_class' => $grid,
             'open'       => $options['open'],
-            'close'      => $options['close']
+            'close'      => $options['close'],
         ];
 
         return $this->uikit->renderTpl('layout/grid', $context);

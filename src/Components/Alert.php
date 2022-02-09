@@ -31,7 +31,7 @@ class Alert extends Component {
             'id'         => '', // Alert ID.
             'class'      => '', // Alert class.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
-            'dismiss'    => false // Make alert dismissable.
+            'dismiss'    => false, // Make alert dismissable.
         ], $options);
 
         $attributes = [];
@@ -49,7 +49,7 @@ class Alert extends Component {
             'attributes' => $this->getAttributes($attributes),
             'text'       => $text,
             'color'      => $this->uikit->getOption('colors', $color, $fwoptions),
-            'dismiss'    => $options['dismiss']
+            'dismiss'    => $options['dismiss'],
         ];
 
         $html = $this->uikit->renderTpl('components/'.$component, $context);

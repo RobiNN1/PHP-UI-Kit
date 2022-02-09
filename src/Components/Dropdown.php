@@ -32,7 +32,7 @@ class Dropdown extends Component {
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
-            'button'     => [] // Button options.
+            'button'     => [], // Button options.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -59,7 +59,7 @@ class Dropdown extends Component {
             'item_class' => $options['item_class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'button'     => $button,
-            'items'      => $items
+            'items'      => $items,
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

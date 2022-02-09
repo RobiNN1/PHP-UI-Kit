@@ -38,7 +38,7 @@ class Twig implements ITplEngine {
         $loader = new FilesystemLoader($config->getFrameworkPath().'templates/twig');
         $this->twig = new Environment($loader, [
             'cache' => $config->getCache().'/twig',
-            'debug' => $debug
+            'debug' => $debug,
         ]);
 
         if ($debug) {

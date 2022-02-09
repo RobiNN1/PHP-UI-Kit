@@ -42,7 +42,7 @@ class Layout extends Component {
             'body'        => $options['body'],
             'attributes'  => $this->getAttributes($options['attributes']),
             'head_tags'   => OutputHandler::$pageHeadTags,
-            'footer_tags' => OutputHandler::$pageFooterTags
+            'footer_tags' => OutputHandler::$pageFooterTags,
         ];
 
         return $this->uikit->renderTpl('layout/layout', $context);

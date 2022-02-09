@@ -23,14 +23,14 @@ class Row extends Component {
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
             'open'       => false, // Opening div.
-            'close'      => false // Closing div.
+            'close'      => false, // Closing div.
         ], $options);
 
         $context = [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'open'       => $options['open'],
-            'close'      => $options['close']
+            'close'      => $options['close'],
         ];
 
         return $this->uikit->renderTpl('layout/row', $context);

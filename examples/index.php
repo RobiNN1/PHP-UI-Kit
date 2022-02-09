@@ -13,8 +13,7 @@ if (version_compare(phpversion(), '7.4', '<')) {
 }
 
 require_once __DIR__.'/../vendor/autoload.php';
-
-require_once __DIR__.'/helpers.php'; // helper functions, so don't have to write everything in OOP
+require_once __DIR__.'/helpers.php';
 
 ob_start();
 
@@ -91,23 +90,23 @@ $btns = [
     1          => 'Second',
     'test'     => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
     'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
-    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]]
+    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]],
 ];
 echo '<div style="display:block;margin-bottom:20px;">';
 echo button_group([
     'size'    => 'sm',
-    'options' => $btns
+    'options' => $btns,
 ]);
 echo '</div>';
 echo '<div style="display:block;margin-bottom:20px;">';
 echo button_group([
-    'options' => $btns
+    'options' => $btns,
 ]);
 echo '</div>';
 echo '<div style="display:block;margin-bottom:20px;">';
 echo button_group([
     'size'    => 'lg',
-    'options' => $btns
+    'options' => $btns,
 ]);
 echo '</div>';
 echo '<hr>';
@@ -118,7 +117,7 @@ echo opengrid([100, 50]);
 echo card([
     'header' => 'Header',
     'body'   => 'Body',
-    'footer' => 'Footer'
+    'footer' => 'Footer',
 ]);
 echo closegrid();
 echo opengrid([100, 50]);
@@ -127,7 +126,7 @@ echo card([
     <h3>Title</h3>
     <h4>Sub title</h4>
     <p>Text</p>
-    '
+    ',
 ]);
 echo closegrid();
 echo closerow();
@@ -149,14 +148,14 @@ echo dropdown('test', 'Dropdown', [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     'divider',
     ['title' => 'Item 2'],
-    ['custom' => '<b>Custom bold text</b>']
+    ['custom' => '<b>Custom bold text</b>'],
 ]);
 echo '<hr>';
 
 echo '<h4>List Group</h4>';
 echo list_group([
     'Item 1',
-    'Item 2'
+    'Item 2',
 ]);
 echo '<hr>';
 
@@ -165,11 +164,11 @@ echo modal('test', [
     'title'  => 'Modal Title',
     'header' => 'Testttt',
     'body'   => '<b>Testing</b>',
-    'footer' => 'Random text....'
+    'footer' => 'Random text....',
 ], [
     'button' => [
-        'title' => 'Open Modal'
-    ]
+        'title' => 'Open Modal',
+    ],
 ]);
 echo '<hr>';
 

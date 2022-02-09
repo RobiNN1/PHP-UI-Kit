@@ -29,7 +29,7 @@ class Accordion extends Component {
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
-            'first_open' => false // Set true to open first item.
+            'first_open' => false, // Set true to open first item.
         ], $options);
 
         $context = [
@@ -38,7 +38,7 @@ class Accordion extends Component {
             'item_class' => $options['item_class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'items'      => $items,
-            'first_open' => $options['first_open']
+            'first_open' => $options['first_open'],
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

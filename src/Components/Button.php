@@ -37,7 +37,7 @@ class Button extends Component {
             'active'     => false, // Active state.
             'link'       => '', // Link.
             'icon'       => '', // Button icon.
-            'icon_right' => false // Show the icon to the right.
+            'icon_right' => false, // Show the icon to the right.
         ], $options);
 
         $attributes = [];
@@ -75,7 +75,7 @@ class Button extends Component {
             'active'     => $options['active'],
             'link'       => $options['link'],
             'icon'       => $options['icon'],
-            'icon_right' => $options['icon_right']
+            'icon_right' => $options['icon_right'],
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

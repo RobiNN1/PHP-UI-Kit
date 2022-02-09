@@ -28,7 +28,7 @@ class Breadcrumbs extends Component {
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
-            'attributes' => [] // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
         ], $options);
 
         $attributes = [];
@@ -43,7 +43,7 @@ class Breadcrumbs extends Component {
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
             'attributes' => $this->getAttributes($attributes),
-            'links'      => $links
+            'links'      => $links,
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

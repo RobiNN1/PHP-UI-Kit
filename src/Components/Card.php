@@ -34,7 +34,7 @@ class Card extends Component {
             'body'       => '', // Card body.
             'footer'     => '', // Card footer.
             'top'        => '', // Card top content.
-            'bottom'     => '' // card bottom content.
+            'bottom'     => '', // card bottom content.
         ], $options);
 
         $attributes = [];
@@ -55,7 +55,7 @@ class Card extends Component {
             'body'       => $options['body'],
             'footer'     => $options['footer'],
             'top'        => $options['top'],
-            'bottom'     => $options['bottom']
+            'bottom'     => $options['bottom'],
         ];
 
         $html = $this->uikit->renderTpl('components/'.$component, $context);

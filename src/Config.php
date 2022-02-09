@@ -41,7 +41,7 @@ class Config {
             'assets_path'    => __DIR__.'/../assets/', // Absolute path to assets.
             'cache'          => false, // Cache object (depends on tpl engine), absolute path or false.
             'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|semanticui2
-            'framework_path' => [] // Path to CSS Framework, each Framework can be in different path.
+            'framework_path' => [], // Path to CSS Framework, each Framework can be in different path.
         ], $options);
 
         $this->assets_path = $options['assets_path'];

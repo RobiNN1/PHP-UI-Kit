@@ -1,6 +1,7 @@
 <?php
 /**
- * Simple helper functions. The code can be written entirely in OOP or procedurally, it's up to you.
+ * Helper functions.
+ * For easy access to all features, copy this file into your project.
  *
  * @author RobiNN
  */
@@ -15,7 +16,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
     $config = new RobiNN\UiKit\Config([
         'cache'     => __DIR__.'/cache', // Cache object (depends on tpl engine), absolute path or false.
         // 'framework'    => 'bootstrap5' // CSS Framework. Possible value: bootstrap5|semanticui2
-        'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5' // for development purposes
+        'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
     ]);
 
     return RobiNN\UiKit\UiKit::getInstance($config, true);
@@ -121,8 +122,8 @@ function closegrid(): string {
  *
  * Usage:
  * echo accordion('test', [
- * 'Title 1' => 'Content 1',
- * 'Title 2' => 'Content 2',
+ *     'Title 1' => 'Content 1',
+ *     'Title 2' => 'Content 2',
  * ]);
  *
  * @param string $id
@@ -172,8 +173,8 @@ function badge(string $text, string $color = 'default', array $options = []): st
  *
  * Usage:
  * echo breadcrumbs([
- * 'Link 1' => 'link1.php',
- * 'Link 2' => 'link2.php',
+ *     'Link 1' => 'link1.php',
+ *     'Link 2' => 'link2.php',
  * ]);
  *
  * @param array $links
@@ -206,11 +207,11 @@ function button(string $title, string $type = 'button', array $options = []): st
  *
  * Usage:
  * echo button_group([
- * 'options' => [
- * 1        => 'Yes',
- * 0        => 'No',
- * 'delete' => ['title' => 'Delete', 'btn_options' => ['color' => 'error']]
- * ]
+ *     'options' => [
+ *         1        => 'Yes',
+ *         0        => 'No',
+ *         'delete' => ['title' => 'Delete', 'btn_options' => ['color' => 'error']],
+ *     ]
  * ]);
  *
  * @param array $options
@@ -226,10 +227,10 @@ function button_group(array $options = []): string {
  *
  * Usage:
  * echo card([
- * 'body' => '
- * <h1>Title</h1>
- * <p>Testing</p>
- * '
+ *     'body' => '
+ *         <h1>Title</h1>
+ *         <p>Testing</p>
+ *     ',
  * ]);
  *
  * @param array $options
@@ -245,8 +246,8 @@ function card(array $options = []): string {
  *
  * Usage:
  * echo carousel('test', [
- * 'Slide 1',
- * 'Slide 2',
+ *     'Slide 1',
+ *     'Slide 2',
  * ]);
  *
  * @param string $id
@@ -264,10 +265,10 @@ function carousel(string $id, array $slides, array $options = []): string {
  *
  * Usage:
  * echo dropdown('test', 'Dropdown', [
- * ['title' => 'Item 1', 'link' => 'link1.php'],
- * 'divider',
- * ['title' => 'Item 2'],
- * ['custom' => '<b>Custom bold text</b>']
+ *     ['title' => 'Item 1', 'link' => 'link1.php'],
+ *     'divider',
+ *     ['title' => 'Item 2'],
+ *     ['custom' => '<b>Custom bold text</b>'],
  * ]);
  *
  * @param string $id
@@ -285,7 +286,10 @@ function dropdown(string $id, string $title, array $items, array $options = []):
  * List group
  *
  * Usage:
- * echo list_group(['Item 1', 'Item 2']);
+ * echo list_group([
+ *     'Item 1',
+ *     'Item 2',
+ * ]);
  *
  * @param array $items
  * @param array $options
@@ -301,10 +305,10 @@ function list_group(array $items, array $options = []): string {
  *
  * Usage:
  * echo modal('test', [
- * 'title'  => 'Modal Title',
- * 'header' => 'Testttt',
- * 'body'   => '<b>Testing</b>',
- * 'footer' => 'Random text....'
+ *     'title'  => 'Modal Title',
+ *     'header' => 'Testttt',
+ *     'body'   => '<b>Testing</b>',
+ *     'footer' => 'Random text....'
  * ]);
  *
  * @param string $id
@@ -322,8 +326,8 @@ function modal(string $id, array $content, array $options = []): string {
  *
  * Usage:
  * echo tabs('test', [
- * ['title' => 'Tab 1', 'content' => 'Content 1'],
- * ['title' => 'Tab 2', 'content' => 'Content 2'],
+ *     ['title' => 'Tab 1', 'content' => 'Content 1'],
+ *     ['title' => 'Tab 2', 'content' => 'Content 2'],
  * ]);
  *
  * @param string $id
