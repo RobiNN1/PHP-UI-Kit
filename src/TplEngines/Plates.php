@@ -45,11 +45,11 @@ class Plates implements ITplEngine {
     }
 
     /**
-     * Get TPL Instancee.
+     * Get TPL Instance.
      *
      * @return Engine
      */
-    public function getTplInstancee(): Engine {
+    public function getTplInstance(): Engine {
         return $this->plates;
     }
 

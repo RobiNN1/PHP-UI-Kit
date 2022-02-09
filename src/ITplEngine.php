@@ -23,11 +23,11 @@ interface ITplEngine {
     public function init(UiKit $uikit, Config $config, bool $debug = false): object;
 
     /**
-     * Get TPL Instancee.
+     * Get TPL Instance.
      *
      * @return object
      */
-    public function getTplInstancee(): object;
+    public function getTplInstance(): object;
 
     /**
      * Render template.

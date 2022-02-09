@@ -147,12 +147,12 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * Get TPL Instancee.
+     * Get TPL Instance.
      *
      * @return object
      */
-    public function getTplInstancee(): object {
-        return self::$tpl_engine->getTplInstancee();
+    public function getTplInstance(): object {
+        return self::$tpl_engine->getTplInstance();
     }
 
     /**

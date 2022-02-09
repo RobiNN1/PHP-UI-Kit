@@ -54,11 +54,11 @@ class Latte implements ITplEngine {
     }
 
     /**
-     * Get TPL Instancee.
+     * Get TPL Instance.
      *
      * @return object
      */
-    public function getTplInstancee(): object {
+    public function getTplInstance(): object {
         return $this->latte;
     }
 
