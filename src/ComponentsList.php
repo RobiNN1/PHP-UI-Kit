@@ -32,7 +32,7 @@ class ComponentsList {
     public function __construct(UiKit $uikit) {
         foreach (get_class_vars(__CLASS__) as $var => $value) {
             $type = ($var === 'layout' || $var === 'container' || $var === 'row' || $var === 'grid') ? 'Layout\\' : '';
-            $class = '\\RobiNN\\UiKit\\Components\\'.$type.$var;
+            $class = '\\RobiNN\\UiKit\\Components\\'.$type.strtr($var, ['_' => '']);
             $this->$var = new $class($uikit);
         }
     }
