@@ -18,6 +18,7 @@ class AccordionTest extends ComponentTestCase {
             'Title 1' => 'Content 1',
             'Title 2' => 'Content 2',
         ]);
+
         $expected = '<div class="accordion" id="accordion-test">
     <div class="accordion-item">
         <h2 class="accordion-header" id="heading-test1">

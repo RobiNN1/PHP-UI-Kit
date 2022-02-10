@@ -12,11 +12,11 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class AlertTest extends ComponentTestCase {
-    public function testAlertRender(): void {
-        $tpl = $this->uikit->alert->render('Default');
+class BadgeTest extends ComponentTestCase {
+    public function testBadgeRender(): void {
+        $tpl = $this->uikit->badge->render('Default');
 
-        $expected = '<div class="alert alert-primary" role="alert"> Default </div>';
+        $expected = '<span class="badge bg-secondary">Default</span>';
 
         $this->assertComponentRenders($expected, $tpl);
     }

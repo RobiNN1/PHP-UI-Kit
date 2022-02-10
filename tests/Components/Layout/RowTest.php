@@ -15,6 +15,7 @@ use Tests\ComponentTestCase;
 class RowTest extends ComponentTestCase {
     public function testOpenRow(): void {
         $tpl = $this->uikit->row->render(['open' => true]);
+
         $expected = '<div class="row">';
 
         $this->assertComponentRenders($expected, $tpl);
