@@ -39,16 +39,22 @@ class Modal extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
-        if (!empty($fwoptions['button']['attributes'])) {
-            foreach ($fwoptions['button']['attributes'] as $attr => $value) {
-                $fwoptions['button']['attributes'][$attr] = strtr($value, ['{id}' => $id]);
+        if (!empty($options['button'])) {
+            if (!empty($fwoptions['button']['attributes'])) {
+                foreach ($fwoptions['button']['attributes'] as $attr => $value) {
+                    $fwoptions['button']['attributes'][$attr] = strtr($value, ['{id}' => $id]);
+                }
+
+                $attr = !empty($options['button']['attributes']) ? $options['button']['attributes'] : [];
+                $options['button']['attributes'] = array_merge($attr, $fwoptions['button']['attributes']);
             }
 
-            $attr = !empty($options['button']['attributes']) ? $options['button']['attributes'] : [];
-            $options['button']['attributes'] = array_merge($attr, $fwoptions['button']['attributes']);
+            $button = $this->uikit->button->render($options['button']['title'], 'button', $options['button']);
+        } else {
+            $button = '';
+            $options['always_open'] = true;
+            $options['hide_button'] = true;
         }
-
-        $button = $this->uikit->button->render($options['button']['title'], 'button', $options['button']);
 
         $context = [
             'id'           => $id,
