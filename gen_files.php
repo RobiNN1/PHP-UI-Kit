@@ -14,17 +14,13 @@ if (!isset($_SERVER['argv'][1])) {
 }
 
 $tpl = $_SERVER['argv'][1];
-$name_ = explode('_', $tpl);
-$name = ucfirst($tpl);
 
-$name__ = [];
-if (count($name_) > 1) {
-    foreach ($name_ as $value) {
-        $name__[] = ucfirst($value);
-    }
-
-    $name = implode('', $name__);
+$arr = [];
+foreach (explode('_', $tpl) as $tpl_name) {
+    $arr[] = ucfirst($tpl_name);
 }
+
+$name = implode('', $arr);
 
 $tpl_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
 
@@ -90,6 +86,7 @@ use Tests\ComponentTestCase;
 class '.$name.'Test extends ComponentTestCase {
     public function test'.$name.'Render(): void {
         $tpl = $this->uikit->'.$tpl.'->render();
+
         $expected = \'\';
 
         $this->assertComponentRenders($expected, $tpl);
