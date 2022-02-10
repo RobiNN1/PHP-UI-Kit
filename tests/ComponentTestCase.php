@@ -21,8 +21,7 @@ class ComponentTestCase extends TestCase {
     public function __construct() {
         parent::__construct();
 
-        $config = new Config();
-
+        $config = new Config(['cache' => __DIR__.'/cache']);
         $this->uikit = UiKit::getInstance($config, true);
     }
 
