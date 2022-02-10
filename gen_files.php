@@ -68,9 +68,36 @@ class '.$name.' extends Component {
 
         return $this->uikit->renderTpl(\'components/\'.$component, $context);
     }
-}';
+}
+';
 
 file_put_contents(__DIR__.'/src/Components/'.$name.'.php', $class);
+
+$test = '<?php
+/**
+ * This file is part of UiKit.
+ *
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Tests\Components;
+
+use Tests\ComponentTestCase;
+
+class '.$name.'Test extends ComponentTestCase {
+    public function test'.$name.'Render(): void {
+        $tpl = $this->uikit->'.$tpl.'->render();
+        $expected = \'\';
+
+        $this->assertComponentRenders($expected, $tpl);
+    }
+}
+';
+
+file_put_contents(__DIR__.'/tests/Components/'.$name.'Test.php', $test);
 
 echo 'Successfully generated component.';
 exit(0);
