@@ -219,7 +219,7 @@ function button(string $title, string $type = 'button', array $options = []): st
  * @return string
  */
 function button_group(array $options = []): string {
-    return get_ui()->buttongroup->render($options);
+    return get_ui()->button_group->render($options);
 }
 
 /**
@@ -297,7 +297,7 @@ function dropdown(string $id, string $title, array $items, array $options = []):
  * @return string
  */
 function list_group(array $items, array $options = []): string {
-    return get_ui()->listgroup->render($items, $options);
+    return get_ui()->list_group->render($items, $options);
 }
 
 /**

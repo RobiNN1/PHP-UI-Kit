@@ -21,11 +21,11 @@ class ComponentsList {
     public Components\Badge $badge;
     public Components\Breadcrumbs $breadcrumbs;
     public Components\Button $button;
-    public Components\ButtonGroup $buttongroup;
+    public Components\ButtonGroup $button_group;
     public Components\Card $card;
     public Components\Carousel $carousel;
     public Components\Dropdown $dropdown;
-    public Components\ListGroup $listgroup;
+    public Components\ListGroup $list_group;
     public Components\Modal $modal;
     public Components\Tabs $tabs;
 

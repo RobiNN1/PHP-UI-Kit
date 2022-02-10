@@ -23,7 +23,7 @@ class Layout extends Component {
     public function render(string $body, array $options = []): string {
         $options = array_merge([
             'lang'       => 'en', // Page lang.
-            'title'      => 'Ui Kit', // Page title.
+            'title'      => 'UI Kit', // Page title.
             'body'       => $body, // Body conetnt.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
         ], $options);
