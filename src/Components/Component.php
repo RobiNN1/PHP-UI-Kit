@@ -35,7 +35,7 @@ class Component {
     public function getAttributes(array $attributes): string {
         $attributes_ = [];
         foreach ($attributes as $attr => $value) {
-            $attributes_[] = $attr.(!empty($value) ? '="'.$value.'"' : '');
+            $attributes_[] = $attr.(isset($value) ? '="'.$value.'"' : '');
         }
 
         return implode(' ', $attributes_);

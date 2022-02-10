@@ -24,7 +24,7 @@ class ButtonGroupTest extends ComponentTestCase {
 
         $expected = '<div class="btn-group" role="group">
     <button type="button" class="btn btn-secondary" value="1">Yes</button>
-    <button type="button" class="btn btn-secondary" value>No</button>
+    <button type="button" class="btn btn-secondary" value="0">No</button>
     <button type="button" class="btn btn-danger" value="delete">Delete</button>
 </div>';
 
