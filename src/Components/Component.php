@@ -42,6 +42,19 @@ class Component {
     }
 
     /**
+     * Get correct value from options.
+     *
+     * @param string $option
+     * @param mixed  $value
+     * @param array  $opts
+     *
+     * @return mixed
+     */
+    public function getOption(string $option, $value, array $opts) {
+        return in_array($value, array_keys($opts[$option])) ? $opts[$option][$value] : $opts[$option]['default'];
+    }
+
+    /**
      * Check component.
      *
      * @param string $key

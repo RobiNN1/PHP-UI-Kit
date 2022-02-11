@@ -46,7 +46,7 @@ class ButtonGroup extends Component {
 
         $size = '';
         if (!empty($fwoptions['sizes'])) {
-            $size = $this->uikit->getOption('sizes', $options['size'], $fwoptions);
+            $size = $this->getOption('sizes', $options['size'], $fwoptions);
         }
 
         $buttons = [];

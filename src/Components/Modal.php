@@ -60,7 +60,7 @@ class Modal extends Component {
             'id'           => $id,
             'class'        => $options['class'],
             'attributes'   => $this->getAttributes($options['attributes']),
-            'size'         => $this->uikit->getOption('sizes', $options['size'], $fwoptions),
+            'size'         => $this->getOption('sizes', $options['size'], $fwoptions),
             'content'      => $content,
             'close_button' => $options['close_button'],
             'always_open'  => $options['always_open'],

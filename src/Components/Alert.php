@@ -48,7 +48,7 @@ class Alert extends Component {
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($attributes),
             'text'       => $text,
-            'color'      => $this->uikit->getOption('colors', $color, $fwoptions),
+            'color'      => $this->getOption('colors', $color, $fwoptions),
             'dismiss'    => $options['dismiss'],
         ];
 
