@@ -75,12 +75,9 @@ final class UiKit extends ComponentsList {
         require_once self::$config->getFrameworkPath(self::$config->getFramework()).'/init.php';
 
         if (!empty(self::$fw_options)) {
-            $custom = [];
             foreach (self::$fw_options as $option => $value) {
-                $custom = Misc::arraySet($init, $option, $value);
+                Misc::arraySet($init, $option, $value);
             }
-
-            $init = array_merge($init, $custom);
         }
 
         return $init[$key] ?? $init;
