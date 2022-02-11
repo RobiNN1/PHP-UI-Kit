@@ -72,7 +72,7 @@ final class UiKit extends ComponentsList {
     public static function getFrameworkOptions(string $key = '') {
         global $init;
 
-        require_once self::$config->getFrameworkPath().'init.php';
+        require_once self::$config->getFrameworkPath(self::$config->getFramework()).'/init.php';
 
         if (!empty(self::$fw_options)) {
             $custom = [];

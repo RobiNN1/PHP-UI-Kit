@@ -71,6 +71,6 @@ class Latte implements ITplEngine {
      * @return string
      */
     public function render(string $tpl, array $context = []): string {
-        return $this->latte->renderToString($this->config->getFrameworkPath().'templates/latte/'.$tpl.'.latte', $context);
+        return $this->latte->renderToString($this->config->getFrameworkPath($this->config->getFramework()).'/templates/latte/'.$tpl.'.latte', $context);
     }
 }

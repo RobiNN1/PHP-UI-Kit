@@ -24,8 +24,8 @@ $name = implode('', $arr);
 
 $tpl_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
 
-file_put_contents(__DIR__.'/assets/bootstrap5/templates/twig/components/'.$tpl.'.twig', $tpl_content);
-file_put_contents(__DIR__.'/assets/semanticui2/templates/twig/components/'.$tpl.'.twig', $tpl_content);
+file_put_contents(__DIR__.'/resources/bootstrap5/templates/twig/components/'.$tpl.'.twig', $tpl_content);
+file_put_contents(__DIR__.'/resources/semanticui2/templates/twig/components/'.$tpl.'.twig', $tpl_content);
 
 $class = '<?php
 /**

@@ -14,11 +14,6 @@ class Config {
     public const VERSION = '1.0.0';
 
     /**
-     * @var string
-     */
-    private string $assets_path;
-
-    /**
      * @var mixed
      */
     private $cache;
@@ -38,35 +33,18 @@ class Config {
      */
     public function __construct(array $options = []) {
         $options = array_merge([
-            'assets_path'    => __DIR__.'/../assets/', // Absolute path to assets.
             'cache'          => false, // Cache object (depends on tpl engine), absolute path or false.
             'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|semanticui2
-            'framework_path' => [], // Path to CSS Framework, each Framework can be in different path.
+            'framework_path' => [
+                // Path to CSS Framework, each Framework can be in different path.
+                'bootstrap5'  => __DIR__.'/../resources/bootstrap5',
+                'semanticui2' => __DIR__.'/../resources/semanticui2',
+            ],
         ], $options);
-
-        $this->assets_path = $options['assets_path'];
-
-        if (!is_dir($options['cache'])) {
-            @mkdir($options['cache'], 0777, true);
-        }
 
         $this->cache = $options['cache'];
         $this->framework = $options['framework'];
         $this->framework_path = $options['framework_path'];
-    }
-
-    /**
-     * @return string
-     */
-    public function getAssetsPath(): string {
-        return $this->assets_path;
-    }
-
-    /**
-     * @param string $assets_path
-     */
-    public function setAssetsPath(string $assets_path): void {
-        $this->assets_path = $assets_path;
     }
 
     /**
@@ -98,13 +76,12 @@ class Config {
     }
 
     /**
+     * @param string $framework
+     *
      * @return string
      */
-    public function getFrameworkPath(): string {
-        if (isset($this->framework_path[$this->framework]) && is_dir($this->framework_path[$this->framework])) {
-            return $this->framework_path[$this->framework];
-        }
-        return $this->assets_path.$this->framework.'/';
+    public function getFrameworkPath(string $framework): string {
+        return $this->framework_path[$framework];
     }
 
     /**
