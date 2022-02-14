@@ -28,12 +28,12 @@ class Layout extends Component {
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
         ], $options);
 
-        if (!empty(OutputHandler::$jsCode)) {
-            OutputHandler::addToFooter('<script>'.OutputHandler::$jsCode.'</script>');
+        if (!empty(OutputHandler::$jqueryCode) && $this->uikit->getFrameworkOptions('jquery')) {
+            OutputHandler::addToJS('$(function(){'.OutputHandler::$jqueryCode.'});');
         }
 
-        if (!empty(OutputHandler::$jqueryCode) && $this->uikit->getFrameworkOptions('jquery')) {
-            OutputHandler::addToFooter('<script>$(function(){'.OutputHandler::$jqueryCode.'});</script>');
+        if (!empty(OutputHandler::$jsCode)) {
+            OutputHandler::addToFooter('<script>'.OutputHandler::$jsCode.'</script>');
         }
 
         $context = [
@@ -42,6 +42,7 @@ class Layout extends Component {
             'body'        => $options['body'],
             'attributes'  => $this->getAttributes($options['attributes']),
             'head_tags'   => OutputHandler::$pageHeadTags,
+            'css_codes'   => !empty(OutputHandler::$cssCode) ? '<style>'.OutputHandler::$cssCode.'</style>' : '',
             'footer_tags' => OutputHandler::$pageFooterTags,
         ];
 

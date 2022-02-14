@@ -141,6 +141,7 @@ final class UiKit extends ComponentsList {
             'add_to_footer' => [OutputHandler::class, 'addToFooter'],
             'add_to_js'     => [OutputHandler::class, 'addToJs'],
             'add_to_jquery' => [OutputHandler::class, 'addToJquery'],
+            'add_to_css'    => [OutputHandler::class, 'addToCss'],
         ];
     }
 

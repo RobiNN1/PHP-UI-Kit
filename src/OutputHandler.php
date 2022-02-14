@@ -32,6 +32,11 @@ class OutputHandler {
     public static string $jqueryCode = '';
 
     /**
+     * @var string
+     */
+    public static string $cssCode = '';
+
+    /**
      * Add content to the html head.
      *
      * @param string $tag
@@ -72,6 +77,17 @@ class OutputHandler {
     public static function addToJQuery(string $tag): void {
         if (!stristr(self::$jqueryCode, $tag)) {
             self::$jqueryCode .= $tag;
+        }
+    }
+
+    /**
+     * Add CSS codes to the output.
+     *
+     * @param string $tag
+     */
+    public static function addToCss(string $tag): void {
+        if (!stristr(self::$cssCode, $tag)) {
+            self::$cssCode .= $tag;
         }
     }
 }
