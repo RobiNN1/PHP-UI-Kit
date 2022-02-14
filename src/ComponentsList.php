@@ -27,6 +27,7 @@ class ComponentsList {
     public Components\Dropdown $dropdown;
     public Components\ListGroup $list_group;
     public Components\Modal $modal;
+    public Components\Menu $menu;
     public Components\Tabs $tabs;
 
     public function __construct(UiKit $uikit) {

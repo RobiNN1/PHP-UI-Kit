@@ -11,7 +11,7 @@ $init = [
     'components'   => [
         // List of supported components
         'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
-        'carousel', 'dropdown', 'list_group', 'modal', 'tabs',
+        'carousel', 'dropdown', 'list_group', 'menu', 'modal', 'tabs',
     ],
     'alert'        => [
         'colors' => [
@@ -57,6 +57,12 @@ $init = [
     'dropdown'     => [
         'button' => [
             'title' => '<i class="dropdown icon"></i>',
+        ],
+    ],
+    'menu'         => [
+        'colors' => [
+            'light' => '',
+            'dark'  => 'inverted',
         ],
     ],
     'modal'        => [

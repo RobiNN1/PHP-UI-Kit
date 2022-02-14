@@ -11,7 +11,7 @@ $init = [
     'components'   => [
         // List of supported components
         'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
-        'carousel', 'dropdown', 'list_group', 'modal', 'tabs',
+        'carousel', 'dropdown', 'list_group', 'menu', 'modal', 'tabs',
     ],
     'alert'        => [
         'colors'  => [
@@ -68,6 +68,12 @@ $init = [
         'button' => [
             'class'      => 'dropdown-toggle',
             'attributes' => ['data-bs-toggle' => 'dropdown'],
+        ],
+    ],
+    'menu'         => [
+        'colors' => [
+            'light' => 'navbar-light bg-light',
+            'dark'  => 'navbar-dark bg-dark',
         ],
     ],
     'modal'        => [

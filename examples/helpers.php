@@ -301,6 +301,30 @@ function list_group(array $items, array $options = []): string {
 }
 
 /**
+ * Menu
+ *
+ * Usage:
+ * echo menu('test', [
+ *    ['title' => 'Item 1', 'link' => 'link1.php'],
+ *    ['title' => 'Item 2', 'link' => 'link2.php'],
+ *    'dropdown' => [
+ *        'title' => 'Dropdown',
+ *        ['title' => 'Sub Item 1', 'link' => 'sub_link1.php'],
+ *        ['title' => 'Sub Item 2', 'link' => 'sub_link2.php', 'active' => true],
+ *    ],
+ *]);
+ *
+ * @param string $id
+ * @param array  $items
+ * @param array  $options
+ *
+ * @return string
+ */
+function menu(string $id, array $items, array $options = []): string {
+    return get_ui()->menu->render($id, $items, $options);
+}
+
+/**
  * Modal
  *
  * Usage:

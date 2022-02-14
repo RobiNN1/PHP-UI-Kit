@@ -159,6 +159,18 @@ echo list_group([
 ]);
 echo '<hr>';
 
+echo '<h4>Menu</h4>';
+echo menu('test', [
+    ['title' => 'Item 1', 'link' => 'link1.php'],
+    ['title' => 'Item 2', 'link' => 'link2.php', 'active' => true],
+    'dropdown' => [
+        'title' => 'Dropdown',
+        ['title' => 'Sub Item 1', 'link' => 'sub_link1.php'],
+        ['title' => 'Sub Item 2', 'link' => 'sub_link2.php'],
+    ],
+]);
+echo '<hr>';
+
 echo '<h4>Modal</h4>';
 echo modal('test', [
     'title'  => 'Modal Title',

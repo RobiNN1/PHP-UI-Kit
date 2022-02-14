@@ -1,0 +1,39 @@
+{{ add_to_jquery("$('.ui.dropdown').dropdown();") }}
+{{ add_to_jquery("$('.ui.menu .toc').on('click', function(){ $(this).parent().parent().find('.item').toggleClass('show'); });") }}
+
+{{ add_to_css('
+.ui.menu .toc {display:none;}
+@media only screen and (max-width:767.98px){
+    .ui.menu .toc {display:block;cursor:pointer;}
+    .ui.menu .item:not(.header) {display:none!important;}.ui.menu .item.show:not(.header){display:block!important;}
+    .ui.menu .item.header {display:flex;justify-content:space-between;}
+}
+') }}
+
+<div class="ui stackable menu{{ color|space ~ class|space }}"{{ attributes|space|raw }}>
+    <div class="header item">
+        {% if brand.title %}
+            <a href="{{ brand.link }}">{{ brand.title|raw }}</a>
+        {% endif %}
+        <i class="sidebar icon toc"></i>
+    </div>
+
+    {% for key,item in items %}
+        {% set active = item.active ? ' active' : '' %}
+
+        {% if key == 'dropdown' %}
+            <div class="ui dropdown item" tabindex="0">
+                {{ item.title|raw }}
+                <i class="dropdown icon"></i>
+                <div class="menu" tabindex="-1">
+                    {% for sub_item in item %}{% if sub_item.title %}
+                        {% set active = sub_item.active ? ' active' : '' %}
+                        <a class="item{{ item_class|space }}{{ item.class|space }}{{ active }}" href="{{ sub_item.link }}">{{ sub_item.title|raw }}</a>
+                    {% endif %}{% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <a class="item{{ item_class|space }}{{ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
