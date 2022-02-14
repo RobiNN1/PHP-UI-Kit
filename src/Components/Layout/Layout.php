@@ -36,13 +36,25 @@ class Layout extends Component {
             OutputHandler::addToFooter('<script>'.OutputHandler::$jsCode.'</script>');
         }
 
+        $css_codes = '';
+        if (!empty(OutputHandler::$cssCode)) {
+            $minify_css = function (string $css): string {
+                $css = preg_replace('/\/\*((?!\*\/).)*\*\//', '', $css);
+                $css = preg_replace('/\s{2,}/', ' ', $css);
+                $css = preg_replace('/\s*([:;{}])\s*/', '$1', $css);
+                return preg_replace('/;}/', '}', $css);
+            };
+
+            $css_codes = '<style>'.$minify_css(OutputHandler::$cssCode).'</style>';
+        }
+
         $context = [
             'lang'        => $options['lang'],
             'title'       => $options['title'],
             'body'        => $options['body'],
             'attributes'  => $this->getAttributes($options['attributes']),
             'head_tags'   => OutputHandler::$pageHeadTags,
-            'css_codes'   => !empty(OutputHandler::$cssCode) ? '<style>'.OutputHandler::$cssCode.'</style>' : '',
+            'css_codes'   => $css_codes,
             'footer_tags' => OutputHandler::$pageFooterTags,
         ];
 
