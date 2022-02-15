@@ -2,7 +2,7 @@
 
 <{{ tag }} class="{{ in_menu ? 'nav-item ' : '' }}dropdown{{ class|space }}"{{ attributes|space|raw }}>
     {{ button|raw }}
-    <ul class="dropdown-menu" aria-labelledby="dropdown-{{ id }}">
+    <ul class="dropdown-menu">
         {% for item in items %}
             {% set active = item.active ? ' active' : '' %}
 
@@ -11,7 +11,7 @@
                     <hr class="dropdown-divider">
                 </li>
             {% elseif item.custom %}
-                {{ item.custom|raw }}
+                <li>{{ item.custom|raw }}</li>
             {% else %}
                 {% if item.link %}
                     <li>
