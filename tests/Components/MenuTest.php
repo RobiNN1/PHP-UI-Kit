@@ -30,7 +30,7 @@ class MenuTest extends ComponentTestCase {
                 <li class="nav-item"> <a class="nav-link" href="link1.php">Item 1</a> </li>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a> 
-                    <ul class="dropdown-menu" aria-labelledby="dropdown-menudptest">
+                    <ul class="dropdown-menu">
                         <li> <a class="dropdown-item active" href="sub_link2.php">Sub Item 2</a> </li>
                     </ul>
                 </li>
