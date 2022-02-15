@@ -38,6 +38,7 @@ class Button extends Component {
             'link'       => '', // Link.
             'icon'       => '', // Button icon.
             'icon_right' => false, // Show the icon to the right.
+            'menu_dp'    => false, // Set true if is used as menu dropdown button.
         ], $options);
 
         $attributes = [];
@@ -76,6 +77,7 @@ class Button extends Component {
             'link'       => $options['link'],
             'icon'       => $options['icon'],
             'icon_right' => $options['icon_right'],
+            'menu_dp'    => $options['menu_dp'],
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);

@@ -1,9 +1,14 @@
 {% set state_classes = (active ? ' active' : '') ~ (disabled ? ' disabled' : '') %}
 {% set icon = icon ? '<i class="'~ icon ~'"></i>' : '' %}
 {% set button_title = (not icon_right ? icon : '')|space(true) ~ title ~ (icon_right ? icon : '')|space %}
+{% set css_classes = color ~ size|space ~ class|space ~ state_classes %}
 
-{% if link %}
-    <a href="{{ link }}" class="ui button {{ color ~ size|space ~ class|space ~ state_classes }}"{{ attributes|space|raw }}>{{ button_title|raw }}</a>
+{% if menu_dp %}
+    <span{{ class ? ' class="'~ class ~'"' : '' }}{{ attributes|space|raw }}>{{ button_title|raw }}</span>
 {% else %}
-    <button type="{{ type }}" class="ui button {{ color ~ size|space ~ class|space ~ state_classes }}"{{ attributes|space|raw }}>{{ button_title|raw }}</button>
+    {% if link %}
+        <a href="{{ link }}" class="ui button {{ css_classes }}"{{ attributes|space|raw }}>{{ button_title|raw }}</a>
+    {% else %}
+        <button type="{{ type }}" class="ui button {{ css_classes }}"{{ attributes|space|raw }}>{{ button_title|raw }}</button>
+    {% endif %}
 {% endif %}

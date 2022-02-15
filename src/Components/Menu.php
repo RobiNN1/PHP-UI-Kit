@@ -21,7 +21,9 @@ class Menu extends Component {
     public function render(string $id, array $items, array $options = []): string {
         $component = 'menu';
 
-        if (!$this->checkComponent($component)) {
+        if (!$this->checkComponent('dropdown')) {
+            return $this->noComponentMsg($component, 'dropdown');
+        } else if (!$this->checkComponent($component)) {
             return $this->noComponentMsg($component);
         }
 
@@ -33,6 +35,13 @@ class Menu extends Component {
             'brand'      => ['title' => '', 'link' => '#'], // Site name.
         ], $options);
 
+        // move right items to the end of array
+        if (!empty($items['right'])) {
+            $right = $items['right'];
+            unset($items['right']);
+            $items['right'] = $right;
+        }
+
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $context = [
@@ -42,9 +51,44 @@ class Menu extends Component {
             'attributes' => $this->getAttributes($options['attributes']),
             'color'      => $this->getOption('colors', $options['color'], $fwoptions),
             'brand'      => $options['brand'],
-            'items'      => $items,
+            'items'      => $this->formatItems($items, $id),
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);
+    }
+
+    /**
+     * @param string $id
+     * @param array  $items
+     *
+     * @return string
+     */
+    private function dropdown(string $id, array $items): string {
+        $title = $items['title'];
+        array_shift($items);
+
+        return $this->uikit->dropdown->render($id, $title, $items, ['in_menu' => true, 'button' => ['menu_dp' => true, 'link' => '#']]);
+    }
+
+    /**
+     * @param array  $items
+     * @param string $id
+     *
+     * @return array
+     */
+    private function formatItems(array $items, string $id): array {
+        $items_formatted = [];
+
+        foreach ($items as $key => $item) {
+            if ($key == 'right') {
+                $items_formatted[$key] = $this->formatItems($item, $id);
+            } else if (count($item) !== count($item, COUNT_RECURSIVE)) {
+                $items_formatted[$key]['dropdown'] = $this->dropdown('menudp'.$id, $item);
+            } else {
+                $items_formatted[$key] = $item;
+            }
+        }
+
+        return $items_formatted;
     }
 }

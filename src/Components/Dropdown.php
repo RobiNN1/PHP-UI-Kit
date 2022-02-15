@@ -33,6 +33,7 @@ class Dropdown extends Component {
             'item_class' => '', // Class for item.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
             'button'     => [], // Button options.
+            'in_menu'    => false, // Set true if is used in menu.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -59,6 +60,7 @@ class Dropdown extends Component {
             'item_class' => $options['item_class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'button'     => $button,
+            'in_menu'    => $options['in_menu'],
             'items'      => $items,
         ];
 

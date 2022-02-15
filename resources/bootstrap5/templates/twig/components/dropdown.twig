@@ -1,7 +1,11 @@
-<div class="dropdown{{ class|space }}"{{ attributes|space|raw }}>
+{% set tag = in_menu ? 'li' : 'div' %}
+
+<{{ tag }} class="{{ in_menu ? 'nav-item ' : '' }}dropdown{{ class|space }}"{{ attributes|space|raw }}>
     {{ button|raw }}
     <ul class="dropdown-menu" aria-labelledby="dropdown-{{ id }}">
         {% for item in items %}
+            {% set active = item.active ? ' active' : '' %}
+
             {% if item == 'divider' %}
                 <li>
                     <hr class="dropdown-divider">
@@ -11,15 +15,15 @@
             {% else %}
                 {% if item.link %}
                     <li>
-                        <a class="dropdown-item{{ item_class|space }}{{ item.class|space }}" href="{{ item.link }}">{{ item.title|raw }}</a>
+                        <a class="dropdown-item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
                     </li>
                 {% else %}
                     <li>
-                        <span class="dropdown-item-text{{ item_class|space }}{{ item.class|space }}">{{ item.title|raw }}</span>
+                        <span class="dropdown-item-text{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span>
                     </li>
                 {% endif %}
             {% endif %}
 
         {% endfor %}
     </ul>
-</div>
+</{{ tag }}>

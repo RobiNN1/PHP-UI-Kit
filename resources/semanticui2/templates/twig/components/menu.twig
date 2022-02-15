@@ -1,4 +1,3 @@
-{{ add_to_jquery("$('.ui.dropdown').dropdown();") }}
 {{ add_to_jquery("$('.ui.menu .toc').on('click', function(){ $(this).parent().parent().find('.item').toggleClass('show'); });") }}
 
 {{ add_to_css('
@@ -9,6 +8,26 @@
     .ui.menu .item.header {display:flex;justify-content:space-between;}
 }
 ') }}
+
+{% macro menu_item(item, item_class) %}
+    {% set active = item.active ? ' active' : '' %}
+
+    <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
+{% endmacro %}
+
+{% macro right(items) %}
+    <div class="right menu">
+        {% for key,item in items %}
+            {% if item.dropdown %}
+                {{ item.dropdown|raw }}
+            {% elseif item.custom %}
+                <div class="item">{{ item.custom|raw }}</div>
+            {% else %}
+                {{ _self.menu_item(item, item_class) }}
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endmacro %}
 
 <div class="ui stackable menu{{ color|space ~ class|space }}"{{ attributes|space|raw }}>
     <div class="header item">
@@ -21,19 +40,14 @@
     {% for key,item in items %}
         {% set active = item.active ? ' active' : '' %}
 
-        {% if key == 'dropdown' %}
-            <div class="ui dropdown item" tabindex="0">
-                {{ item.title|raw }}
-                <i class="dropdown icon"></i>
-                <div class="menu" tabindex="-1">
-                    {% for sub_item in item %}{% if sub_item.title %}
-                        {% set active = sub_item.active ? ' active' : '' %}
-                        <a class="item{{ item_class|space }}{{ item.class|space }}{{ active }}" href="{{ sub_item.link }}">{{ sub_item.title|raw }}</a>
-                    {% endif %}{% endfor %}
-                </div>
-            </div>
+        {% if item.dropdown %}
+            {{ item.dropdown|raw }}
+        {% elseif item.custom %}
+            <div class="item">{{ item.custom|raw }}</div>
+        {% elseif key == 'right' %}
+            {{ _self.right(item) }}
         {% else %}
-            <a class="item{{ item_class|space }}{{ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
+            {{ _self.menu_item(item, item_class) }}
         {% endif %}
     {% endfor %}
 </div>

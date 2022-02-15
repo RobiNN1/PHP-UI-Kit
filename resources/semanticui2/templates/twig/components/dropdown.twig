@@ -1,18 +1,20 @@
 {{ add_to_jquery("$('.ui.dropdown').dropdown();") }}
 
-<div class="ui dropdown{{ class|space }}" id="dropdown-{{ id }}"{{ attributes|space|raw }}>
+<div class="ui dropdown{{ in_menu ? ' item' : '' }}{{ class|space }}" id="dropdown-{{ id }}"{{ attributes|space|raw }}>
     {{ button|raw }}
     <div class="menu">
         {% for item in items %}
+            {% set active = item.active ? ' active' : '' %}
+
             {% if item == 'divider' %}
                 <div class="divider"></div>
             {% elseif item.custom %}
                 {{ item.custom|raw }}
             {% else %}
                 {% if item.link %}
-                    <a class="item{{ item_class|space }}{{ item.class|space }}" href="{{ item.link }}">{{ item.title|raw }}</a>
+                    <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
                 {% else %}
-                    <span class="item{{ item_class|space }}{{ item.class|space }}">{{ item.title|raw }}</span>
+                    <span class="item{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span>
                 {% endif %}
             {% endif %}
         {% endfor %}
