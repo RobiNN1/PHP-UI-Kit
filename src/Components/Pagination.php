@@ -28,7 +28,7 @@ class Pagination extends Component {
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
-            'link'       => '', // Pagination link tpl, use {p} placeholder for numbers.
+            'link'       => '', // Pagination link tpl, use %s placeholder for numbers.
             'current'    => 4, // Current page.
             'disabled'   => null, // Disabled page. Prev or next can be disabled as well.
             'prev_next'  => true, // Enable Previous and Next links.
@@ -59,7 +59,7 @@ class Pagination extends Component {
             $disabled_prev_next = ($options['disabled'] == 'prev' && $key === 'prev') || ($options['disabled'] == 'next' && $key === 'next');
 
             $items[$key] = [
-                'link'     => str_replace('{p}', $item, $options['link']),
+                'link'     => sprintf($options['link'], $item),
                 'title'    => $prev ?: ($next ?: $item),
                 'current'  => !($key === 'prev' || $key === 'next') && $item === $options['current'],
                 'disabled' => $item === $options['disabled'] || $disabled_prev_next,

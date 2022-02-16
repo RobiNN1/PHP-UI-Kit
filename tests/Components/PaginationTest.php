@@ -15,7 +15,7 @@ use Tests\ComponentTestCase;
 class PaginationTest extends ComponentTestCase {
     public function testPaginationRender(): void {
         $tpl = $this->uikit->pagination->render(range(1, 5), [
-            'link'     => 'page.php?p={p}',
+            'link'     => 'page.php?p=%s',
             'current'  => 3,
             'disabled' => 'prev',
         ]);

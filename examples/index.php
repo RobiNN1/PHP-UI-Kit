@@ -197,7 +197,7 @@ echo '<hr>';
 
 echo '<h4>Pagination</h4>';
 echo pagination(range(1, 6), [
-    'link'    => 'page.php?p={p}',
+    'link'    => 'page.php?p=%s',
     'current' => 3,
 ]);
 echo '<hr>';
