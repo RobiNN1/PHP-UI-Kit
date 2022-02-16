@@ -31,18 +31,10 @@ class ListGroup extends Component {
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
         ], $options);
 
-        $attributes = [];
-
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
-        }
-
-        $attributes += $options['attributes'];
-
         $context = [
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($attributes),
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'items'      => $items,
         ];
 

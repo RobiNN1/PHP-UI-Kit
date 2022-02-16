@@ -36,14 +36,6 @@ class Dropdown extends Component {
             'in_menu'    => false, // Set true if is used in menu.
         ], $options);
 
-        $attributes = [];
-
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
-        }
-
-        $attributes += $options['attributes'];
-
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         if (!empty($fwoptions['button']['class'])) {
@@ -65,7 +57,7 @@ class Dropdown extends Component {
         $context = [
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($attributes),
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'button'     => $button,
             'in_menu'    => $options['in_menu'],
             'items'      => $items,

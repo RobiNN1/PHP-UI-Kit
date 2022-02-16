@@ -34,19 +34,11 @@ class Alert extends Component {
             'dismiss'    => false, // Make alert dismissable.
         ], $options);
 
-        $attributes = [];
-
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
-        }
-
-        $attributes += $options['attributes'];
-
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $this->getAttributes($attributes),
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
             'dismiss'    => $options['dismiss'],

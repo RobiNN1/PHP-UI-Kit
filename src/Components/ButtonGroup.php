@@ -34,14 +34,6 @@ class ButtonGroup extends Component {
             'type'       => 'button', // Button type, this sets the same for all buttons. Possible value: button|submit|reset
         ], $options);
 
-        $attributes = [];
-
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
-        }
-
-        $attributes += $options['attributes'];
-
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $size = '';
@@ -77,7 +69,7 @@ class ButtonGroup extends Component {
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $this->getAttributes($attributes),
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'size'       => $size,
             'buttons'    => $buttons,
         ];

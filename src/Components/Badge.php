@@ -32,19 +32,11 @@ class Badge extends Component {
             'rounded'    => false, // Rounded badge.
         ], $options);
 
-        $attributes = [];
-
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
-        }
-
-        $attributes += $options['attributes'];
-
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $this->getAttributes($attributes),
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
             'rounded'    => $options['rounded'],

@@ -36,14 +36,6 @@ class Pagination extends Component {
             'next_title' => '&raquo;', // Next page link title.
         ], $options);
 
-        $attributes = [];
-
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
-        }
-
-        $attributes += $options['attributes'];
-
         $prev = [];
         $next = [];
         if ($options['prev_next']) {
@@ -68,7 +60,7 @@ class Pagination extends Component {
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $this->getAttributes($attributes),
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'items'      => $items,
         ];
 

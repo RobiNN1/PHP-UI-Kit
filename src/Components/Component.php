@@ -28,17 +28,26 @@ class Component {
     /**
      * Get attributes.
      *
-     * @param array $attributes
+     * @param array  $attributes
+     * @param string $id
      *
      * @return string
      */
-    public function getAttributes(array $attributes): string {
-        $attributes_ = [];
-        foreach ($attributes as $attr => $value) {
-            $attributes_[] = $attr.(isset($value) ? '="'.$value.'"' : '');
+    public function getAttributes(array $attributes, string $id = ''): string {
+        $attributes_array = [];
+
+        if (!empty($id)) {
+            $attributes_array['id'] = $id;
         }
 
-        return implode(' ', $attributes_);
+        $attributes_array += $attributes;
+
+        $array = [];
+        foreach ($attributes_array as $attr => $value) {
+            $array[] = $attr.(isset($value) ? '="'.$value.'"' : '');
+        }
+
+        return implode(' ', $array);
     }
 
     /**

@@ -57,18 +57,10 @@ class '.$name.' extends Component {
             \'class\'      => \'\', // Class for wrapper.
             \'attributes\' => [], // Array of custom attributes, set null as value for attributes without value. E.g. [\'attr\' => \'value\', \'attr2\' => null]
         ], $options);
-        
-        $attributes = [];
-
-        if (!empty($options[\'id\'])) {
-            $attributes[\'id\'] = $options[\'id\'];
-        }
-
-        $attributes += $options[\'attributes\'];
 
         $context = [
             \'class\'      => $options[\'class\'],
-            \'attributes\' => $this->getAttributes($attributes),
+            \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
         ];
 
         return $this->uikit->renderTpl(\'components/\'.$component, $context);

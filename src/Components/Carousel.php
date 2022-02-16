@@ -33,15 +33,11 @@ class Carousel extends Component {
             'controls'   => true, // Carousel controls buttons.
         ], $options);
 
-        $attributes = [];
-
-        $attributes += $options['attributes'];
-
         $context = [
             'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($attributes),
+            'attributes' => $this->getAttributes($options['attributes']),
             'slides'     => $slides,
             'indicators' => $options['indicators'],
             'controls'   => $options['controls'],
