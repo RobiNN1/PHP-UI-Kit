@@ -53,13 +53,22 @@ class '.$name.' extends Component {
         }
 
         $options = array_merge([
+            \'id\'         => \'\', // Wrapper ID.
             \'class\'      => \'\', // Class for wrapper.
             \'attributes\' => [], // Array of custom attributes, set null as value for attributes without value. E.g. [\'attr\' => \'value\', \'attr2\' => null]
         ], $options);
+        
+        $attributes = [];
+
+        if (!empty($options[\'id\'])) {
+            $attributes[\'id\'] = $options[\'id\'];
+        }
+
+        $attributes += $options[\'attributes\'];
 
         $context = [
             \'class\'      => $options[\'class\'],
-            \'attributes\' => $this->getAttributes($options[\'attributes\']),
+            \'attributes\' => $this->getAttributes($attributes),
         ];
 
         return $this->uikit->renderTpl(\'components/\'.$component, $context);
