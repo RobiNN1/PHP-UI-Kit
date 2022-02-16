@@ -363,6 +363,21 @@ function pagination(array $items, array $options = []): string {
 }
 
 /**
+ * Progress
+ *
+ * Usage:
+ * echo progress(40);
+ *
+ * @param int|array $percent
+ * @param array     $options
+ *
+ * @return string
+ */
+function progress($percent, array $options = []): string {
+    return get_ui()->progress->render($percent, $options);
+}
+
+/**
  * Tabs
  *
  * Usage:

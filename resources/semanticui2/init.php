@@ -11,7 +11,8 @@ $init = [
     'components'   => [
         // List of supported components
         'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
-        'carousel', 'dropdown', 'list_group', 'menu', 'modal', 'pagination', 'tabs',
+        'carousel', 'dropdown', 'list_group', 'menu', 'modal', 'pagination', 'progress',
+        'tabs',
     ],
     'alert'        => [
         'colors' => [
@@ -76,6 +77,14 @@ $init = [
             'attributes' => [
                 'id' => 'toggle-modal-{id}',
             ],
+        ],
+    ],
+    'progress'     => [
+        'colors' => [
+            'default' => 'blue',
+            'success' => 'green',
+            'warning' => 'orange',
+            'error'   => 'red',
         ],
     ],
 ];

@@ -29,6 +29,7 @@ class ComponentsList {
     public Components\Menu $menu;
     public Components\Modal $modal;
     public Components\Pagination $pagination;
+    public Components\Progress $progress;
     public Components\Tabs $tabs;
 
     public function __construct(UiKit $uikit) {

@@ -202,6 +202,33 @@ echo pagination(range(1, 6), [
 ]);
 echo '<hr>';
 
+echo '<h4>Progress</h4>';
+echo progress(40);
+echo progress([43 => 'Test']);
+echo progress([13, 30, 50], [
+    'color' => ['error', 'success'],
+]);
+echo progress([15 => 'First', 30 => 'Second', 55 => 'Third'], [
+    'color' => ['error', 'warning', 'success'],
+]);
+echo progress([20, 75], [
+    'auto_colors' => function (int $num): string {
+        $class = 'error';
+        if ($num > 71) {
+            $class = 'success';
+        } else if ($num > 55) {
+            $class = '';
+        } else if ($num > 25) {
+            $class = 'warning';
+        } else if ($num < 25) {
+            $class = 'error';
+        }
+
+        return $class;
+    },
+]);
+echo '<hr>';
+
 echo '<h4>Tabs</h4>';
 echo tabs('test', [
     ['title' => 'Tab 1', 'content' => 'Content 1'],
