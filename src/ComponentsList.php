@@ -26,8 +26,9 @@ class ComponentsList {
     public Components\Carousel $carousel;
     public Components\Dropdown $dropdown;
     public Components\ListGroup $list_group;
-    public Components\Modal $modal;
     public Components\Menu $menu;
+    public Components\Modal $modal;
+    public Components\Pagination $pagination;
     public Components\Tabs $tabs;
 
     public function __construct(UiKit $uikit) {

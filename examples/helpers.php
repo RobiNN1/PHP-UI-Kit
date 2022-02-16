@@ -346,6 +346,24 @@ function modal(string $id, array $content, array $options = []): string {
 }
 
 /**
+ * Pagination
+ *
+ * Usage:
+ * echo pagination(range(1, 6), [
+ *     'link'    => 'page.php?p={p}',
+ *     'current' => 3,
+ * ]);
+ *
+ * @param array $items
+ * @param array $options
+ *
+ * @return string
+ */
+function pagination(array $items, array $options = []): string {
+    return get_ui()->pagination->render($items, $options);
+}
+
+/**
  * Tabs
  *
  * Usage:

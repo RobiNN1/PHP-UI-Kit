@@ -1,0 +1,8 @@
+<div class="ui pagination menu{{ class|space }}"{{ attributes|space|raw }}>
+    {% for item in items %}
+        {% set active = item.current ? ' active' : '' %}
+        {% set disabled = item.disabled ? ' disabled' : '' %}
+
+        <a class="item{{ active ~ disabled }}" href="{{ item.link }}">{{ item.title|raw }}</a>
+    {% endfor %}
+</div>

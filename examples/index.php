@@ -195,6 +195,13 @@ echo modal('test', [
 ]);
 echo '<hr>';
 
+echo '<h4>Pagination</h4>';
+echo pagination(range(1, 6), [
+    'link'    => 'page.php?p={p}',
+    'current' => 3,
+]);
+echo '<hr>';
+
 echo '<h4>Tabs</h4>';
 echo tabs('test', [
     ['title' => 'Tab 1', 'content' => 'Content 1'],
