@@ -33,7 +33,7 @@ class Grid extends Component {
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions('layout');
-        $grid = $fwoptions['grid_func']($col_sizes);
+        $grid = is_callable($fwoptions['grid_func']) ? $fwoptions['grid_func']($col_sizes) : '';
 
         $context = [
             'class'      => $options['class'],
