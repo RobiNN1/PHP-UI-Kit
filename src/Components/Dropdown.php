@@ -12,14 +12,13 @@ namespace RobiNN\UiKit\Components;
 
 class Dropdown extends Component {
     /**
-     * @param string $id      The ID of Dropdown.
      * @param string $title   Button title.
      * @param array  $items   Multidimensional array. E.g. [['title' => 'Item 1', 'link' => 'link1.php'], ['title' => 'Item 2']]
      * @param array  $options Additional options. Default value: []
      *
      * @return string
      */
-    public function render(string $id, string $title, array $items, array $options = []): string {
+    public function render(string $title, array $items, array $options = []): string {
         $component = 'dropdown';
 
         if (!$this->checkComponent('button')) {
@@ -29,12 +28,21 @@ class Dropdown extends Component {
         }
 
         $options = array_merge([
+            'id'         => '', // Dropdown ID.
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
             'button'     => [], // Button options.
             'in_menu'    => false, // Set true if is used in menu.
         ], $options);
+
+        $attributes = [];
+
+        if (!empty($options['id'])) {
+            $attributes['id'] = $options['id'];
+        }
+
+        $attributes += $options['attributes'];
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
@@ -55,10 +63,9 @@ class Dropdown extends Component {
         $button = $this->uikit->button->render($title, 'button', $options['button']);
 
         $context = [
-            'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($options['attributes']),
+            'attributes' => $this->getAttributes($attributes),
             'button'     => $button,
             'in_menu'    => $options['in_menu'],
             'items'      => $items,

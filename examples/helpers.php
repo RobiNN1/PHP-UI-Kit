@@ -264,22 +264,21 @@ function carousel(string $id, array $slides, array $options = []): string {
  * Dropdown
  *
  * Usage:
- * echo dropdown('test', 'Dropdown', [
+ * echo dropdown('Dropdown', [
  *     ['title' => 'Item 1', 'link' => 'link1.php'],
  *     'divider',
  *     ['title' => 'Item 2'],
  *     ['custom' => '<b>Custom bold text</b>'],
  * ]);
  *
- * @param string $id
  * @param string $title
  * @param array  $items
  * @param array  $options
  *
  * @return string
  */
-function dropdown(string $id, string $title, array $items, array $options = []): string {
-    return get_ui()->dropdown->render($id, $title, $items, $options);
+function dropdown(string $title, array $items, array $options = []): string {
+    return get_ui()->dropdown->render($title, $items, $options);
 }
 
 /**

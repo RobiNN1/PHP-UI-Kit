@@ -14,7 +14,7 @@ use Tests\ComponentTestCase;
 
 class DropdownTest extends ComponentTestCase {
     public function testDropdownRender(): void {
-        $tpl = $this->uikit->dropdown->render('test', 'Dropdown', [
+        $tpl = $this->uikit->dropdown->render('Dropdown', [
             ['title' => 'Item 1', 'link' => 'link1.php'],
             'divider',
             ['title' => 'Item 2'],

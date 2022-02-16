@@ -25,6 +25,7 @@ class Pagination extends Component {
         }
 
         $options = array_merge([
+            'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
             'link'       => '', // Pagination link tpl, use {p} placeholder for numbers.
@@ -34,6 +35,14 @@ class Pagination extends Component {
             'prev_title' => '&laquo;', // Previous page link title.
             'next_title' => '&raquo;', // Next page link title.
         ], $options);
+
+        $attributes = [];
+
+        if (!empty($options['id'])) {
+            $attributes['id'] = $options['id'];
+        }
+
+        $attributes += $options['attributes'];
 
         $prev = [];
         $next = [];
@@ -59,7 +68,7 @@ class Pagination extends Component {
 
         $context = [
             'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes']),
+            'attributes' => $this->getAttributes($attributes),
             'items'      => $items,
         ];
 

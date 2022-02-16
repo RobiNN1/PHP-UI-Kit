@@ -58,16 +58,15 @@ class Menu extends Component {
     }
 
     /**
-     * @param string $id
-     * @param array  $items
+     * @param array $items
      *
      * @return string
      */
-    private function dropdown(string $id, array $items): string {
+    private function dropdown(array $items): string {
         $title = $items['title'];
         array_shift($items);
 
-        return $this->uikit->dropdown->render($id, $title, $items, ['in_menu' => true, 'button' => ['menu_dp' => true, 'link' => '#']]);
+        return $this->uikit->dropdown->render($title, $items, ['in_menu' => true, 'button' => ['menu_dp' => true, 'link' => '#']]);
     }
 
     /**
@@ -83,7 +82,7 @@ class Menu extends Component {
             if ($key == 'right') {
                 $items_formatted[$key] = $this->formatItems($item, $id);
             } else if (is_array($item) && count($item) !== count($item, COUNT_RECURSIVE)) {
-                $items_formatted[$key]['dropdown'] = $this->dropdown('menudp'.$id, $item);
+                $items_formatted[$key]['dropdown'] = $this->dropdown($item);
             } else {
                 $items_formatted[$key] = $item;
             }

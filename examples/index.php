@@ -20,9 +20,9 @@ ob_start();
 echo opencontainer(false, ['attributes' => ['style' => 'padding-top: 3rem;padding-bottom: 3rem;']]);
 
 echo '<div style="text-align:center;margin-bottom:3rem;">
-<h2>PHP UI Kit Examples</h2>
-Current CSS Framework: <b>'.get_ui()->getFramework().'</b><br>
-Available components: <b>'.implode(', ', get_ui()->getFrameworkOptions('components')).'</b>
+<h1>PHP UI Kit Examples</h1>
+<h3>Current CSS Framework: <b>'.get_ui()->getFramework().'</b></h3>
+<p>This file shows the basic usage of all components.</p>
 </div>';
 
 echo '<h4>Accordion</h4>';
@@ -144,7 +144,7 @@ echo carousel('test', [
 echo '<hr>';
 
 echo '<h4>Dropdown</h4>';
-echo dropdown('test', 'Dropdown', [
+echo dropdown('Dropdown', [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     'divider',
     ['title' => 'Item 2'],
