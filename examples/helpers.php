@@ -105,6 +105,30 @@ function closegrid(): string {
 
 /**
  * Usage:
+ * echo openform();
+ *
+ * @param string $method
+ * @param string $action
+ * @param array  $options
+ *
+ * @return string
+ */
+function openform(string $method = 'post', string $action = '', array $options = []): string {
+    return get_ui()->form->open($method, $action, $options);
+}
+
+/**
+ * Usage:
+ * echo closeform();
+ *
+ * @return string
+ */
+function closeform(): string {
+    return get_ui()->form->close();
+}
+
+/**
+ * Usage:
  * echo accordion('test', [
  *     'Title 1' => 'Content 1',
  *     'Title 2' => 'Content 2',

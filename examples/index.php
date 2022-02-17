@@ -21,9 +21,18 @@ echo opencontainer(false, ['attributes' => ['style' => 'padding-top: 3rem;paddin
 
 echo '<div style="text-align:center;margin-bottom:3rem;">
 <h1>PHP UI Kit Examples</h1>
-<h3>Current CSS Framework: <b>'.get_ui()->getFramework().'</b></h3>
+<h2>Current CSS Framework: <b>'.get_ui()->getFramework().'</b></h2>
 <p>This file shows the basic usage of all components.</p>
 </div>';
+
+echo '<h3>Forms</h3>';
+echo openform();
+
+echo closeform();
+
+echo '<hr>';
+
+echo '<h3>Components</h3>';
 
 echo '<h4>Accordion</h4>';
 echo accordion('test', [

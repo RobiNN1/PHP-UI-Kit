@@ -16,6 +16,8 @@ class ComponentsList {
     public Components\Layout\Row $row;
     public Components\Layout\Grid $grid;
 
+    public Components\Form\Form $form;
+
     public Components\Accordion $accordion;
     public Components\Alert $alert;
     public Components\Badge $badge;
@@ -40,6 +42,9 @@ class ComponentsList {
                 case 'row':
                 case 'grid':
                     $type = 'Layout\\';
+                    break;
+                case 'form':
+                    $type = 'Form\\';
                     break;
                 default:
                     $type = '';

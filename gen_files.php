@@ -24,8 +24,8 @@ $name = implode('', $arr);
 
 $tpl_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
 
-file_put_contents(__DIR__.'/resources/bootstrap5/templates/twig/components/'.$tpl.'.twig', $tpl_content);
-file_put_contents(__DIR__.'/resources/semanticui2/templates/twig/components/'.$tpl.'.twig', $tpl_content);
+file_put_contents(__DIR__.'/resources/bootstrap5/templates/twig/form/'.$tpl.'.twig', $tpl_content);
+file_put_contents(__DIR__.'/resources/semanticui2/templates/twig/form/'.$tpl.'.twig', $tpl_content);
 
 $class = '<?php
 /**
@@ -37,7 +37,9 @@ $class = '<?php
  * file that was distributed with this source code.
  */
 
-namespace RobiNN\UiKit\Components;
+namespace RobiNN\UiKit\Components\Form;
+
+use RobiNN\UiKit\Components\Component;
 
 class '.$name.' extends Component {
     /**
@@ -46,12 +48,6 @@ class '.$name.' extends Component {
      * @return string
      */
     public function render(array $options = []): string {
-        $component = \''.$tpl.'\';
-
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             \'id\'         => \'\', // Wrapper ID.
             \'class\'      => \'\', // Class for wrapper.
@@ -63,12 +59,12 @@ class '.$name.' extends Component {
             \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
         ];
 
-        return $this->uikit->renderTpl(\'components/\'.$component, $context);
+        return $this->uikit->renderTpl(\'form/'.$tpl.'\', $context);
     }
 }
 ';
 
-file_put_contents(__DIR__.'/src/Components/'.$name.'.php', $class);
+file_put_contents(__DIR__.'/src/Components/Form/'.$name.'.php', $class);
 
 $test = '<?php
 /**
@@ -80,7 +76,7 @@ $test = '<?php
  * file that was distributed with this source code.
  */
 
-namespace Tests\Components;
+namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
@@ -95,7 +91,7 @@ class '.$name.'Test extends ComponentTestCase {
 }
 ';
 
-file_put_contents(__DIR__.'/tests/Components/'.$name.'Test.php', $test);
+file_put_contents(__DIR__.'/tests/Components/Form/'.$name.'Test.php', $test);
 
 echo 'Successfully generated component.';
 exit(0);
