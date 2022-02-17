@@ -12,7 +12,7 @@ namespace RobiNN\UiKit\Components;
 
 class Carousel extends Component {
     /**
-     * @param string $id      The ID of Carousel.
+     * @param string $id      Carousel ID.
      * @param array  $slides  Array. E.g. ['Slide 1', 'Slide 2',]
      * @param array  $options Additional options. Default value: []
      *

@@ -35,4 +35,20 @@ class Row extends Component {
 
         return $this->uikit->renderTpl('layout/row', $context);
     }
+
+    /**
+     * @param array $options Additional options. Default value: []
+     *
+     * @return string
+     */
+    public function open(array $options = []): string {
+        return $this->render(array_merge(['open' => true], $options));
+    }
+
+    /**
+     * @return string
+     */
+    public function close(): string {
+        return $this->render(['close' => true]);
+    }
 }

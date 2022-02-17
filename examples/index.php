@@ -82,6 +82,7 @@ echo button('Large', 'button', ['size' => 'lg']);
 echo button('Link', '', ['link' => 'link.php']);
 echo button('Active', '', ['active' => true]);
 echo button('Disabled', '', ['disabled' => true]);
+echo button('No default CSS', '', ['no_classes' => true]);
 echo '<hr>';
 
 echo '<h4>Button group</h4>';

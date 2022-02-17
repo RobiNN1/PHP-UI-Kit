@@ -37,4 +37,21 @@ class Container extends Component {
 
         return $this->uikit->renderTpl('layout/container', $context);
     }
+
+    /**
+     * @param bool  $fluid   Container without maximum width.
+     * @param array $options Additional options. Default value: []
+     *
+     * @return string
+     */
+    public function open(bool $fluid = false, array $options = []): string {
+        return $this->render($fluid, array_merge(['open' => true], $options));
+    }
+
+    /**
+     * @return string
+     */
+    public function close(): string {
+        return $this->render(false, ['close' => true]);
+    }
 }

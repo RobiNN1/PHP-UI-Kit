@@ -45,6 +45,10 @@ $init = [
             'error'   => 'btn-danger',
             'info'    => 'btn-info',
         ],
+        'states' => [
+            'active'   => 'active',
+            'disabled' => 'disabled',
+        ],
         'sizes'  => [
             'default' => '',
             'sm'      => 'btn-sm',

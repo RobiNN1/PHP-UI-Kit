@@ -45,4 +45,21 @@ class Grid extends Component {
 
         return $this->uikit->renderTpl('layout/grid', $context);
     }
+
+    /**
+     * @param array|string $col_sizes Column sizes.
+     * @param array        $options   Additional options. Default value: []
+     *
+     * @return string
+     */
+    public function open($col_sizes = [100], array $options = []): string {
+        return $this->render($col_sizes, array_merge(['open' => true], $options));
+    }
+
+    /**
+     * @return string
+     */
+    public function close(): string {
+        return $this->render([], ['close' => true]);
+    }
 }

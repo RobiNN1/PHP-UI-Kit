@@ -12,7 +12,7 @@ namespace RobiNN\UiKit\Components;
 
 class Accordion extends Component {
     /**
-     * @param string $id      The ID of Accordion.
+     * @param string $id      Accordion ID.
      * @param array  $items   Associative array. E.g. ['Title 1' => 'Content 1', 'Title 2' => 'Content 2',]
      * @param array  $options Additional options. Default value: []
      *

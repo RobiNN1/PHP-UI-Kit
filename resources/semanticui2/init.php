@@ -42,6 +42,10 @@ $init = [
             'error'   => 'negative',
             'info'    => 'teal',
         ],
+        'states' => [
+            'active'   => 'active',
+            'disabled' => 'disabled',
+        ],
         'sizes'  => [
             'default' => '',
             'sm'      => 'small',

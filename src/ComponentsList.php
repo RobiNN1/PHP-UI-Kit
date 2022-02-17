@@ -34,7 +34,16 @@ class ComponentsList {
 
     public function __construct(UiKit $uikit) {
         foreach (get_class_vars(__CLASS__) as $var => $value) {
-            $type = ($var === 'layout' || $var === 'container' || $var === 'row' || $var === 'grid') ? 'Layout\\' : '';
+            switch ($var) {
+                case 'layout':
+                case 'container':
+                case 'row':
+                case 'grid':
+                    $type = 'Layout\\';
+                    break;
+                default:
+                    $type = '';
+            }
 
             $arr = [];
             foreach (explode('_', $var) as $name) {

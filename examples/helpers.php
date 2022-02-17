@@ -23,8 +23,6 @@ function get_ui(): RobiNN\UiKit\UiKit {
 }
 
 /**
- * Page layout
- *
  * Usage:
  * echo layout('Body content');
  *
@@ -38,8 +36,6 @@ function layout(string $body, array $options = []): string {
 }
 
 /**
- * Open container
- *
  * Usage:
  * echo opencontainer();
  *
@@ -49,24 +45,20 @@ function layout(string $body, array $options = []): string {
  * @return string
  */
 function opencontainer(bool $fluid = false, array $options = []): string {
-    return get_ui()->container->render($fluid, array_merge(['open' => true], $options));
+    return get_ui()->container->open($fluid, $options);
 }
 
 /**
- * Close container
- *
  * Usage:
  * echo closecontainer();
  *
  * @return string
  */
 function closecontainer(): string {
-    return get_ui()->container->render(false, ['close' => true]);
+    return get_ui()->container->close();
 }
 
 /**
- * Open row
- *
  * Usage:
  * echo openrow();
  *
@@ -75,24 +67,20 @@ function closecontainer(): string {
  * @return string
  */
 function openrow(array $options = []): string {
-    return get_ui()->row->render(array_merge(['open' => true], $options));
+    return get_ui()->row->open($options);
 }
 
 /**
- * Close row
- *
  * Usage:
  * echo closerow();
  *
  * @return string
  */
 function closerow(): string {
-    return get_ui()->row->render(['close' => true]);
+    return get_ui()->row->close();
 }
 
 /**
- * Open grid
- *
  * Usage:
  * echo opengrid();
  *
@@ -102,24 +90,20 @@ function closerow(): string {
  * @return string
  */
 function opengrid($col_sizes = [100], array $options = []): string {
-    return get_ui()->grid->render($col_sizes, array_merge(['open' => true], $options));
+    return get_ui()->grid->open($col_sizes, $options);
 }
 
 /**
- * Close grid
- *
  * Usage:
  * echo closegrid();
  *
  * @return string
  */
 function closegrid(): string {
-    return get_ui()->grid->render([], ['close' => true]);
+    return get_ui()->grid->close();
 }
 
 /**
- * Accordion
- *
  * Usage:
  * echo accordion('test', [
  *     'Title 1' => 'Content 1',
@@ -137,8 +121,6 @@ function accordion(string $id, array $items, array $options = []): string {
 }
 
 /**
- * Alert
- *
  * Usage:
  * echo alert('Text');
  *
@@ -153,8 +135,6 @@ function alert(string $text, string $color = 'default', array $options = []): st
 }
 
 /**
- * Badge
- *
  * Usage:
  * echo badge('Text');
  *
@@ -169,8 +149,6 @@ function badge(string $text, string $color = 'default', array $options = []): st
 }
 
 /**
- * Breadcrumbs
- *
  * Usage:
  * echo breadcrumbs([
  *     'Link 1' => 'link1.php',
@@ -187,8 +165,6 @@ function breadcrumbs(array $links, array $options = []): string {
 }
 
 /**
- * Button
- *
  * Usage:
  * echo button('Title');
  *
@@ -203,8 +179,6 @@ function button(string $title, string $type = 'button', array $options = []): st
 }
 
 /**
- * Button group
- *
  * Usage:
  * echo button_group([
  *     'options' => [
@@ -223,8 +197,6 @@ function button_group(array $options = []): string {
 }
 
 /**
- * Card
- *
  * Usage:
  * echo card([
  *     'body' => '
@@ -242,8 +214,6 @@ function card(array $options = []): string {
 }
 
 /**
- * Carousel
- *
  * Usage:
  * echo carousel('test', [
  *     'Slide 1',
@@ -261,8 +231,6 @@ function carousel(string $id, array $slides, array $options = []): string {
 }
 
 /**
- * Dropdown
- *
  * Usage:
  * echo dropdown('Dropdown', [
  *     ['title' => 'Item 1', 'link' => 'link1.php'],
@@ -282,8 +250,6 @@ function dropdown(string $title, array $items, array $options = []): string {
 }
 
 /**
- * List group
- *
  * Usage:
  * echo list_group([
  *     'Item 1',
@@ -300,8 +266,6 @@ function list_group(array $items, array $options = []): string {
 }
 
 /**
- * Menu
- *
  * Usage:
  * echo menu('test', [
  *    ['title' => 'Item 1', 'link' => 'link1.php'],
@@ -324,8 +288,6 @@ function menu(string $id, array $items, array $options = []): string {
 }
 
 /**
- * Modal
- *
  * Usage:
  * echo modal('test', [
  *     'title'  => 'Modal Title',
@@ -345,8 +307,6 @@ function modal(string $id, array $content, array $options = []): string {
 }
 
 /**
- * Pagination
- *
  * Usage:
  * echo pagination(range(1, 6), [
  *     'link'    => 'page.php?p={p}',
@@ -363,8 +323,6 @@ function pagination(array $items, array $options = []): string {
 }
 
 /**
- * Progress
- *
  * Usage:
  * echo progress(40);
  *
@@ -378,8 +336,6 @@ function progress($percent, array $options = []): string {
 }
 
 /**
- * Tabs
- *
  * Usage:
  * echo tabs('test', [
  *     ['title' => 'Tab 1', 'content' => 'Content 1'],

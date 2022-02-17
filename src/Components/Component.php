@@ -60,13 +60,14 @@ class Component {
      * @return mixed
      */
     public function getOption(string $option, $value, array $opts) {
-        return in_array($value, array_keys($opts[$option])) ? $opts[$option][$value] : $opts[$option]['default'];
+        $default = $opts[$option]['default'] ?? '';
+        return in_array($value, array_keys($opts[$option])) ? $opts[$option][$value] : $default;
     }
 
     /**
      * Check component.
      *
-     * @param string $key
+     * @param string $key Component name.
      *
      * @return bool
      */
@@ -77,8 +78,8 @@ class Component {
     /**
      * Message when component is not supported.
      *
-     * @param string $key
-     * @param string $requires
+     * @param string $key      Component name.
+     * @param string $requires Name of required component.
      *
      * @return string
      */

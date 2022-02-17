@@ -33,12 +33,13 @@ class Button extends Component {
             'value'      => null, // Value of value attribute.
             'color'      => 'default', // Button color. Possible value: default|primary|success|warning|error|info
             'size'       => 'default', // Button size. Possible value: default|sm|lg
-            'disabled'   => false, // Disabled state.
             'active'     => false, // Active state.
+            'disabled'   => false, // Disabled state.
             'link'       => '', // Link.
             'icon'       => '', // Button icon.
             'icon_right' => false, // Show the icon to the right.
             'menu_dp'    => false, // Set true if is used as menu dropdown button.
+            'no_classes' => false, // Set true to remove default classes.
         ], $options);
 
         $attributes = [];
@@ -65,19 +66,24 @@ class Button extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
+        $active_class = $this->getOption('states', 'active', $fwoptions);
+        $disabled_class = $this->getOption('states', 'disabled', $fwoptions);
+
         $context = [
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($attributes),
-            'title'      => $title,
-            'color'      => $this->getOption('colors', $options['color'], $fwoptions),
-            'type'       => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
-            'size'       => $this->getOption('sizes', $options['size'], $fwoptions),
-            'disabled'   => $options['disabled'],
-            'active'     => $options['active'],
-            'link'       => $options['link'],
-            'icon'       => $options['icon'],
-            'icon_right' => $options['icon_right'],
-            'menu_dp'    => $options['menu_dp'],
+            'class'         => $options['class'],
+            'attributes'    => $this->getAttributes($attributes),
+            'title'         => $title,
+            'color'         => $this->getOption('colors', $options['color'], $fwoptions),
+            'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
+            'size'          => $this->getOption('sizes', $options['size'], $fwoptions),
+            'active'        => $options['active'],
+            'disabled'      => $options['disabled'],
+            'link'          => $options['link'],
+            'icon'          => $options['icon'],
+            'icon_right'    => $options['icon_right'],
+            'menu_dp'       => $options['menu_dp'],
+            'state_classes' => ($options['active'] ? $active_class : '').($options['disabled'] ? $disabled_class : ''),
+            'no_classes'    => $options['no_classes'],
         ];
 
         return $this->uikit->renderTpl('components/'.$component, $context);
