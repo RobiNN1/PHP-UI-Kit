@@ -129,6 +129,21 @@ function closeform(): string {
 
 /**
  * Usage:
+ * echo input('Test');
+ *
+ * @param string     $name
+ * @param string     $label
+ * @param string|int $value
+ * @param array      $options
+ *
+ * @return string
+ */
+function input(string $name, string $label = '', $value = '', array $options = []): string {
+    return get_ui()->input->render($name, $label, $value, $options);
+}
+
+/**
+ * Usage:
  * echo accordion('test', [
  *     'Title 1' => 'Content 1',
  *     'Title 2' => 'Content 2',

@@ -17,6 +17,7 @@ class ComponentsList {
     public Components\Layout\Grid $grid;
 
     public Components\Form\Form $form;
+    public Components\Form\Input $input;
 
     public Components\Accordion $accordion;
     public Components\Alert $alert;
@@ -44,6 +45,7 @@ class ComponentsList {
                     $type = 'Layout\\';
                     break;
                 case 'form':
+                case 'input':
                     $type = 'Form\\';
                     break;
                 default:

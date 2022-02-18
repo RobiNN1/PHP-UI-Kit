@@ -1,0 +1,42 @@
+{% set addons = left_addon or right_addon ? true : false %}
+{% set custom = left_custom or right_custom ? true : false %}
+
+<div class="mb-1{{ class|space }}"{{ attributes|space|raw }}>
+    {% if label %}
+        <label for="{{ input_id }}" class="form-label">{{ label }}</label>
+    {% endif %}
+
+    {% if addons or custom %}
+        <div class="input-group{{ size ? ' input-group-' ~ size : '' }}">
+    {% endif %}
+
+    {{ left_custom|raw }}
+
+    {% if left_addon %}
+        <span class="input-group-text">{{ left_addon|raw }}</span>
+    {% endif %}
+
+    {% if not addons %}
+        {% set input_size = size ? ' form-control-' ~ size : '' %}
+    {% endif %}
+
+    <input value="{{ value }}" type="{{ type }}"{{ input_attributes|space|raw }} class="form-control{{ input_size ~ input_class|space ~ state|space }}">
+
+    {% if right_addon %}
+        <span class="input-group-text">{{ right_addon|raw }}</span>
+    {% endif %}
+
+    {{ right_custom|raw }}
+
+    {% if addons or custom %}
+        </div>
+    {% endif %}
+
+    {% if feedback_text %}
+        <div class="{{ state == 'is-invalid' ? 'in' : '' }}valid-feedback">{{ feedback_text|raw }}</div>
+    {% endif %}
+
+    {% if help_text %}
+        <div class="form-text">{{ help_text|raw }}</div>
+    {% endif %}
+</div>

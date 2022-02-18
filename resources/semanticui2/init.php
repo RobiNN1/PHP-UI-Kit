@@ -14,6 +14,16 @@ $init = [
         'carousel', 'dropdown', 'list_group', 'menu', 'modal', 'pagination', 'progress',
         'tabs',
     ],
+    'input'        => [
+        'sizes'      => [
+            'sm' => 'small',
+            'lg' => 'large',
+        ],
+        'validation' => [
+            'success' => 'success',
+            'error'   => 'error',
+        ],
+    ],
     'alert'        => [
         'colors' => [
             'default' => 'blue',
@@ -47,16 +57,14 @@ $init = [
             'disabled' => 'disabled',
         ],
         'sizes'  => [
-            'default' => '',
-            'sm'      => 'small',
-            'lg'      => 'large',
+            'sm' => 'small',
+            'lg' => 'large',
         ],
     ],
     'button_group' => [
         'sizes' => [
-            'default' => '',
-            'sm'      => 'small',
-            'lg'      => 'large',
+            'sm' => 'small',
+            'lg' => 'large',
         ],
     ],
     'dropdown'     => [

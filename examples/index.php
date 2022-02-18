@@ -26,7 +26,60 @@ echo '<div style="text-align:center;margin-bottom:3rem;">
 </div>';
 
 echo '<h3>Forms</h3>';
-echo openform();
+echo input('test', '', '', ['placeholder' => 'Input outside of form', 'help_text' => 'Help text.']);
+
+echo openform('post', '', ['attributes' => ['style' => 'margin-top:20px;']]);
+
+echo openrow();
+echo opengrid([100, 33]);
+echo input('input-small', 'Small', '', ['size' => 'sm']);
+echo closegrid().opengrid([100, 33]);
+echo input('input-defult', 'Default');
+echo closegrid().opengrid([100, 33]);
+echo input('input-large', 'Large', '', ['size' => 'lg']);
+echo closegrid();
+echo closerow();
+
+// In Semantic (Fomantic) UI states works only inside .ui.form element
+echo openrow();
+echo opengrid([100, 50]);
+echo input('input-success', 'Success', '', ['state' => 'success']);
+echo closegrid().opengrid([100, 50]);
+echo input('input-error', 'Error', '', ['state' => 'error']);
+echo closegrid();
+echo closerow();
+
+echo openrow();
+echo opengrid([100, 50]);
+echo input('input-success2', 'Success field with text', '', ['state' => 'success', 'feedback_text' => 'Text...']);
+echo closegrid().opengrid([100, 50]);
+echo input('input-error2', 'Error field with text', '', ['state' => 'error', 'feedback_text' => 'Text...']);
+echo closegrid();
+echo closerow();
+
+echo openrow();
+echo opengrid([100, 25]);
+echo input('input-left-addon', 'Left addon', '', ['left_addon' => '€']);
+echo closegrid().opengrid([100, 25]);
+echo input('input-right-addon', 'Right addon', '', ['right_addon' => '@site.com']);
+echo closegrid().opengrid([100, 25]);
+echo input('input-addons', 'Addons', '', ['left_addon' => '€', 'right_addon' => ',00']);
+echo closegrid().opengrid([100, 25]);
+echo input('input-action-buttons', 'Action buttons', '', [
+    'left_custom'  => button('Left'),
+    'right_custom' => button('Right'),
+]);
+echo closegrid();
+echo closerow();
+
+// In Semantic (Fomantic) UI buttons and addons together doesn't work well...
+echo input('input-addons-button', 'Large addons with error state and buttons', '', [
+    'left_addon'   => '€', 'right_addon' => ',00',
+    'left_custom'  => button('Left button'),
+    'right_custom' => button('Right button'),
+    'state'        => 'error',
+    'size'         => 'lg',
+]);
 
 echo closeform();
 
