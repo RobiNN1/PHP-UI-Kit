@@ -74,6 +74,10 @@ class Twig implements ITplEngine {
      * @return string
      */
     public function render(string $tpl, array $context = []): string {
-        return $this->twig->render($tpl.'.twig', $context);
+        try {
+            return $this->twig->render($tpl.'.twig', $context);
+        } catch (\Exception $e) {
+            die($e->getMessage().' File: '.$e->getFile().' Line: '.$e->getLine());
+        }
     }
 }
