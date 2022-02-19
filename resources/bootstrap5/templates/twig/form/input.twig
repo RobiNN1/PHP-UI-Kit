@@ -5,37 +5,34 @@
     {% if label %}
         <label for="{{ input_id }}" class="form-label">{{ label }}</label>
     {% endif %}
-
     {% if addons or custom %}
         <div class="input-group{{ size ? ' input-group-' ~ size : '' }}">
     {% endif %}
-
     {{ left_custom|raw }}
-
     {% if left_addon %}
         <span class="input-group-text">{{ left_addon|raw }}</span>
     {% endif %}
-
     {% if not addons %}
         {% set input_size = size ? ' form-control-' ~ size : '' %}
     {% endif %}
-
-    <input value="{{ value }}" type="{{ type }}"{{ input_attributes|space|raw }} class="form-control{{ input_size ~ input_class|space ~ state|space }}">
-
+    {% if required %}
+        {{ add_to_css('.required {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23dc3545\' viewBox=\'0 0 16 16\'%3E%3Cpath d=\'M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z\'/%3E%3C/svg%3E") !important;
+            background-size: 10px 10px !important;
+        }') }}
+        {% set required_css = required ? ' required': '' %}
+    {% endif %}
+    <input value="{{ value }}" type="{{ type }}"{{ input_attributes|space|raw }} class="form-control{{ input_size ~ input_class|space ~ state|space ~ required_css }}">
     {% if right_addon %}
         <span class="input-group-text">{{ right_addon|raw }}</span>
     {% endif %}
-
     {{ right_custom|raw }}
-
     {% if addons or custom %}
         </div>
     {% endif %}
-
     {% if feedback_text %}
         <div class="{{ state == 'is-invalid' ? 'in' : '' }}valid-feedback">{{ feedback_text|raw }}</div>
     {% endif %}
-
     {% if help_text %}
         <div class="form-text">{{ help_text|raw }}</div>
     {% endif %}

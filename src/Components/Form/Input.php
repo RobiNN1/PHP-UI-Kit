@@ -39,6 +39,7 @@ class Input extends Component {
             'right_custom'     => '', // Right customaddon.
             'feedback_text'    => '', // Custom feedback text. In your code do validation and then set state and feedback text.
             'help_text'        => '', // Custom help text.
+            'required'         => false, // Required.
         ], $options);
 
         $input_attributes = [];
@@ -51,6 +52,10 @@ class Input extends Component {
 
         if (!empty($options['placeholder'])) {
             $input_attributes['placeholder'] = $options['placeholder'];
+        }
+
+        if (!empty($options['required'])) {
+            $input_attributes['required'] = null;
         }
 
         $input_attributes += $options['input_attributes'];
@@ -79,6 +84,7 @@ class Input extends Component {
             'right_custom'     => $options['right_custom'],
             'feedback_text'    => $options['feedback_text'],
             'help_text'        => $options['help_text'],
+            'required'         => $options['required'],
         ];
 
         return $this->uikit->renderTpl('form/input', $context);

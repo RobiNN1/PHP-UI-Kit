@@ -43,7 +43,7 @@ echo closerow();
 // In Semantic (Fomantic) UI states works only inside .ui.form element
 echo openrow();
 echo opengrid([100, 50]);
-echo input('input-success', 'Success', '', ['state' => 'success']);
+echo input('input-success', 'Success', '', ['state' => 'success', 'required' => true]);
 echo closegrid().opengrid([100, 50]);
 echo input('input-error', 'Error', '', ['state' => 'error']);
 echo closegrid();
