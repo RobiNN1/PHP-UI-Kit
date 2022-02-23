@@ -38,4 +38,13 @@ interface ITplEngine {
      * @return string
      */
     public function render(string $tpl, array $context = []): string;
+
+    /**
+     * Add paths with templates.
+     *
+     * @param array $paths
+     *
+     * @return void
+     */
+    public function addPaths(array $paths): void;
 }

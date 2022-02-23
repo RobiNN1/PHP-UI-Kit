@@ -28,6 +28,11 @@ final class UiKit extends ComponentsList {
      */
     private static ITplEngine $tpl_engine;
 
+    /**
+     * @var array
+     */
+    private static array $tpl_paths = [];
+
     public function __construct() {
         parent::__construct($this);
     }
@@ -47,6 +52,7 @@ final class UiKit extends ComponentsList {
 
         self::$tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
         self::$tpl_engine->init($uikit, $config, $debug);
+        self::$tpl_engine->addPaths(self::$tpl_paths);
 
         self::loadFrameworkFiles();
 
@@ -154,5 +160,16 @@ final class UiKit extends ComponentsList {
         return [
             'space' => fn($value, $right = false) => (!empty($value) ? ($right === true ? $value.' ' : ' '.$value) : ''),
         ];
+    }
+
+    /**
+     * Add path with templates.
+     *
+     * @param string $path
+     *
+     * @return void
+     */
+    public function addPath(string $path) {
+        self::$tpl_paths[] = $path;
     }
 }

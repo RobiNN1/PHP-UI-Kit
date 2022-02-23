@@ -26,6 +26,11 @@ class Twig implements ITplEngine {
     private Environment $twig;
 
     /**
+     * @var FilesystemLoader
+     */
+    private FilesystemLoader $loader;
+
+    /**
      * Init TPL engine.
      *
      * @param UiKit  $uikit
@@ -35,8 +40,8 @@ class Twig implements ITplEngine {
      * @return Environment
      */
     public function init(UiKit $uikit, Config $config, bool $debug = false): Environment {
-        $loader = new FilesystemLoader($config->getFrameworkPath($config->getFramework()).'/templates/twig');
-        $this->twig = new Environment($loader, [
+        $this->loader = new FilesystemLoader(realpath($config->getFrameworkPath($config->getFramework()).'/templates/twig'));
+        $this->twig = new Environment($this->loader, [
             'cache' => $config->getCache().'/twig',
             'debug' => $debug,
         ]);
@@ -78,6 +83,21 @@ class Twig implements ITplEngine {
             return $this->twig->render($tpl.'.twig', $context);
         } catch (\Exception $e) {
             die($e->getMessage().' File: '.$e->getFile().' Line: '.$e->getLine());
+        }
+    }
+
+    /**
+     * Add paths with templates.
+     *
+     * @param array $paths
+     *
+     * @return void
+     */
+    public function addPaths(array $paths): void {
+        foreach ($paths as $path) {
+            if (!empty($path)) {
+                $this->loader->addPath(realpath($path));
+            }
         }
     }
 }
