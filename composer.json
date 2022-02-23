@@ -1,7 +1,7 @@
 {
   "name": "robinn/uikit",
-  "description": "UI Kit with support for multiple CSS frameworks and template engines.",
-  "keywords": ["templating", "twig", "latte", "plates", "bootstrap", "semantic0ui", "css", "framework"],
+  "description": "PHP UI Kit with support for multiple CSS frameworks and template engines.",
+  "keywords": ["templating", "twig", "plates", "bootstrap", "semantic-ui", "css", "framework"],
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -18,7 +18,6 @@
     "twig/twig": "^3"
   },
   "suggest": {
-    "latte/latte": "Required to use Latte template engine.",
     "league/plates": "Required to use Plates template engine."
   },
   "require-dev": {
