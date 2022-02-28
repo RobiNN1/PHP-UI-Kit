@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\Config;
 use RobiNN\UiKit\UiKit;
 
-class UiKitTest extends TestCase {
+final class UiKitTest extends TestCase {
     private UiKit $uikit;
 
     protected function setUp(): void {

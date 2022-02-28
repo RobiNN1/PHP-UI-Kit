@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class TabsTest extends ComponentTestCase {
+final class TabsTest extends ComponentTestCase {
     public function testTabsRender(): void {
         $tpl = $this->uikit->tabs->render('test', [
             ['title' => 'Tab 1', 'content' => 'Content 1'],

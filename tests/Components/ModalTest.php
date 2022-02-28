@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class ModalTest extends ComponentTestCase {
+final class ModalTest extends ComponentTestCase {
     public function testModalRender(): void {
         $tpl = $this->uikit->modal->render('test', [
             'title'  => 'Modal Title',

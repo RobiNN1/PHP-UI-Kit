@@ -12,7 +12,7 @@ namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-class ContainerTest extends ComponentTestCase {
+final class ContainerTest extends ComponentTestCase {
     public function testOpenContainer(): void {
         $tpl = $this->uikit->container->render(false, ['open' => true]);
 

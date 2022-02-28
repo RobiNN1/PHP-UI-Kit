@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class ButtonTest extends ComponentTestCase {
+final class ButtonTest extends ComponentTestCase {
     public function testButtonRender(): void {
         $tpl = $this->uikit->button->render('Test');
 

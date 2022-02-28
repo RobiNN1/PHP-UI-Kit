@@ -13,7 +13,7 @@ namespace Tests;
 use RobiNN\UiKit\Config;
 use PHPUnit\Framework\TestCase;
 
-class ConfigTest extends TestCase {
+final class ConfigTest extends TestCase {
     private Config $config;
 
     public function __construct() {

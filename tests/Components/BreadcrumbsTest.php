@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class BreadcrumbsTest extends ComponentTestCase {
+final class BreadcrumbsTest extends ComponentTestCase {
     public function testBreadcrumbsRender(): void {
         $tpl = $this->uikit->breadcrumbs->render([
             'Link 1' => 'link1.php',

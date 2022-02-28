@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class MenuTest extends ComponentTestCase {
+final class MenuTest extends ComponentTestCase {
     public function testMenuRender(): void {
         $tpl = $this->uikit->menu->render('test', [
             ['title' => 'Item 1', 'link' => 'link1.php'],

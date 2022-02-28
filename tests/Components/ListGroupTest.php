@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class ListGroupTest extends ComponentTestCase {
+final class ListGroupTest extends ComponentTestCase {
     public function testListGroupRender(): void {
         $tpl = $this->uikit->list_group->render([
             'Item 1',

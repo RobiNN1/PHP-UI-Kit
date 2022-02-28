@@ -13,7 +13,7 @@ namespace Tests\Components;
 use RobiNN\UiKit\Components\Component;
 use Tests\ComponentTestCase;
 
-class ComponentTest extends ComponentTestCase {
+final class ComponentTest extends ComponentTestCase {
     private Component $component;
 
     public function __construct() {

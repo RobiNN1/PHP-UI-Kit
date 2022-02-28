@@ -13,7 +13,7 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\Misc;
 
-class MiscTest extends TestCase {
+final class MiscTest extends TestCase {
     public function testArraySet(): void {
         $array = [
             'alert' => [

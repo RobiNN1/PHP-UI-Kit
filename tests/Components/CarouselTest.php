@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class CarouselTest extends ComponentTestCase {
+final class CarouselTest extends ComponentTestCase {
     public function testCarouselRender(): void {
         $tpl = $this->uikit->carousel->render('test', [
             'Slide 1',

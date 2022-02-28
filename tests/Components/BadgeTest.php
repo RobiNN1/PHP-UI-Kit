@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class BadgeTest extends ComponentTestCase {
+final class BadgeTest extends ComponentTestCase {
     public function testBadgeRender(): void {
         $tpl = $this->uikit->badge->render('Default');
 

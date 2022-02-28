@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class AlertTest extends ComponentTestCase {
+final class AlertTest extends ComponentTestCase {
     public function testAlertRender(): void {
         $tpl = $this->uikit->alert->render('Default');
 

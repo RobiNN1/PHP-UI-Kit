@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class PaginationTest extends ComponentTestCase {
+final class PaginationTest extends ComponentTestCase {
     public function testPaginationRender(): void {
         $tpl = $this->uikit->pagination->render(range(1, 5), [
             'link'     => 'page.php?p=%s',

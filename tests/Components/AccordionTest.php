@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class AccordionTest extends ComponentTestCase {
+final class AccordionTest extends ComponentTestCase {
     public function testAccordionRender(): void {
         $tpl = $this->uikit->accordion->render('test', [
             'Title 1' => 'Content 1',

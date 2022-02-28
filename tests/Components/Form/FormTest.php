@@ -12,7 +12,7 @@ namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-class FormTest extends ComponentTestCase {
+final class FormTest extends ComponentTestCase {
     public function testOpenForm(): void {
         $tpl = $this->uikit->form->render('get', '', ['open' => true]);
 

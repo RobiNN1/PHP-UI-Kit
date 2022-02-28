@@ -12,7 +12,7 @@ namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-class LayoutTest extends ComponentTestCase {
+final class LayoutTest extends ComponentTestCase {
     public function testRender(): void {
         $tpl = $this->uikit->layout->render('test');
 

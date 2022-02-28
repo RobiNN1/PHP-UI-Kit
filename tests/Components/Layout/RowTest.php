@@ -12,7 +12,7 @@ namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-class RowTest extends ComponentTestCase {
+final class RowTest extends ComponentTestCase {
     public function testOpenRow(): void {
         $tpl = $this->uikit->row->render(['open' => true]);
 

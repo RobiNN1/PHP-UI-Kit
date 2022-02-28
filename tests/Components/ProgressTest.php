@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class ProgressTest extends ComponentTestCase {
+final class ProgressTest extends ComponentTestCase {
     public function testProgressRender(): void {
         $tpl = $this->uikit->progress->render(27);
 

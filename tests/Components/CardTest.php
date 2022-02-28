@@ -12,7 +12,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-class CardTest extends ComponentTestCase {
+final class CardTest extends ComponentTestCase {
     public function testCardRender(): void {
         $tpl = $this->uikit->card->render([
             'body' => '

@@ -13,7 +13,7 @@ namespace Tests;
 use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\Dom;
 
-class DomTest extends TestCase {
+final class DomTest extends TestCase {
     public function testSetAttr(): void {
         $html = '<a href="link.php">Test</a>';
         $dom = new Dom($html);

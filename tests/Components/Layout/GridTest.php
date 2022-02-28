@@ -12,7 +12,7 @@ namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-class GridTest extends ComponentTestCase {
+final class GridTest extends ComponentTestCase {
     public function testOpenGrid(): void {
         $tpl = $this->uikit->grid->render([100], ['open' => true]);
 
