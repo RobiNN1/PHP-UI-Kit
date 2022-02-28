@@ -70,7 +70,7 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * Get CSS framework options.
+     * Get CSS framework options using "dot" notation.
      *
      * @param string $key
      *
@@ -87,11 +87,11 @@ final class UiKit extends ComponentsList {
             }
         }
 
-        return $init[$key] ?? $init;
+        return Misc::arrayGet($init, $key);
     }
 
     /**
-     * Set CSS framework options using dot notation.
+     * Set CSS framework options using "dot" notation.
      * E.g. setFrameworkOption('badge.colors.default', 'bg-primary blue') will set blue color to all frameworks.
      *
      * @param string $option
