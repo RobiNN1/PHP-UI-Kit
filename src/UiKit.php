@@ -10,6 +10,7 @@
 
 namespace RobiNN\UiKit;
 
+use RobiNN\UiKit\TplEngines\ITplEngine;
 use RobiNN\UiKit\TplEngines\Twig;
 
 final class UiKit extends ComponentsList {

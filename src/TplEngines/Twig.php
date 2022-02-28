@@ -10,14 +10,13 @@
 
 namespace RobiNN\UiKit\TplEngines;
 
+use RobiNN\UiKit\Config;
+use RobiNN\UiKit\UiKit;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
-use RobiNN\UiKit\Config;
-use RobiNN\UiKit\ITplEngine;
-use RobiNN\UiKit\UiKit;
 
 class Twig implements ITplEngine {
     /**

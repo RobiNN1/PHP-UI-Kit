@@ -8,7 +8,10 @@
  * file that was distributed with this source code.
  */
 
-namespace RobiNN\UiKit;
+namespace RobiNN\UiKit\TplEngines;
+
+use RobiNN\UiKit\Config;
+use RobiNN\UiKit\UiKit;
 
 interface ITplEngine {
     /**
