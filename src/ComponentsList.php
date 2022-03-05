@@ -36,6 +36,19 @@ class ComponentsList {
     public Components\Tabs $tabs;
 
     public function __construct(UiKit $uikit) {
+        foreach ($this->getComponentsList() as $var => $class) {
+            $this->$var = new $class($uikit);
+        }
+    }
+
+    /**
+     * Get list of components.
+     *
+     * @return array
+     */
+    public function getComponentsList(): array {
+        $list = [];
+
         foreach (get_class_vars(__CLASS__) as $var => $value) {
             switch ($var) {
                 case 'layout':
@@ -59,7 +72,10 @@ class ComponentsList {
 
             $class_name = implode('', $arr);
             $class = '\\RobiNN\\UiKit\\Components\\'.$type.$class_name;
-            $this->$var = new $class($uikit);
+
+            $list[$var] = $class;
         }
+
+        return $list;
     }
 }

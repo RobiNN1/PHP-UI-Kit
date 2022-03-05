@@ -143,13 +143,29 @@ final class UiKit extends ComponentsList {
      * @return array
      */
     public function tplFunctions(): array {
-        return [
+        $components_list = [];
+        $components = $this->getComponentsList();
+
+        $open_close = ['container', 'row', 'grid', 'form']; // Components with open and close methods.
+
+        foreach ($components as $component => $class) {
+            $components_list[$component] = [$this->$component, 'render'];
+
+            if (in_array($component, $open_close)) {
+                $components_list['open'.$component] = [$this->$component, 'open'];
+                $components_list['close'.$component] = [$this->$component, 'close'];
+            }
+        }
+
+        $functions = [
             'add_to_head'   => [OutputHandler::class, 'addToHead'],
             'add_to_footer' => [OutputHandler::class, 'addToFooter'],
             'add_to_js'     => [OutputHandler::class, 'addToJs'],
             'add_to_jquery' => [OutputHandler::class, 'addToJquery'],
             'add_to_css'    => [OutputHandler::class, 'addToCss'],
         ];
+
+        return array_merge($functions, $components_list);
     }
 
     /**
@@ -170,7 +186,7 @@ final class UiKit extends ComponentsList {
      *
      * @return void
      */
-    public function addPath(string $path) {
+    public function addPath(string $path): void {
         self::$tpl_paths[] = $path;
     }
 }
