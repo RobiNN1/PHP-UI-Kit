@@ -1,8 +1,9 @@
+{% set left = left_addon or left_custom ? 'left' : '' %}
 {% set right = right_addon or right_custom ? 'right' : '' %}
-{% set corner =required ? 'corner' : '' %}
-{% set labeled = left_addon or required ? 'labeled' : '' %}
+{% set corner = required ? 'corner' : '' %}
+{% set labeled = left_addon or right_addon or required ? 'labeled' : '' %}
 {% set action = left_custom or right_custom ? 'action' : '' %}
-{% set classes = right|space ~ corner|space ~ labeled|space ~ action|space ~ (not inline ? ' fluid' : '') ~ size|space ~ class|space %}
+{% set classes = left|space ~ right|space ~ corner|space ~ labeled|space ~ action|space ~ (not inline ? ' fluid' : '') ~ size|space ~ class|space %}
 
 <div class="field{{ state|space }}"{{ attributes|space|raw }}>
     {% if label %}
