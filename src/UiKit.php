@@ -77,17 +77,15 @@ final class UiKit extends ComponentsList {
      * @return array|mixed
      */
     public static function getFrameworkOptions(string $key = '') {
-        global $init;
-
-        require_once self::$config->getFrameworkPath(self::$config->getFramework()).'/init.php';
+        $config = (array)require realpath(self::$config->getFrameworkPath(self::$config->getFramework())).'/config.php';
 
         if (!empty(self::$fw_options)) {
             foreach (self::$fw_options as $option => $value) {
-                Misc::arraySet($init, $option, $value);
+                Misc::arraySet($config, $option, $value);
             }
         }
 
-        return Misc::arrayGet($init, $key);
+        return Misc::arrayGet($config, $key);
     }
 
     /**

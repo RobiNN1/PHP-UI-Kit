@@ -1,13 +1,46 @@
 <?php
-$init = [
+/**
+ * Default framework config.
+ * If you need to change any value, use the setFrameworkOption() function.
+ */
+return [
     'jquery'       => false,
     'files'        => [
         'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
         'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'],
     ],
-    'layout'       => [
-        'grid_func' => 'bootstrap5_grid'/** @uses bootstrap5_grid() */
-    ],
+    'grid_func'    => function ($col_sizes): string {
+        $sizes = ['xs', 'sm', 'md', 'lg'];
+
+        if ($col_sizes === 'auto') {
+            return 'col';
+        }
+
+        $columns = [];
+
+        foreach ($col_sizes as $index => $value) {
+            if (is_array($value) && !empty($value['bootstrap5'])) {
+                return $value['bootstrap5'] === 'auto' ? 'col' : $value['bootstrap5'];
+            }
+
+            if (!is_array($value)) {
+                $column = ($value * 12) / 100;
+                $column = $column < 5 ? ceil($column) : floor($column);
+
+                if (!empty($sizes[$index])) {
+                    $columns[$sizes[$index]] = $column;
+                }
+            }
+        }
+
+        if (!empty($columns)) {
+            return implode(' ', array_map(function ($size, $column) {
+                return 'col-'.$size.'-'.$column;
+            }, array_keys($columns), array_values($columns)));
+        }
+
+        return 'col';
+    },
     'components'   => [
         // List of supported components
         'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
@@ -112,41 +145,3 @@ $init = [
         ],
     ],
 ];
-
-/**
- * @param array|string $col_sizes
- *
- * @return string
- */
-function bootstrap5_grid($col_sizes): string {
-    $sizes = ['xs', 'sm', 'md', 'lg'];
-
-    if ($col_sizes === 'auto') {
-        return 'col';
-    }
-
-    $columns = [];
-
-    foreach ($col_sizes as $index => $value) {
-        if (is_array($value) && !empty($value['bootstrap5'])) {
-            return $value['bootstrap5'] === 'auto' ? 'col' : $value['bootstrap5'];
-        }
-
-        if (!is_array($value)) {
-            $column = ($value * 12) / 100;
-            $column = $column < 5 ? ceil($column) : floor($column);
-
-            if (!empty($sizes[$index])) {
-                $columns[$sizes[$index]] = $column;
-            }
-        }
-    }
-
-    if (!empty($columns)) {
-        return implode(' ', array_map(function ($size, $column) {
-            return 'col-'.$size.'-'.$column;
-        }, array_keys($columns), array_values($columns)));
-    }
-
-    return 'col';
-}

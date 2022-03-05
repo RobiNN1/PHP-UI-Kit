@@ -32,13 +32,12 @@ class Grid extends Component {
             'close'      => false, // Closing div
         ], $options);
 
-        $fwoptions = $this->uikit->getFrameworkOptions('layout');
-        $grid = is_callable($fwoptions['grid_func']) ? $fwoptions['grid_func']($col_sizes) : '';
+        $grid_function = $this->uikit->getFrameworkOptions('grid_func');
 
         $context = [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
-            'grid_class' => $grid,
+            'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
             'open'       => $options['open'],
             'close'      => $options['close'],
         ];
