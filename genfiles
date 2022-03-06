@@ -12,12 +12,21 @@
 /**
  * File for generating components.
  *
- * Usage: php genfiles component_name
+ * Usage: php genfiles component_name [type - cmp|frm]
  */
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
 
 if (!isset($_SERVER['argv'][1])) {
     echo 'Enter component name (snake_case).';
     exit(1);
+}
+
+$type = 'frm';
+if (isset($_SERVER['argv'][2])) {
+    $type = in_array($_SERVER['argv'][2], ['cmp', 'frm']) ? $_SERVER['argv'][2] : 'cmp';
 }
 
 $tpl = $_SERVER['argv'][1];
@@ -31,8 +40,28 @@ $name = implode('', $arr);
 
 $tpl_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
 
-file_put_contents(__DIR__.'/resources/bootstrap5/templates/twig/form/'.$tpl.'.twig', $tpl_content);
-file_put_contents(__DIR__.'/resources/semanticui2/templates/twig/form/'.$tpl.'.twig', $tpl_content);
+$tpl_type = $type === 'cmp' ? 'components' : 'form';
+file_put_contents(__DIR__.'/resources/bootstrap5/templates/twig/'.$tpl_type.'/'.$tpl.'.twig', $tpl_content);
+file_put_contents(__DIR__.'/resources/semanticui2/templates/twig/'.$tpl_type.'/'.$tpl.'.twig', $tpl_content);
+
+$class_type = '\Form;';
+$class_path = 'Form/';
+$namespace = PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;';
+$component = '';
+$return = 'form/'.$tpl.'\'';
+
+if ($type === 'cmp') {
+    $class_type = ';';
+    $class_path = '';
+    $namespace = '';
+    $component = '
+        $component = \''.$tpl.'\';
+
+        if (!$this->checkComponent($component)) {
+            return $this->noComponentMsg($component);
+        }'.PHP_EOL;
+    $return = 'components/\'.$component';
+}
 
 $class = '<?php
 /**
@@ -44,9 +73,7 @@ $class = '<?php
  * file that was distributed with this source code.
  */
 
-namespace RobiNN\UiKit\Components\Form;
-
-use RobiNN\UiKit\Components\Component;
+namespace RobiNN\UiKit\Components'.$class_type.$namespace.'
 
 class '.$name.' extends Component {
     /**
@@ -54,7 +81,7 @@ class '.$name.' extends Component {
      *
      * @return string
      */
-    public function render(array $options = []): string {
+    public function render(array $options = []): string {'.$component.'
         $options = array_merge([
             \'id\'         => \'\', // Wrapper ID.
             \'class\'      => \'\', // Class for wrapper.
@@ -66,12 +93,12 @@ class '.$name.' extends Component {
             \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
         ];
 
-        return $this->uikit->renderTpl(\'form/'.$tpl.'\', $context);
+        return $this->uikit->renderTpl(\''.$return.', $context);
     }
 }
 ';
 
-file_put_contents(__DIR__.'/src/Components/Form/'.$name.'.php', $class);
+file_put_contents(__DIR__.'/src/Components/'.$class_path.$name.'.php', $class);
 
 $test = '<?php
 /**
@@ -83,7 +110,7 @@ $test = '<?php
  * file that was distributed with this source code.
  */
 
-namespace Tests\Components\Form;
+namespace Tests\Components'.$class_type.'
 
 use Tests\ComponentTestCase;
 
@@ -98,7 +125,7 @@ class '.$name.'Test extends ComponentTestCase {
 }
 ';
 
-file_put_contents(__DIR__.'/tests/Components/Form/'.$name.'Test.php', $test);
+file_put_contents(__DIR__.'/tests/Components/'.$class_path.$name.'Test.php', $test);
 
 echo 'Successfully generated component.';
 exit(0);
