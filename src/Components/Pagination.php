@@ -12,8 +12,10 @@ namespace RobiNN\UiKit\Components;
 
 class Pagination extends Component {
     /**
+     * Render pagination.
+     *
      * @param array $items   Array of items.
-     * @param array $options Additional options. Default value: []
+     * @param array $options Additional options.
      *
      * @return string
      */
@@ -27,7 +29,7 @@ class Pagination extends Component {
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'link'       => '', // Pagination link tpl, use %s placeholder for numbers.
             'current'    => 4, // Current page.
             'disabled'   => null, // Disabled page. Prev or next can be disabled as well.
@@ -58,12 +60,10 @@ class Pagination extends Component {
             ];
         }
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'items'      => $items,
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

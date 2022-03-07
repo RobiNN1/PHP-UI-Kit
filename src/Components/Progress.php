@@ -12,8 +12,10 @@ namespace RobiNN\UiKit\Components;
 
 class Progress extends Component {
     /**
-     * @param int|array $percent Percents, array [12, 20] or asociative array [12 => 'Title', 22 => 'Title'] for multiple bars.
-     * @param array     $options Additional options. Default value: []
+     * Render progress.
+     *
+     * @param int|array $percent Percents, array or asociative array for multiple bars.
+     * @param array     $options Additional options.
      *
      * @return string
      */
@@ -27,7 +29,7 @@ class Progress extends Component {
         $options = array_merge([
             'id'          => '', // Wrapper ID.
             'class'       => '', // Class for wrapper.
-            'attributes'  => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes'  => [], // Array of custom attributes, set null as value for attributes without value.
             'color'       => 'default', // Progress bar backgroud color. Possible value: default|success|warning|error
             'auto_colors' => null, // Set auto colors function that depends on bar width.
             'percents'    => true, // Show percents in title.
@@ -72,12 +74,10 @@ class Progress extends Component {
             }
         }
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'bars'       => $bars,
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

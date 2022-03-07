@@ -12,8 +12,10 @@ namespace RobiNN\UiKit\Components;
 
 class ListGroup extends Component {
     /**
-     * @param array $items   Multidimensional array. E.g. ['Item 1', 'Item 2']
-     * @param array $options Additional options. Default value: []
+     * Render list group.
+     *
+     * @param array $items   Multidimensional array.
+     * @param array $options Additional options.
      *
      * @return string
      */
@@ -28,16 +30,14 @@ class ListGroup extends Component {
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
         ], $options);
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'items'      => $items,
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

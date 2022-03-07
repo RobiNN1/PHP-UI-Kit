@@ -17,7 +17,7 @@ require_once __DIR__.'/helpers.php';
 
 ob_start();
 
-echo opencontainer(false, ['attributes' => ['style' => 'padding-top: 3rem;padding-bottom: 3rem;']]);
+echo container_open(false, ['attributes' => ['style' => 'padding-top: 3rem;padding-bottom: 3rem;']]);
 
 echo '<div style="text-align:center;margin-bottom:3rem;">
 <h1>PHP UI Kit Examples</h1>
@@ -26,63 +26,63 @@ echo '<div style="text-align:center;margin-bottom:3rem;">
 </div>';
 
 echo '<h3>Forms</h3>';
-echo openform('post', '', ['attributes' => ['style' => 'margin-top:20px;']]);
+echo form_open('post', '', ['attributes' => ['style' => 'margin-top:20px;']]);
 
 echo '<h5>Input sizes</h5>';
-echo openrow();
-echo opengrid([100, 33]);
+echo row_open();
+echo grid_open([100, 33]);
 echo input('input-small', 'Small', '', ['size' => 'sm']);
-echo closegrid().opengrid([100, 33]);
+echo grid_close().grid_open([100, 33]);
 echo input('input-defult', 'Default');
-echo closegrid().opengrid([100, 33]);
+echo grid_close().grid_open([100, 33]);
 echo input('input-large', 'Large', '', ['size' => 'lg']);
-echo closegrid();
-echo closerow();
+echo grid_close();
+echo row_close();
 
 echo '<h5>Inputs with states</h5>';
 // In Semantic (Fomantic) UI states works only inside .ui.form element
-echo openrow();
-echo opengrid([100, 50]);
+echo row_open();
+echo grid_open([100, 50]);
 echo input('input-success', 'Success', '', ['state' => 'success', 'required' => true]);
-echo closegrid().opengrid([100, 50]);
+echo grid_close().grid_open([100, 50]);
 echo input('input-error', 'Error', '', ['state' => 'error']);
-echo closegrid();
-echo closerow();
+echo grid_close();
+echo row_close();
 
-echo openrow();
-echo opengrid([100, 50]);
+echo row_open();
+echo grid_open([100, 50]);
 echo input('input-success2', 'Success field with text', '', ['state' => 'success', 'feedback_text' => 'Text...']);
-echo closegrid().opengrid([100, 50]);
+echo grid_close().grid_open([100, 50]);
 echo input('input-error2', 'Error field with text', '', ['state' => 'error', 'feedback_text' => 'Text...']);
-echo closegrid();
-echo closerow();
+echo grid_close();
+echo row_close();
 
 echo '<h5>Inputs with addons</h5>';
-echo openrow();
-echo opengrid([100, 33]);
+echo row_open();
+echo grid_open([100, 33]);
 echo input('input-left-addon', 'Left addon', '', ['left_addon' => '€']);
-echo closegrid().opengrid([100, 33]);
+echo grid_close().grid_open([100, 33]);
 echo input('input-right-addon', 'Right addon', '', ['right_addon' => '@site.com']);
-echo closegrid().opengrid([100, 33]);
+echo grid_close().grid_open([100, 33]);
 echo input('input-addons', 'Addons', '', ['left_addon' => '€', 'right_addon' => ',00']);
-echo closegrid();
-echo closerow();
+echo grid_close();
+echo row_close();
 
 echo '<h5>Inputs with button</h5>';
-echo openrow();
-echo opengrid([100, 33]);
+echo row_open();
+echo grid_open([100, 33]);
 echo input('input-left-action-button', 'Left action button', '', ['left_custom' => button('Left')]);
-echo closegrid().opengrid([100, 33]);
+echo grid_close().grid_open([100, 33]);
 echo input('input-right-action-button', 'Right action button', '', ['right_custom' => button('Right')]);
-echo closegrid().opengrid([100, 33]);
+echo grid_close().grid_open([100, 33]);
 echo input('input-action-buttons', 'Action buttons', '', [
     'left_custom'  => button('Left'),
     'right_custom' => button('Right'),
 ]);
-echo closegrid();
-echo closerow();
+echo grid_close();
+echo row_close();
 
-echo closeform();
+echo form_close();
 
 echo '<hr>';
 
@@ -96,23 +96,23 @@ echo accordion('test', [
 echo '<hr>';
 
 echo '<h4>Alert</h4>';
-echo openrow();
-echo opengrid([100, 15, ['bootstrap5' => 'auto']]);
+echo row_open();
+echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
 echo alert('Default');
-echo closegrid();
-echo opengrid([100, 15, ['bootstrap5' => 'auto']]);
+echo grid_close();
+echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
 echo alert('Success', 'success');
-echo closegrid();
-echo opengrid([100, 15, ['bootstrap5' => 'auto']]);
+echo grid_close();
+echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
 echo alert('Warning', 'warning');
-echo closegrid();
-echo opengrid([100, 15, ['bootstrap5' => 'auto']]);
+echo grid_close();
+echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
 echo alert('Error', 'error');
-echo closegrid();
-echo opengrid([100, 15, ['bootstrap5' => 'auto']]);
+echo grid_close();
+echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
 echo alert('Info', 'info', ['dismiss' => true]);
-echo closegrid();
-echo closerow();
+echo grid_close();
+echo row_close();
 echo '<hr>';
 
 echo '<h4>Badge</h4>';
@@ -157,34 +157,26 @@ $btns = [
     'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]],
 ];
 echo '<div style="display:block;margin-bottom:20px;">';
-echo button_group([
-    'size'    => 'sm',
-    'options' => $btns,
-]);
+echo button_group($btns, ['size' => 'sm',]);
 echo '</div>';
 echo '<div style="display:block;margin-bottom:20px;">';
-echo button_group([
-    'options' => $btns,
-]);
+echo button_group($btns);
 echo '</div>';
 echo '<div style="display:block;margin-bottom:20px;">';
-echo button_group([
-    'size'    => 'lg',
-    'options' => $btns,
-]);
+echo button_group($btns, ['size' => 'lg',]);
 echo '</div>';
 echo '<hr>';
 
 echo '<h4>Card</h4>';
-echo openrow();
-echo opengrid([100, 50]);
+echo row_open();
+echo grid_open([100, 50]);
 echo card([
     'header' => 'Header',
     'body'   => 'Body',
     'footer' => 'Footer',
 ]);
-echo closegrid();
-echo opengrid([100, 50]);
+echo grid_close();
+echo grid_open([100, 50]);
 echo card([
     'body' => '
     <h3>Title</h3>
@@ -192,8 +184,8 @@ echo card([
     <p>Text</p>
     ',
 ]);
-echo closegrid();
-echo closerow();
+echo grid_close();
+echo row_close();
 echo '<hr>';
 
 echo '<h4>Carousel</h4>';
@@ -303,7 +295,7 @@ echo '<hr>';
 
 echo '<div>Other components W.I.P.</div>';
 
-echo closecontainer();
+echo container_close();
 
 $body = ob_get_contents();
 ob_end_clean();

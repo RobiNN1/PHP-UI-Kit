@@ -14,7 +14,9 @@ use RobiNN\UiKit\Dom;
 
 class Card extends Component {
     /**
-     * @param array $options Additional options. Default value: []
+     * Render card.
+     *
+     * @param array $options Additional options.
      *
      * @return string
      */
@@ -28,18 +30,18 @@ class Card extends Component {
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'top_img'    => [], // Card top image.
             'header'     => '', // Card header.
             'body'       => '', // Card body.
             'footer'     => '', // Card footer.
             'top'        => '', // Card top content.
-            'bottom'     => '', // card bottom content.
+            'bottom'     => '', // Card bottom content.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
-        $context = [
+        $html = $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'top_img'    => $options['top_img'],
@@ -48,9 +50,7 @@ class Card extends Component {
             'footer'     => $options['footer'],
             'top'        => $options['top'],
             'bottom'     => $options['bottom'],
-        ];
-
-        $html = $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
 
         $dom = new Dom($html);
 

@@ -12,9 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 class Tabs extends Component {
     /**
+     * Render tabs.
+     *
      * @param string $id      The ID of Tabs.
-     * @param array  $items   Multidimensional array. E.g. [['title' => 'Tab 1', 'content' => 'Content 1'], ['title' => 'Tab 2', 'content' => 'Content 2'],]
-     * @param array  $options Additional options. Default value: []
+     * @param array  $items   Multidimensional array.
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -27,7 +29,7 @@ class Tabs extends Component {
 
         $options = array_merge([
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
         ], $options);
 
         // Add 'active' item if missing
@@ -52,13 +54,11 @@ class Tabs extends Component {
             $i++;
         }
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'id'         => $id,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'items'      => $items_,
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

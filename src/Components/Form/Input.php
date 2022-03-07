@@ -14,10 +14,12 @@ use RobiNN\UiKit\Components\Component;
 
 class Input extends Component {
     /**
+     * Render input field.
+     *
      * @param string     $name    Input name.
      * @param string     $label   Input label.
      * @param string|int $value   Input value.
-     * @param array      $options Additional options. Default value: []
+     * @param array      $options Additional options.
      *
      * @return string
      */
@@ -29,7 +31,7 @@ class Input extends Component {
             'type'             => 'text', // Input type.
             'class'            => '', // Class for wrapper.
             'input_class'      => '', // Input class.
-            'attributes'       => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes'       => [], // Array of custom attributes, set null as value for attributes without value.
             'input_attributes' => [], // Array of custom attributes for input, set null as value for attributes without value.
             'size'             => 'default', // Input size. Possible value: default|sm|lg
             'state'            => '', // Validation state. Possible value: success|error
@@ -67,7 +69,7 @@ class Input extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions('input');
 
-        $context = [
+        return $this->uikit->renderTpl('form/input', [
             'class'            => $options['class'],
             'input_class'      => $options['input_class'],
             'attributes'       => $this->getAttributes($options['attributes'], $options['id']),
@@ -85,8 +87,6 @@ class Input extends Component {
             'feedback_text'    => $options['feedback_text'],
             'help_text'        => $options['help_text'],
             'required'         => $options['required'],
-        ];
-
-        return $this->uikit->renderTpl('form/input', $context);
+        ]);
     }
 }

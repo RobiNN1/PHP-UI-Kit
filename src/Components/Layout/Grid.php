@@ -14,8 +14,10 @@ use RobiNN\UiKit\Components\Component;
 
 class Grid extends Component {
     /**
+     * Render grid.
+     *
      * @param array|string $col_sizes Column sizes.
-     * @param array        $options   Additional options. Default value: []
+     * @param array        $options   Additional options.
      *
      * @return string
      */
@@ -27,27 +29,27 @@ class Grid extends Component {
 
         $options = array_merge([
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'open'       => false, // Opening div
             'close'      => false, // Closing div
         ], $options);
 
         $grid_function = $this->uikit->getFrameworkOptions('grid_func');
 
-        $context = [
+        return $this->uikit->renderTpl('layout/grid', [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
             'open'       => $options['open'],
             'close'      => $options['close'],
-        ];
-
-        return $this->uikit->renderTpl('layout/grid', $context);
+        ]);
     }
 
     /**
+     * Render opening tag of the grid.
+     *
      * @param array|string $col_sizes Column sizes.
-     * @param array        $options   Additional options. Default value: []
+     * @param array        $options   Additional options.
      *
      * @return string
      */
@@ -56,6 +58,8 @@ class Grid extends Component {
     }
 
     /**
+     * Render closing tag of the grid.
+     *
      * @return string
      */
     public function close(): string {

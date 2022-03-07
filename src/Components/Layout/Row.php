@@ -14,30 +14,32 @@ use RobiNN\UiKit\Components\Component;
 
 class Row extends Component {
     /**
-     * @param array $options Additional options. Default value: []
+     * Render row.
+     *
+     * @param array $options Additional options.
      *
      * @return string
      */
     public function render(array $options = []): string {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'open'       => false, // Opening div.
             'close'      => false, // Closing div.
         ], $options);
 
-        $context = [
+        return $this->uikit->renderTpl('layout/row', [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'open'       => $options['open'],
             'close'      => $options['close'],
-        ];
-
-        return $this->uikit->renderTpl('layout/row', $context);
+        ]);
     }
 
     /**
-     * @param array $options Additional options. Default value: []
+     * Render opening tag of the row.
+     *
+     * @param array $options Additional options.
      *
      * @return string
      */
@@ -46,6 +48,8 @@ class Row extends Component {
     }
 
     /**
+     * Render closing tag of the row.
+     *
      * @return string
      */
     public function close(): string {

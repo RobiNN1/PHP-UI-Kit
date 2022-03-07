@@ -55,7 +55,7 @@ final class UiKit extends ComponentsList {
         self::$tpl_engine->init($uikit, $config, $debug);
         self::$tpl_engine->addPaths(self::$tpl_paths);
 
-        self::loadFrameworkFiles();
+        self::loadFrameworkAssets();
 
         return $uikit;
     }
@@ -77,6 +77,8 @@ final class UiKit extends ComponentsList {
      * @return array|mixed
      */
     public static function getFrameworkOptions(string $key = '') {
+        static $config = [];
+
         $config = (array)require realpath(self::$config->getFrameworkPath(self::$config->getFramework())).'/config.php';
 
         if (!empty(self::$fw_options)) {
@@ -90,7 +92,6 @@ final class UiKit extends ComponentsList {
 
     /**
      * Set CSS framework options using "dot" notation.
-     * E.g. setFrameworkOption('badge.colors.default', 'bg-primary blue') will set blue color to all frameworks.
      *
      * @param string $option
      * @param mixed  $value
@@ -105,9 +106,9 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * Load framework files.
+     * Load framework assets.
      */
-    public static function loadFrameworkFiles(): void {
+    private static function loadFrameworkAssets(): void {
         $fwoptions = self::getFrameworkOptions();
 
         foreach ($fwoptions['files']['css'] as $css) {
@@ -127,12 +128,12 @@ final class UiKit extends ComponentsList {
      * Render template.
      *
      * @param string $tpl
-     * @param array  $context
+     * @param array  $data
      *
      * @return string
      */
-    public function renderTpl(string $tpl, array $context = []): string {
-        return self::$tpl_engine->render($tpl, $context);
+    public function renderTpl(string $tpl, array $data = []): string {
+        return self::$tpl_engine->render($tpl, $data);
     }
 
     /**
@@ -150,8 +151,8 @@ final class UiKit extends ComponentsList {
             $components_list[$component] = [$this->$component, 'render'];
 
             if (in_array($component, $open_close)) {
-                $components_list['open'.$component] = [$this->$component, 'open'];
-                $components_list['close'.$component] = [$this->$component, 'close'];
+                $components_list[$component.'_open'] = [$this->$component, 'open'];
+                $components_list[$component.'_close'] = [$this->$component, 'close'];
             }
         }
 

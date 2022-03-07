@@ -26,21 +26,14 @@ interface ITplEngine {
     public function init(UiKit $uikit, Config $config, bool $debug = false): object;
 
     /**
-     * Get TPL Instance.
-     *
-     * @return object
-     */
-    public function getTplInstance(): object;
-
-    /**
      * Render template.
      *
      * @param string $tpl
-     * @param array  $context
+     * @param array  $data
      *
      * @return string
      */
-    public function render(string $tpl, array $context = []): string;
+    public function render(string $tpl, array $data = []): string;
 
     /**
      * Add paths with templates.

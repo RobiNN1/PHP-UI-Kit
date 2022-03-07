@@ -15,17 +15,18 @@ use RobiNN\UiKit\OutputHandler;
 
 class Layout extends Component {
     /**
-     * @param string $body
-     * @param array  $options Additional options. Default value: []
+     * Render site layout.
+     *
+     * @param string $body    Site content.
+     * @param array  $options Additional options.
      *
      * @return string
      */
     public function render(string $body, array $options = []): string {
         $options = array_merge([
-            'lang'       => 'en', // Page lang.
-            'title'      => 'UI Kit', // Page title.
-            'body'       => $body, // Body conetnt.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'lang'       => 'en', // Site lang (used for html lang attribute).
+            'title'      => 'UI Kit', // Site title.
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
         ], $options);
 
         if (!empty(OutputHandler::$jqueryCode) && $this->uikit->getFrameworkOptions('jquery')) {
@@ -48,16 +49,14 @@ class Layout extends Component {
             $css_codes = '<style>'.$minify_css(OutputHandler::$cssCode).'</style>';
         }
 
-        $context = [
+        return $this->uikit->renderTpl('layout/layout', [
             'lang'        => $options['lang'],
             'title'       => $options['title'],
-            'body'        => $options['body'],
+            'body'        => $body,
             'attributes'  => $this->getAttributes($options['attributes']),
             'head_tags'   => OutputHandler::$pageHeadTags,
             'css_codes'   => $css_codes,
             'footer_tags' => OutputHandler::$pageFooterTags,
-        ];
-
-        return $this->uikit->renderTpl('layout/layout', $context);
+        ]);
     }
 }

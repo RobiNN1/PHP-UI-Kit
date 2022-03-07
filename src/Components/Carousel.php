@@ -12,9 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 class Carousel extends Component {
     /**
+     * Render carousel.
+     *
      * @param string $id      Carousel ID.
-     * @param array  $slides  Array. E.g. ['Slide 1', 'Slide 2',]
-     * @param array  $options Additional options. Default value: []
+     * @param array  $slides  Array.
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -28,12 +30,12 @@ class Carousel extends Component {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'indicators' => true, // Carousel indicators.
             'controls'   => true, // Carousel controls buttons.
         ], $options);
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
@@ -41,8 +43,6 @@ class Carousel extends Component {
             'slides'     => $slides,
             'indicators' => $options['indicators'],
             'controls'   => $options['controls'],
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

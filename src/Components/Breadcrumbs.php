@@ -12,8 +12,10 @@ namespace RobiNN\UiKit\Components;
 
 class Breadcrumbs extends Component {
     /**
-     * @param array $links   Associative array. E.g. ['Link 1' => 'link1.php', 'Link 2' => 'link2.php',]
-     * @param array $options Additional options. Default value: []
+     * Render breadcrumbs.
+     *
+     * @param array $links   Associative array.
+     * @param array $options Additional options.
      *
      * @return string
      */
@@ -28,16 +30,14 @@ class Breadcrumbs extends Component {
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
         ], $options);
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'links'      => $links,
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

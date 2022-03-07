@@ -77,7 +77,9 @@ namespace RobiNN\UiKit\Components'.$class_type.$namespace.'
 
 class '.$name.' extends Component {
     /**
-     * @param array $options Additional options. Default value: []
+     * Render '.str_replace('_', ' ', $tpl).'.
+     *
+     * @param array $options Additional options.
      *
      * @return string
      */
@@ -85,15 +87,13 @@ class '.$name.' extends Component {
         $options = array_merge([
             \'id\'         => \'\', // Wrapper ID.
             \'class\'      => \'\', // Class for wrapper.
-            \'attributes\' => [], // Array of custom attributes, set null as value for attributes without value. E.g. [\'attr\' => \'value\', \'attr2\' => null]
+            \'attributes\' => [], // Array of custom attributes, set null as value for attributes without value.
         ], $options);
 
-        $context = [
+        return $this->uikit->renderTpl(\''.$return.', [
             \'class\'      => $options[\'class\'],
             \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
-        ];
-
-        return $this->uikit->renderTpl(\''.$return.', $context);
+        ]);
     }
 }
 ';

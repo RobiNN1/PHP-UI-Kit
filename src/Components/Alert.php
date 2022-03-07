@@ -14,9 +14,11 @@ use RobiNN\UiKit\Dom;
 
 class Alert extends Component {
     /**
+     * Render alert.
+     *
      * @param string $text    Alert text.
      * @param string $color   Alert color. Possible value: default|success|warning|error|info
-     * @param array  $options Additional options. Default value: []
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -30,21 +32,19 @@ class Alert extends Component {
         $options = array_merge([
             'id'         => '', // Alert ID.
             'class'      => '', // Alert class.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'dismiss'    => false, // Make alert dismissable.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
-        $context = [
+        $html = $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
             'dismiss'    => $options['dismiss'],
-        ];
-
-        $html = $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
 
         $dom = new Dom($html);
 

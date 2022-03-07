@@ -12,9 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 class Modal extends Component {
     /**
+     * Render modal.
+     *
      * @param string $id      The ID of Modal.
-     * @param array  $content Associative array. E.g. ['Title 1' => 'Content 1', 'Title 2' => 'Content 2',]
-     * @param array  $options Additional options. Default value: []
+     * @param array  $content Associative array.
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -29,9 +31,9 @@ class Modal extends Component {
 
         $options = array_merge([
             'class'        => '', // Class for wrapper.
-            'attributes'   => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes'   => [], // Array of custom attributes, set null as value for attributes without value.
             'size'         => 'default', // Button size. Possible value: default|sm|lg|fullscreen
-            'hide_button'  => false,
+            'hide_button'  => false, // Hide trigger button.
             'button'       => [], // Button options.
             'close_button' => true, // Show close button.
             'always_open'  => false, // Always open.
@@ -56,7 +58,7 @@ class Modal extends Component {
             $options['hide_button'] = true;
         }
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'id'           => $id,
             'class'        => $options['class'],
             'attributes'   => $this->getAttributes($options['attributes']),
@@ -66,8 +68,6 @@ class Modal extends Component {
             'always_open'  => $options['always_open'],
             'hide_button'  => $options['hide_button'],
             'button'       => $button,
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

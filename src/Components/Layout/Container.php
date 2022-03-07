@@ -14,33 +14,35 @@ use RobiNN\UiKit\Components\Component;
 
 class Container extends Component {
     /**
+     * Render container.
+     *
      * @param bool  $fluid   Container without maximum width.
-     * @param array $options Additional options. Default value: []
+     * @param array $options Additional options.
      *
      * @return string
      */
     public function render(bool $fluid = false, array $options = []): string {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'open'       => false, // Opening div.
             'close'      => false, // Closing div.
         ], $options);
 
-        $context = [
+        return $this->uikit->renderTpl('layout/container', [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'open'       => $options['open'],
             'close'      => $options['close'],
             'fluid'      => $fluid,
-        ];
-
-        return $this->uikit->renderTpl('layout/container', $context);
+        ]);
     }
 
     /**
+     * Render opening tag of the container.
+     *
      * @param bool  $fluid   Container without maximum width.
-     * @param array $options Additional options. Default value: []
+     * @param array $options Additional options.
      *
      * @return string
      */
@@ -49,6 +51,8 @@ class Container extends Component {
     }
 
     /**
+     * Render closing tag of the container.
+     *
      * @return string
      */
     public function close(): string {

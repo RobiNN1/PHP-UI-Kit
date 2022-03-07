@@ -12,9 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 class Badge extends Component {
     /**
+     * Render badge.
+     *
      * @param string $text    Badge text.
      * @param string $color   Badge color. Possible value: default|primary|success|warning|error|info
-     * @param array  $options Additional options. Default value: []
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -28,20 +30,18 @@ class Badge extends Component {
         $options = array_merge([
             'id'         => '', // Badge ID.
             'class'      => '', // Badge class.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'rounded'    => false, // Rounded badge.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
             'rounded'    => $options['rounded'],
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

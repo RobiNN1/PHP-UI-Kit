@@ -12,9 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 class Button extends Component {
     /**
+     * Render button.
+     *
      * @param string $title   Button title.
      * @param string $type    Button type. Possible value: button|submit|reset
-     * @param array  $options Additional options. Default value: []
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -28,7 +30,7 @@ class Button extends Component {
         $options = array_merge([
             'id'         => '', // Button ID.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'name'       => '', // Value of name attribute.
             'value'      => null, // Value of value attribute.
             'color'      => 'default', // Button color. Possible value: default|primary|success|warning|error|info
@@ -69,7 +71,7 @@ class Button extends Component {
         $active_class = $this->getOption('states', 'active', $fwoptions);
         $disabled_class = $this->getOption('states', 'disabled', $fwoptions);
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'class'         => $options['class'],
             'attributes'    => $this->getAttributes($attributes),
             'title'         => $title,
@@ -84,8 +86,6 @@ class Button extends Component {
             'menu_dp'       => $options['menu_dp'],
             'state_classes' => ($options['active'] ? $active_class : '').($options['disabled'] ? $disabled_class : ''),
             'no_classes'    => $options['no_classes'],
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

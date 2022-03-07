@@ -61,25 +61,16 @@ class Twig implements ITplEngine {
     }
 
     /**
-     * Get TPL Instance.
-     *
-     * @return object
-     */
-    public function getTplInstance(): object {
-        return $this->twig;
-    }
-
-    /**
      * Render template.
      *
      * @param string $tpl
-     * @param array  $context
+     * @param array  $data
      *
      * @return string
      */
-    public function render(string $tpl, array $context = []): string {
+    public function render(string $tpl, array $data = []): string {
         try {
-            return $this->twig->render($tpl.'.twig', $context);
+            return $this->twig->render($tpl.'.twig', $data);
         } catch (\Exception $e) {
             die($e->getMessage().' File: '.$e->getFile().' Line: '.$e->getLine());
         }

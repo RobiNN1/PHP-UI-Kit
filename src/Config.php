@@ -11,6 +11,9 @@
 namespace RobiNN\UiKit;
 
 class Config {
+    /**
+     * @const string UI Kit version.
+     */
     public const VERSION = '1.0.0';
 
     /**
@@ -48,6 +51,8 @@ class Config {
     }
 
     /**
+     * Get cache.
+     *
      * @return mixed
      */
     public function getCache() {
@@ -55,13 +60,17 @@ class Config {
     }
 
     /**
-     * @param mixed $cache
+     * Set cache.
+     *
+     * @param mixed $cache Cache object,path or bool.
      */
     public function setCache($cache): void {
         $this->cache = $cache;
     }
 
     /**
+     * Get the currently loaded framework.
+     *
      * @return string
      */
     public function getFramework(): string {
@@ -69,14 +78,18 @@ class Config {
     }
 
     /**
-     * @param string $framework
+     * Set the framework.
+     *
+     * @param string $framework Framework name.
      */
     public function setFramework(string $framework): void {
         $this->framework = $framework;
     }
 
     /**
-     * @param string $framework
+     * Get path of the currently loaded framework.
+     *
+     * @param string $framework Framework name.
      *
      * @return string
      */
@@ -85,8 +98,10 @@ class Config {
     }
 
     /**
-     * @param string $framework
-     * @param string $path
+     * Set path to the framework.
+     *
+     * @param string $framework Framework name.
+     * @param string $path      Absolute path to the famework.
      *
      * @return void
      */

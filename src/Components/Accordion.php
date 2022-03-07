@@ -12,9 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 class Accordion extends Component {
     /**
+     * Render accordion.
+     *
      * @param string $id      Accordion ID.
-     * @param array  $items   Associative array. E.g. ['Title 1' => 'Content 1', 'Title 2' => 'Content 2',]
-     * @param array  $options Additional options. Default value: []
+     * @param array  $items   Associative array.
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -28,19 +30,17 @@ class Accordion extends Component {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'first_open' => false, // Set true to open first item.
         ], $options);
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'items'      => $items,
             'first_open' => $options['first_open'],
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 }

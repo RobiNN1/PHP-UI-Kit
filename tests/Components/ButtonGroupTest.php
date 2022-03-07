@@ -15,11 +15,9 @@ use Tests\ComponentTestCase;
 final class ButtonGroupTest extends ComponentTestCase {
     public function testButtonGroupRender(): void {
         $tpl = $this->uikit->button_group->render([
-            'options' => [
-                1        => 'Yes',
-                0        => 'No',
-                'delete' => ['title' => 'Delete', 'btn_options' => ['color' => 'error']],
-            ],
+            1        => 'Yes',
+            0        => 'No',
+            'delete' => ['title' => 'Delete', 'btn_options' => ['color' => 'error']],
         ]);
 
         $expected = '<div class="btn-group" role="group">

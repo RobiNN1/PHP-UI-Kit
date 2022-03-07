@@ -35,8 +35,6 @@ class Misc {
 
     /**
      * Set an array item to a given value using "dot" notation.
-     * If no key is given to the method, the entire array will be replaced.
-     * Code from Laravel.
      *
      * @param array  $array
      * @param string $key

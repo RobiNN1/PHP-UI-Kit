@@ -61,33 +61,33 @@ class OutputHandler {
     /**
      * Add JS codes to the output.
      *
-     * @param string $tag
+     * @param string $code
      */
-    public static function addToJs(string $tag): void {
-        if (!stristr(self::$jsCode, $tag)) {
-            self::$jsCode .= $tag;
+    public static function addToJs(string $code): void {
+        if (!stristr(self::$jsCode, $code)) {
+            self::$jsCode .= $code;
         }
     }
 
     /**
      * Add jQuery codes to the output.
      *
-     * @param string $tag
+     * @param string $code
      */
-    public static function addToJQuery(string $tag): void {
-        if (!stristr(self::$jqueryCode, $tag)) {
-            self::$jqueryCode .= $tag;
+    public static function addToJQuery(string $code): void {
+        if (!stristr(self::$jqueryCode, $code)) {
+            self::$jqueryCode .= $code;
         }
     }
 
     /**
      * Add CSS codes to the output.
      *
-     * @param string $tag
+     * @param string $code
      */
-    public static function addToCss(string $tag): void {
-        if (!stristr(self::$cssCode, $tag)) {
-            self::$cssCode .= $tag;
+    public static function addToCss(string $code): void {
+        if (!stristr(self::$cssCode, $code)) {
+            self::$cssCode .= $code;
         }
     }
 }

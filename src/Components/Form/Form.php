@@ -14,9 +14,11 @@ use RobiNN\UiKit\Components\Component;
 
 class Form extends Component {
     /**
+     * Render form.
+     *
      * @param string $method  Form method. Possible value: get|post
      * @param string $action  Form action.
-     * @param array  $options Additional options. Default value: []
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -25,7 +27,7 @@ class Form extends Component {
             'id'         => '', // Form ID.
             'name'       => '', // Name attribute.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'open'       => false, // Open form.
             'close'      => false, // Close form.
             'upload'     => false, // Set true for adding enctype multipart/form-data.
@@ -53,20 +55,20 @@ class Form extends Component {
 
         $attributes += $options['attributes'];
 
-        $context = [
+        return $this->uikit->renderTpl('form/form', [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($attributes),
             'open'       => $options['open'],
             'close'      => $options['close'],
-        ];
-
-        return $this->uikit->renderTpl('form/form', $context);
+        ]);
     }
 
     /**
+     * Render opening tag of the form.
+     *
      * @param string $method  Form method. Possible value: get|post
      * @param string $action  Form action.
-     * @param array  $options Additional options. Default value: []
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -75,6 +77,8 @@ class Form extends Component {
     }
 
     /**
+     * Render closing tag of the form.
+     *
      * @return string
      */
     public function close(): string {

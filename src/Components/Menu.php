@@ -12,9 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 class Menu extends Component {
     /**
+     * Render menu.
+     *
      * @param string $id      The ID of Menu.
-     * @param array  $items   Multidimensional array. E.g. [['title' => 'Item 1', 'link' => 'link1.php'],]
-     * @param array  $options Additional options. Default value: []
+     * @param array  $items   Multidimensional array.
+     * @param array  $options Additional options.
      *
      * @return string
      */
@@ -30,7 +32,7 @@ class Menu extends Component {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value. E.g. ['attr' => 'value', 'attr2' => null]
+            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'color'      => 'light', // Menu color. Possible value: light|dark
             'brand'      => ['title' => '', 'link' => '#'], // Site name.
         ], $options);
@@ -44,7 +46,7 @@ class Menu extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
-        $context = [
+        return $this->uikit->renderTpl('components/'.$component, [
             'id'         => $id,
             'class'      => $options['class'],
             'item_class' => $options['item_class'],
@@ -52,9 +54,7 @@ class Menu extends Component {
             'color'      => $this->getOption('colors', $options['color'], $fwoptions),
             'brand'      => $options['brand'],
             'items'      => $this->formatItems($items, $id),
-        ];
-
-        return $this->uikit->renderTpl('components/'.$component, $context);
+        ]);
     }
 
     /**
