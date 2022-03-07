@@ -1,27 +1,21 @@
 <?php
 /**
- * Helper functions.
+ * This file is part of UiKit.
  *
- * For easy access to all features, copy this file into your project.
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
  *
- * @author RobiNN
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 if (!function_exists('get_ui')) {
     /**
      * Return UI Kit instance.
      *
-     * Change the options if necessary.
-     *
      * @return RobiNN\UiKit\UiKit
      */
     function get_ui(): RobiNN\UiKit\UiKit {
-        $config = new RobiNN\UiKit\Config([
-            'cache'     => __DIR__.'/cache', // Cache object (depends on tpl engine), absolute path or false.
-            'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
-        ]);
-
-        return RobiNN\UiKit\UiKit::getInstance($config, true);
+        return RobiNN\UiKit\UiKit::getInstance(new RobiNN\UiKit\Config());
     }
 }
 

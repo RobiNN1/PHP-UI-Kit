@@ -41,7 +41,7 @@ class Twig implements ITplEngine {
     public function init(UiKit $uikit, Config $config, bool $debug = false): Environment {
         $this->loader = new FilesystemLoader(realpath($config->getFrameworkPath($config->getFramework()).'/templates/twig'));
         $this->twig = new Environment($this->loader, [
-            'cache' => $config->getCache().'/twig',
+            'cache' => $config->getCache(),
             'debug' => $debug,
         ]);
 

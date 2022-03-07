@@ -1,19 +1,22 @@
 <?php
-/**
- * This file is part of UiKit.
- *
- * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-if (version_compare(phpversion(), '7.4', '<')) {
-    die('PHP UI Kit is not compatible with PHP versions older than 7.4.');
-}
-
 require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__.'/helpers.php';
+
+/**
+ * Return UI Kit instance.
+ *
+ * Override defaults with own config.
+ * Now UI Kit will use these settings.
+ *
+ * @return RobiNN\UiKit\UiKit
+ */
+function get_ui(): RobiNN\UiKit\UiKit {
+    $config = new RobiNN\UiKit\Config([
+        'cache'     => __DIR__.'/cache',
+        'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
+    ]);
+
+    return RobiNN\UiKit\UiKit::getInstance($config, true);
+}
 
 ob_start();
 

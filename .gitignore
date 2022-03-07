@@ -4,5 +4,4 @@
 examples/cache
 vendor
 /.phpunit.result.cache
-/tests/cache
 composer.lock
