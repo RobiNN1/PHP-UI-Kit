@@ -61,14 +61,15 @@ class ButtonGroup extends Component {
                 $btn_options = $button['btn_options'];
             }
 
+            $btn_options['class'] = $options['item_class'].(!empty($btn_options['class']) ? Misc::space($btn_options['class']) : '');
+
             $btn = [
                 'value' => $value,
                 'link'  => !empty($button['link']) ? $button['link'] : '',
                 'size'  => empty($size) ? $options['size'] : '',
-                'class' => $options['item_class'].(!empty($btn_options['class']) ? Misc::space($btn_options['class']) : ''),
             ];
 
-            $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn_options, $btn));
+            $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options));
         }
 
         return $this->uikit->renderTpl('components/'.$component, [
