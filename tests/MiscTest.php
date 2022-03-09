@@ -52,4 +52,12 @@ final class MiscTest extends TestCase {
 
         $this->assertEqualsCanonicalizing($expected, $array);
     }
+
+    public function testSpaceLeft(): void {
+        $this->assertSame(' test', Misc::space('test'));
+    }
+
+    public function testSpaceRight(): void {
+        $this->assertSame('test ', Misc::space('test', true));
+    }
 }

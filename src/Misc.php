@@ -63,4 +63,16 @@ class Misc {
 
         return $array;
     }
+
+    /**
+     * Add space to left or right side.
+     *
+     * @param mixed $value
+     * @param bool  $right
+     *
+     * @return string
+     */
+    public static function space($value, bool $right = false): string {
+        return !empty($value) ? ($right ? $value.' ' : ' '.$value) : '';
+    }
 }

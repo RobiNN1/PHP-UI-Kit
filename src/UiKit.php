@@ -177,7 +177,7 @@ final class UiKit extends ComponentsList {
      */
     public function tplFilters(): array {
         return [
-            'space' => fn($value, $right = false) => (!empty($value) ? ($right === true ? $value.' ' : ' '.$value) : ''),
+            'space' => [Misc::class, 'space'],
         ];
     }
 
