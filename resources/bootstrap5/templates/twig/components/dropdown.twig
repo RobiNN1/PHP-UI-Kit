@@ -7,23 +7,16 @@
             {% set active = item.active ? ' active' : '' %}
 
             {% if item == 'divider' %}
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
+                <li><hr class="dropdown-divider"></li>
             {% elseif item.custom %}
                 <li>{{ item.custom|raw }}</li>
             {% else %}
                 {% if item.link %}
-                    <li>
-                        <a class="dropdown-item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
-                    </li>
+                    <li><a class="dropdown-item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a></li>
                 {% else %}
-                    <li>
-                        <span class="dropdown-item-text{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span>
-                    </li>
+                    <li><span class="dropdown-item-text{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span></li>
                 {% endif %}
             {% endif %}
-
         {% endfor %}
     </ul>
 </{{ tag }}>

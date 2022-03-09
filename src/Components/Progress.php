@@ -29,9 +29,9 @@ class Progress extends Component {
         $options = array_merge([
             'id'          => '', // Wrapper ID.
             'class'       => '', // Class for wrapper.
-            'attributes'  => [], // Array of custom attributes, set null as value for attributes without value.
-            'color'       => 'default', // Progress bar backgroud color. Possible value: default|success|warning|error
-            'auto_colors' => null, // Set auto colors function that depends on bar width.
+            'attributes'  => [], // Array of custom attributes.
+            'color'       => 'default', // Progress bar background color. Or array with colors. Possible value: default/success/warning/error
+            'auto_colors' => null, // Function that set the color depending on the width of the bar.
             'percents'    => true, // Show percents in title.
         ], $options);
 

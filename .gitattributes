@@ -11,4 +11,3 @@
 phpstan.neon export-ignore
 phpunit.xml export-ignore
 tests export-ignore
-gen_files.php export-ignore

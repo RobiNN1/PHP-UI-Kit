@@ -31,10 +31,10 @@ class Modal extends Component {
 
         $options = array_merge([
             'class'        => '', // Class for wrapper.
-            'attributes'   => [], // Array of custom attributes, set null as value for attributes without value.
-            'size'         => 'default', // Button size. Possible value: default|sm|lg|fullscreen
-            'hide_button'  => false, // Hide trigger button.
+            'attributes'   => [], // Array of custom attributes.
+            'size'         => 'default', // Modal size. Possible value: default/sm/lg/fullscreen
             'button'       => [], // Button options.
+            'hide_button'  => false, // Hide trigger button.
             'close_button' => true, // Show close button.
             'always_open'  => false, // Always open.
         ], $options);
@@ -60,13 +60,13 @@ class Modal extends Component {
 
         return $this->uikit->renderTpl('components/'.$component, [
             'id'           => $id,
+            'content'      => $content,
             'class'        => $options['class'],
             'attributes'   => $this->getAttributes($options['attributes']),
             'size'         => $this->getOption('sizes', $options['size'], $fwoptions),
-            'content'      => $content,
             'close_button' => $options['close_button'],
-            'always_open'  => $options['always_open'],
             'hide_button'  => $options['hide_button'],
+            'always_open'  => $options['always_open'],
             'button'       => $button,
         ]);
     }

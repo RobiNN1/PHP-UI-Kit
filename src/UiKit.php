@@ -145,14 +145,17 @@ final class UiKit extends ComponentsList {
         $components_list = [];
         $components = $this->getComponentsList();
 
-        $open_close = ['container', 'row', 'grid', 'form']; // Components with open and close methods.
+        // Components with open and close methods.
+        $open_close = [
+            'container', 'row', 'grid', 'form',
+        ];
 
         foreach ($components as $component => $class) {
-            $components_list[$component] = [$this->$component, 'render'];
-
             if (in_array($component, $open_close)) {
                 $components_list[$component.'_open'] = [$this->$component, 'open'];
                 $components_list[$component.'_close'] = [$this->$component, 'close'];
+            } else {
+                $components_list[$component] = [$this->$component, 'render'];
             }
         }
 

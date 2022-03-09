@@ -29,10 +29,10 @@ class Pagination extends Component {
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
+            'attributes' => [], // Array of custom attributes.
             'link'       => '', // Pagination link tpl, use %s placeholder for numbers.
-            'current'    => 4, // Current page.
-            'disabled'   => null, // Disabled page. Prev or next can be disabled as well.
+            'current'    => 1, // Current active page.
+            'disabled'   => 0, // Disabled page.
             'prev_next'  => true, // Enable Previous and Next links.
             'prev_title' => '&laquo;', // Previous page link title.
             'next_title' => '&raquo;', // Next page link title.
@@ -61,9 +61,9 @@ class Pagination extends Component {
         }
 
         return $this->uikit->renderTpl('components/'.$component, [
+            'items'      => $items,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'items'      => $items,
         ]);
     }
 }

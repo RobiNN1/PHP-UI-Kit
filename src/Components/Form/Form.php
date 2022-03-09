@@ -25,12 +25,12 @@ class Form extends Component {
     public function render(string $method = 'post', string $action = '', array $options = []): string {
         $options = array_merge([
             'id'         => '', // Form ID.
-            'name'       => '', // Name attribute.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
-            'open'       => false, // Open form.
-            'close'      => false, // Close form.
+            'attributes' => [], // Array of custom attributes.
+            'name'       => '', // Name attribute.
             'upload'     => false, // Set true for adding enctype multipart/form-data.
+            'open'       => false, // Open form. @internal
+            'close'      => false, // Close form. @internal
         ], $options);
 
         $attributes = [];

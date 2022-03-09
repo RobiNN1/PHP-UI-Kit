@@ -31,7 +31,7 @@ final class MenuTest extends ComponentTestCase {
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a> 
                     <ul class="dropdown-menu">
-                        <li> <a class="dropdown-item active" href="sub_link2.php">Sub Item 2</a> </li>
+                        <li><a class="dropdown-item active" href="sub_link2.php">Sub Item 2</a></li>
                     </ul>
                 </li>
             </ul>

@@ -29,17 +29,17 @@ class Accordion extends Component {
 
         $options = array_merge([
             'class'      => '', // Class for wrapper.
+            'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'first_open' => false, // Set true to open first item.
         ], $options);
 
         return $this->uikit->renderTpl('components/'.$component, [
             'id'         => $id,
-            'class'      => $options['class'],
-            'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($options['attributes']),
             'items'      => $items,
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes']),
+            'item_class' => $options['item_class'],
             'first_open' => $options['first_open'],
         ]);
     }

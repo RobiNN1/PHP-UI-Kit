@@ -23,9 +23,9 @@ class Row extends Component {
     public function render(array $options = []): string {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
-            'open'       => false, // Opening div.
-            'close'      => false, // Closing div.
+            'attributes' => [], // Array of custom attributes.
+            'open'       => false, // Opening div. @internal
+            'close'      => false, // Closing div. @internal
         ], $options);
 
         return $this->uikit->renderTpl('layout/row', [

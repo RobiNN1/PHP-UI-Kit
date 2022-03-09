@@ -31,9 +31,9 @@ class ButtonGroup extends Component {
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
-            'size'       => 'default', // Button size, this sets the same for all buttons. Possible value: default|sm|lg
-            'type'       => 'button', // Button type, this sets the same for all buttons. Possible value: button|submit|reset
+            'attributes' => [], // Array of custom attributes.
+            'size'       => 'default', // Button group size. Possible value: default/sm/lg
+            'type'       => 'button', // Default button type. Possible value: button/submit/reset
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -68,10 +68,10 @@ class ButtonGroup extends Component {
         }
 
         return $this->uikit->renderTpl('components/'.$component, [
+            'buttons'    => $buttons,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'size'       => $size,
-            'buttons'    => $buttons,
         ]);
     }
 }

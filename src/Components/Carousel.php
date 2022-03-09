@@ -29,18 +29,18 @@ class Carousel extends Component {
 
         $options = array_merge([
             'class'      => '', // Class for wrapper.
+            'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'indicators' => true, // Carousel indicators.
             'controls'   => true, // Carousel controls buttons.
         ], $options);
 
         return $this->uikit->renderTpl('components/'.$component, [
             'id'         => $id,
-            'class'      => $options['class'],
-            'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($options['attributes']),
             'slides'     => $slides,
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes']),
+            'item_class' => $options['item_class'],
             'indicators' => $options['indicators'],
             'controls'   => $options['controls'],
         ]);

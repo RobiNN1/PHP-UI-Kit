@@ -32,17 +32,17 @@ class Alert extends Component {
         $options = array_merge([
             'id'         => '', // Alert ID.
             'class'      => '', // Alert class.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
+            'attributes' => [], // Array of custom attributes.
             'dismiss'    => false, // Make alert dismissable.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $html = $this->uikit->renderTpl('components/'.$component, [
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'dismiss'    => $options['dismiss'],
         ]);
 

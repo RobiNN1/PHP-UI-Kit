@@ -26,7 +26,7 @@ class Layout extends Component {
         $options = array_merge([
             'lang'       => 'en', // Site lang (used for html lang attribute).
             'title'      => 'UI Kit', // Site title.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
+            'attributes' => [], // Array of custom attributes.
         ], $options);
 
         if (!empty(OutputHandler::$jqueryCode) && $this->uikit->getFrameworkOptions('jquery')) {
@@ -50,9 +50,9 @@ class Layout extends Component {
         }
 
         return $this->uikit->renderTpl('layout/layout', [
+            'body'        => $body,
             'lang'        => $options['lang'],
             'title'       => $options['title'],
-            'body'        => $body,
             'attributes'  => $this->getAttributes($options['attributes']),
             'head_tags'   => OutputHandler::$pageHeadTags,
             'css_codes'   => $css_codes,

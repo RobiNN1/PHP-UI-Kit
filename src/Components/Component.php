@@ -12,6 +12,9 @@ namespace RobiNN\UiKit\Components;
 
 use RobiNN\UiKit\UiKit;
 
+/**
+ * @internal
+ */
 class Component {
     /**
      * @var UiKit

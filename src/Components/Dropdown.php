@@ -32,10 +32,10 @@ class Dropdown extends Component {
         $options = array_merge([
             'id'         => '', // Dropdown ID.
             'class'      => '', // Class for wrapper.
+            'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
             'button'     => [], // Button options.
-            'in_menu'    => false, // Set true if is used in menu.
+            'in_menu'    => false, // Set true if is used in menu. @internal
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -57,12 +57,12 @@ class Dropdown extends Component {
         $button = $this->uikit->button->render($title, 'button', $options['button']);
 
         return $this->uikit->renderTpl('components/'.$component, [
-            'class'      => $options['class'],
-            'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'button'     => $button,
-            'in_menu'    => $options['in_menu'],
             'items'      => $items,
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
+            'item_class' => $options['item_class'],
+            'in_menu'    => $options['in_menu'],
+            'button'     => $button,
         ]);
     }
 }

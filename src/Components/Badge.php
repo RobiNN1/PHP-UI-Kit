@@ -30,17 +30,17 @@ class Badge extends Component {
         $options = array_merge([
             'id'         => '', // Badge ID.
             'class'      => '', // Badge class.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
+            'attributes' => [], // Array of custom attributes.
             'rounded'    => false, // Rounded badge.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         return $this->uikit->renderTpl('components/'.$component, [
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'rounded'    => $options['rounded'],
         ]);
     }

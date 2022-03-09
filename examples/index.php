@@ -244,9 +244,9 @@ echo '<hr>';
 echo '<h4>Modal</h4>';
 echo modal('test', [
     'title'  => 'Modal Title',
-    'header' => 'Testttt',
+    'header' => 'Test',
     'body'   => '<b>Testing</b>',
-    'footer' => 'Random text....',
+    'footer' => 'Random text...',
 ], [
     'button' => [
         'title' => 'Open Modal',
@@ -256,8 +256,7 @@ echo '<hr>';
 
 echo '<h4>Pagination</h4>';
 echo pagination(range(1, 6), [
-    'link'    => 'page.php?p=%s',
-    'current' => 3,
+    'link' => 'page.php?p=%s',
 ]);
 echo '<hr>';
 

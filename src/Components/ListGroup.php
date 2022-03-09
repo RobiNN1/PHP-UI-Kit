@@ -29,15 +29,15 @@ class ListGroup extends Component {
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
+            'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
         ], $options);
 
         return $this->uikit->renderTpl('components/'.$component, [
-            'class'      => $options['class'],
-            'item_class' => $options['item_class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'items'      => $items,
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
+            'item_class' => $options['item_class'],
         ]);
     }
 }

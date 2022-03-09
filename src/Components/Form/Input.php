@@ -26,27 +26,27 @@ class Input extends Component {
     public function render(string $name, string $label = '', $value = '', array $options = []): string {
         $options = array_merge([
             'id'               => '', // Wrapper ID.
-            'input_id'         => '', // Input ID.
+            'class'            => '', // Class for wrapper.
+            'attributes'       => [], // Array of custom attributes.
+            'input_id'         => $name, // Input ID.
+            'input_class'      => '', // Input class.
+            'input_attributes' => [], // Array of custom attributes for input.
             'placeholder'      => '', // Placeholder.
             'type'             => 'text', // Input type.
-            'class'            => '', // Class for wrapper.
-            'input_class'      => '', // Input class.
-            'attributes'       => [], // Array of custom attributes, set null as value for attributes without value.
-            'input_attributes' => [], // Array of custom attributes for input, set null as value for attributes without value.
-            'size'             => 'default', // Input size. Possible value: default|sm|lg
-            'state'            => '', // Validation state. Possible value: success|error
+            'size'             => 'default', // Input size. Possible value: default/sm/lg
+            'state'            => '', // Validation state. Possible value: success/error
+            'feedback_text'    => '', // Custom feedback text. In your code do validation and then set state and feedback text.
+            'required'         => false, // Required.
+            'help_text'        => '', // Custom help text.
             'left_addon'       => '', // Left addon.
             'right_addon'      => '', // Right addon.
             'left_custom'      => '', // Left custom addon.
-            'right_custom'     => '', // Right customaddon.
-            'feedback_text'    => '', // Custom feedback text. In your code do validation and then set state and feedback text.
-            'help_text'        => '', // Custom help text.
-            'required'         => false, // Required.
+            'right_custom'     => '', // Right custom addon.
         ], $options);
 
         $input_attributes = [];
 
-        $input_attributes['id'] = !empty($options['input_id']) ? $options['input_id'] : (!empty($name) ? $name : null);
+        $input_attributes['id'] = $options['input_id'];
 
         if (!empty($name)) {
             $input_attributes['name'] = $name;
@@ -70,23 +70,23 @@ class Input extends Component {
         $fwoptions = $this->uikit->getFrameworkOptions('input');
 
         return $this->uikit->renderTpl('form/input', [
-            'class'            => $options['class'],
-            'input_class'      => $options['input_class'],
-            'attributes'       => $this->getAttributes($options['attributes'], $options['id']),
-            'input_attributes' => $this->getAttributes($input_attributes),
-            'input_id'         => $input_attributes['id'],
             'value'            => $value,
-            'type'             => in_array($options['type'], $input_types) ? $options['type'] : 'text',
             'label'            => $label,
+            'class'            => $options['class'],
+            'attributes'       => $this->getAttributes($options['attributes'], $options['id']),
+            'input_id'         => $input_attributes['id'],
+            'input_class'      => $options['input_class'],
+            'input_attributes' => $this->getAttributes($input_attributes),
+            'type'             => in_array($options['type'], $input_types) ? $options['type'] : 'text',
             'size'             => $this->getOption('sizes', $options['size'], $fwoptions),
             'state'            => $this->getOption('validation', $options['state'], $fwoptions),
+            'feedback_text'    => $options['feedback_text'],
+            'required'         => $options['required'],
+            'help_text'        => $options['help_text'],
             'left_addon'       => $options['left_addon'],
             'right_addon'      => $options['right_addon'],
             'left_custom'      => $options['left_custom'],
             'right_custom'     => $options['right_custom'],
-            'feedback_text'    => $options['feedback_text'],
-            'help_text'        => $options['help_text'],
-            'required'         => $options['required'],
         ]);
     }
 }

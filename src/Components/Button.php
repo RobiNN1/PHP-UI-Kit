@@ -29,19 +29,19 @@ class Button extends Component {
 
         $options = array_merge([
             'id'         => '', // Button ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
+            'class'      => '', // Button class.
+            'attributes' => [], // Array of custom attributes.
             'name'       => '', // Value of name attribute.
             'value'      => null, // Value of value attribute.
-            'color'      => 'default', // Button color. Possible value: default|primary|success|warning|error|info
-            'size'       => 'default', // Button size. Possible value: default|sm|lg
+            'color'      => 'default', // Button color. Possible value: default/primary/success/warning/error/info
+            'size'       => 'default', // Button size. Possible value: default/sm/lg
             'active'     => false, // Active state.
             'disabled'   => false, // Disabled state.
             'link'       => '', // Link.
             'icon'       => '', // Button icon.
-            'icon_right' => false, // Show the icon to the right.
-            'menu_dp'    => false, // Set true if is used as menu dropdown button.
+            'icon_right' => false, // Show the icon on the right.
             'no_classes' => false, // Set true to remove default classes.
+            'menu_dp'    => false, // Set true if is used as menu dropdown button. @internal
         ], $options);
 
         $attributes = [];
@@ -72,20 +72,20 @@ class Button extends Component {
         $disabled_class = $this->getOption('states', 'disabled', $fwoptions);
 
         return $this->uikit->renderTpl('components/'.$component, [
+            'title'         => $title,
+            'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
             'class'         => $options['class'],
             'attributes'    => $this->getAttributes($attributes),
-            'title'         => $title,
             'color'         => $this->getOption('colors', $options['color'], $fwoptions),
-            'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
             'size'          => $this->getOption('sizes', $options['size'], $fwoptions),
             'active'        => $options['active'],
             'disabled'      => $options['disabled'],
             'link'          => $options['link'],
             'icon'          => $options['icon'],
             'icon_right'    => $options['icon_right'],
+            'no_classes'    => $options['no_classes'],
             'menu_dp'       => $options['menu_dp'],
             'state_classes' => ($options['active'] ? $active_class : '').($options['disabled'] ? $disabled_class : ''),
-            'no_classes'    => $options['no_classes'],
         ]);
     }
 }

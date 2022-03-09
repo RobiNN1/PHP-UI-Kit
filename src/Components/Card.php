@@ -30,13 +30,13 @@ class Card extends Component {
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
+            'attributes' => [], // Array of custom attributes.
             'top_img'    => [], // Card top image.
             'header'     => '', // Card header.
-            'body'       => '', // Card body.
-            'footer'     => '', // Card footer.
             'top'        => '', // Card top content.
+            'body'       => '', // Card body.
             'bottom'     => '', // Card bottom content.
+            'footer'     => '', // Card footer.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -46,10 +46,10 @@ class Card extends Component {
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'top_img'    => $options['top_img'],
             'header'     => $options['header'],
-            'body'       => $options['body'],
-            'footer'     => $options['footer'],
             'top'        => $options['top'],
+            'body'       => $options['body'],
             'bottom'     => $options['bottom'],
+            'footer'     => $options['footer'],
         ]);
 
         $dom = new Dom($html);

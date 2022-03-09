@@ -22,24 +22,19 @@ class Grid extends Component {
      * @return string
      */
     public function render($col_sizes = [100], array $options = []): string {
-        // $col_sizes example values:
-        // [100, 50] - 100% of width on mobile, 50% on larger screen. Depending on framework, you can add multiple values however recommended maximum is 4 values.
-        // [100, 50, ['bootstrap5' => 'col-6'] - You can even specify a value for a specific framework, in this case the first and second values are ignored.
-        // 'auto' - Columns will have the same width. Not recommended for layouts that must support multiple css frameworks. Since not every framework support this.
-
         $options = array_merge([
             'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes, set null as value for attributes without value.
-            'open'       => false, // Opening div
-            'close'      => false, // Closing div
+            'attributes' => [], // Array of custom attributes.
+            'open'       => false, // Opening div. @internal
+            'close'      => false, // Closing div. @internal
         ], $options);
 
         $grid_function = $this->uikit->getFrameworkOptions('grid_func');
 
         return $this->uikit->renderTpl('layout/grid', [
+            'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
-            'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
             'open'       => $options['open'],
             'close'      => $options['close'],
         ]);
