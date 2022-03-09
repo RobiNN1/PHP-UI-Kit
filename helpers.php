@@ -219,7 +219,7 @@ if (!function_exists('button_group')) {
     /**
      * Render button group.
      *
-     * @param array $items   Array of buttons.
+     * @param array $items   Associative array or multidimensional array.
      * @param array $options Additional options.
      *
      * @return string
@@ -247,7 +247,7 @@ if (!function_exists('carousel')) {
      * Render carousel.
      *
      * @param string $id      Carousel ID.
-     * @param array  $slides  Array.
+     * @param array  $slides  Array of items.
      * @param array  $options Additional options.
      *
      * @return string
@@ -276,7 +276,7 @@ if (!function_exists('list_group')) {
     /**
      * Render list group.
      *
-     * @param array $items   Multidimensional array.
+     * @param array $items   Array of items.
      * @param array $options Additional options.
      *
      * @return string

@@ -15,7 +15,7 @@ class Carousel extends Component {
      * Render carousel.
      *
      * @param string $id      Carousel ID.
-     * @param array  $slides  Array.
+     * @param array  $slides  Array of items.
      * @param array  $options Additional options.
      *
      * @return string
