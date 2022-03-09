@@ -157,7 +157,7 @@ $btns = [
     1          => 'Second',
     'test'     => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
     'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
-    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]],
+    'btn1'     => ['title' => 'No value', 'value' => null],
 ];
 echo '<div style="display:block;margin-bottom:20px;">';
 echo button_group($btns, ['size' => 'sm',]);
