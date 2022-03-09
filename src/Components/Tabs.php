@@ -28,8 +28,10 @@ class Tabs extends Component {
         }
 
         $options = array_merge([
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
+            'class'          => '', // Class for wrapper.
+            'attributes'     => [], // Array of custom attributes.
+            'nav_item_class' => '', // Class for nav item.
+            'tab_item_class' => '', // Class for tab item.
         ], $options);
 
         // Add 'active' item if missing
@@ -55,10 +57,12 @@ class Tabs extends Component {
         }
 
         return $this->uikit->renderTpl('components/'.$component, [
-            'id'         => $id,
-            'items'      => $items_,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes']),
+            'id'             => $id,
+            'items'          => $items_,
+            'class'          => $options['class'],
+            'attributes'     => $this->getAttributes($options['attributes']),
+            'nav_item_class' => $options['nav_item_class'],
+            'tab_item_class' => $options['tab_item_class'],
         ]);
     }
 }

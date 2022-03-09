@@ -30,6 +30,7 @@ class Progress extends Component {
             'id'          => '', // Wrapper ID.
             'class'       => '', // Class for wrapper.
             'attributes'  => [], // Array of custom attributes.
+            'item_class'  => '', // Class for item.
             'color'       => 'default', // Progress bar background color. Or array with colors. Possible value: default/success/warning/error
             'auto_colors' => null, // Function that set the color depending on the width of the bar.
             'percents'    => true, // Show percents in title.
@@ -77,6 +78,7 @@ class Progress extends Component {
         return $this->uikit->renderTpl('components/'.$component, [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
+            'item_class' => $options['item_class'],
             'bars'       => $bars,
         ]);
     }

@@ -5,14 +5,14 @@
         {% for item in items %}
             {% set tab_id = id~ '-tab' ~loop.index %}
             {% set active = item.active ? ' active' : '' %}
-            <div class="item{{ active }}" data-tab="{{ tab_id }}">{{ item.title|raw }}</div>
+            <div class="item{{ nav_item_class|space ~ active }}" data-tab="{{ tab_id }}">{{ item.title|raw }}</div>
         {% endfor %}
     </div>
     <div class="tab-content">
         {% for item in items %}
             {% set tab_id = id~ '-tab' ~loop.index %}
             {% set active = item.active ? ' active' : '' %}
-            <div class="ui tab{{ active }}" data-tab="{{ tab_id }}">{{ item.content|raw }}</div>
+            <div class="ui tab{{ tab_item_class|space ~ active }}" data-tab="{{ tab_id }}">{{ item.content|raw }}</div>
         {% endfor %}
     </div>
 </div>

@@ -30,6 +30,7 @@ class Pagination extends Component {
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
+            'item_class' => '', // Class for item.
             'link'       => '', // Pagination link tpl, use %s placeholder for numbers.
             'current'    => 1, // Current active page.
             'disabled'   => 0, // Disabled page.
@@ -64,6 +65,7 @@ class Pagination extends Component {
             'items'      => $items,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
+            'item_class' => $options['item_class'],
         ]);
     }
 }

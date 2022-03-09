@@ -10,6 +10,8 @@
 
 namespace RobiNN\UiKit\Components;
 
+use RobiNN\UiKit\Misc;
+
 class ButtonGroup extends Component {
     /**
      * Render button group.
@@ -34,6 +36,7 @@ class ButtonGroup extends Component {
             'attributes' => [], // Array of custom attributes.
             'size'       => 'default', // Button group size. Possible value: default/sm/lg
             'type'       => 'button', // Default button type. Possible value: button/submit/reset
+            'item_class' => '', // Class for item.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -62,9 +65,10 @@ class ButtonGroup extends Component {
                 'value' => $value,
                 'link'  => !empty($button['link']) ? $button['link'] : '',
                 'size'  => empty($size) ? $options['size'] : '',
+                'class' => $options['item_class'].(!empty($btn_options['class']) ? Misc::space($btn_options['class']) : ''),
             ];
 
-            $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options));
+            $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn_options, $btn));
         }
 
         return $this->uikit->renderTpl('components/'.$component, [
