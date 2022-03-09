@@ -1,6 +1,8 @@
 # PHP UI Kit
 
-UI Kit with support for multiple CSS frameworks and template engines.
+UI Kit with support for multiple CSS frameworks.
+
+[Documentation](docs)
 
 ## Installation
 
@@ -9,10 +11,6 @@ UI Kit with support for multiple CSS frameworks and template engines.
 ```
 composer require robinn/uikit
 ```
-
-## Usage
-
-w.i.p.
 
 ## Requirements
 
