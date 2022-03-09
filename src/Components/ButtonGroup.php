@@ -16,7 +16,7 @@ class ButtonGroup extends Component {
     /**
      * Render button group.
      *
-     * @param array $items   Array of buttons.
+     * @param array $items   Associative array or multidimensional array.
      * @param array $options Additional options.
      *
      * @return string
@@ -35,7 +35,7 @@ class ButtonGroup extends Component {
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'size'       => 'default', // Button group size. Possible value: default/sm/lg
-            'type'       => 'button', // Default button type. Possible value: button/submit/reset
+            'type'       => 'button', // Default type for all buttons. Possible value: button/submit/reset
             'item_class' => '', // Class for item.
         ], $options);
 
@@ -55,10 +55,17 @@ class ButtonGroup extends Component {
 
             if (is_array($button)) {
                 $title = $button['title'];
+
                 if (!empty($button['type'])) {
                     $type = $button['type'];
                 }
-                $btn_options = $button['btn_options'];
+
+                if (!empty($button['btn_options'])) {
+                    $btn_options = $button['btn_options'];
+                }
+
+                $value = array_key_exists('value', $button) ? $button['value'] :
+                    (array_key_exists('value', $btn_options) ? $btn_options['value'] : $value);
             }
 
             $btn_options['class'] = $options['item_class'].(!empty($btn_options['class']) ? Misc::space($btn_options['class']) : '');
@@ -66,7 +73,6 @@ class ButtonGroup extends Component {
             $btn = [
                 'value' => $value,
                 'link'  => !empty($button['link']) ? $button['link'] : '',
-                'size'  => empty($size) ? $options['size'] : '',
             ];
 
             $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options));
