@@ -22,17 +22,17 @@ final class UiKit extends ComponentsList {
     /**
      * @var array
      */
-    private static array $fw_options = [];
+    private array $fw_options = [];
 
     /**
      * @var ITplEngine
      */
-    private static ITplEngine $tpl_engine;
+    private ITplEngine $tpl_engine;
 
     /**
      * @var array
      */
-    private static array $tpl_paths = [];
+    private array $tpl_paths = [];
 
     public function __construct() {
         parent::__construct($this);
@@ -47,15 +47,15 @@ final class UiKit extends ComponentsList {
      *
      * @return UiKit
      */
-    public static function getInstance(Config $config, bool $debug = true, ITplEngine $tpl_engine = null): UiKit {
+    final public static function getInstance(Config $config, bool $debug = true, ITplEngine $tpl_engine = null): UiKit {
         $uikit = new self();
         self::$config = $config;
 
-        self::$tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
-        self::$tpl_engine->init($uikit, $config, $debug);
-        self::$tpl_engine->addPaths(self::$tpl_paths);
+        $uikit->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
+        $uikit->tpl_engine->init($uikit, $config, $debug);
+        $uikit->tpl_engine->addPaths($uikit->tpl_paths);
 
-        self::loadFrameworkAssets();
+        $uikit->loadFrameworkAssets();
 
         return $uikit;
     }
@@ -76,13 +76,13 @@ final class UiKit extends ComponentsList {
      *
      * @return array|mixed
      */
-    public static function getFrameworkOptions(string $key = '') {
+    public function getFrameworkOptions(string $key = '') {
         static $config = [];
 
         $config = (array)require realpath(self::$config->getFrameworkPath(self::$config->getFramework())).'/config.php';
 
-        if (!empty(self::$fw_options)) {
-            foreach (self::$fw_options as $option => $value) {
+        if (!empty($this->fw_options)) {
+            foreach ($this->fw_options as $option => $value) {
                 Misc::arraySet($config, $option, $value);
             }
         }
@@ -101,15 +101,15 @@ final class UiKit extends ComponentsList {
      */
     public function setFrameworkOption(string $option, $value, string $framework = ''): void {
         if (self::$config->getFramework() === $framework || empty($framework)) {
-            self::$fw_options[$option] = $value;
+            $this->fw_options[$option] = $value;
         }
     }
 
     /**
      * Load framework assets.
      */
-    private static function loadFrameworkAssets(): void {
-        $fwoptions = self::getFrameworkOptions();
+    private function loadFrameworkAssets(): void {
+        $fwoptions = (new self())->getFrameworkOptions();
 
         foreach ($fwoptions['files']['css'] as $css) {
             OutputHandler::addToHead('<link rel="stylesheet" href="'.$css.'">');
@@ -133,7 +133,7 @@ final class UiKit extends ComponentsList {
      * @return string
      */
     public function renderTpl(string $tpl, array $data = []): string {
-        return self::$tpl_engine->render($tpl, $data);
+        return $this->tpl_engine->render($tpl, $data);
     }
 
     /**
@@ -189,6 +189,6 @@ final class UiKit extends ComponentsList {
      * @return void
      */
     public function addPath(string $path): void {
-        self::$tpl_paths[] = $path;
+        $this->tpl_paths[] = $path;
     }
 }
