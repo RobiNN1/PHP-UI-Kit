@@ -1,6 +1,6 @@
 {
   "name": "robinn/uikit",
-  "description": "PHP UI Kit with support for multiple CSS frameworks and template engines.",
+  "description": "PHP UI Kit with support for multiple CSS frameworks.",
   "keywords": ["templating", "twig", "bootstrap", "semantic-ui", "css", "framework"],
   "license": "MIT",
   "type": "library",
