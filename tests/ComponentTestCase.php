@@ -21,7 +21,7 @@ class ComponentTestCase extends TestCase {
     public function __construct() {
         parent::__construct();
 
-        $this->uikit = UiKit::getInstance(new Config());
+        $this->uikit = new UiKit(new Config());
     }
 
     public function assertComponentRenders(string $expected, string $actual): void {

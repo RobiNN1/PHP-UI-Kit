@@ -18,9 +18,7 @@ final class UiKitTest extends TestCase {
     private UiKit $uikit;
 
     protected function setUp(): void {
-        $config = new Config(['cache' => __DIR__.'/cache']);
-
-        $this->uikit = UiKit::getInstance($config, true);
+        $this->uikit = new UiKit(new Config());
     }
 
     public function testGetFramework(): void {

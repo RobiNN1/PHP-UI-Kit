@@ -19,11 +19,10 @@ interface ITplEngine {
      *
      * @param UiKit  $uikit
      * @param Config $config
-     * @param bool   $debug
      *
      * @return object
      */
-    public function init(UiKit $uikit, Config $config, bool $debug = false): object;
+    public function init(UiKit $uikit, Config $config): object;
 
     /**
      * Render template.

@@ -12,10 +12,11 @@ require_once __DIR__.'/../vendor/autoload.php';
 function get_ui(): RobiNN\UiKit\UiKit {
     $config = new RobiNN\UiKit\Config([
         'cache'     => __DIR__.'/cache',
+        'debug'     => true,
         'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
     ]);
 
-    return RobiNN\UiKit\UiKit::getInstance($config, true);
+    return new RobiNN\UiKit\UiKit($config);
 }
 
 ob_start();

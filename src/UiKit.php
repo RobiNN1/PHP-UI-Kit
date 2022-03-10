@@ -15,9 +15,14 @@ use RobiNN\UiKit\TplEngines\Twig;
 
 final class UiKit extends ComponentsList {
     /**
+     * @const string UI Kit version.
+     */
+    public const VERSION = '1.0.0';
+
+    /**
      * @var Config
      */
-    private static Config $config;
+    private Config $config;
 
     /**
      * @var array
@@ -34,30 +39,20 @@ final class UiKit extends ComponentsList {
      */
     private array $tpl_paths = [];
 
-    public function __construct() {
-        parent::__construct($this);
-    }
-
     /**
-     * Get instance.
-     *
-     * @param Config          $config
-     * @param bool            $debug
-     * @param ITplEngine|null $tpl_engine
-     *
-     * @return UiKit
+     * @param Config      $config
+     * @param ?ITplEngine $tpl_engine
      */
-    final public static function getInstance(Config $config, bool $debug = true, ITplEngine $tpl_engine = null): UiKit {
-        $uikit = new self();
-        self::$config = $config;
+    public function __construct(Config $config, ITplEngine $tpl_engine = null) {
+        parent::__construct($this);
 
-        $uikit->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
-        $uikit->tpl_engine->init($uikit, $config, $debug);
-        $uikit->tpl_engine->addPaths($uikit->tpl_paths);
+        $this->config = $config;
 
-        $uikit->loadFrameworkAssets();
+        $this->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
+        $this->tpl_engine->init($this, $config);
+        $this->tpl_engine->addPaths($this->tpl_paths);
 
-        return $uikit;
+        $this->loadFrameworkAssets();
     }
 
     /**
@@ -66,7 +61,7 @@ final class UiKit extends ComponentsList {
      * @return string
      */
     public function getFramework(): string {
-        return self::$config->getFramework();
+        return $this->config->getFramework();
     }
 
     /**
@@ -79,7 +74,7 @@ final class UiKit extends ComponentsList {
     public function getFrameworkOptions(string $key = '') {
         static $config = [];
 
-        $config = (array)require realpath(self::$config->getFrameworkPath(self::$config->getFramework())).'/config.php';
+        $config = (array)require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
 
         if (!empty($this->fw_options)) {
             foreach ($this->fw_options as $option => $value) {
@@ -100,7 +95,7 @@ final class UiKit extends ComponentsList {
      * @return void
      */
     public function setFrameworkOption(string $option, $value, string $framework = ''): void {
-        if (self::$config->getFramework() === $framework || empty($framework)) {
+        if ($this->config->getFramework() === $framework || empty($framework)) {
             $this->fw_options[$option] = $value;
         }
     }
@@ -109,7 +104,7 @@ final class UiKit extends ComponentsList {
      * Load framework assets.
      */
     private function loadFrameworkAssets(): void {
-        $fwoptions = (new self())->getFrameworkOptions();
+        $fwoptions = $this->getFrameworkOptions();
 
         foreach ($fwoptions['files']['css'] as $css) {
             OutputHandler::addToHead('<link rel="stylesheet" href="'.$css.'">');

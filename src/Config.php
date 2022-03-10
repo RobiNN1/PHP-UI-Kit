@@ -12,14 +12,14 @@ namespace RobiNN\UiKit;
 
 class Config {
     /**
-     * @const string UI Kit version.
-     */
-    public const VERSION = '1.0.0';
-
-    /**
      * @var mixed
      */
     private $cache;
+
+    /**
+     * @var bool
+     */
+    private bool $debug;
 
     /**
      * @var string
@@ -37,6 +37,7 @@ class Config {
     public function __construct(array $options = []) {
         $options = array_merge([
             'cache'          => false, // Cache object (depends on tpl engine), absolute path or false.
+            'debug'          => false, // TPL engine debugging (if supported by engine).
             'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|semanticui2
             'framework_path' => [
                 // Path to CSS Framework, each Framework can be in different path.
@@ -46,6 +47,7 @@ class Config {
         ], $options);
 
         $this->cache = $options['cache'];
+        $this->debug = $options['debug'];
         $this->framework = $options['framework'];
         $this->framework_path = $options['framework_path'];
     }
@@ -66,6 +68,24 @@ class Config {
      */
     public function setCache($cache): void {
         $this->cache = $cache;
+    }
+
+    /**
+     * Get debug option.
+     *
+     * @return bool
+     */
+    public function getDebug(): bool {
+        return $this->debug;
+    }
+
+    /**
+     * Enable TPL debugging.
+     *
+     * @return void
+     */
+    public function enableDebug(): void {
+        $this->debug = true;
     }
 
     /**

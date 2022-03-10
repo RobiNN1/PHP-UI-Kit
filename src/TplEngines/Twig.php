@@ -34,18 +34,18 @@ class Twig implements ITplEngine {
      *
      * @param UiKit  $uikit
      * @param Config $config
-     * @param bool   $debug
      *
      * @return Environment
      */
-    public function init(UiKit $uikit, Config $config, bool $debug = false): Environment {
-        $this->loader = new FilesystemLoader(realpath($config->getFrameworkPath($config->getFramework()).'/templates/twig'));
+    public function init(UiKit $uikit, Config $config): Environment {
+        $this->loader = new FilesystemLoader($config->getFrameworkPath($config->getFramework()).'/templates/twig');
+
         $this->twig = new Environment($this->loader, [
             'cache' => $config->getCache(),
-            'debug' => $debug,
+            'debug' => $config->getDebug(),
         ]);
 
-        if ($debug) {
+        if ($config->getDebug()) {
             $this->twig->addExtension(new DebugExtension());
         }
 

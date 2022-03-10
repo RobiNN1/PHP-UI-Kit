@@ -30,6 +30,12 @@ final class ConfigTest extends TestCase {
         $this->assertEquals($value, $this->config->getCache());
     }
 
+    public function testDebugSetterGetter(): void {
+        $this->config->enableDebug();
+
+        $this->assertTrue($this->config->getDebug());
+    }
+
     public function testFrameworkSetterGetter(): void {
         $value = 'tailwind';
 
