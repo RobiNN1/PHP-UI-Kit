@@ -2,10 +2,9 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 /**
- * Return UI Kit instance.
+ * Get UI Kit object.
  *
  * Override defaults with own config.
- * Now UI Kit will use these settings.
  *
  * @return RobiNN\UiKit\UiKit
  */
