@@ -20,6 +20,11 @@ final class UiKit extends ComponentsList {
     public const VERSION = '1.0.0';
 
     /**
+     * @var ?UiKit
+     */
+    private static ?UiKit $instance = null;
+
+    /**
      * @var Config
      */
     private Config $config;
@@ -39,20 +44,30 @@ final class UiKit extends ComponentsList {
      */
     private array $tpl_paths = [];
 
+    public function __construct() {
+        parent::__construct($this);
+    }
+
     /**
      * @param Config      $config
      * @param ?ITplEngine $tpl_engine
+     *
+     * @return UiKit
      */
-    public function __construct(Config $config, ITplEngine $tpl_engine = null) {
-        parent::__construct($this);
+    public static function getInstance(Config $config, ?ITplEngine $tpl_engine = null): UiKit {
+        if (self::$instance == null) {
+            self::$instance = new self();
+        }
 
-        $this->config = $config;
+        self::$instance->config = $config;
 
-        $this->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
-        $this->tpl_engine->init($this, $config);
-        $this->tpl_engine->addPaths($this->tpl_paths);
+        self::$instance->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
+        self::$instance->tpl_engine->init(self::$instance, $config);
+        self::$instance->tpl_engine->addPaths(self::$instance->tpl_paths);
 
-        $this->loadFrameworkAssets();
+        self::$instance->loadFrameworkAssets();
+
+        return self::$instance;
     }
 
     /**
