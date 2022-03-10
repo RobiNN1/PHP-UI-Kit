@@ -3,7 +3,8 @@ parameters:
   paths:
     - src
     - examples
+    - resources/bootstrap5/config.php
+    - resources/semanticui2/config.php
+    - helpers.php
   excludePaths:
     - examples/cache
-    - src/TplEngines/Latte.php
-    - src/TplEngines/Plates.php
