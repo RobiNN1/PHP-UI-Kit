@@ -10,7 +10,7 @@
 
 if (!function_exists('get_ui')) {
     /**
-     * Return UI Kit instance.
+     * Get UI Kit object.
      *
      * @return RobiNN\UiKit\UiKit
      */
