@@ -15,7 +15,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
         'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
     ]);
 
-    return new RobiNN\UiKit\UiKit($config);
+    return RobiNN\UiKit\UiKit::getInstance($config);
 }
 
 ob_start();
@@ -24,8 +24,16 @@ echo container_open(false, ['attributes' => ['style' => 'padding-top: 3rem;paddi
 
 echo '<div style="text-align:center;margin-bottom:3rem;">
 <h1>PHP UI Kit Examples</h1>
-<h2>Current CSS Framework: <b>'.get_ui()->getFramework().'</b></h2>
-<p>This file shows the basic usage of all components.</p>
+<h2>Current CSS Framework: <b>'.get_ui()->getFramework().'</b></h2>';
+
+if (get_ui()->getFramework() === 'bootstrap5') {
+    echo '<p><a href="/examples/?sm">Open Semantic UI version</a></p>';
+} else {
+    echo '<p><a href="/examples/">Open Bootstrap 5 version</a></p>';
+}
+
+echo '<p>This file shows the basic usage of all components.</p>
+Examples: <a href="/examples/twig.php">Entire page written in Twig</a>.
 </div>';
 
 echo '<h3>Forms</h3>';
@@ -301,4 +309,6 @@ echo container_close();
 
 $body = ob_get_contents();
 ob_end_clean();
-echo layout($body);
+echo layout($body, [
+    'title' => 'PHP UI Kit Examples',
+]);

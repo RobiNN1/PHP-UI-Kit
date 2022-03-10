@@ -1,0 +1,26 @@
+{% macro page(framework) %}
+    {{ container_open(false, {'attributes': {'style': 'padding-top: 3rem;padding-bottom: 3rem;'}}) }}
+
+    <div style="text-align:center;margin-bottom:3rem;">
+        <h1>PHP UI Kit Examples: Twig</h1>
+        <h2>Current CSS Framework: <b>{{ framework }}</b></h2>
+
+        {% if framework == 'bootstrap5' %}
+            <p><a href="/examples/twig.php?sm">Open Semantic UI version</a></p>
+        {% else %}
+            <p><a href="/examples/twig.php">Open Bootstrap 5 version</a></p>
+        {% endif %}
+
+        <p>This file shows how to use components in Twig.</p>
+        <a href="/examples/">Return to main page</a>
+    </div>
+
+    {{ accordion('test', {
+        'Title 1': 'Content 1',
+        'Title 2': 'Content 2',
+    }) }}
+
+    {{ container_close() }}
+{% endmacro %}
+
+{{ layout(_self.page(framework), {'title': 'PHP UI Kit Examples: Twig'}) }}
