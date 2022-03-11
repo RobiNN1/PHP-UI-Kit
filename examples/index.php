@@ -4,18 +4,16 @@ require_once __DIR__.'/../vendor/autoload.php';
 /**
  * Get UI Kit object.
  *
- * Override defaults with own config.
+ * Note: No need to create this function, it only overrides defaults when using helpers.
  *
  * @return RobiNN\UiKit\UiKit
  */
 function get_ui(): RobiNN\UiKit\UiKit {
-    $config = new RobiNN\UiKit\Config([
+    return RobiNN\UiKit\UiKit::getInstance([
         'cache'     => __DIR__.'/cache',
         'debug'     => true,
         'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
     ]);
-
-    return RobiNN\UiKit\UiKit::getInstance($config);
 }
 
 ob_start();
@@ -33,7 +31,7 @@ if (get_ui()->getFramework() === 'bootstrap5') {
 }
 
 echo '<p>This file shows the basic usage of all components.</p>
-Examples: <a href="/examples/twig.php">Entire page written in Twig</a>.
+Examples: <a href="/examples/twig/">Entire page written in Twig</a>.
 </div>';
 
 echo '<h3>Forms</h3>';
@@ -298,7 +296,7 @@ echo '<hr>';
 echo '<h4>Tabs</h4>';
 echo tabs('test', [
     ['title' => 'Tab 1', 'content' => 'Content 1'],
-    ['title' => 'Tab 2', 'content' => 'Content 2', 'active' => true],
+    ['title' => 'Tab 2', 'content' => 'Content 2'],
     ['title' => 'Tab 3', 'content' => 'Content 3'],
 ]);
 echo '<hr>';

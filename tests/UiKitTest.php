@@ -18,7 +18,7 @@ final class UiKitTest extends TestCase {
     private UiKit $uikit;
 
     protected function setUp(): void {
-        $this->uikit = UiKit::getInstance(new Config());
+        $this->uikit = UiKit::getInstance();
     }
 
     public function testGetFramework(): void {

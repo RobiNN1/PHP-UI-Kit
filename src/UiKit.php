@@ -49,20 +49,22 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * @param Config      $config
+     * Get instance and init UI Kit.
+     *
+     * @param array       $config
      * @param ?ITplEngine $tpl_engine
      *
      * @return UiKit
      */
-    public static function getInstance(Config $config, ?ITplEngine $tpl_engine = null): UiKit {
+    public static function getInstance(array $config = [], ?ITplEngine $tpl_engine = null): UiKit {
         if (self::$instance == null) {
             self::$instance = new self();
         }
 
-        self::$instance->config = $config;
+        self::$instance->config = new Config($config);
 
         self::$instance->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
-        self::$instance->tpl_engine->init(self::$instance, $config);
+        self::$instance->tpl_engine->init(self::$instance, self::$instance->config);
         self::$instance->tpl_engine->addPaths(self::$instance->tpl_paths);
 
         self::$instance->loadFrameworkAssets();
@@ -192,13 +194,13 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * Add path with templates.
+     * Set path with templates.
      *
      * @param string $path
      *
      * @return void
      */
-    public function addPath(string $path): void {
+    public function setPath(string $path): void {
         $this->tpl_paths[] = $path;
     }
 }
