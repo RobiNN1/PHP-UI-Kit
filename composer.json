@@ -41,7 +41,7 @@
     }
   },
   "scripts": {
-    "phpstan": "phpstan analyse",
+    "phpstan": "phpstan",
     "test": "phpunit"
   },
   "config": {
