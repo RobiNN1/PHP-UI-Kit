@@ -11,16 +11,21 @@
       "homepage": "https://kelcak.com"
     }
   ],
-  "minimum-stability": "stable",
+  "support": {
+    "issues": "https://github.com/RobiNN1/PHP-UI-Kit/issues",
+    "source": "https://github.com/RobiNN1/PHP-UI-Kit"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
     "php": "^7.4||^8.0",
     "ext-dom": "*",
     "twig/twig": "^3"
   },
   "require-dev": {
+    "gajus/dindent": "^2.0",
     "phpstan/phpstan": "^1.4",
-    "phpunit/phpunit": "^9",
-    "gajus/dindent": "^2.0"
+    "phpunit/phpunit": "^9"
   },
   "autoload": {
     "psr-4": {
@@ -36,7 +41,13 @@
     }
   },
   "scripts": {
-    "test": "phpunit",
-    "phpstan": "phpstan analyse"
+    "phpstan": "phpstan analyse",
+    "test": "phpunit"
+  },
+  "config": {
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/package-versions-deprecated": true
+    }
   }
 }
