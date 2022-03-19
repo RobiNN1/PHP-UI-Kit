@@ -19,7 +19,7 @@ class Misc {
      *
      * @return mixed
      */
-    public static function arrayGet(array $array, string $key) {
+    public static function arrayGet(array $array, string $key): mixed {
         if (array_key_exists($key, $array)) {
             return $array[$key];
         }
@@ -42,7 +42,7 @@ class Misc {
      *
      * @return array
      */
-    public static function arraySet(array &$array, string $key, $value): array {
+    public static function arraySet(array &$array, string $key, mixed $value): array {
         $keys = explode('.', $key);
 
         foreach ($keys as $i => $key) {
@@ -72,7 +72,7 @@ class Misc {
      *
      * @return string
      */
-    public static function space($value, bool $right = false): string {
+    public static function space(mixed $value, bool $right = false): string {
         return !empty($value) ? ($right ? $value.' ' : ' '.$value) : '';
     }
 }

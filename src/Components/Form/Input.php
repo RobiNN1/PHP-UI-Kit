@@ -18,12 +18,12 @@ class Input extends Component {
      *
      * @param string     $name    Input name.
      * @param string     $label   Input label.
-     * @param string|int $value   Input value.
+     * @param int|string $value   Input value.
      * @param array      $options Additional options.
      *
      * @return string
      */
-    public function render(string $name, string $label = '', $value = '', array $options = []): string {
+    public function render(string $name, string $label = '', int|string $value = '', array $options = []): string {
         $options = array_merge([
             'id'               => '', // Wrapper ID.
             'class'            => '', // Class for wrapper.
