@@ -35,9 +35,9 @@ class Dom {
      *
      * @param string     $tagname
      * @param string     $attr
-     * @param string|int $value
+     * @param int|string $value
      */
-    public function setAttr(string $tagname, string $attr, $value): void {
+    public function setAttr(string $tagname, string $attr, int|string $value): void {
         $tags = $this->dom->getElementsByTagName($tagname);
 
         if ($tags->length !== 0) {
@@ -71,9 +71,9 @@ class Dom {
     /**
      * Save html.
      *
-     * @return false|string
+     * @return bool|string
      */
-    public function save() {
+    public function save(): bool|string {
         return $this->dom->saveHTML();
     }
 }

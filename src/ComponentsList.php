@@ -50,20 +50,11 @@ class ComponentsList {
         $list = [];
 
         foreach (get_class_vars(__CLASS__) as $var => $value) {
-            switch ($var) {
-                case 'layout':
-                case 'container':
-                case 'row':
-                case 'grid':
-                    $type = 'Layout\\';
-                    break;
-                case 'form':
-                case 'input':
-                    $type = 'Form\\';
-                    break;
-                default:
-                    $type = '';
-            }
+            $type = match ($var) {
+                'layout', 'container', 'row', 'grid' => 'Layout\\',
+                'form', 'input' => 'Form\\',
+                default => '',
+            };
 
             $arr = [];
             foreach (explode('_', $var) as $name) {

@@ -11,7 +11,6 @@
 namespace Tests;
 
 use PHPUnit\Framework\TestCase;
-use RobiNN\UiKit\Config;
 use RobiNN\UiKit\UiKit;
 
 final class UiKitTest extends TestCase {

@@ -21,7 +21,7 @@ class Grid extends Component {
      *
      * @return string
      */
-    public function render($col_sizes = [100], array $options = []): string {
+    public function render(array|string $col_sizes = [100], array $options = []): string {
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -48,7 +48,7 @@ class Grid extends Component {
      *
      * @return string
      */
-    public function open($col_sizes = [100], array $options = []): string {
+    public function open(array|string $col_sizes = [100], array $options = []): string {
         return $this->render($col_sizes, array_merge(['open' => true], $options));
     }
 

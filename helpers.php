@@ -87,7 +87,7 @@ if (!function_exists('grid_open') && !function_exists('grid_close')) {
      *
      * @return string
      */
-    function grid_open($col_sizes = [100], array $options = []): string {
+    function grid_open(array|string $col_sizes = [100], array $options = []): string {
         return get_ui()->grid->open($col_sizes, $options);
     }
 
@@ -131,12 +131,12 @@ if (!function_exists('input')) {
      *
      * @param string     $name    Input name.
      * @param string     $label   Input label.
-     * @param string|int $value   Input value.
+     * @param int|string $value   Input value.
      * @param array      $options Additional options.
      *
      * @return string
      */
-    function input(string $name, string $label = '', $value = '', array $options = []): string {
+    function input(string $name, string $label = '', int|string $value = '', array $options = []): string {
         return get_ui()->input->render($name, $label, $value, $options);
     }
 }
@@ -334,12 +334,12 @@ if (!function_exists('progress')) {
     /**
      * Render progress.
      *
-     * @param int|array $percent Percents, array or asociative array for multiple bars.
+     * @param array|int $percent Percents, array or asociative array for multiple bars.
      * @param array     $options Additional options.
      *
      * @return string
      */
-    function progress($percent, array $options = []): string {
+    function progress(array|int $percent, array $options = []): string {
         return get_ui()->progress->render($percent, $options);
     }
 }

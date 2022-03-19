@@ -62,7 +62,7 @@ class Component {
      *
      * @return mixed
      */
-    public function getOption(string $option, $value, array $opts) {
+    public function getOption(string $option, mixed $value, array $opts): mixed {
         $default = $opts[$option]['default'] ?? '';
         return in_array($value, array_keys($opts[$option])) ? $opts[$option][$value] : $default;
     }

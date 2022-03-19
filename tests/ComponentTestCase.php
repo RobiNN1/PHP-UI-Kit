@@ -12,7 +12,6 @@ namespace Tests;
 
 use Gajus\Dindent\Indenter;
 use PHPUnit\Framework\TestCase;
-use RobiNN\UiKit\Config;
 use RobiNN\UiKit\UiKit;
 
 class ComponentTestCase extends TestCase {

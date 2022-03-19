@@ -14,12 +14,12 @@ class Progress extends Component {
     /**
      * Render progress.
      *
-     * @param int|array $percent Percents, array or asociative array for multiple bars.
+     * @param array|int $percent Percents, array or asociative array for multiple bars.
      * @param array     $options Additional options.
      *
      * @return string
      */
-    public function render($percent, array $options = []): string {
+    public function render(array|int $percent, array $options = []): string {
         $component = 'progress';
 
         if (!$this->checkComponent($component)) {
@@ -45,7 +45,7 @@ class Progress extends Component {
         if (!is_array($percent)) {
             $color = is_array($options['color']) ? $options['color'][0] : $options['color'];
             if ($auto_colors) {
-                $color = $auto_colors((int)$percent);
+                $color = $auto_colors($percent);
             }
 
             $bars[] = [

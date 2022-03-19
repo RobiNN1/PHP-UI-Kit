@@ -86,9 +86,9 @@ final class UiKit extends ComponentsList {
      *
      * @param string $key
      *
-     * @return array|mixed
+     * @return mixed
      */
-    public function getFrameworkOptions(string $key = '') {
+    public function getFrameworkOptions(string $key = ''): mixed {
         static $config = [];
 
         $config = (array)require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
@@ -111,7 +111,7 @@ final class UiKit extends ComponentsList {
      *
      * @return void
      */
-    public function setFrameworkOption(string $option, $value, string $framework = ''): void {
+    public function setFrameworkOption(string $option, mixed $value, string $framework = ''): void {
         if ($this->config->getFramework() === $framework || empty($framework)) {
             $this->fw_options[$option] = $value;
         }

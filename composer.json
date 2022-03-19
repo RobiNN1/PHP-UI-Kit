@@ -18,7 +18,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": "^7.4||^8.0",
+    "php": ">=8.0",
     "ext-dom": "*",
     "twig/twig": "^3"
   },
@@ -45,9 +45,6 @@
     "test": "phpunit"
   },
   "config": {
-    "sort-packages": true,
-    "allow-plugins": {
-      "composer/package-versions-deprecated": true
-    }
+    "sort-packages": true
   }
 }
