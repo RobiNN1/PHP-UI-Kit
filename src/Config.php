@@ -64,7 +64,7 @@ class Config {
     /**
      * Set cache.
      *
-     * @param mixed $cache Cache object,path or bool.
+     * @param mixed $cache Cache object, path or bool.
      */
     public function setCache(mixed $cache): void {
         $this->cache = $cache;
