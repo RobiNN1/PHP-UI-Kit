@@ -1,7 +1,14 @@
 {
   "name": "robinn/uikit",
   "description": "PHP UI Kit with support for multiple CSS frameworks.",
-  "keywords": ["templating", "twig", "bootstrap", "semantic-ui", "css", "framework"],
+  "keywords": [
+    "templating",
+    "twig",
+    "bootstrap",
+    "semantic-ui",
+    "css",
+    "framework"
+  ],
   "license": "MIT",
   "type": "library",
   "authors": [
@@ -18,7 +25,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "php": ">=8.0",
+    "php": ">=8.1",
     "ext-dom": "*",
     "twig/twig": "^3"
   },

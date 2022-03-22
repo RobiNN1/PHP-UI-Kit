@@ -14,4 +14,4 @@ composer require robinn/uikit
 
 ## Requirements
 
-- PHP >= 8.0
+- PHP >= 8.1

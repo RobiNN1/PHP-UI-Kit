@@ -49,7 +49,7 @@ class ComponentsList {
     public function getComponentsList(): array {
         $list = [];
 
-        foreach (get_class_vars(__CLASS__) as $var => $value) {
+        foreach (get_class_vars(self::class) as $var => $value) {
             $type = match ($var) {
                 'layout', 'container', 'row', 'grid' => 'Layout\\',
                 'form', 'input' => 'Form\\',
@@ -57,7 +57,7 @@ class ComponentsList {
             };
 
             $arr = [];
-            foreach (explode('_', $var) as $name) {
+            foreach (explode('_', (string)$var) as $name) {
                 $arr[] = ucfirst($name);
             }
 
