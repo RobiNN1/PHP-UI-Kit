@@ -56,17 +56,17 @@ final class UiKit extends ComponentsList {
     /**
      * Get instance and init UI Kit.
      *
-     * @param array       $config
+     * @param ?Config     $config
      * @param ?ITplEngine $tpl_engine
      *
      * @return UiKit
      */
-    public static function getInstance(array $config = [], ?ITplEngine $tpl_engine = null): UiKit {
+    public static function getInstance(?Config $config = null, ?ITplEngine $tpl_engine = null): UiKit {
         if (self::$instance == null) {
             self::$instance = new self();
         }
 
-        self::$instance->config = new Config($config);
+        self::$instance->config = $config instanceof Config ? $config : new Config();
 
         self::$instance->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
         self::$instance->tpl_engine->init(self::$instance, self::$instance->config);
