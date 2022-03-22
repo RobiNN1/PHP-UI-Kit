@@ -11,7 +11,7 @@
 namespace RobiNN\UiKit\Components\Layout;
 
 use RobiNN\UiKit\Components\Component;
-use RobiNN\UiKit\OutputHandler;
+use RobiNN\UiKit\AddTo;
 
 class Layout extends Component {
     /**
@@ -29,16 +29,16 @@ class Layout extends Component {
             'attributes' => [], // Array of custom attributes.
         ], $options);
 
-        if (!empty(OutputHandler::$jqueryCode) && $this->uikit->getFrameworkOptions('jquery')) {
-            OutputHandler::addToJS('$(function(){'.OutputHandler::$jqueryCode.'});');
+        if (!empty(AddTo::$jquery) && $this->uikit->getFrameworkOptions('jquery')) {
+            AddTo::js('$(function(){'.AddTo::$jquery.'});');
         }
 
-        if (!empty(OutputHandler::$jsCode)) {
-            OutputHandler::addToFooter('<script>'.OutputHandler::$jsCode.'</script>');
+        if (!empty(AddTo::$js)) {
+            AddTo::footer('<script>'.AddTo::$js.'</script>');
         }
 
         $css_codes = '';
-        if (!empty(OutputHandler::$cssCode)) {
+        if (!empty(AddTo::$css)) {
             $minify_css = function (string $css): string {
                 $css = preg_replace('/\/\*((?!\*\/).)*\*\//', '', $css);
                 $css = preg_replace('/\s{2,}/', ' ', $css);
@@ -46,7 +46,7 @@ class Layout extends Component {
                 return preg_replace('/;}/', '}', $css);
             };
 
-            $css_codes = '<style>'.$minify_css(OutputHandler::$cssCode).'</style>';
+            $css_codes = '<style>'.$minify_css(AddTo::$css).'</style>';
         }
 
         return $this->uikit->renderTpl('layout/layout', [
@@ -54,9 +54,9 @@ class Layout extends Component {
             'lang'        => $options['lang'],
             'title'       => $options['title'],
             'attributes'  => $this->getAttributes($options['attributes']),
-            'head_tags'   => OutputHandler::$pageHeadTags,
+            'head_tags'   => AddTo::$head,
             'css_codes'   => $css_codes,
-            'footer_tags' => OutputHandler::$pageFooterTags,
+            'footer_tags' => AddTo::$footer,
         ]);
     }
 }
