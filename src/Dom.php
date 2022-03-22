@@ -16,7 +16,7 @@ class Dom {
     /**
      * @var DOMDocument
      */
-    private DOMDocument $dom;
+    private readonly DOMDocument $dom;
 
     /**
      * @param string $html

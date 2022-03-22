@@ -12,20 +12,11 @@ namespace RobiNN\UiKit\Components;
 
 use RobiNN\UiKit\UiKit;
 
-/**
- * @internal
- */
 class Component {
-    /**
-     * @var UiKit
-     */
-    public UiKit $uikit;
-
     /**
      * @param UiKit $uikit
      */
-    public function __construct(UiKit $uikit) {
-        $this->uikit = $uikit;
+    public function __construct(public UiKit $uikit) {
     }
 
     /**
