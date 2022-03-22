@@ -27,6 +27,6 @@ final class UiKitTest extends TestCase {
     public function testFrameworkOptionsSetterGetter(): void {
         $this->uikit->setFrameworkOption('jquery', true);
 
-        $this->assertEquals(true, $this->uikit->getFrameworkOptions('jquery'));
+        $this->assertTrue($this->uikit->getFrameworkOptions('jquery'));
     }
 }
