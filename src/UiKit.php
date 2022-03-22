@@ -129,15 +129,15 @@ final class UiKit extends ComponentsList {
         $fwoptions = $this->getFrameworkOptions();
 
         foreach ($fwoptions['files']['css'] as $css) {
-            OutputHandler::addToHead('<link rel="stylesheet" href="'.$css.'">');
+            AddTo::head('<link rel="stylesheet" href="'.$css.'">');
         }
 
         if (!empty($fwoptions['jquery']) && $fwoptions['jquery'] === true) {
-            OutputHandler::addToFooter('<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>');
+            AddTo::footer('<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>');
         }
 
         foreach ($fwoptions['files']['js'] as $js) {
-            OutputHandler::addToFooter('<script src="'.$js.'"></script>');
+            AddTo::footer('<script src="'.$js.'"></script>');
         }
     }
 
@@ -200,11 +200,11 @@ final class UiKit extends ComponentsList {
         }
 
         $functions = [
-            'add_to_head'   => [OutputHandler::class, 'addToHead'],
-            'add_to_footer' => [OutputHandler::class, 'addToFooter'],
-            'add_to_js'     => [OutputHandler::class, 'addToJs'],
-            'add_to_jquery' => [OutputHandler::class, 'addToJquery'],
-            'add_to_css'    => [OutputHandler::class, 'addToCss'],
+            'add_to_head'   => [AddTo::class, 'head'],
+            'add_to_footer' => [AddTo::class, 'footer'],
+            'add_to_js'     => [AddTo::class, 'js'],
+            'add_to_jquery' => [AddTo::class, 'jQuery'],
+            'add_to_css'    => [AddTo::class, 'css'],
         ];
 
         return array_merge($functions, $components_list);
