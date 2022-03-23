@@ -94,5 +94,5 @@ $filters = $uikit->tplFilters();
 Set path with templates.
 
 ```php
-$uikit->setPath();
+$uikit->setPath(__DIR__.'/templates');
 ```
