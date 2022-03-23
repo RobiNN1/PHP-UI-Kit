@@ -57,32 +57,4 @@ class Component {
         $default = $opts[$option]['default'] ?? '';
         return in_array($value, array_keys($opts[$option])) ? $opts[$option][$value] : $default;
     }
-
-    /**
-     * Check component.
-     *
-     * @param string $key Component name.
-     *
-     * @return bool
-     */
-    public function checkComponent(string $key): bool {
-        return in_array($key, $this->uikit->getFrameworkOptions('components'));
-    }
-
-    /**
-     * Message when component is not supported.
-     *
-     * @param string $key      Component name.
-     * @param string $requires Name of required component.
-     *
-     * @return string
-     */
-    public function noComponentMsg(string $key, string $requires = ''): string {
-        if (!empty($requires) && !$this->checkComponent($requires)) {
-            return sprintf('Component <b>%s</b> requires support for <b>%s</b> component in <b>%s</b> framework.',
-                $key, $requires, $this->uikit->getFramework());
-        }
-
-        return sprintf('Component <b>%s</b> is not supported in <b>%s</b> framework.', $key, $this->uikit->getFramework());
-    }
 }

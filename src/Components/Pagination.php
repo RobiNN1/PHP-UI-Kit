@@ -22,10 +22,6 @@ class Pagination extends Component {
     public function render(array $items, array $options = []): string {
         $component = 'pagination';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.

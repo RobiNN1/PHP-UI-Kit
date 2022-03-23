@@ -24,12 +24,6 @@ class ButtonGroup extends Component {
     public function render(array $items, array $options = []): string {
         $component = 'button_group';
 
-        if (!$this->checkComponent('button')) {
-            return $this->noComponentMsg($component, 'button');
-        } else if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.

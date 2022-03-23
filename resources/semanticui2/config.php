@@ -44,12 +44,6 @@ return [
 
         return '';
     },
-    'components'   => [
-        // List of supported components
-        'accordion', 'alert', 'badge', 'breadcrumbs', 'button', 'button_group', 'card',
-        'carousel', 'dropdown', 'list_group', 'menu', 'modal', 'pagination', 'progress',
-        'tabs',
-    ],
     'input'        => [
         'sizes'      => [
             'sm' => 'small',

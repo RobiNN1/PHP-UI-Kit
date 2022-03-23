@@ -23,10 +23,6 @@ class Card extends Component {
     public function render(array $options = []): string {
         $component = 'card';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.

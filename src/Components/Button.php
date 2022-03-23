@@ -23,10 +23,6 @@ class Button extends Component {
     public function render(string $title, string $type = 'button', array $options = []): string {
         $component = 'button';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'id'         => '', // Button ID.
             'class'      => '', // Button class.
