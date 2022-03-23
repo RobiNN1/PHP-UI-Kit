@@ -14,10 +14,9 @@ use RobiNN\UiKit\UiKit;
 
 class Component {
     /**
-     * @param UiKit $uikit
+     * @var ?UiKit
      */
-    public function __construct(public UiKit $uikit) {
-    }
+    public ?UiKit $uikit = null;
 
     /**
      * Get attributes.
