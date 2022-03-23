@@ -23,12 +23,6 @@ class Modal extends Component {
     public function render(string $id, array $content, array $options = []): string {
         $component = 'modal';
 
-        if (!$this->checkComponent('button')) {
-            return $this->noComponentMsg($component, 'button');
-        } else if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'class'        => '', // Class for wrapper.
             'attributes'   => [], // Array of custom attributes.

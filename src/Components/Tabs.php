@@ -23,10 +23,6 @@ class Tabs extends Component {
     public function render(string $id, array $items, array $options = []): string {
         $component = 'tabs';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'class'          => '', // Class for wrapper.
             'attributes'     => [], // Array of custom attributes.

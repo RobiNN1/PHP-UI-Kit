@@ -22,10 +22,6 @@ class Progress extends Component {
     public function render(array|int $percent, array $options = []): string {
         $component = 'progress';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'id'          => '', // Wrapper ID.
             'class'       => '', // Class for wrapper.

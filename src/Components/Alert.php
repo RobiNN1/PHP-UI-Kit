@@ -25,10 +25,6 @@ class Alert extends Component {
     public function render(string $text, string $color = 'default', array $options = []): string {
         $component = 'alert';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'id'         => '', // Alert ID.
             'class'      => '', // Alert class.

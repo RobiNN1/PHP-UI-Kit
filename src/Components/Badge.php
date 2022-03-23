@@ -23,10 +23,6 @@ class Badge extends Component {
     public function render(string $text, string $color = 'default', array $options = []): string {
         $component = 'badge';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'id'         => '', // Badge ID.
             'class'      => '', // Badge class.

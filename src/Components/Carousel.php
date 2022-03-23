@@ -23,10 +23,6 @@ class Carousel extends Component {
     public function render(string $id, array $slides, array $options = []): string {
         $component = 'carousel';
 
-        if (!$this->checkComponent($component)) {
-            return $this->noComponentMsg($component);
-        }
-
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
