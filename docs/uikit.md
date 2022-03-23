@@ -96,3 +96,37 @@ Set path with templates.
 ```php
 $uikit->setPath(__DIR__.'/templates');
 ```
+
+## getComponents()
+
+Get array of components or component object.
+
+```php
+$components = $uikit->getComponents();
+```
+
+```php
+// Pass component name to get its object
+$alert = $uikit->getComponents('alert');
+echo $alert->render('Test');
+```
+
+## addComponent()
+
+Add component.
+
+```php
+class Test {
+    public function render(): string {
+        return '...';
+    }
+}
+
+$uikit->addComponent('test', Test::class);
+
+// Then you can use it like all components
+echo $uikit->test->render(); // or create helper function for it
+
+// It will also work in the Twig
+// {{ test() }}
+```
