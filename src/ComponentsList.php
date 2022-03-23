@@ -36,8 +36,8 @@ class ComponentsList {
     public Components\Tabs $tabs;
 
     public function __construct(UiKit $uikit) {
-        foreach ($this->getComponentsList() as $var => $class) {
-            $this->$var = new $class($uikit);
+        foreach ($this->getComponents() as $name => $component) {
+            $this->$name = new $component['class']($uikit);
         }
     }
 
@@ -46,27 +46,20 @@ class ComponentsList {
      *
      * @return array
      */
-    public function getComponentsList(): array {
-        $list = [];
+    public function getComponents(): array {
+        $components = [];
 
-        foreach (get_class_vars(self::class) as $var => $value) {
-            $type = match ($var) {
-                'layout', 'container', 'row', 'grid' => 'Layout\\',
-                'form', 'input' => 'Form\\',
-                default => '',
-            };
+        $rc = new \ReflectionClass(self::class);
 
-            $arr = [];
-            foreach (explode('_', (string)$var) as $name) {
-                $arr[] = ucfirst($name);
-            }
+        foreach ($rc->getProperties() as $property) {
+            $class = (string)$property->getType();
 
-            $class_name = implode('', $arr);
-            $class = '\\RobiNN\\UiKit\\Components\\'.$type.$class_name;
-
-            $list[$var] = $class;
+            $components[$property->getName()] = [
+                'class'      => $class,
+                'open_close' => method_exists($class, 'open') && method_exists($class, 'close'),
+            ];
         }
 
-        return $list;
+        return $components;
     }
 }
