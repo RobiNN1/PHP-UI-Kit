@@ -8,3 +8,5 @@ parameters:
     - helpers.php
   excludePaths:
     - examples/cache
+  ignoreErrors:
+    - '#Access to an undefined property#'
