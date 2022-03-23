@@ -5,3 +5,4 @@ examples/cache
 vendor
 /.phpunit.result.cache
 composer.lock
+.phpstorm.meta.php
