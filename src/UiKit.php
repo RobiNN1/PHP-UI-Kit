@@ -157,7 +157,7 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * Add HTML code
+     * Add HTML code.
      *
      * @param string $html
      *
@@ -168,7 +168,7 @@ final class UiKit extends ComponentsList {
     }
 
     /**
-     * Get HTML code
+     * Get HTML code.
      *
      * @return string
      */
