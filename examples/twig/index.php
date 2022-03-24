@@ -21,5 +21,5 @@ function get_ui(): RobiNN\UiKit\UiKit {
 get_ui()->setPath(__DIR__.'/templates');
 
 echo get_ui()->renderTpl('page', [
-    'framework' => get_ui()->getFramework(),
+    'framework' => get_ui()->config->getFramework(),
 ]);

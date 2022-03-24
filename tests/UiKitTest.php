@@ -21,7 +21,7 @@ final class UiKitTest extends TestCase {
     }
 
     public function testGetFramework(): void {
-        $this->assertSame('bootstrap5', $this->uikit->getFramework());
+        $this->assertSame('bootstrap5', $this->uikit->config->getFramework());
     }
 
     public function testFrameworkOptionsSetterGetter(): void {
