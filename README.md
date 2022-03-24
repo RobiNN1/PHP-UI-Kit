@@ -16,7 +16,9 @@ composer require robinn/uikit
 
 ## Basic Usage
 
-The easiest way is to use it with helper functions
+Components can be loaded in several ways, it's up to you what you choose.
+
+The easiest way is to use it with helper functions:
 
 ```php
 ob_start();
@@ -31,7 +33,7 @@ echo layout($body, [
 ]);
 ```
 
-Or if you don't like echo
+Or if you don't like echo:
 
 ```php
 add_html('HTML code');
@@ -42,10 +44,10 @@ echo layout(get_html(), [
 ]);
 ```
 
-It is also possible to write everything directly in Twig
+It is also possible to write everything directly in template:
 
 ```php
-get_ui()->setPath(__DIR__.'/templates/'); // Path to dir with custom templates 
+get_ui()->setPath(__DIR__.'/templates'); // Path to dir with custom templates 
 $html = get_ui()->renderTpl('page'); // page.twig in templates/ dir
 
 echo layout($html, [
