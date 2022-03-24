@@ -15,8 +15,6 @@ use RobiNN\UiKit\UiKit;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
-use Twig\TwigFilter;
-use Twig\TwigFunction;
 
 class Twig implements ITplEngine {
     /**
@@ -49,13 +47,7 @@ class Twig implements ITplEngine {
             $this->twig->addExtension(new DebugExtension());
         }
 
-        foreach ($uikit->tplFunctions() as $function => $callback) {
-            $this->twig->addFunction(new TwigFunction($function, $callback, ['is_safe' => ['html']]));
-        }
-
-        foreach ($uikit->tplFilters() as $filter => $callback) {
-            $this->twig->addFilter(new TwigFilter($filter, $callback));
-        }
+        $this->twig->addExtension(new TwigUiKitExtension($uikit));
 
         return $this->twig;
     }
