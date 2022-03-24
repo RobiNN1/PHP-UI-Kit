@@ -129,7 +129,7 @@ $uikit->addComponent('test', Test::class);
 // Then you can use it like all components
 echo $uikit->test->render(); // or create helper function for it
 
-// This works only with render() and open/class (test_open(), test_close()) methods
+// This works only with render() and open/close (test_open(), test_close()) methods
 echo $uikit->test(); // Short version
 
 // It will also work in the Twig
