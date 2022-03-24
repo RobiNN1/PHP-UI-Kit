@@ -142,6 +142,7 @@ final class UiKit extends Components {
      */
     public function renderTpl(string $tpl, array $data = []): string {
         $output = $this->tpl_engine->render($tpl, $data);
+        $output = trim($output);
         $this->html .= $output;
 
         return $output;
