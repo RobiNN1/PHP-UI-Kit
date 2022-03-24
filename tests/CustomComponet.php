@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of Uikit.
+ * This file is part of UiKit.
  *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
  *
