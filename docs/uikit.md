@@ -116,7 +116,9 @@ echo $alert->render('Test');
 Add component.
 
 ```php
+// The class can optionally extend the Component class to get access to UiKit methods.
 class Test {
+    // Note, each component must have render method
     public function render(): string {
         return '...';
     }
@@ -126,6 +128,9 @@ $uikit->addComponent('test', Test::class);
 
 // Then you can use it like all components
 echo $uikit->test->render(); // or create helper function for it
+
+// This works only with render() and open/class (test_open(), test_close()) methods
+echo $uikit->test(); // Short version
 
 // It will also work in the Twig
 // {{ test() }}
