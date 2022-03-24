@@ -16,14 +16,6 @@ use RobiNN\UiKit\UiKit;
 $uikit = UiKit::getInstance();
 ```
 
-## getFramework()
-
-Get name of currently loaded CSS framework.
-
-```php
-$framework = $uikit->getFramework();
-```
-
 ## getFrameworkOptions()
 
 Get CSS framework options using "dot" notation.
