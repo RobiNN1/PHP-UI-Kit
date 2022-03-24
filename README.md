@@ -45,20 +45,19 @@ echo layout(get_html(), [
 It is also possible to write everything directly in Twig
 
 ```php
-// This is all you need in PHP
 get_ui()->setPath(__DIR__.'/templates/'); // Path to dir with custom templates 
-echo get_ui()->renderTpl('page'); // page.twig in templates/ dir
+$html = get_ui()->renderTpl('page'); // page.twig in templates/ dir
+
+echo layout($html, [
+    'title' => 'Site title',
+]);
 ```
 
 `page.twig`
 
 ```twig
-{% macro page() %}
-    HTML code
-    {{ alert('Default') }}
-{% endmacro %}
-
-{{ layout(_self.page(), {'title': 'Site title'}) }}
+HTML code
+{{ alert('Default') }}
 ```
 
 ## Requirements
