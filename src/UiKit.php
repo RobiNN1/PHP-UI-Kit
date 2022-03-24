@@ -27,7 +27,7 @@ final class UiKit extends Components {
     /**
      * @var Config
      */
-    private Config $config;
+    public Config $config;
 
     /**
      * @var array
@@ -75,15 +75,6 @@ final class UiKit extends Components {
         self::$instance->loadFrameworkAssets();
 
         return self::$instance;
-    }
-
-    /**
-     * Get name of currently loaded CSS framework.
-     *
-     * @return string
-     */
-    public function getFramework(): string {
-        return $this->config->getFramework();
     }
 
     /**

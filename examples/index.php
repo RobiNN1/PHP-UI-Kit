@@ -24,9 +24,9 @@ echo container_open(false, ['attributes' => ['style' => 'padding-top: 3rem;paddi
 
 echo '<div style="text-align:center;margin-bottom:3rem;">
 <h1>PHP UI Kit Examples</h1>
-<h2>Current CSS Framework: <b>'.get_ui()->getFramework().'</b></h2>';
+<h2>Current CSS Framework: <b>'.get_ui()->config->getFramework().'</b></h2>';
 
-if (get_ui()->getFramework() === 'bootstrap5') {
+if (get_ui()->config->getFramework() === 'bootstrap5') {
     echo '<p><a href="/examples/?sm">Open Semantic UI version</a></p>';
 } else {
     echo '<p><a href="/examples/">Open Bootstrap 5 version</a></p>';
