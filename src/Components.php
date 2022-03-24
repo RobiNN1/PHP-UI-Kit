@@ -48,21 +48,24 @@ class Components {
     /**
      * Get array of components or component object.
      *
-     * @param ?string $component
+     * @param ?string $name
      *
      * @return array|object
      */
-    public function getComponents(string $component = null): array|object {
-        $components = [];
-        foreach ($this->components as $name => $class) {
-            $components[$name] = [
+    public function getComponents(string $name = null): array|object {
+        static $components = [];
+
+        foreach ($this->components as $key => $class) {
+            $components[$key] = [
                 'class'      => $class,
                 'open_close' => method_exists($class, 'open') && method_exists($class, 'close'),
             ];
         }
 
-        if (is_string($component) && isset($components[$component])) {
-            $class = new $components[$component]['class']();
+        if (is_string($name) && isset($components[$name])) {
+            $component = $components[$name];
+
+            $class = new $component['class']();
             $class->uikit = $this->uikit;
 
             return $class;
@@ -84,11 +87,44 @@ class Components {
     }
 
     /**
+     * Create dynamic properties.
+     *
      * @param string $name
      *
-     * @return object
+     * @return ?object
      */
-    public function __get(string $name): object {
-        return $this->getComponents($name);
+    public function __get(string $name): ?object {
+        if (!is_array($this->getComponents($name))) {
+            return $this->getComponents($name);
+        }
+
+        return null;
+    }
+
+    /**
+     * Create dynamic methods.
+     *
+     * @param string $name
+     * @param array  $arguments
+     *
+     * @return mixed
+     */
+    public function __call(string $name, array $arguments): mixed {
+        $name_clean = str_replace(['_open', '_close'], '', $name);
+
+        if (!is_array($this->getComponents($name_clean))) {
+            $component = $this->getComponents($name_clean);
+            $method = 'render';
+
+            if (str_ends_with($name, '_open') && method_exists($component, 'open')) {
+                $method = 'open';
+            } else if (str_ends_with($name, '_close') && method_exists($component, 'close')) {
+                $method = 'close';
+            }
+
+            return call_user_func_array([$component, $method], $arguments);
+        }
+
+        return null;
     }
 }
