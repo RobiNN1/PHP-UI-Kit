@@ -31,8 +31,8 @@
   },
   "require-dev": {
     "gajus/dindent": "^2.0",
-    "phpstan/phpstan": "^1.4",
-    "phpunit/phpunit": "^9"
+    "phpstan/phpstan": "^1.5",
+    "phpunit/phpunit": "^9.5"
   },
   "autoload": {
     "psr-4": {
