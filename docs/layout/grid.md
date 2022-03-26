@@ -19,10 +19,6 @@ $options (array) (Optional) Additional options. Default value: []
 | class      | string | ''      | Class for wrapper.                               |
 | attributes | array  | []      | Array of custom attributes.                      |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -31,14 +27,14 @@ echo grid_open(); // 100% column width
 echo grid_close();
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="col-xs-12">
 </div>
 ```
 
-**Another possible values**
+#### Another possible values
 
 ```php
 // 100% of width on mobile, 50% on larger screen. Depending on framework, you can add multiple values however recommended maximum is 4 values.

@@ -19,10 +19,6 @@ $options (array) (Optional) Additional options. Default value: []
 | class      | string | ''      | Class for wrapper.                               |
 | attributes | array  | []      | Array of custom attributes.                      |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -31,7 +27,7 @@ echo container_open();
 echo container_close();
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="container">

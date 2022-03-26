@@ -23,17 +23,13 @@ $options (array) (Optional) Additional options. Default value: []
 | attributes | array  | []      | Array of custom attributes. |
 | dismiss    | bool   | false   | Make alert dismissable.     |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
 echo alert('Default');
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="alert alert-primary" role="alert"> Default </div>

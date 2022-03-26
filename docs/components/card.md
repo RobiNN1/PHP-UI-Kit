@@ -24,10 +24,6 @@ $options (array) (Optional) Additional options. Default value: []
 | bottom     | string | ''      | Card bottom content.        |
 | footer     | string | ''      | Card footer.                |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -37,7 +33,7 @@ echo card([
 ])
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="card">

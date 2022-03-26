@@ -20,17 +20,13 @@ $options (array) (Optional) Additional options. Default value: []
 | title      | string | 'UI Kit' | Site title.                               |
 | attributes | array  | []       | Array of custom attributes.               |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
 echo layout('Body content');
 ```
 
-Output
+HTML output:
 
 ```html
 <!doctype html>
@@ -39,11 +35,11 @@ Output
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>UI Kit</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/bs/css/bootstrap.min.css">
 </head>
 <body>
 Body content
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="path/to/bs/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 ```

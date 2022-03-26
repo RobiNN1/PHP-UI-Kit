@@ -24,17 +24,13 @@ $options (array) (Optional) Additional options. Default value: []
 | auto_colors | object       | null      | Function that set the color depending on the width of the bar.                                     |
 | percents    | bool         | true      | Show percents in title.                                                                            |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
 echo progress(40);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="progress mb-2">
@@ -42,7 +38,7 @@ Output
 </div>
 ```
 
-**Auto colors and multiple values**
+#### Auto colors and multiple values
 
 ```php
 echo progress([20, 75], [
@@ -63,7 +59,7 @@ echo progress([20, 75], [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="progress mb-2">
@@ -72,7 +68,7 @@ Output
 </div>
 ```
 
-**With titles and different colors**
+#### With titles and different colors
 
 ```php
 // In this case every bar will have title and different color
@@ -81,7 +77,7 @@ echo progress([15 => 'First', 30 => 'Second', 55 => 'Third'], [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="progress mb-2">

@@ -21,10 +21,6 @@ $options (array) (Optional) Additional options. Default value: []
 | attributes | array  | []      | Array of custom attributes. |
 | item_class | string | ''      | Class for item.             |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -34,7 +30,7 @@ echo breadcrumbs([
 ])
 ```
 
-Output
+HTML output:
 
 ```html
 <ol class="breadcrumb" aria-label="breadcrumb">

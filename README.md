@@ -16,27 +16,10 @@ composer require robinn/uikit
 
 ## Basic Usage
 
-Components can be loaded in several ways, it's up to you what you choose.
-
-The easiest way is to use it with helper functions:
-
 ```php
-ob_start();
+// Each component returns a string, so it can also be passed to a variable or printed with an echo
 
-echo 'HTML code';
-echo alert('Default');
-
-$body = ob_get_contents();
-ob_end_clean();
-echo layout($body, [
-    'title' => 'Site title',
-]);
-```
-
-Or if you don't like echo:
-
-```php
-add_html('HTML code');
+add_html('HTML code'); // Use this function when using get_html()
 alert('Default');
 
 echo layout(get_html(), [
@@ -44,7 +27,7 @@ echo layout(get_html(), [
 ]);
 ```
 
-It is also possible to write everything directly in template:
+It is also possible to call components in a template:
 
 ```php
 get_ui()->setPath(__DIR__.'/templates'); // Path to dir with custom templates 

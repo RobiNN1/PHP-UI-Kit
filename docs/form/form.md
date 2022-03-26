@@ -24,10 +24,6 @@ $options (array) (Optional) Additional options. Default value: []
 | name       | string | ''      | Name attribute.                                  |
 | upload     | bool   | false   | Set true for adding enctype multipart/form-data. |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -36,7 +32,7 @@ echo form_open();
 echo form_close();
 ```
 
-Output
+HTML output:
 
 ```html
 <form method="post">

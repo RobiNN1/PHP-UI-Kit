@@ -23,10 +23,6 @@ $options (array) (Optional) Additional options. Default value: []
 | item_class | string | ''      | Class for item.              |
 | first_open | bool   | false   | Set true to open first item. |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -36,7 +32,7 @@ echo accordion('test', [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="accordion" id="accordion-test">
