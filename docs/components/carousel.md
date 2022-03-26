@@ -24,10 +24,6 @@ $options (array) (Optional) Additional options. Default value: []
 | indicators | bool   | true    | Carousel indicators.        |
 | controls   | bool   | true    | Carousel controls buttons.  |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -41,11 +37,9 @@ echo carousel('test', [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
-Previous
-Next
 <div id="carousel-test" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carousel-test" data-bs-slide-to="0" class="active" aria-current="true"></button>

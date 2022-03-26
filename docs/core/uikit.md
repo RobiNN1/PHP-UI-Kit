@@ -1,6 +1,6 @@
 # UI Kit
 
-Methods that can be used directly from a UiKit instance.
+Methods that can be used directly from a UI Kit instance.
 
 ---
 
@@ -42,7 +42,7 @@ $uikit->setFrameworkOption('alert.colors.default', 'blue', 'bootstrap5');
 Render template.
 
 ```php
-echo $uikit->renderTpl('tpl_name', [...]);
+echo $uikit->renderTpl('tpl_name');
 ```
 
 ## addHtml()
@@ -121,7 +121,8 @@ $uikit->addComponent('test', Test::class);
 // Then you can use it like all components
 echo $uikit->test->render(); // or create helper function for it
 
-// This works only with render() and open/close (test_open(), test_close()) methods
+// The following examples only works with render() and open/close (test_open(), test_close()) methods
+
 echo $uikit->test(); // Short version
 
 // It will also work in the Twig

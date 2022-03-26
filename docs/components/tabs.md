@@ -31,10 +31,6 @@ $options (array) (Optional) Additional options. Default value: []
 | nav_item_class | string | ''      | Class for nav item.         |
 | tab_item_class | string | ''      | Class for tab item.         |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -44,7 +40,7 @@ echo tabs('test', [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div id="tabs-test">

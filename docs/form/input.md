@@ -38,17 +38,13 @@ $options (array) (Optional) Additional options. Default value: []
 | left_custom      | string | ''        | Left custom addon.                                                                     |
 | right_custom     | string | ''        | Right custom addon.                                                                    |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
 echo input('test', 'Test input');
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="mb-1">
@@ -57,13 +53,13 @@ Output
 </div>
 ```
 
-**With left addon**
+#### With left addon
 
 ```php
 echo input('username', 'Username', '', ['left_addon' => '@']);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="mb-1">
@@ -75,7 +71,7 @@ Output
 </div>
 ```
 
-**With action button**
+#### With action button
 
 ```php
 echo input('search-input', '', '', [
@@ -84,7 +80,7 @@ echo input('search-input', '', '', [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="mb-1">

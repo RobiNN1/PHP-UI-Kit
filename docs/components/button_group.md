@@ -36,10 +36,6 @@ $options (array) (Optional) Additional options. Default value: []
 | type       | string | 'button'  | Default type for all buttons. Possible value: button/submit/reset |
 | item_class | string | ''        | Class for item.                                                   |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -49,7 +45,7 @@ echo button_group([
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="btn-group" role="group">
@@ -58,7 +54,7 @@ Output
 </div>
 ```
 
-**Misc buttons**
+#### Misc buttons
 
 ```php
 echo button_group([
@@ -70,7 +66,7 @@ echo button_group([
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="btn-group" role="group">

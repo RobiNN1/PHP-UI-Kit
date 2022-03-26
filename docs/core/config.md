@@ -34,7 +34,7 @@ $tpl_config = [
 Set cache object (depends on tpl engine), absolute path or false.
 
 ```php
-$config->setCache(__DIR__.'/path/to/cache')
+$config->setCache(__DIR__.'/path/to/cache');
 ```
 
 ## getDebug()

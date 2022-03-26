@@ -32,17 +32,13 @@ $options (array) (Optional) Additional options. Default value: []
 | icon_right | bool       | false     | Show the icon on the right.                                              |
 | no_classes | bool       | false     | Set true to remove default classes.                                      |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
 echo button('Default');
 ```
 
-Output
+HTML output:
 
 ```html
 <button type="button" class="btn btn-secondary">Default</button>
@@ -54,7 +50,7 @@ Output
 echo button('Link', '', ['link' => 'link.php']);
 ```
 
-Output
+HTML output:
 
 ```html
 <a href="link.php" class="btn btn-secondary">Link</a>

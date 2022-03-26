@@ -27,10 +27,6 @@ $options (array) (Optional) Additional options. Default value: []
 | prev_title | string | '&laquo;' | Previous page link title.                            |
 | next_title | string | '&raquo;' | Next page link title.                                |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -39,7 +35,7 @@ echo pagination([1, 2, 3, 4], [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <ul class="pagination">

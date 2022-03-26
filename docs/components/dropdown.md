@@ -35,10 +35,6 @@ $options (array) (Optional) Additional options. Default value: []
 | item_class | string | ''      | Class for item.                                            |
 | button     | array  | []      | Button options, see [Available button options](button.md). |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -49,7 +45,7 @@ echo dropdown('Dropdown', [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <div class="dropdown">

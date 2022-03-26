@@ -23,17 +23,13 @@ $options (array) (Optional) Additional options. Default value: []
 | attributes | array  | []      | Array of custom attributes. |
 | rounded    | bool   | false   | Rounded badge.              |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
 echo badge('Default');
 ```
 
-Output
+HTML output:
 
 ```html
 <span class="badge bg-secondary">Default</span>

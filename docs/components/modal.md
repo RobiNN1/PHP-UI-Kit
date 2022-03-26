@@ -36,10 +36,6 @@ $options (array) (Optional) Additional options. Default value: []
 | close_button | bool   | true      | Show close button.                                   |
 | always_open  | bool   | false     | Always open.                                         |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -53,7 +49,7 @@ echo modal('test', [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-test">Open Modal</button>

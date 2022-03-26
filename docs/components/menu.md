@@ -34,10 +34,6 @@ $options (array) (Optional) Additional options. Default value: []
 | color      | string | 'light'                        | Menu color. Possible value: light/dark |
 | brand      | array  | ['title' => '', 'link' => '#'] | Site name.                             |
 
-## Return Values
-
-(string)
-
 ## Basic Usage
 
 ```php
@@ -46,7 +42,7 @@ echo menu('test', [
     ['custom' => button('Button')],
     // Dropdown
     [
-        'title' => 'Dropdown', // This item is required in dropdown
+        'title' => 'Dropdown', // Title is required for dropdown button
         ['title' => 'Sub Item 1', 'link' => 'sub_link1.php'],
         ['title' => 'Sub Item 2', 'link' => 'sub_link2.php'],
     ],
@@ -57,7 +53,7 @@ echo menu('test', [
 ]);
 ```
 
-Output
+HTML output:
 
 ```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
