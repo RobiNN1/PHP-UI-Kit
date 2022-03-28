@@ -4,7 +4,7 @@ Functions for adding content to the output.
 
 ---
 
-# head()
+## head()
 
 Append content to head.
 
@@ -14,7 +14,7 @@ use RobiNN\UiKit\AddTo;
 AddTo::head('<meta ...>');
 ```
 
-# footer()
+## footer()
 
 Append content to footer.
 
@@ -24,7 +24,7 @@ use RobiNN\UiKit\AddTo;
 AddTo::footer('<script>...</script>');
 ```
 
-# js()
+## js()
 
 Add JS codes to the output.
 
@@ -34,7 +34,7 @@ use RobiNN\UiKit\AddTo;
 AddTo::js('...');
 ```
 
-# jQuery()
+## jQuery()
 
 Add jQuery codes to the output.
 
@@ -46,7 +46,7 @@ use RobiNN\UiKit\AddTo;
 AddTo::jQuery('...');
 ```
 
-# css()
+## css()
 
 Add CSS codes to the output.
 
