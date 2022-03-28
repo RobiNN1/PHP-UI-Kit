@@ -69,8 +69,6 @@ final class UiKit extends Components {
         self::$instance->config = $config instanceof Config ? $config : new Config();
 
         self::$instance->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
-        self::$instance->tpl_engine->init(self::$instance, self::$instance->config);
-        self::$instance->tpl_engine->addPaths(self::$instance->tpl_paths);
 
         self::$instance->loadFrameworkAssets();
 
@@ -141,7 +139,9 @@ final class UiKit extends Components {
      * @return string
      */
     public function renderTpl(string $tpl, array $data = []): string {
+        $this->tpl_engine->init($this, $this->config, $this->tpl_paths);
         $output = $this->tpl_engine->render($tpl, $data);
+
         $output = trim($output);
         $this->html .= $output;
 
@@ -180,9 +180,9 @@ final class UiKit extends Components {
             if ((bool)$component['open_close'] === true) {
                 $components[$name.'_open'] = [$this->$name, 'open'];
                 $components[$name.'_close'] = [$this->$name, 'close'];
-            } else {
-                $components[$name] = [$this->$name, 'render'];
             }
+
+            $components[$name] = [$this->$name, 'render'];
         }
 
         $functions = [

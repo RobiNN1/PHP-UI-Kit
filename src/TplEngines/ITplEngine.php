@@ -19,10 +19,11 @@ interface ITplEngine {
      *
      * @param UiKit  $uikit
      * @param Config $config
+     * @param ?array $paths
      *
      * @return object
      */
-    public function init(UiKit $uikit, Config $config): object;
+    public function init(UiKit $uikit, Config $config, ?array $paths = null): object;
 
     /**
      * Render template.
@@ -33,13 +34,4 @@ interface ITplEngine {
      * @return string
      */
     public function render(string $tpl, array $data = []): string;
-
-    /**
-     * Add paths with templates.
-     *
-     * @param array $paths
-     *
-     * @return void
-     */
-    public function addPaths(array $paths): void;
 }
