@@ -44,7 +44,7 @@ HTML output:
 <button type="button" class="btn btn-secondary">Default</button>
 ```
 
-**As a link**
+#### As a link
 
 ```php
 echo button('Link', '', ['link' => 'link.php']);
