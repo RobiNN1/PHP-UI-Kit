@@ -16,8 +16,6 @@ final class ButtonTest extends ComponentTestCase {
     public function testButtonRender(): void {
         $tpl = $this->uikit->button->render('Test');
 
-        $expected = '<button type="button" class="btn btn-secondary">Test</button>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/button'), $tpl);
     }
 }

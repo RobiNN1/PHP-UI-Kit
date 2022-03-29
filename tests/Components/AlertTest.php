@@ -16,8 +16,6 @@ final class AlertTest extends ComponentTestCase {
     public function testAlertRender(): void {
         $tpl = $this->uikit->alert->render('Default');
 
-        $expected = '<div class="alert alert-primary" role="alert"> Default </div>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/alert'), $tpl);
     }
 }

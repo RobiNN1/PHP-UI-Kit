@@ -23,6 +23,7 @@ final class GridTest extends ComponentTestCase {
 
     public function testCloseGrid(): void {
         $tpl = $this->uikit->grid->render([], ['close' => true]);
+
         $expected = '</div>';
 
         $this->assertComponentRenders($expected, $tpl);

@@ -16,10 +16,6 @@ final class ProgressTest extends ComponentTestCase {
     public function testProgressRender(): void {
         $tpl = $this->uikit->progress->render(27);
 
-        $expected = '<div class="progress mb-2">
-    <div class="progress-bar" style="width: 27%;">27%</div>
-</div>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/progress'), $tpl);
     }
 }

@@ -19,11 +19,6 @@ final class BreadcrumbsTest extends ComponentTestCase {
             'Link 2' => 'link2.php',
         ]);
 
-        $expected = '<ol class="breadcrumb" aria-label="breadcrumb">
-    <li class="breadcrumb-item"><a href="link1.php">Link 1</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Link 2</li>
-</ol>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/breadcrumbs'), $tpl);
     }
 }

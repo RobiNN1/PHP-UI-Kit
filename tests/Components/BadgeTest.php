@@ -16,8 +16,6 @@ final class BadgeTest extends ComponentTestCase {
     public function testBadgeRender(): void {
         $tpl = $this->uikit->badge->render('Default');
 
-        $expected = '<span class="badge bg-secondary">Default</span>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/badge'), $tpl);
     }
 }

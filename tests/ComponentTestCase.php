@@ -25,8 +25,13 @@ class ComponentTestCase extends TestCase {
 
     public function assertComponentRenders(string $expected, string $actual): void {
         $indenter = new Indenter();
-        $actual = $indenter->indent($actual);
+        $actual = str_replace('> ', '>', $indenter->indent($actual));
 
         $this->assertSame($expected, $actual);
+    }
+
+    public function getFile(string $path): string {
+        $html = file_get_contents(__DIR__.'/resources/expected_html/'.$path.'.html');
+        return trim($html);
     }
 }
