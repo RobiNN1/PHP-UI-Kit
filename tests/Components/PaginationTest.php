@@ -20,16 +20,6 @@ final class PaginationTest extends ComponentTestCase {
             'disabled' => 'prev',
         ]);
 
-        $expected = '<ul class="pagination">
-    <li class="page-item disabled"><a class="page-link" href="page.php?p=2">&laquo;</a></li>
-    <li class="page-item"><a class="page-link" href="page.php?p=1">1</a></li>
-    <li class="page-item"><a class="page-link" href="page.php?p=2">2</a></li>
-    <li class="page-item active"><a class="page-link" href="page.php?p=3">3</a></li>
-    <li class="page-item"><a class="page-link" href="page.php?p=4">4</a></li>
-    <li class="page-item"><a class="page-link" href="page.php?p=5">5</a></li>
-    <li class="page-item"><a class="page-link" href="page.php?p=4">&raquo;</a></li>
-</ul>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/pagination'), $tpl);
     }
 }

@@ -19,11 +19,6 @@ final class ListGroupTest extends ComponentTestCase {
             'Item 2',
         ]);
 
-        $expected = '<ul class="list-group">
-    <li class="list-group-item">Item 1</li>
-    <li class="list-group-item">Item 2</li>
-</ul>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/list_group'), $tpl);
     }
 }

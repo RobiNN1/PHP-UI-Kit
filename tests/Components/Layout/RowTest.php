@@ -23,6 +23,7 @@ final class RowTest extends ComponentTestCase {
 
     public function testCloseRow(): void {
         $tpl = $this->uikit->row->render(['close' => true]);
+
         $expected = '</div>';
 
         $this->assertComponentRenders($expected, $tpl);

@@ -21,15 +21,6 @@ final class CardTest extends ComponentTestCase {
              ',
         ]);
 
-        $expected = '<div class="card">
-    <div class="card-body">
-        <h1>
-            Title
-        </h1>
-        <p class="card-text">Testing</p>
-    </div>
-</div>';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRenders($this->getFile('components/card'), $tpl);
     }
 }
