@@ -42,7 +42,10 @@ $uikit->setFrameworkOption('alert.colors.default', 'blue', 'bootstrap5');
 Render template.
 
 ```php
-echo $uikit->renderTpl('tpl_name');
+echo $uikit->renderTpl('tpl_name', []);
+
+// Set true on last parameter to enable loading templates from variable
+echo $uikit->renderTpl("{{ alert('Test') }}", [], true);
 ```
 
 ## addHtml()

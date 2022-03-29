@@ -59,11 +59,15 @@ class Twig implements ITplEngine {
      *
      * @param string $tpl
      * @param array  $data
+     * @param bool   $string
      *
      * @return string
      */
-    public function render(string $tpl, array $data = []): string {
+    public function render(string $tpl, array $data = [], bool $string = false): string {
         try {
+            if ($string) {
+                return $this->twig->createTemplate($tpl)->render($data);
+            }
             return $this->twig->render($tpl.'.twig', $data);
         } catch (\Exception $e) {
             die($e->getMessage().' File: '.$e->getFile().' Line: '.$e->getLine());

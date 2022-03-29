@@ -30,8 +30,9 @@ interface ITplEngine {
      *
      * @param string $tpl
      * @param array  $data
+     * @param bool   $string
      *
      * @return string
      */
-    public function render(string $tpl, array $data = []): string;
+    public function render(string $tpl, array $data = [], bool $string = false): string;
 }
