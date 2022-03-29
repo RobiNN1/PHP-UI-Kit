@@ -13,3 +13,4 @@ tests export-ignore
 phpstan.neon export-ignore
 phpunit.xml export-ignore
 _ide_helper.php export-ignore
+bin/genfiles export-ignore

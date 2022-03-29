@@ -1,0 +1,155 @@
+#!/usr/bin/env php
+<?php
+/**
+ * This file is part of UiKit.
+ *
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/**
+ * Script for generating components
+ *
+ * Usage: php genfiles component_name [type - cmp|frm]
+ */
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+if (!isset($_SERVER['argv'][1])) {
+    echo 'Enter component name (snake_case).';
+    exit(1);
+}
+
+$type = 'frm';
+if (isset($_SERVER['argv'][2])) {
+    $type = in_array($_SERVER['argv'][2], ['cmp', 'frm']) ? $_SERVER['argv'][2] : 'cmp';
+}
+
+$path = ($type === 'frm' ? 'form' : 'components').'/';
+$path_class = $type === 'frm' ? ucfirst($path) : '';
+
+$name = $_SERVER['argv'][1];
+$class_name = implode('', array_map('ucfirst', explode('_', $name)));
+
+/**
+ * Twig files
+ */
+$twig_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
+file_put_contents(__DIR__.'/resources/bootstrap5/templates/twig/'.$path.$name.'.twig', $twig_content);
+file_put_contents(__DIR__.'/resources/semanticui2/templates/twig/'.$path.$name.'.twig', $twig_content);
+
+/**
+ * Class
+ */
+$class_content = '<?php
+/**
+ * This file is part of UiKit.
+ *
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace RobiNN\UiKit\Components'.($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : '').'
+
+class '.$class_name.' extends Component {
+    /**
+     * Render '.str_replace('_', ' ', $name).'.
+     *
+     * @param array $options Additional options.
+     *
+     * @return string
+     */
+    public function render(array $options = []): string {'.($type === 'cmp' ? '
+        $component = \''.$name.'\';'.PHP_EOL : '').'
+        $options = array_merge([
+            \'id\'         => \'\', // Wrapper ID.
+            \'class\'      => \'\', // Class for wrapper.
+            \'attributes\' => [], // Array of custom attributes.
+        ], $options);
+
+        return $this->uikit->renderTpl(\''.$path.($type === 'frm' ? $name.'\'' : '\'.$component').', [
+            \'class\'      => $options[\'class\'],
+            \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
+        ]);
+    }
+}
+';
+file_put_contents(__DIR__.'/src/Components/'.$path_class.$class_name.'.php', $class_content);
+
+/**
+ * Test class
+ */
+$test_class_content = '<?php
+/**
+ * This file is part of UiKit.
+ *
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Tests\Components'.($type === 'frm' ? '\Form' : '').';
+
+use Tests\ComponentTestCase;
+
+final class '.$class_name.'Test extends ComponentTestCase {
+    public function test'.$class_name.'Render(): void {
+        $tpl = $this->uikit->'.$name.'->render();
+
+        $this->assertComponentRender($this->getFile(\''.$path.$name.'\'), $tpl);
+    }
+
+    public function test'.$class_name.'InTwig(): void {
+        $this->assertComponentRenderTpl(\''.$path.$name.'\', "{{ '.$name.'() }}");
+    }
+}
+';
+file_put_contents(__DIR__.'/tests/Components/'.$path_class.$class_name.'Test.php', $test_class_content);
+file_put_contents(__DIR__.'/tests/expected_html/'.$path.$name.'.html', '');
+
+/**
+ * Docs content
+ */
+$docs_content = '# '.$name.'()
+
+Render '.str_replace('_', ' ', $name).'.
+
+---
+
+'.$name.'( [ array $options ] ) : string
+
+## Parameters
+
+$options (array) (Optional) Additional options. Default value: []
+
+#### Available options
+
+| Name       | Type   | Default | Description                 |
+|------------|--------|---------|-----------------------------|
+| id         | string | \'\'      | Wrapper ID.                 |
+| class      | string | \'\'      | Class for wrapper.          |
+| attributes | array  | []      | Array of custom attributes. |
+
+## Basic Usage
+
+```php
+echo '.$name.'();
+```
+
+HTML output:
+
+```html
+<div></div>
+```
+';
+file_put_contents(__DIR__.'/docs/'.$path.$name.'.md', $docs_content);
+
+echo 'Successfully generated component.';
+exit(0);
