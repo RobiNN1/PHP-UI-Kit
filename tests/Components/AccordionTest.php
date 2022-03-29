@@ -19,6 +19,13 @@ final class AccordionTest extends ComponentTestCase {
             'Title 2' => 'Content 2',
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/accordion'), $tpl);
+        $this->assertComponentRender($this->getFile('components/accordion'), $tpl);
+    }
+
+    public function testAccordionInTwig(): void {
+        $this->assertComponentRenderTpl('components/accordion', "{{ accordion('test', {
+            'Title 1': 'Content 1',
+            'Title 2': 'Content 2',
+        }) }}");
     }
 }

@@ -17,21 +17,23 @@ use RobiNN\UiKit\UiKit;
 class ComponentTestCase extends TestCase {
     public UiKit $uikit;
 
-    public function __construct() {
-        parent::__construct();
-
+    protected function setUp(): void {
         $this->uikit = UiKit::getInstance();
     }
 
-    public function assertComponentRenders(string $expected, string $actual): void {
+    public function assertComponentRender(string $expected, string $actual): void {
         $indenter = new Indenter();
         $actual = str_replace('> ', '>', $indenter->indent($actual));
 
         $this->assertSame($expected, $actual);
     }
 
+    public function assertComponentRenderTpl(string $path, string $tpl): void {
+        $this->assertComponentRender($this->getFile($path), $this->uikit->renderTpl($tpl, [], true));
+    }
+
     public function getFile(string $path): string {
-        $html = file_get_contents(__DIR__.'/resources/expected_html/'.$path.'.html');
+        $html = file_get_contents(__DIR__.'/expected_html/'.$path.'.html');
         return trim($html);
     }
 }

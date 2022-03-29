@@ -19,6 +19,13 @@ final class TabsTest extends ComponentTestCase {
             ['title' => 'Tab 2', 'content' => 'Content 2'],
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/tabs'), $tpl);
+        $this->assertComponentRender($this->getFile('components/tabs'), $tpl);
+    }
+
+    public function testTabsInTwig(): void {
+        $this->assertComponentRenderTpl('components/tabs', "{{ tabs('test', [
+            {'title': 'Tab 1', 'content': 'Content 1'},
+            {'title': 'Tab 2', 'content': 'Content 2'},
+        ]) }}");
     }
 }

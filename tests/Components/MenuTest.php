@@ -22,6 +22,16 @@ final class MenuTest extends ComponentTestCase {
             ],
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/menu'), $tpl);
+        $this->assertComponentRender($this->getFile('components/menu'), $tpl);
+    }
+
+    public function testMenuInTwig(): void {
+        $this->assertComponentRenderTpl('components/menu', "{{ menu('test', [
+            {'title': 'Item 1', 'link': 'link1.php'},
+            {
+                'title': 'Dropdown',
+                0: {'title': 'Sub Item 2', 'link': 'sub_link2.php', 'active': true}
+            }
+        ]) }}");
     }
 }

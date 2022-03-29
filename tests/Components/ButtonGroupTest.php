@@ -22,6 +22,16 @@ final class ButtonGroupTest extends ComponentTestCase {
             'no-value2' => ['title' => 'No value 2', 'btn_options' => ['value' => null]],
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/button_group'), $tpl);
+        $this->assertComponentRender($this->getFile('components/button_group'), $tpl);
+    }
+
+    public function testButtonGroupInTwig(): void {
+        $this->assertComponentRenderTpl('components/button_group', "{{ button_group({
+            1: 'Yes',
+            0: 'No',
+            'delete': {'title': 'Delete', 'btn_options': {'color': 'error'}},
+            'no-value1': {'title': 'No value 1', 'value': null},
+            'no-value2': {'title': 'No value 2', 'btn_options': {'value': null}},
+        }) }}");
     }
 }

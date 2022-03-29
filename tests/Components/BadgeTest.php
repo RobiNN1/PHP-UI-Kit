@@ -16,6 +16,10 @@ final class BadgeTest extends ComponentTestCase {
     public function testBadgeRender(): void {
         $tpl = $this->uikit->badge->render('Default');
 
-        $this->assertComponentRenders($this->getFile('components/badge'), $tpl);
+        $this->assertComponentRender($this->getFile('components/badge'), $tpl);
+    }
+
+    public function testBadgeInTwig(): void {
+        $this->assertComponentRenderTpl('components/badge', "{{ badge('Default') }}");
     }
 }

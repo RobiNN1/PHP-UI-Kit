@@ -21,6 +21,15 @@ final class DropdownTest extends ComponentTestCase {
             ['custom' => '<b>Custom bold text</b>'],
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/dropdown'), $tpl);
+        $this->assertComponentRender($this->getFile('components/dropdown'), $tpl);
+    }
+
+    public function testDropdownInTwig(): void {
+        $this->assertComponentRenderTpl('components/dropdown', "{{ dropdown('Dropdown', [
+            {'title': 'Item 1', 'link': 'link1.php'},
+            'divider',
+            {'title': 'Item 2'},
+            {'custom': '<b>Custom bold text</b>'},
+        ]) }}");
     }
 }

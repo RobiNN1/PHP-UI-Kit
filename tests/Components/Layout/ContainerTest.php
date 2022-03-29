@@ -13,19 +13,20 @@ namespace Tests\Components\Layout;
 use Tests\ComponentTestCase;
 
 final class ContainerTest extends ComponentTestCase {
-    public function testOpenContainer(): void {
-        $tpl = $this->uikit->container->render(false, ['open' => true]);
+    public function testOpenContainerRender(): void {
+        $tpl = $this->uikit->container->open(false);
 
-        $expected = '<div class="container">';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRender('<div class="container">', $tpl);
     }
 
-    public function testCloseContainer(): void {
-        $tpl = $this->uikit->container->render(false, ['close' => true]);
+    public function testCloseContainerRender(): void {
+        $tpl = $this->uikit->container->close();
 
-        $expected = '</div>';
+        $this->assertComponentRender('</div>', $tpl);
+    }
 
-        $this->assertComponentRenders($expected, $tpl);
+    public function testContainerInTwig(): void {
+        $this->assertComponentRender('<div class="container">', $this->uikit->renderTpl("{{ container_open() }}", [], true));
+        $this->assertComponentRender('</div>', $this->uikit->renderTpl("{{ container_close() }}", [], true));
     }
 }

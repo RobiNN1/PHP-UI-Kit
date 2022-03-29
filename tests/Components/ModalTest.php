@@ -20,6 +20,14 @@ final class ModalTest extends ComponentTestCase {
             'footer' => 'Random text....',
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/modal'), $tpl);
+        $this->assertComponentRender($this->getFile('components/modal'), $tpl);
+    }
+
+    public function testModalInTwig(): void {
+        $this->assertComponentRenderTpl('components/modal', "{{ modal('test', {
+            'title': 'Modal Title',
+            'body': '<b>Testing</b>',
+            'footer': 'Random text....',
+        }) }}");
     }
 }

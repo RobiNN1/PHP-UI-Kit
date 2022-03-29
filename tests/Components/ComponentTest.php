@@ -10,16 +10,14 @@
 
 namespace Tests\Components;
 
+use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\Components\Component;
-use Tests\ComponentTestCase;
 
-final class ComponentTest extends ComponentTestCase {
+final class ComponentTest extends TestCase {
     private Component $component;
 
-    public function __construct() {
-        parent::__construct();
-
-        $this->component = new Component($this->uikit);
+    protected function setUp(): void {
+        $this->component = new Component();
     }
 
     public function testGetAttributes(): void {
@@ -31,9 +29,7 @@ final class ComponentTest extends ComponentTestCase {
             'empty-string' => '',
         ]);
 
-        $expected = 'no_value zero="0" one="1" string="test" empty-string=""';
-
-        $this->assertSame($expected, $attributes);
+        $this->assertSame('no_value zero="0" one="1" string="test" empty-string=""', $attributes);
     }
 
     public function testGetOption(): void {

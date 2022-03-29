@@ -13,9 +13,13 @@ namespace Tests\Components\Layout;
 use Tests\ComponentTestCase;
 
 final class LayoutTest extends ComponentTestCase {
-    public function testRender(): void {
+    public function testLayoutRender(): void {
         $tpl = $this->uikit->layout->render('test');
 
-        $this->assertComponentRenders($this->getFile('layout/layout'), $tpl);
+        $this->assertComponentRender($this->getFile('layout/layout'), $tpl);
+    }
+
+    public function testLayoutInTwig(): void {
+        $this->assertComponentRenderTpl('layout/layout', "{{ layout('test') }}");
     }
 }

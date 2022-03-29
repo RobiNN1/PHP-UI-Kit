@@ -16,6 +16,10 @@ final class InputTest extends ComponentTestCase {
     public function testInputRender(): void {
         $tpl = $this->uikit->input->render('test', 'Test', 2);
 
-        $this->assertComponentRenders($this->getFile('form/input'), $tpl);
+        $this->assertComponentRender($this->getFile('form/input'), $tpl);
+    }
+
+    public function testInputInTwig(): void {
+        $this->assertComponentRenderTpl('form/input', "{{ input('test', 'Test', 2) }}");
     }
 }
