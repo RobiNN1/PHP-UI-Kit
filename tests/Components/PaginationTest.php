@@ -20,6 +20,14 @@ final class PaginationTest extends ComponentTestCase {
             'disabled' => 'prev',
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/pagination'), $tpl);
+        $this->assertComponentRender($this->getFile('components/pagination'), $tpl);
+    }
+
+    public function testPaginationInTwig(): void {
+        $this->assertComponentRenderTpl('components/pagination', "{{ pagination(range(1, 5), {
+            'link': 'page.php?p=%s',
+            'current': 3,
+            'disabled': 'prev',
+        }) }}");
     }
 }

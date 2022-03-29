@@ -16,6 +16,10 @@ final class ButtonTest extends ComponentTestCase {
     public function testButtonRender(): void {
         $tpl = $this->uikit->button->render('Test');
 
-        $this->assertComponentRenders($this->getFile('components/button'), $tpl);
+        $this->assertComponentRender($this->getFile('components/button'), $tpl);
+    }
+
+    public function testButtonInTwig(): void {
+        $this->assertComponentRenderTpl('components/button', "{{ button('Test') }}");
     }
 }

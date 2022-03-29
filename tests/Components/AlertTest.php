@@ -16,6 +16,10 @@ final class AlertTest extends ComponentTestCase {
     public function testAlertRender(): void {
         $tpl = $this->uikit->alert->render('Default');
 
-        $this->assertComponentRenders($this->getFile('components/alert'), $tpl);
+        $this->assertComponentRender($this->getFile('components/alert'), $tpl);
+    }
+
+    public function testAlertInTwig(): void {
+        $this->assertComponentRenderTpl('components/alert', "{{ alert('Default') }}");
     }
 }

@@ -15,12 +15,15 @@ use Tests\ComponentTestCase;
 final class CardTest extends ComponentTestCase {
     public function testCardRender(): void {
         $tpl = $this->uikit->card->render([
-            'body' => '
-                 <h1>Title</h1>
-                 <p>Testing</p>
-             ',
+            'body' => '<h1>Title</h1><p>Testing</p>',
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/card'), $tpl);
+        $this->assertComponentRender($this->getFile('components/card'), $tpl);
+    }
+
+    public function testCardInTwig(): void {
+        $this->assertComponentRenderTpl('components/card', "{{ card({
+            'body': '<h1>Title</h1><p>Testing</p>',
+        }) }}");
     }
 }

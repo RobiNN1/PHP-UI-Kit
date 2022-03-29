@@ -13,19 +13,20 @@ namespace Tests\Components\Layout;
 use Tests\ComponentTestCase;
 
 final class RowTest extends ComponentTestCase {
-    public function testOpenRow(): void {
-        $tpl = $this->uikit->row->render(['open' => true]);
+    public function testOpenRowRender(): void {
+        $tpl = $this->uikit->row->open();
 
-        $expected = '<div class="row">';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRender('<div class="row">', $tpl);
     }
 
-    public function testCloseRow(): void {
-        $tpl = $this->uikit->row->render(['close' => true]);
+    public function testCloseRowRender(): void {
+        $tpl = $this->uikit->row->close();
 
-        $expected = '</div>';
+        $this->assertComponentRender('</div>', $tpl);
+    }
 
-        $this->assertComponentRenders($expected, $tpl);
+    public function testRowInTwig(): void {
+        $this->assertComponentRender('<div class="row">', $this->uikit->renderTpl("{{ row_open() }}", [], true));
+        $this->assertComponentRender('</div>', $this->uikit->renderTpl("{{ row_close() }}", [], true));
     }
 }

@@ -19,6 +19,13 @@ final class ListGroupTest extends ComponentTestCase {
             'Item 2',
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/list_group'), $tpl);
+        $this->assertComponentRender($this->getFile('components/list_group'), $tpl);
+    }
+
+    public function testListGroupInTwig(): void {
+        $this->assertComponentRenderTpl('components/list_group', "{{ list_group([
+            'Item 1',
+            'Item 2',
+        ]) }}");
     }
 }

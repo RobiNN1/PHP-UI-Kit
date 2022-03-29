@@ -19,6 +19,13 @@ final class BreadcrumbsTest extends ComponentTestCase {
             'Link 2' => 'link2.php',
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/breadcrumbs'), $tpl);
+        $this->assertComponentRender($this->getFile('components/breadcrumbs'), $tpl);
+    }
+
+    public function testBreadcrumbsInTwig(): void {
+        $this->assertComponentRenderTpl('components/breadcrumbs', "{{ breadcrumbs({
+            'Link 1': 'link1.php',
+            'Link 2': 'link2.php',
+        }) }}");
     }
 }

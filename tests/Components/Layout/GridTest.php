@@ -13,19 +13,20 @@ namespace Tests\Components\Layout;
 use Tests\ComponentTestCase;
 
 final class GridTest extends ComponentTestCase {
-    public function testOpenGrid(): void {
-        $tpl = $this->uikit->grid->render([100], ['open' => true]);
+    public function testOpenGridRender(): void {
+        $tpl = $this->uikit->grid->open([100]);
 
-        $expected = '<div class="col-xs-12">';
-
-        $this->assertComponentRenders($expected, $tpl);
+        $this->assertComponentRender('<div class="col-xs-12">', $tpl);
     }
 
-    public function testCloseGrid(): void {
-        $tpl = $this->uikit->grid->render([], ['close' => true]);
+    public function testCloseGridRender(): void {
+        $tpl = $this->uikit->grid->close();
 
-        $expected = '</div>';
+        $this->assertComponentRender('</div>', $tpl);
+    }
 
-        $this->assertComponentRenders($expected, $tpl);
+    public function testGridInTwig(): void {
+        $this->assertComponentRender('<div class="col-xs-12">', $this->uikit->renderTpl("{{ grid_open([100]) }}", [], true));
+        $this->assertComponentRender('</div>', $this->uikit->renderTpl("{{ grid_close() }}", [], true));
     }
 }

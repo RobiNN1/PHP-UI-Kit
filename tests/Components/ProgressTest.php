@@ -16,6 +16,10 @@ final class ProgressTest extends ComponentTestCase {
     public function testProgressRender(): void {
         $tpl = $this->uikit->progress->render(27);
 
-        $this->assertComponentRenders($this->getFile('components/progress'), $tpl);
+        $this->assertComponentRender($this->getFile('components/progress'), $tpl);
+    }
+
+    public function testProgressInTwig(): void {
+        $this->assertComponentRenderTpl('components/progress', "{{ progress(27) }}");
     }
 }

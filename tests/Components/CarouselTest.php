@@ -19,6 +19,13 @@ final class CarouselTest extends ComponentTestCase {
             'Slide 2',
         ]);
 
-        $this->assertComponentRenders($this->getFile('components/carousel'), $tpl);
+        $this->assertComponentRender($this->getFile('components/carousel'), $tpl);
+    }
+
+    public function testCarouselInTwig(): void {
+        $this->assertComponentRenderTpl('components/carousel', "{{ carousel('test', [
+            'Slide 1',
+            'Slide 2',
+        ]) }}");
     }
 }

@@ -36,12 +36,8 @@ final class CustomComponetTest extends TestCase {
     }
 
     public function testCustomComponentInTwig(): void {
-        $this->uikit->setPath(__DIR__.'/resources/templates');
-
-        $expected = 'Name: test
-<nav>
-</nav>';
-
-        $this->assertSame($expected, $this->uikit->renderTpl('custom_componet'));
+        $this->assertSame('Name: test', $this->uikit->renderTpl('{{ custom_componet(\'test\') }}', [], true));
+        $this->assertSame('<nav>', $this->uikit->renderTpl('{{ custom_componet_open() }}', [], true));
+        $this->assertSame('</nav>', $this->uikit->renderTpl('{{ custom_componet_close() }}', [], true));
     }
 }
