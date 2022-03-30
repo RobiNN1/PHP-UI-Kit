@@ -1,6 +1,6 @@
 # accordion()
 
-Render accordion.
+Show hidden information based on the collapse.
 
 ---
 

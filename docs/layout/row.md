@@ -1,6 +1,6 @@
-# Row
+# row()
 
-Render row.
+Group of columns.
 
 ---
 

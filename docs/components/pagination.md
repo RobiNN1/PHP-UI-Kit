@@ -1,6 +1,6 @@
 # pagination()
 
-Render pagination.
+Indicate a series of content across various pages.
 
 ---
 

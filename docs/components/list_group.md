@@ -1,6 +1,6 @@
 # list_group()
 
-Render list group.
+Display a series of items inside a single element.
 
 ---
 

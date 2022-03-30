@@ -1,6 +1,6 @@
 # progress()
 
-Render progress.
+Show the completion progress.
 
 ---
 

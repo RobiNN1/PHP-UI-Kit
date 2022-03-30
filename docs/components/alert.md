@@ -1,6 +1,6 @@
 # alert()
 
-Render alert.
+Contextual feedback messages for typical user actions.
 
 ---
 

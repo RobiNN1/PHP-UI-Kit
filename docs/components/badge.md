@@ -1,6 +1,6 @@
 # badge()
 
-Render badge.
+Show extra information like counts or labels.
 
 ---
 

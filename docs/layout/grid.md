@@ -1,6 +1,6 @@
-# Grid
+# grid()
 
-Render grid.
+Use grid to build layouts of all shapes.
 
 ---
 

@@ -1,6 +1,6 @@
 # carousel()
 
-Render carousel.
+A slideshow component to slide through multiple elements.
 
 ---
 

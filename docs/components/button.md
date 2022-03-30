@@ -1,6 +1,6 @@
 # button()
 
-Render button.
+Show the button where you need, as action button or a link.
 
 ---
 
