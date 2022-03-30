@@ -1,6 +1,6 @@
 # button_group()
 
-Render button group.
+Show a group of buttons together in one line.
 
 ---
 

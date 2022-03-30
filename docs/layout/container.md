@@ -1,6 +1,6 @@
-# Container
+# container()
 
-Render container.
+Display content to a reasonable maximum width.
 
 ---
 

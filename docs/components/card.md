@@ -1,6 +1,6 @@
 # card()
 
-Render card.
+Flexible and extensible content container.
 
 ---
 

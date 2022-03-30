@@ -1,6 +1,6 @@
 # breadcrumbs()
 
-Render breadcrumbs.
+Show the current page's location in a hierarchical structure.
 
 ---
 

@@ -1,6 +1,6 @@
 # modal()
 
-Render modal.
+Show interactive dialogs and notifications or any content.
 
 ---
 

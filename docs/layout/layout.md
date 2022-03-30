@@ -1,6 +1,6 @@
 # layout()
 
-Render site layout.
+Show site layout.
 
 ---
 

@@ -1,6 +1,6 @@
 # dropdown()
 
-Render dropdown.
+Show a list of items displayed as a menu.
 
 ---
 

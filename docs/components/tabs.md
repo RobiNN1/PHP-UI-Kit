@@ -1,6 +1,6 @@
 # tabs()
 
-Render tabs.
+Create content that can be hidden and activated onclick.
 
 ---
 

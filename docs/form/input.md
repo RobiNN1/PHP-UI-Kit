@@ -1,6 +1,6 @@
 # input()
 
-Render input field.
+Show input field with variety of addons.
 
 ---
 

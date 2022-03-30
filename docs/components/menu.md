@@ -1,6 +1,6 @@
 # menu()
 
-Render menu.
+Show a navigational bar at the top side of your website.
 
 ---
 

@@ -1,6 +1,6 @@
-# Form
+# form()
 
-Render form.
+Show `<form>` tag.
 
 ---
 
