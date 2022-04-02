@@ -41,15 +41,15 @@ $options (array) (Optional) Additional options. Default value: []
 ## Basic Usage
 
 ```php
-echo input('test', 'Test input');
+echo input('example', 'Example input');
 ```
 
 HTML output:
 
 ```html
 <div class="mb-1">
-    <label for="test" class="form-label">Test input</label>
-    <input value="" type="text" id="test" name="test" class="form-control">
+    <label for="example" class="form-label">Example input</label>
+    <input value="" type="text" id="example" name="example" class="form-control">
 </div>
 ```
 

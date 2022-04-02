@@ -27,7 +27,7 @@ echo row_close();
 
 HTML output:
 
-```html
+```xhtml
 <div class="row">
 </div>
 ```

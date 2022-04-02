@@ -28,7 +28,7 @@ echo layout('Body content');
 
 HTML output:
 
-```html
+```xhtml
 <!doctype html>
 <html lang="en">
 <head>

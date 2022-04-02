@@ -45,7 +45,7 @@ Render template.
 echo $uikit->renderTpl('tpl_name', []);
 
 // Set true on last parameter to enable loading templates from variable
-echo $uikit->renderTpl("{{ alert('Test') }}", [], true);
+echo $uikit->renderTpl("{{ alert('Example') }}", [], true);
 ```
 
 ## addHtml()
@@ -103,7 +103,7 @@ $components = $uikit->getComponents();
 ```php
 // Pass component name to get its object
 $alert = $uikit->getComponents('alert');
-echo $alert->render('Test');
+echo $alert->render('Example');
 ```
 
 ## addComponent()
@@ -112,22 +112,22 @@ Add component.
 
 ```php
 // The class can optionally extend the Component class to get access to UiKit methods.
-class Test {
+class ExampleComponent {
     // Note, each component must have render method
     public function render(): string {
         return '...';
     }
 }
 
-$uikit->addComponent('test', Test::class);
+$uikit->addComponent('example_component', ExampleComponent::class);
 
 // Then you can use it like all components
-echo $uikit->test->render(); // or create helper function for it
+echo $uikit->example_component->render(); // or create helper function for it
 
-// The following examples only works with render() and open/close (test_open(), test_close()) methods
+// The following examples only works with render() and open/close (example_component_open(), example_component_close()) methods
 
-echo $uikit->test(); // Short version
+echo $uikit->example_component(); // Short version
 
 // It will also work in the Twig
-// {{ test() }}
+// {{ example_component() }}
 ```

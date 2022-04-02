@@ -29,7 +29,7 @@ echo grid_close();
 
 HTML output:
 
-```html
+```xhtml
 <div class="col-xs-12">
 </div>
 ```

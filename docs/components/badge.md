@@ -27,10 +27,18 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo badge('Default');
+
+// With color
+echo badge('Success', 'success');
+
+// Rounded
+echo badge('Rounded', 'default', ['rounded' => true]);
 ```
 
 HTML output:
 
 ```html
 <span class="badge bg-secondary">Default</span>
+<span class="badge bg-success">Success</span>
+<span class="badge bg-secondary rounded-pill">Rounded</span>
 ```
