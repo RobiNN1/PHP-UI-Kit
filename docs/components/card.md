@@ -28,16 +28,18 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo card([
-    'header' => 'Header',
-    'body'   => 'Body',
-])
+    'header' => 'Card header',
+    'body'   => 'Card body',
+    'footer' => 'Card footer',
+]);
 ```
 
 HTML output:
 
 ```html
 <div class="card">
-    <div class="card-header">Header</div>
-    <div class="card-body">Body</div>
+    <div class="card-header">Card header</div>
+    <div class="card-body">Card body</div>
+    <div class="card-footer">Card footer</div>
 </div>
 ```

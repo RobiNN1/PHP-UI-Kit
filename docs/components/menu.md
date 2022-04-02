@@ -37,10 +37,10 @@ $options (array) (Optional) Additional options. Default value: []
 ## Basic Usage
 
 ```php
-echo menu('test', [
+echo menu('example', [
     ['title' => 'Item 1', 'link' => 'link1.php'],
-    ['custom' => button('Button')],
-    // Dropdown
+    ['custom' => button('Button')], // Any HTML
+    // Dropdown, you can use all dropdown options (e.g. divider) as well
     [
         'title' => 'Dropdown', // Title is required for dropdown button
         ['title' => 'Sub Item 1', 'link' => 'sub_link1.php'],
@@ -58,8 +58,8 @@ HTML output:
 ```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbartest"> <span class="navbar-toggler-icon"></span> </button>
-        <div class="collapse navbar-collapse" id="navbartest">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbar-example">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link" href="link1.php">Item 1</a></li>
                 <li class="nav-item"><button type="button" class="btn btn-secondary">Button</button></li>

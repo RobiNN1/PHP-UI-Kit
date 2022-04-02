@@ -29,7 +29,7 @@ echo container_close();
 
 HTML output:
 
-```html
+```xhtml
 <div class="container">
 </div>
 ```

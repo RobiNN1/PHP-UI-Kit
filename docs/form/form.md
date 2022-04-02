@@ -34,7 +34,7 @@ echo form_close();
 
 HTML output:
 
-```html
+```xhtml
 <form method="post">
 </form>
 ```

@@ -39,9 +39,10 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo dropdown('Dropdown', [
-    ['title' => 'Item 1', 'link' => 'link1.php'],
+    ['title' => 'Link', 'link' => 'link1.php'],
     'divider',
-    ['title' => 'Item 2'],
+    ['title' => 'Item'],
+    ['custom' => '<b class="p-3">Custom bold text</b>'],
 ]);
 ```
 
@@ -51,9 +52,10 @@ HTML output:
 <div class="dropdown">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>
     <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="link1.php">Item 1</a></li>
+        <li><a class="dropdown-item" href="link1.php">Link</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><span class="dropdown-item-text">Item 2</span></li>
+        <li><span class="dropdown-item-text">Item</span></li>
+        <li><b class="p-3">Custom bold text</b></li>
     </ul>
 </div>
 ```

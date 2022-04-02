@@ -43,6 +43,26 @@ echo button_group([
     0 => 'First',
     1 => 'Second',
 ]);
+
+// Misc buttons
+echo button_group([
+    0          => 'First',
+    1          => 'Second',
+    'example'  => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
+    'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
+    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]],
+]);
+
+
+// Size
+echo button_group([
+    0          => 'First',
+    1          => 'Second',
+    'example'  => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
+    'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
+    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]],
+],
+['size' => 'lg',]);
 ```
 
 HTML output:
@@ -54,22 +74,18 @@ HTML output:
 </div>
 ```
 
-#### Misc buttons
-
-```php
-echo button_group([
-    0          => 'First',
-    1          => 'Second',
-    'test'     => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
-    'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
-    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]],
-]);
-```
-
-HTML output:
-
 ```html
 <div class="btn-group" role="group">
+    <button type="button" class="btn btn-secondary" value="0">First</button>
+    <button type="button" class="btn btn-secondary" value="1">Second</button>
+    <a href="link.php" class="btn btn-primary">Link</a>
+    <button type="submit" class="btn btn-success" name="savedata" value="savedata">Submit</button>
+    <button type="button" class="btn btn-secondary">No value</button>
+</div>
+```
+
+```html
+<div class="btn-group btn-group-lg" role="group">
     <button type="button" class="btn btn-secondary" value="0">First</button>
     <button type="button" class="btn btn-secondary" value="1">Second</button>
     <a href="link.php" class="btn btn-primary">Link</a>

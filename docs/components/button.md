@@ -36,22 +36,26 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo button('Default');
+
+// With color
+echo button('Primary', 'button', ['color' => 'primary',]);
+
+// As link
+echo button('Link', '', ['link' => 'link.php',]);
+
+// Size
+echo button('Large', 'button', ['size' => 'lg',]);
+
+// Active state
+echo button('Active', '', ['active' => true,]);
 ```
 
 HTML output:
 
 ```html
 <button type="button" class="btn btn-secondary">Default</button>
-```
-
-#### As a link
-
-```php
-echo button('Link', '', ['link' => 'link.php']);
-```
-
-HTML output:
-
-```html
+<button type="button" class="btn btn-primary">Primary</button>
 <a href="link.php" class="btn btn-secondary">Link</a>
+<button type="button" class="btn btn-secondary btn-lg">Large</button>
+<button type="button" class="btn btn-secondary active">Active</button>
 ```
