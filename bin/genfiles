@@ -143,7 +143,7 @@ $options (array) (Optional) Additional options. Default value: []
 echo '.$name.'();
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <div></div>
