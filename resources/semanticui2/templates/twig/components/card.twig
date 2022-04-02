@@ -1,6 +1,6 @@
 <div class="ui fluid card{{ class|space }}"{{ attributes|space|raw }}>
     {% if top_img %}
-        <img class="image" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
+        <img class="image{{ top_img.class|space }}" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
     {% endif %}
     {% if header %}
         <div class="content">{{ header|raw }}</div>

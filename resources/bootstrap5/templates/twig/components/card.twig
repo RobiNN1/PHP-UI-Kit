@@ -1,6 +1,6 @@
 <div class="card{{ class|space }}"{{ attributes|space|raw }}>
     {% if top_img %}
-        <img class="card-img-top" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
+        <img class="card-img-top{{ top_img.class|space }}" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
     {% endif %}
     {% if header %}
         <div class="card-header">{{ header|raw }}</div>
