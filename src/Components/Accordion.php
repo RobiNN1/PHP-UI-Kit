@@ -27,7 +27,7 @@ class Accordion extends Component {
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
-            'first_open' => false, // Set true to open first item.
+            'first_open' => true, // Set false to close first item.
         ], $options);
 
         return $this->uikit->renderTpl('components/'.$component, [
