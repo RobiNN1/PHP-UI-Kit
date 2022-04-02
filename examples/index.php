@@ -100,7 +100,7 @@ echo '<hr>';
 echo '<h3>Components</h3>';
 
 echo '<h4>Accordion</h4>';
-echo accordion('test', [
+echo accordion('example', [
     'Title 1' => 'Content 1',
     'Title 2' => 'Content 2',
 ]);
@@ -163,7 +163,7 @@ echo '<h4>Button group</h4>';
 $btns = [
     0          => 'First',
     1          => 'Second',
-    'test'     => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
+    'example'  => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
     'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
     'btn1'     => ['title' => 'No value', 'value' => null],
 ];
@@ -200,7 +200,7 @@ echo row_close();
 echo '<hr>';
 
 echo '<h4>Carousel</h4>';
-echo carousel('test', [
+echo carousel('example', [
     '<svg style="width:100%;height:300px;" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555">First slide</text>
     </svg>',
@@ -227,7 +227,7 @@ echo list_group([
 echo '<hr>';
 
 echo '<h4>Menu</h4>';
-echo menu('test', [
+echo menu('example', [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     ['custom' => button('Button')],
     ['title' => 'Item 2', 'link' => 'link2.php', 'active' => true],
@@ -250,10 +250,10 @@ echo menu('test', [
 echo '<hr>';
 
 echo '<h4>Modal</h4>';
-echo modal('test', [
-    'title'  => 'Modal Title',
-    'header' => 'Test',
-    'body'   => '<b>Testing</b>',
+echo modal('example', [
+    'title'  => 'Modal title',
+    'header' => 'idk',
+    'body'   => 'Modal body',
     'footer' => 'Random text...',
 ], [
     'button' => [
@@ -270,7 +270,7 @@ echo '<hr>';
 
 echo '<h4>Progress</h4>';
 echo progress(40);
-echo progress([43 => 'Test']);
+echo progress([43 => 'example']);
 echo progress([13, 30, 50], [
     'color' => ['error', 'success'],
 ]);
@@ -296,7 +296,7 @@ echo progress([20, 75], [
 echo '<hr>';
 
 echo '<h4>Tabs</h4>';
-echo tabs('test', [
+echo tabs('example', [
     ['title' => 'Tab 1', 'content' => 'Content 1'],
     ['title' => 'Tab 2', 'content' => 'Content 2'],
     ['title' => 'Tab 3', 'content' => 'Content 3'],
