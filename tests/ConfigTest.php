@@ -16,9 +16,7 @@ use PHPUnit\Framework\TestCase;
 final class ConfigTest extends TestCase {
     private Config $config;
 
-    public function __construct() {
-        parent::__construct();
-
+    protected function setUp(): void {
         $this->config = new Config();
     }
 
