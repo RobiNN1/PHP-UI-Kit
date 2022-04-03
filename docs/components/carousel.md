@@ -28,35 +28,30 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo carousel('example', [
-    '<svg style="width:100%;height:300px;" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555">First slide</text>
-    </svg>',
-    '<svg style="width:100%;height:300px;" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555">Second slide</text>
-    </svg>',
+    '<img class="d-block w-100" src="path/to/image1.jpg" alt="Slide 1">',
+    '<img class="d-block w-100" src="path/to/image2.jpg" alt="Slide 2">',
+    '<img class="d-block w-100" src="path/to/image3.jpg" alt="Slide 3">',
 ]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <div id="carousel-example" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carousel-example" data-bs-slide-to="0" class="active" aria-current="true"></button>
         <button type="button" data-bs-target="#carousel-example" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carousel-example" data-bs-slide-to="2"></button>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <svg style="width:100%;height:300px;" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="#777"></rect>
-                <text x="50%" y="50%" fill="#555">First slide</text>
-            </svg>
+            <img class="d-block w-100" src="path/to/image1.jpg" alt="Slide 1">
         </div>
         <div class="carousel-item">
-            <svg style="width:100%;height:300px;" xmlns="http://www.w3.org/2000/svg">
-                <rect width="100%" height="100%" fill="#777"></rect>
-                <text x="50%" y="50%" fill="#555">Second slide</text>
-            </svg>
+            <img class="d-block w-100" src="path/to/image2.jpg" alt="Slide 2">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="path/to/image3.jpg" alt="Slide 3">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carousel-example" data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </button>

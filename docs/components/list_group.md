@@ -30,7 +30,7 @@ echo list_group([
 ]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 

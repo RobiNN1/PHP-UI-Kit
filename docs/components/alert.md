@@ -27,20 +27,48 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo alert('Default');
-
-// With color
-echo alert('Success', 'success');
-
-// Dismiss
-echo alert('Dismissible', 'info', ['dismiss' => true]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
+
+```html
+<div class="alert alert-primary" role="alert">Default</div>
+```
+
+## Colors
+
+```php
+echo alert('Default');
+
+echo alert('Success', 'success');
+
+echo alert('Warning', 'warning');
+
+echo alert('Error', 'error');
+
+echo alert('Info', 'info');
+```
+
+<span class="html-output">HTML Output</span>
 
 ```html
 <div class="alert alert-primary" role="alert">Default</div>
 <div class="alert alert-success" role="alert">Success</div>
-<div class="alert alert-info alert-dismissible" role="alert">
+<div class="alert alert-warning" role="alert">Warning</div>
+<div class="alert alert-danger" role="alert">Error</div>
+<div class="alert alert-info" role="alert">Info</div>
+```
+
+## Dismissing
+
+```php
+echo alert('Dismissible', 'default', ['dismiss' => true]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<div class="alert alert-primary alert-dismissible" role="alert">
     Dismissible
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>

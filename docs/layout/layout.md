@@ -23,7 +23,9 @@ $options (array) (Optional) Additional options. Default value: []
 ## Basic Usage
 
 ```php
-echo layout('Body content');
+echo layout('Body content', [
+    'title' => 'Site Title',
+]);
 ```
 
 HTML output:
@@ -34,7 +36,7 @@ HTML output:
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UI Kit</title>
+    <title>Site Title</title>
     <link rel="stylesheet" href="path/to/bs/css/bootstrap.min.css">
 </head>
 <body>

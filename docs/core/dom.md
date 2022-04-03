@@ -12,6 +12,14 @@ $html = '<a href="link.php" class="linkclass">Example</a>';
 $dom = new Dom($html);
 ```
 
+## getAttr()
+
+Add an attribute to the tag.
+
+```php
+$class = $dom->getAttr('a', 'class'); // linkclass
+```
+
 ## setAttr()
 
 Add an attribute to the tag.

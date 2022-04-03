@@ -36,26 +36,102 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo button('Default');
-
-// With color
-echo button('Primary', 'button', ['color' => 'primary',]);
-
-// As link
-echo button('Link', '', ['link' => 'link.php',]);
-
-// Size
-echo button('Large', 'button', ['size' => 'lg',]);
-
-// Active state
-echo button('Active', '', ['active' => true,]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
+
+```html
+<button type="button" class="btn btn-secondary">Default</button>
+```
+
+## Colors
+
+```php
+echo button('Default');
+
+echo button('Primary', 'button', [
+    'color' => 'primary',
+]);
+
+echo button('Success', 'button', [
+    'color' => 'success',
+]);
+
+echo button('Warning', 'button', [
+    'color' => 'warning',
+]);
+
+echo button('Error', 'button', [
+    'color' => 'error',
+]);
+
+echo button('Info', 'button', [
+    'color' => 'info',
+]);
+```
+
+<span class="html-output">HTML Output</span>
 
 ```html
 <button type="button" class="btn btn-secondary">Default</button>
 <button type="button" class="btn btn-primary">Primary</button>
-<a href="link.php" class="btn btn-secondary">Link</a>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-danger">Error</button>
+<button type="button" class="btn btn-info">Info</button>
+```
+
+## Sizes
+
+```php
+echo button('Small', 'button', [
+    'size' => 'sm',
+]);
+
+echo button('Default');
+
+echo button('Large', 'button', [
+    'size' => 'lg',
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<button type="button" class="btn btn-secondary btn-sm">Small</button>
+<button type="button" class="btn btn-secondary">Default</button>
 <button type="button" class="btn btn-secondary btn-lg">Large</button>
+```
+
+## As Link
+
+```php
+echo button('Link', '', [
+    'link' => 'link.php',
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<a href="link.php" class="btn btn-secondary">Link</a>
+```
+
+## Active & Disabled State
+
+```php
+echo button('Active', '', [
+    'active' => true,
+]);
+
+echo button('Disabled', '', [
+    'disabled' => true,
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
 <button type="button" class="btn btn-secondary active">Active</button>
+<button type="button" class="btn btn-secondary disabled" disabled="">Disabled</button>
 ```

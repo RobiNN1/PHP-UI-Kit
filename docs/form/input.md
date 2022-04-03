@@ -44,7 +44,7 @@ $options (array) (Optional) Additional options. Default value: []
 echo input('example', 'Example input');
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <div class="mb-1">
@@ -53,13 +53,121 @@ HTML output:
 </div>
 ```
 
-#### With left addon
+## Sizes
 
 ```php
-echo input('username', 'Username', '', ['left_addon' => '@']);
+echo input('input-small', 'Small', '', [
+    'size' => 'sm',
+]);
+
+echo input('input-defult', 'Default');
+
+echo input('input-large', 'Large', '', [
+    'size' => 'lg',
+]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
+
+```html
+<div class="mb-1">
+    <label for="input-small" class="form-label">Small</label>
+    <input value="" type="text" id="input-small" name="input-small" class="form-control form-control-sm">
+</div>
+
+<div class="mb-1">
+    <label for="input-defult" class="form-label">Default</label>
+    <input value="" type="text" id="input-defult" name="input-defult" class="form-control">
+</div>
+
+<div class="mb-1">
+    <label for="input-large" class="form-label">Large</label>
+    <input value="" type="text" id="input-large" name="input-large" class="form-control form-control-lg">
+</div>
+```
+
+## States
+
+```php
+echo input('input-success', 'Success', '', [
+    'state' => 'success',
+]);
+
+echo input('input-error', 'Error', '', [
+    'state' => 'error',
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<div class="mb-1">
+    <label for="input-success" class="form-label">Success</label>
+    <input value="" type="text" id="input-success" name="input-success" class="form-control is-valid">
+</div>
+
+<div class="mb-1">
+    <label for="input-error" class="form-label">Error</label>
+    <input value="" type="text" id="input-error" name="input-error" class="form-control is-invalid">
+</div>
+```
+
+## Feedback & help text
+
+```php
+echo input('input-error-feedback', 'Error input with text', '', [
+    'state' => 'error',
+    'feedback_text' => 'Please enter text',
+]);
+
+echo input('input-help', 'Input with help text', '', [
+    'help_text' => 'Text must be 10-100 characters long',
+]);
+
+echo input('input-feedback-help', 'Input with feedback and help text', '', [
+    'state'         => 'error',
+    'feedback_text' => 'Please enter text',
+    'help_text'     => 'Text must be 10-100 characters long',
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<div class="mb-1">
+    <label for="input-error-feedback" class="form-label">Error input with text</label>
+    <input value="" type="text" id="input-error-feedback" name="input-error-feedback" class="form-control is-invalid">
+    <div class="invalid-feedback">Please enter text</div>
+</div>
+
+<div class="mb-1">
+    <label for="input-help" class="form-label">Input with help text</label>
+    <input value="" type="text" id="input-help" name="input-help" class="form-control">
+    <div class="form-text">Text must be 10-100 characters long</div>
+</div>
+
+<div class="mb-1">
+    <label for="input-feedback-help" class="form-label">Input with feedback and help text</label>
+    <input value="" type="text" id="input-feedback-help" name="input-feedback-help" class="form-control is-invalid">
+    <div class="invalid-feedback">Please enter text</div>
+    <div class="form-text">Text must be 10-100 characters long</div>
+</div>
+```
+
+## Addons
+
+```php
+echo input('username', 'Username', '', [
+    'left_addon' => '@',
+]);
+
+echo input('search-input', '', '', [
+    'placeholder'  => 'Search...',
+    'right_custom' => button('Search'),
+]);
+```
+
+<span class="html-output">HTML Output</span>
 
 ```html
 <div class="mb-1">
@@ -69,20 +177,7 @@ HTML output:
         <input value="" type="text" id="username" name="username" class="form-control">
     </div>
 </div>
-```
 
-#### With action button
-
-```php
-echo input('search-input', '', '', [
-    'placeholder'  => 'Search...',
-    'right_custom' => button('Search'),
-]);
-```
-
-HTML output:
-
-```html
 <div class="mb-1">
     <div class="input-group">
         <input value="" type="text" id="search-input" name="search-input" placeholder="Search..." class="form-control">
