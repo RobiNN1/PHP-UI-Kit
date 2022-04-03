@@ -14,23 +14,27 @@ use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\Dom;
 
 final class DomTest extends TestCase {
+    private Dom $dom;
+
+    protected function setUp(): void {
+        $html = '<a href="link.php" class="linkclass">Example</a>';
+
+        $this->dom = new Dom($html);
+    }
+
+    public function testGetAttr(): void {
+        $this->assertSame('linkclass', $this->dom->getAttr('a', 'class'));
+    }
+
     public function testSetAttr(): void {
-        $html = '<a href="link.php">Test</a>';
-        $dom = new Dom($html);
-        $dom->setAttr('a', 'class', 'test-link');
+        $this->dom->setAttr('a', 'id', 'example');
 
-        $expected = '<a href="link.php" class="test-link">Test</a>';
-
-        $this->assertSame($expected, trim($dom->save()));
+        $this->assertSame('<a href="link.php" class="linkclass" id="example">Example</a>', trim($this->dom->save()));
     }
 
     public function testRemoveAttr(): void {
-        $html = '<a href="link.php" class="test-link">Test</a>';
-        $dom = new Dom($html);
-        $dom->removeAttr('a', 'class');
+        $this->dom->removeAttr('a', 'class');
 
-        $expected = '<a href="link.php">Test</a>';
-
-        $this->assertSame($expected, trim($dom->save()));
+        $this->assertSame('<a href="link.php">Example</a>', trim($this->dom->save()));
     }
 }

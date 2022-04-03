@@ -31,11 +31,33 @@ class Dom {
     }
 
     /**
+     * Get tag attribute value.
+     *
+     * @param string $tagname
+     * @param string $attr
+     *
+     * @return ?string
+     */
+    public function getAttr(string $tagname, string $attr): ?string {
+        $tags = $this->dom->getElementsByTagName($tagname);
+
+        if ($tags->length !== 0) {
+            foreach ($tags as $tag) {
+                return $tag->getAttribute($attr);
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Add attribute to tag.
      *
      * @param string     $tagname
      * @param string     $attr
      * @param int|string $value
+     *
+     * @return void
      */
     public function setAttr(string $tagname, string $attr, int|string $value): void {
         $tags = $this->dom->getElementsByTagName($tagname);
@@ -57,6 +79,8 @@ class Dom {
      *
      * @param string $tagname
      * @param string $attr
+     *
+     * @return void
      */
     public function removeAttr(string $tagname, string $attr): void {
         $tags = $this->dom->getElementsByTagName($tagname);
