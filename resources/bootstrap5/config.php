@@ -52,15 +52,12 @@ return [
         ],
     ],
     'alert'        => [
-        'colors'  => [
+        'colors' => [
             'default' => 'alert-primary',
             'success' => 'alert-success',
             'warning' => 'alert-warning',
             'error'   => 'alert-danger',
             'info'    => 'alert-info',
-        ],
-        'classes' => [
-            'a' => 'alert-link',
         ],
     ],
     'badge'        => [
@@ -95,13 +92,6 @@ return [
         'sizes' => [
             'sm' => 'btn-group-sm',
             'lg' => 'btn-group-lg',
-        ],
-    ],
-    'card'         => [
-        'classes' => [
-            'p'        => 'card-text',
-            'title'    => 'card-title',
-            'subtitle' => 'card-subtitle',
         ],
     ],
     'dropdown'     => [

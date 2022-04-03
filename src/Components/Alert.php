@@ -10,8 +10,6 @@
 
 namespace RobiNN\UiKit\Components;
 
-use RobiNN\UiKit\Dom;
-
 class Alert extends Component {
     /**
      * Render alert.
@@ -34,20 +32,12 @@ class Alert extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
-        $html = $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->renderTpl('components/'.$component, [
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'dismiss'    => $options['dismiss'],
         ]);
-
-        $dom = new Dom($html);
-
-        if (!empty($fwoptions['classes']['a'])) {
-            $dom->setAttr('a', 'class', $fwoptions['classes']['a']);
-        }
-
-        return $dom->save();
     }
 }
