@@ -8,7 +8,7 @@ breadcrumbs( array $links [, array $options ] ) : string
 
 ## Parameters
 
-$links (array) (Required) Associative array link-title => link.
+$links (array) (Required) Associative array `link-title => link`.
 
 $options (array) (Optional) Additional options. Default value: []
 
@@ -25,16 +25,18 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo breadcrumbs([
-    'Link 1' => 'link1.php',
-    'Link 2' => 'link2.php',
-])
+    'Home'    => 'index.php',
+    'Library' => 'library.php',
+    'Data'    => 'data.php',
+]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <ol class="breadcrumb" aria-label="breadcrumb">
-    <li class="breadcrumb-item"><a href="link1.php">Link 1</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Link 2</li>
+    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+    <li class="breadcrumb-item"><a href="library.php">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
 </ol>
 ```

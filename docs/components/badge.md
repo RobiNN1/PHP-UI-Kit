@@ -27,18 +27,49 @@ $options (array) (Optional) Additional options. Default value: []
 
 ```php
 echo badge('Default');
-
-// With color
-echo badge('Success', 'success');
-
-// Rounded
-echo badge('Rounded', 'default', ['rounded' => true]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <span class="badge bg-secondary">Default</span>
+```
+
+## Colors
+
+```php
+echo badge('Default');
+
+echo badge('Primary', 'primary');
+
+echo badge('Success', 'success');
+
+echo badge('Warning', 'warning');
+
+echo badge('Error', 'error');
+
+echo badge('Info', 'info');
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<span class="badge bg-secondary">Default</span>
+<span class="badge bg-primary">Primary</span>
 <span class="badge bg-success">Success</span>
+<span class="badge bg-warning">Warning</span>
+<span class="badge bg-danger">Error</span>
+<span class="badge bg-info">Info</span>
+```
+
+## Rounded
+
+```php
+echo badge('Rounded', 'default', ['rounded' => true]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
 <span class="badge bg-secondary rounded-pill">Rounded</span>
 ```

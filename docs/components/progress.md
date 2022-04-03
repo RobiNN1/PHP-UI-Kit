@@ -30,7 +30,7 @@ $options (array) (Optional) Additional options. Default value: []
 echo progress(40);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <div class="progress mb-2">
@@ -38,10 +38,10 @@ HTML output:
 </div>
 ```
 
-#### Auto colors and multiple values
+## Auto colors and multiple values
 
 ```php
-echo progress([20, 75], [
+echo progress([20, 75,], [
     'auto_colors' => function (int $num): string {
         $class = 'error';
         if ($num > 71) {
@@ -59,7 +59,7 @@ echo progress([20, 75], [
 ]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <div class="progress mb-2">
@@ -68,16 +68,16 @@ HTML output:
 </div>
 ```
 
-#### With titles and different colors
+## With titles and different colors
 
 ```php
 // In this case every bar will have title and different color
-echo progress([15 => 'First', 30 => 'Second', 55 => 'Third'], [
+echo progress([15 => 'First', 30 => 'Second', 55 => 'Third',], [
     'color' => ['error', 'warning', 'success'],
 ]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <div class="progress mb-2">

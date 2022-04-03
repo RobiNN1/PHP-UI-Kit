@@ -40,7 +40,7 @@ echo tabs('example', [
 ]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <div id="tabs-example">

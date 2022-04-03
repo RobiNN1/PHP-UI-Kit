@@ -35,7 +35,7 @@ echo pagination([1, 2, 3, 4], [
 ]);
 ```
 
-HTML output:
+<span class="html-output">HTML Output</span>
 
 ```html
 <ul class="pagination">
