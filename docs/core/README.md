@@ -1,5 +1,5 @@
 # Core
 
-Documentation of core functions.
+Core functions and config.
 
 <!-- list-of-items -->
