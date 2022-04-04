@@ -6,7 +6,7 @@ A set of components that can be used as functions in PHP or directly in your tem
 
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=RobiNN1.PHP-UI-Kit)
 
-[Documentation](docs)
+[Documentation](https://uikit.kelcak.com/)
 
 ## Installation
 
