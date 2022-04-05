@@ -49,7 +49,8 @@
   },
   "scripts": {
     "phpstan": "phpstan",
-    "test": "phpunit"
+    "test": "phpunit",
+    "genfiles": "php bin/genfiles"
   },
   "config": {
     "sort-packages": true
