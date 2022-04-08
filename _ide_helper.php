@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * IDE Helper for autocompletion
  */
@@ -27,6 +29,6 @@ namespace RobiNN\UiKit {
      * @property Components\Progress         $progress
      * @property Components\Tabs             $tabs
      */
-    final class UiKit {
+    class Components {
     }
 }

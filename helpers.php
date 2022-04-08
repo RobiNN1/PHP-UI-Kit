@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 if (!function_exists('get_ui')) {
     /**
      * Get UI Kit object.
