@@ -1,4 +1,6 @@
 <?php
+declare(strict_types=1);
+
 /**
  * Default framework config.
  * If you need to change any value, use the setFrameworkOption() function.
