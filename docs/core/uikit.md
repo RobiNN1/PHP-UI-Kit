@@ -64,46 +64,12 @@ Get HTML code.
 $html = $uikit->getHtml();
 ```
 
-## tplFunctions()
-
-Get custom TPL functions.
-
-This method is for template engines. Allows you to use components in a template.
-
-```php
-$functions = $uikit->tplFunctions();
-```
-
-## tplFilters()
-
-Get custom TPL filters.
-
-This method is for template engines. Allows you to use custom filters in a template.
-
-```php
-$filters = $uikit->tplFilters();
-```
-
 ## setPath()
 
 Set path with templates.
 
 ```php
 $uikit->setPath(__DIR__.'/templates');
-```
-
-## getComponents()
-
-Get array of components or component object.
-
-```php
-$components = $uikit->getComponents();
-```
-
-```php
-// Pass component name to get its object
-$alert = $uikit->getComponents('alert');
-echo $alert->render('Example');
 ```
 
 ## addComponent()

@@ -175,6 +175,7 @@ final class UiKit extends Components {
      * Get custom TPL functions.
      *
      * @return array
+     * @internal
      */
     public function tplFunctions(): array {
         $components = [];
@@ -203,6 +204,7 @@ final class UiKit extends Components {
      * Get custom TPL filters.
      *
      * @return array
+     * @internal
      */
     public function tplFilters(): array {
         return [
