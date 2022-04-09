@@ -72,7 +72,7 @@ class Twig implements ITplEngine {
             }
             return $this->twig->render($tpl.'.twig', $data);
         } catch (\Exception $e) {
-            die($e->getMessage().' File: '.$e->getFile().' Line: '.$e->getLine());
+            die($e->getMessage().' in '.$e->getFile().' at line: '.$e->getLine());
         }
     }
 }
