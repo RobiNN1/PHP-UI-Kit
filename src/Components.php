@@ -53,6 +53,7 @@ class Components {
      * @param ?string $name
      *
      * @return array|object
+     * @internal
      */
     public function getComponents(string $name = null): array|object {
         static $components = [];
@@ -89,6 +90,33 @@ class Components {
     }
 
     /**
+     * Add a suggestions if the component name is misspelled or does not exist.
+     *
+     * @param string $component_name
+     *
+     * @return string
+     * @internal
+     */
+    public function addSuggestions(string $component_name): string {
+        $alternatives = [];
+
+        foreach ($this->getComponents() as $name => $component) {
+            $lev = levenshtein($component_name, $name);
+            if ($lev <= strlen($component_name) / 3 || str_contains($name, $component_name)) {
+                $alternatives[$name] = $lev;
+            }
+        }
+
+        if (!$alternatives) {
+            return '';
+        }
+
+        asort($alternatives);
+
+        return sprintf('Did you mean "%s"?', implode('", "', array_keys($alternatives)));
+    }
+
+    /**
      * Create dynamic properties.
      *
      * @param string $name
@@ -96,7 +124,7 @@ class Components {
      * @return ?object
      */
     public function __get(string $name): ?object {
-        if (!is_array($this->getComponents($name))) {
+        if (is_object($this->getComponents($name))) {
             return $this->getComponents($name);
         }
 
@@ -114,7 +142,7 @@ class Components {
     public function __call(string $name, array $arguments): mixed {
         $name_clean = str_replace(['_open', '_close'], '', $name);
 
-        if (!is_array($this->getComponents($name_clean))) {
+        if (is_object($this->getComponents($name_clean))) {
             $component = $this->getComponents($name_clean);
             $method = 'render';
 
@@ -127,6 +155,6 @@ class Components {
             return call_user_func_array([$component, $method], $arguments);
         }
 
-        return null;
+        return sprintf('Unknown "%s" function. ', $name).$this->addSuggestions($name);
     }
 }

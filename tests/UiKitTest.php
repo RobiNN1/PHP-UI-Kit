@@ -31,4 +31,8 @@ final class UiKitTest extends TestCase {
 
         $this->assertTrue($this->uikit->getFrameworkOptions('jquery'));
     }
+
+    public function testAddSuggestions(): void {
+        $this->assertSame('Did you mean "alert"?', $this->uikit->addSuggestions('alerrt'));
+    }
 }
