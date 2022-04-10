@@ -15,7 +15,7 @@ namespace RobiNN\UiKit\TplEngines;
 use RobiNN\UiKit\Config;
 use RobiNN\UiKit\UiKit;
 
-interface ITplEngine {
+interface TplEngineInterface {
     /**
      * Init TPL engine.
      *

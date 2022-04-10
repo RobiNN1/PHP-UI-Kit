@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
-use RobiNN\UiKit\TplEngines\ITplEngine;
+use RobiNN\UiKit\TplEngines\TplEngineInterface;
 use RobiNN\UiKit\TplEngines\Twig;
 
 final class UiKit extends Components {
@@ -37,9 +37,9 @@ final class UiKit extends Components {
     private array $fw_options = [];
 
     /**
-     * @var ITplEngine
+     * @var TplEngineInterface
      */
-    private ITplEngine $tpl_engine;
+    private TplEngineInterface $tpl_engine;
 
     /**
      * @var array
@@ -58,19 +58,19 @@ final class UiKit extends Components {
     /**
      * Get instance and init UI Kit.
      *
-     * @param ?Config     $config
-     * @param ?ITplEngine $tpl_engine
+     * @param ?Config             $config
+     * @param ?TplEngineInterface $tpl_engine
      *
      * @return UiKit
      */
-    public static function getInstance(?Config $config = null, ?ITplEngine $tpl_engine = null): UiKit {
+    public static function getInstance(?Config $config = null, ?TplEngineInterface $tpl_engine = null): UiKit {
         if (self::$instance == null) {
             self::$instance = new self();
         }
 
         self::$instance->config = $config instanceof Config ? $config : new Config();
 
-        self::$instance->tpl_engine = $tpl_engine instanceof ITplEngine ? $tpl_engine : new Twig();
+        self::$instance->tpl_engine = $tpl_engine instanceof TplEngineInterface ? $tpl_engine : new Twig();
 
         self::$instance->loadFrameworkAssets();
 
