@@ -19,7 +19,7 @@ final class CustomComponetTest extends TestCase {
     private UiKit $uikit;
 
     protected function setUp(): void {
-        $this->uikit = UiKit::getInstance();
+        $this->uikit = UiKit::getInstance()->init();
         $this->uikit->addComponent('custom_componet', CustomComponet::class);
     }
 

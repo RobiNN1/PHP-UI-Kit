@@ -6,14 +6,23 @@ Methods that can be used directly from a UI Kit instance.
 
 ## getInstance()
 
-Get instance and init UI Kit.
-
-Method has 2 parameters, firt one is Config object (optional) and second one instance of ITplEngine (optional).
+Get instance.
 
 ```php
 use RobiNN\UiKit\UiKit;
 
 $uikit = UiKit::getInstance();
+```
+
+## init()
+
+Init UI Kit.
+
+Method has 2 parameters, firt one is Config object (optional) and
+second one instance of ITplEngine (optional).
+
+```php
+$uikit->init();
 ```
 
 ## getFrameworkOptions()
@@ -90,7 +99,8 @@ $uikit->addComponent('example_component', ExampleComponent::class);
 // Then you can use it like all components
 echo $uikit->example_component->render(); // or create helper function for it
 
-// The following examples only works with render() and open/close (example_component_open(), example_component_close()) methods
+// The following examples only works with render() and open/close
+// (example_component_open(), example_component_close()) methods
 
 echo $uikit->example_component(); // Short version
 
