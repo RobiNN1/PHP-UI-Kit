@@ -3,12 +3,8 @@ parameters:
   level: 5
   paths:
     - src
-    - examples
     - resources/bootstrap5/config.php
     - resources/semanticui2/config.php
-    - helpers.php
-  excludePaths:
-    - examples/cache
   ignoreErrors:
     # Ignore properties and methods accessed via magic methods
     - '#Access to an undefined property RobiNN\\UiKit\\UiKit#'
