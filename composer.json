@@ -39,7 +39,7 @@
       "RobiNN\\UiKit\\": "src/"
     },
     "files": [
-      "helpers.php"
+      "src/helpers.php"
     ]
   },
   "autoload-dev": {
