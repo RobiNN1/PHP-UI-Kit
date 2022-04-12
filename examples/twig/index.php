@@ -17,7 +17,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
         'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
     ]);
 
-    return RobiNN\UiKit\UiKit::getInstance($config);
+    return RobiNN\UiKit\UiKit::getInstance()->init($config);
 }
 
 get_ui()->setPath(__DIR__.'/templates');

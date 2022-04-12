@@ -78,7 +78,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
         'cache'  => __DIR__.'/cache',
     ]);
 
-    return RobiNN\UiKit\UiKit::getInstance($config);
+    return RobiNN\UiKit\UiKit::getInstance()->init($config);
 }
 ```
 
