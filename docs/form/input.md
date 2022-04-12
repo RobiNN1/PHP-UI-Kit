@@ -49,7 +49,7 @@ echo input('example', 'Example input');
 ```html
 <div class="mb-1">
     <label for="example" class="form-label">Example input</label>
-    <input value="" type="text" id="example" name="example" class="form-control">
+    <input value="" type="text" id="example" name="example" class="form-control" aria-label="Example input">
 </div>
 ```
 
@@ -72,17 +72,17 @@ echo input('input-large', 'Large', '', [
 ```html
 <div class="mb-1">
     <label for="input-small" class="form-label">Small</label>
-    <input value="" type="text" id="input-small" name="input-small" class="form-control form-control-sm">
+    <input value="" type="text" id="input-small" name="input-small" class="form-control form-control-sm" aria-label="Small">
 </div>
 
 <div class="mb-1">
     <label for="input-defult" class="form-label">Default</label>
-    <input value="" type="text" id="input-defult" name="input-defult" class="form-control">
+    <input value="" type="text" id="input-defult" name="input-defult" class="form-control" aria-label="Default">
 </div>
 
 <div class="mb-1">
     <label for="input-large" class="form-label">Large</label>
-    <input value="" type="text" id="input-large" name="input-large" class="form-control form-control-lg">
+    <input value="" type="text" id="input-large" name="input-large" class="form-control form-control-lg" aria-label="Large">
 </div>
 ```
 
@@ -103,12 +103,12 @@ echo input('input-error', 'Error', '', [
 ```html
 <div class="mb-1">
     <label for="input-success" class="form-label">Success</label>
-    <input value="" type="text" id="input-success" name="input-success" class="form-control is-valid">
+    <input value="" type="text" id="input-success" name="input-success" class="form-control is-valid" aria-label="Success">
 </div>
 
 <div class="mb-1">
     <label for="input-error" class="form-label">Error</label>
-    <input value="" type="text" id="input-error" name="input-error" class="form-control is-invalid">
+    <input value="" type="text" id="input-error" name="input-error" class="form-control is-invalid" aria-label="Error">
 </div>
 ```
 
@@ -136,19 +136,19 @@ echo input('input-feedback-help', 'Input with feedback and help text', '', [
 ```html
 <div class="mb-1">
     <label for="input-error-feedback" class="form-label">Error input with text</label>
-    <input value="" type="text" id="input-error-feedback" name="input-error-feedback" class="form-control is-invalid">
+    <input value="" type="text" id="input-error-feedback" name="input-error-feedback" class="form-control is-invalid" aria-label="Error input with text">
     <div class="invalid-feedback">Please enter text</div>
 </div>
 
 <div class="mb-1">
     <label for="input-help" class="form-label">Input with help text</label>
-    <input value="" type="text" id="input-help" name="input-help" class="form-control">
+    <input value="" type="text" id="input-help" name="input-help" class="form-control" aria-label="Input with help text">
     <div class="form-text">Text must be 10-100 characters long</div>
 </div>
 
 <div class="mb-1">
     <label for="input-feedback-help" class="form-label">Input with feedback and help text</label>
-    <input value="" type="text" id="input-feedback-help" name="input-feedback-help" class="form-control is-invalid">
+    <input value="" type="text" id="input-feedback-help" name="input-feedback-help" class="form-control is-invalid" aria-label="Input with feedback and help text">
     <div class="invalid-feedback">Please enter text</div>
     <div class="form-text">Text must be 10-100 characters long</div>
 </div>
@@ -174,13 +174,13 @@ echo input('search-input', '', '', [
     <label for="username" class="form-label">Username</label>
     <div class="input-group">
         <span class="input-group-text">@</span>
-        <input value="" type="text" id="username" name="username" class="form-control">
+        <input value="" type="text" id="username" name="username" class="form-control" aria-label="Username">
     </div>
 </div>
 
 <div class="mb-1">
     <div class="input-group">
-        <input value="" type="text" id="search-input" name="search-input" placeholder="Search..." class="form-control">
+        <input value="" type="text" id="search-input" name="search-input" placeholder="Search..." class="form-control" aria-label="">
         <button type="button" class="btn btn-secondary">Search</button>
     </div>
 </div>
