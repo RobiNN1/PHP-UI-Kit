@@ -56,6 +56,16 @@ return [
             'error'   => 'error',
         ],
     ],
+    'select'       => [
+        'sizes'      => [
+            'sm' => 'small',
+            'lg' => 'large',
+        ],
+        'validation' => [
+            'success' => 'success',
+            'error'   => 'error',
+        ],
+    ],
     'alert'        => [
         'colors' => [
             'default' => 'blue',

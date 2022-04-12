@@ -23,12 +23,16 @@ class Components {
      */
     public function __construct(private UiKit $uikit) {
         $this->components = [
+            // Layout
             'layout'       => Components\Layout\Layout::class,
             'container'    => Components\Layout\Container::class,
             'row'          => Components\Layout\Row::class,
             'grid'         => Components\Layout\Grid::class,
+            // Form
             'form'         => Components\Form\Form::class,
             'input'        => Components\Form\Input::class,
+            'select'       => Components\Form\Select::class,
+            // Components
             'accordion'    => Components\Accordion::class,
             'alert'        => Components\Alert::class,
             'badge'        => Components\Badge::class,
