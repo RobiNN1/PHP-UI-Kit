@@ -53,6 +53,16 @@ return [
             'error'   => 'is-invalid',
         ],
     ],
+    'select'       => [
+        'sizes'      => [
+            'sm' => 'sm',
+            'lg' => 'lg',
+        ],
+        'validation' => [
+            'success' => 'is-valid',
+            'error'   => 'is-invalid',
+        ],
+    ],
     'alert'        => [
         'colors' => [
             'default' => 'alert-primary',

@@ -11,8 +11,11 @@ namespace RobiNN\UiKit {
      * @property Components\Layout\Container $container
      * @property Components\Layout\Row       $row
      * @property Components\Layout\Grid      $grid
+     *
      * @property Components\Form\Form        $form
      * @property Components\Form\Input       $input
+     * @property Components\Form\Select      $select
+     *
      * @property Components\Accordion        $accordion
      * @property Components\Alert            $alert
      * @property Components\Badge            $badge

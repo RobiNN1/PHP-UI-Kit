@@ -95,6 +95,42 @@ echo input('input-action-buttons', 'Action buttons', '', [
 echo grid_close();
 echo row_close();
 
+echo '<hr>';
+
+$select_optioms = [
+    'item1',
+    'item2',
+    'item3',
+];
+
+echo '<h5>Select sizes</h5>';
+echo row_open();
+echo grid_open([100, 33]);
+echo select('select-small', 'Small', '', $select_optioms, ['size' => 'sm']);
+echo grid_close().grid_open([100, 33]);
+echo select('select-defult', 'Default', '', $select_optioms);
+echo grid_close().grid_open([100, 33]);
+echo select('select-large', 'Large', '', $select_optioms, ['size' => 'lg']);
+echo grid_close();
+echo row_close();
+
+echo '<h5>Selects with states</h5>';
+echo row_open();
+echo grid_open([100, 50]);
+echo select('select-success', 'Success', '', $select_optioms, ['state' => 'success', 'required' => true]);
+echo grid_close().grid_open([100, 50]);
+echo select('select-error', 'Error', '', $select_optioms, ['state' => 'error']);
+echo grid_close();
+echo row_close();
+
+echo row_open();
+echo grid_open([100, 50]);
+echo select('select-success2', 'Success field with text', '', $select_optioms, ['state' => 'success', 'feedback_text' => 'Text...']);
+echo grid_close().grid_open([100, 50]);
+echo select('select-error2', 'Error field with text', '', $select_optioms, ['state' => 'error', 'feedback_text' => 'Text...']);
+echo grid_close();
+echo row_close();
+
 echo form_close();
 
 echo '<hr>';

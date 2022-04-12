@@ -167,6 +167,23 @@ if (!function_exists('input')) {
     }
 }
 
+if (!function_exists('select')) {
+    /**
+     * Render select field.
+     *
+     * @param string     $name    Select name.
+     * @param string     $label   Select label.
+     * @param int|string $value   Select value.
+     * @param array      $items   Select options - array or associative array.
+     * @param array      $options Additional options.
+     *
+     * @return string
+     */
+    function select(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): string {
+        return get_ui()->select->render($name, $label, $value, $items, $options);
+    }
+}
+
 if (!function_exists('accordion')) {
     /**
      * Render accordion.
