@@ -41,8 +41,8 @@ $class_name = implode('', array_map('ucfirst', explode('_', $name)));
  * Twig files
  */
 $twig_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
-file_put_contents(__DIR__.'/resources/bootstrap5/templates/twig/'.$path.$name.'.twig', $twig_content);
-file_put_contents(__DIR__.'/resources/semanticui2/templates/twig/'.$path.$name.'.twig', $twig_content);
+file_put_contents(__DIR__.'/../resources/bootstrap5/templates/twig/'.$path.$name.'.twig', $twig_content);
+file_put_contents(__DIR__.'/../resources/semanticui2/templates/twig/'.$path.$name.'.twig', $twig_content);
 
 /**
  * Class
@@ -57,7 +57,7 @@ $class_content = '<?php
  * file that was distributed with this source code.
  */
  
- declare(strict_types=1);
+declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components'.($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : '').'
 
@@ -84,7 +84,7 @@ class '.$class_name.' extends Component {
     }
 }
 ';
-file_put_contents(__DIR__.'/src/Components/'.$path_class.$class_name.'.php', $class_content);
+file_put_contents(__DIR__.'/../src/Components/'.$path_class.$class_name.'.php', $class_content);
 
 /**
  * Test class
@@ -99,7 +99,7 @@ $test_class_content = '<?php
  * file that was distributed with this source code.
  */
  
- declare(strict_types=1);
+declare(strict_types=1);
 
 namespace Tests\Components'.($type === 'frm' ? '\Form' : '').';
 
@@ -117,8 +117,8 @@ final class '.$class_name.'Test extends ComponentTestCase {
     }
 }
 ';
-file_put_contents(__DIR__.'/tests/Components/'.$path_class.$class_name.'Test.php', $test_class_content);
-file_put_contents(__DIR__.'/tests/expected_html/'.$path.$name.'.html', '');
+file_put_contents(__DIR__.'/../tests/Components/'.$path_class.$class_name.'Test.php', $test_class_content);
+file_put_contents(__DIR__.'/../tests/expected_html/'.$path.$name.'.html', '');
 
 /**
  * Docs content
@@ -155,7 +155,7 @@ echo '.$name.'();
 <div></div>
 ```
 ';
-file_put_contents(__DIR__.'/docs/'.$path.$name.'.md', $docs_content);
+file_put_contents(__DIR__.'/../docs/'.$path.$name.'.md', $docs_content);
 
 echo 'Successfully generated component.';
 exit(0);
