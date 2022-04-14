@@ -36,7 +36,7 @@ $alert_default = $uikit->getFrameworkOptions('alert.colors.default');
 
 ## setFrameworkOption()
 
-Get CSS framework options using "dot" notation.
+Set CSS framework options using "dot" notation.
 
 ```php
 $uikit->setFrameworkOption('alert.colors.default', 'blue');
