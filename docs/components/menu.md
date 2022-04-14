@@ -59,7 +59,9 @@ echo menu('example', [
 ```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbar-example">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link" href="link1.php">Link 1</a></li>
@@ -84,7 +86,7 @@ echo menu('example', [
 ## Dark version
 
 ```php
-echo menu('example', [
+echo menu('example-dark', [
     ['title' => 'Link 1', 'link' => 'link1.php'],
     'right' => [
         [
@@ -104,8 +106,10 @@ echo menu('example', [
 ```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbar-example">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example-dark">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-example-dark">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link" href="link1.php">Link 1</a></li>
             </ul>
@@ -127,7 +131,7 @@ echo menu('example', [
 ## Brand
 
 ```php
-echo menu('example', [
+echo menu('example-brand', [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     ['title' => 'Item 1', 'link' => 'link1.php'],
 ], [
@@ -141,8 +145,10 @@ echo menu('example', [
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="link..">Brand title</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbar-example">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example-brand">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-example-brand">
             <ul class="navbar-nav me-auto">
                 <li class="nav-item"><a class="nav-link" href="link1.php">Item 1</a></li>
                 <li class="nav-item"><a class="nav-link" href="link1.php">Item 1</a></li>
