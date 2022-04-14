@@ -4,7 +4,7 @@
 
 Install the package by running
 
-```
+```bash
 composer require robinn/uikit
 ```
 
