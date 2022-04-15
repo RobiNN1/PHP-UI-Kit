@@ -64,9 +64,9 @@ echo row_close();
 
 echo row_open();
 echo grid_open([100, 50]);
-echo input('input-success2', 'Success field with text', '', ['state' => 'success', 'feedback_text' => 'Text...']);
+echo input('input-success2', 'Success field with text', '', ['state' => 'success', 'feedback_text' => 'Text']);
 echo grid_close().grid_open([100, 50]);
-echo input('input-error2', 'Error field with text', '', ['state' => 'error', 'feedback_text' => 'Text...']);
+echo input('input-error2', 'Error field with text', '', ['state' => 'error', 'feedback_text' => 'Another Text...']);
 echo grid_close();
 echo row_close();
 
@@ -176,8 +176,8 @@ echo '<hr>';
 
 echo '<h4>Breadcrumbs</h4>';
 echo breadcrumbs([
-    'Link 1' => 'link1.php',
-    'Link 2' => 'link2.php',
+    'Link 1' => 'blink1.php',
+    'Link 2' => 'blink2.php',
 ]);
 echo '<hr>';
 
@@ -205,15 +205,9 @@ $btns = [
     'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
     'btn1'     => ['title' => 'No value', 'value' => null],
 ];
-echo '<div style="display:block;margin-bottom:20px;">';
 echo button_group($btns, ['size' => 'sm',]);
-echo '</div>';
-echo '<div style="display:block;margin-bottom:20px;">';
 echo button_group($btns);
-echo '</div>';
-echo '<div style="display:block;margin-bottom:20px;">';
 echo button_group($btns, ['size' => 'lg',]);
-echo '</div>';
 echo '<hr>';
 
 echo '<h4>Card</h4>';
@@ -250,9 +244,9 @@ echo '<hr>';
 
 echo '<h4>Dropdown</h4>';
 echo dropdown('Dropdown', [
-    ['title' => 'Item 1', 'link' => 'link1.php'],
+    ['title' => 'Dropdown Item 1', 'link' => 'link1.php'],
     'divider',
-    ['title' => 'Item 2'],
+    ['title' => 'Dropdown Item 2'],
     ['custom' => '<b>Custom bold text</b>'],
 ]);
 echo '<hr>';
