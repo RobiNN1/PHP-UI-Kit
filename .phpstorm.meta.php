@@ -27,4 +27,10 @@ namespace PHPSTORM_META {
         'progress'     => \RobiNN\UiKit\Components\Progress::class,
         'tabs'         => \RobiNN\UiKit\Components\Tabs::class,
     ]));
+
+    expectedArguments(\RobiNN\UiKit\Components\Form\Form::open(0), 0, 'get', 'post');
+
+    expectedArguments(\RobiNN\UiKit\Components\Alert::render(1), 1, 'default', 'success', 'warning', 'error', 'info');
+    expectedArguments(\RobiNN\UiKit\Components\Badge::render(1), 1, 'default', 'primary', 'success', 'warning', 'error', 'info');
+    expectedArguments(\RobiNN\UiKit\Components\Button::render(1), 1, 'button', 'submit', 'reset');
 }
