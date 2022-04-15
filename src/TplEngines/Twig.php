@@ -12,9 +12,11 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\TplEngines;
 
+use Exception;
 use RobiNN\UiKit\Config;
 use RobiNN\UiKit\UiKit;
 use Twig\Environment;
+use Twig\Error\LoaderError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 
@@ -43,7 +45,11 @@ class Twig implements TplEngineInterface {
 
         foreach ($paths as $path) {
             if (!empty($path)) {
-                $loader->addPath(realpath($path));
+                try {
+                    $loader->addPath(realpath($path));
+                } catch (LoaderError $e) {
+                    echo $e->getMessage();
+                }
             }
         }
 
@@ -71,7 +77,7 @@ class Twig implements TplEngineInterface {
                 return $this->twig->createTemplate($tpl)->render($data);
             }
             return $this->twig->render($tpl.'.twig', $data);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             die($e->getMessage().' in '.$e->getFile().' at line: '.$e->getLine());
         }
     }

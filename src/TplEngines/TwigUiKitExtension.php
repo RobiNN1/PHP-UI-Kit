@@ -21,7 +21,7 @@ class TwigUiKitExtension extends AbstractExtension {
     public function __construct(private readonly UiKit $uikit) {
     }
 
-    public function getFunctions() {
+    public function getFunctions(): array {
         $functions = [];
 
         foreach ($this->uikit->tplFunctions() as $function => $callback) {
@@ -31,7 +31,7 @@ class TwigUiKitExtension extends AbstractExtension {
         return $functions;
     }
 
-    public function getFilters() {
+    public function getFilters(): array {
         $filters = [];
 
         foreach ($this->uikit->tplFilters() as $filter => $callback) {
