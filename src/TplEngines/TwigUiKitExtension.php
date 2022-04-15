@@ -18,7 +18,7 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class TwigUiKitExtension extends AbstractExtension {
-    public function __construct(private UiKit $uikit) {
+    public function __construct(private readonly UiKit $uikit) {
     }
 
     public function getFunctions() {

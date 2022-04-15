@@ -31,7 +31,7 @@ class Pagination extends Component {
             'item_class' => '', // Class for item.
             'link'       => '', // Pagination link tpl, use %s placeholder for numbers.
             'current'    => 1, // Current active page.
-            'disabled'   => 0, // Disabled page.
+            'disabled'   => 0, // Disabled page. Also, can disable prev and next.
             'prev_next'  => true, // Enable Previous and Next links.
             'prev_title' => '&laquo;', // Previous page link title.
             'next_title' => '&raquo;', // Next page link title.
@@ -39,6 +39,7 @@ class Pagination extends Component {
 
         $prev = [];
         $next = [];
+
         if ($options['prev_next']) {
             $prev['prev'] = $options['current'] > 1 ? $options['current'] - 1 : $options['current'];
             $next['next'] = $options['current'] + 1;
@@ -46,24 +47,36 @@ class Pagination extends Component {
 
         $items = $prev + $items + $next;
 
+        return $this->uikit->renderTpl('components/'.$component, [
+            'items'      => $this->items($items, $options),
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
+            'item_class' => $options['item_class'],
+        ]);
+    }
+
+    /**
+     * @param array $items
+     * @param array $options
+     *
+     * @return array
+     */
+    private function items(array $items, array $options): array {
         foreach ($items as $key => $item) {
             $prev = $key === 'prev' ? $options['prev_title'] : null;
             $next = $key === 'next' ? $options['next_title'] : null;
-            $disabled_prev_next = ($options['disabled'] == 'prev' && $key === 'prev') || ($options['disabled'] == 'next' && $key === 'next');
+
+            $disabled_prev = $options['disabled'] == 'prev' && $key === 'prev';
+            $disabled_next = $options['disabled'] == 'next' && $key === 'next';
 
             $items[$key] = [
                 'link'     => sprintf($options['link'], $item),
                 'title'    => $prev ?: ($next ?: $item),
                 'current'  => !($key === 'prev' || $key === 'next') && $item === $options['current'],
-                'disabled' => $item === $options['disabled'] || $disabled_prev_next,
+                'disabled' => $item === $options['disabled'] || $disabled_prev || $disabled_next,
             ];
         }
 
-        return $this->uikit->renderTpl('components/'.$component, [
-            'items'      => $items,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'item_class' => $options['item_class'],
-        ]);
+        return $items;
     }
 }

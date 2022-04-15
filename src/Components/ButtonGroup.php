@@ -42,27 +42,32 @@ class ButtonGroup extends Component {
             $size = $this->getOption('sizes', $options['size'], $fwoptions);
         }
 
+        return $this->uikit->renderTpl('components/'.$component, [
+            'buttons'    => $this->buttons($items, $options),
+            'class'      => $options['class'],
+            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
+            'size'       => $size,
+        ]);
+    }
+
+    /**
+     * Render buttons.
+     *
+     * @param array $items
+     * @param array $options
+     *
+     * @return array
+     */
+    private function buttons(array $items, array $options): array {
         $buttons = [];
 
         foreach ($items as $value => $button) {
-            $title = $button;
-            $type = $options['type'];
-            $btn_options = [];
+            $title = is_array($button) ? $button['title'] : $button;
+            $type = !empty($button['type']) ? $button['type'] : $options['type'];
+            $btn_options = !empty($button['btn_options']) ? $button['btn_options'] : [];
 
-            if (is_array($button)) {
-                $title = $button['title'];
-
-                if (!empty($button['type'])) {
-                    $type = $button['type'];
-                }
-
-                if (!empty($button['btn_options'])) {
-                    $btn_options = $button['btn_options'];
-                }
-
-                $value = array_key_exists('value', $button) ? $button['value'] :
-                    (array_key_exists('value', $btn_options) ? $btn_options['value'] : $value);
-            }
+            $btn_opt_value = array_key_exists('value', $btn_options) ? $btn_options['value'] : $value;
+            $value = array_key_exists('value', (array)$button) ? $button['value'] : $btn_opt_value;
 
             $btn_options['class'] = $options['item_class'].(!empty($btn_options['class']) ? Misc::space($btn_options['class']) : '');
 
@@ -74,11 +79,6 @@ class ButtonGroup extends Component {
             $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options));
         }
 
-        return $this->uikit->renderTpl('components/'.$component, [
-            'buttons'    => $buttons,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'size'       => $size,
-        ]);
+        return $buttons;
     }
 }

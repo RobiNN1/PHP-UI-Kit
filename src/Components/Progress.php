@@ -52,25 +52,7 @@ class Progress extends Component {
                 'percent' => (int)$percent,
             ];
         } else {
-            $i = 0;
-            foreach ($percent as $bar => $title) {
-                $color = is_array($options['color']) ? ($options['color'][$i] ?? 'default') : $options['color'];
-
-                $is_assoc = fn($arr) => !([] === $arr) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
-                $int = (int)$is_assoc($percent) ? $bar : $title;
-
-                if ($auto_colors) {
-                    $color = $auto_colors((int)$int);
-                }
-
-                $bars[] = [
-                    'color'   => $this->getOption('colors', $color, $fwoptions),
-                    'title'   => $title.($options['percents'] ? ($is_assoc($percent) ? ' '.$bar.'%' : '%') : ''),
-                    'percent' => $int,
-                ];
-
-                $i++;
-            }
+            $bars = $this->multiple($percent, $options, $fwoptions, $auto_colors);
         }
 
         return $this->uikit->renderTpl('components/'.$component, [
@@ -79,5 +61,42 @@ class Progress extends Component {
             'item_class' => $options['item_class'],
             'bars'       => $bars,
         ]);
+    }
+
+    /**
+     * Multiple bars.
+     *
+     * @param array         $percent
+     * @param array         $options
+     * @param array         $fwoptions
+     * @param callable|null $auto_colors
+     *
+     * @return array
+     */
+    private function multiple(array $percent, array $options, array $fwoptions, ?callable $auto_colors): array {
+        $bars = [];
+        $i = 0;
+        foreach ($percent as $bar => $title) {
+            $color = is_array($options['color']) ? ($options['color'][$i] ?? 'default') : $options['color'];
+
+            $is_assoc = fn($arr) => ([] !== $arr) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
+            $int = (int)$is_assoc($percent) ? $bar : $title;
+
+            if ($auto_colors) {
+                $color = $auto_colors((int)$int);
+            }
+
+            $percents = $is_assoc($percent) ? ' '.$bar.'%' : '%';
+
+            $bars[] = [
+                'color'   => $this->getOption('colors', $color, $fwoptions),
+                'title'   => $title.($options['percents'] ? $percents : ''),
+                'percent' => $int,
+            ];
+
+            $i++;
+        }
+
+        return $bars;
     }
 }

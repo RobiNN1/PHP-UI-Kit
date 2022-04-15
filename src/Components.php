@@ -21,7 +21,7 @@ class Components {
     /**
      * @param UiKit $uikit
      */
-    public function __construct(private UiKit $uikit) {
+    public function __construct(private readonly UiKit $uikit) {
         $this->components = [
             // Layout
             'layout'       => Components\Layout\Layout::class,
