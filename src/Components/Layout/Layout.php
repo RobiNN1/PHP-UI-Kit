@@ -42,10 +42,18 @@ class Layout extends Component {
         $css_codes = '';
         if (!empty(AddTo::$css)) {
             $minify_css = function (string $css): string {
-                $css = preg_replace('/\/\*((?!\*\/).)*\*\//', '', $css);
-                $css = preg_replace('/\s{2,}/', ' ', $css);
-                $css = preg_replace('/\s*([:;{}])\s*/', '$1', $css);
-                return preg_replace('/;}/', '}', $css);
+                $regexs = [
+                    '/\/\*((?!\*\/).)*\*\//' => '',
+                    '/\s{2,}/'               => ' ',
+                    '/\s*([:;{}])\s*/'       => '$1',
+                    '/;}/'                   => '}',
+                ];
+
+                foreach ($regexs as $regex => $replace) {
+                    $css = preg_replace($regex, $replace, $css);
+                }
+
+                return $css;
             };
 
             $css_codes = '<style>'.$minify_css(AddTo::$css).'</style>';

@@ -92,17 +92,17 @@ final class UiKit extends Components {
      * @return mixed
      */
     public function getFrameworkOptions(string $key = ''): mixed {
-        static $config = [];
+        static $config_array = [];
 
-        $config = (array)require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
+        $config_array = (array)require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
 
         if (!empty($this->fw_options)) {
             foreach ($this->fw_options as $option => $value) {
-                Misc::arraySet($config, $option, $value);
+                Misc::arraySet($config_array, $option, $value);
             }
         }
 
-        return Misc::arrayGet($config, $key);
+        return Misc::arrayGet($config_array, $key);
     }
 
     /**
