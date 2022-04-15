@@ -14,18 +14,18 @@ $options (array) (Optional) Additional options. Default value: []
 
 #### Available options
 
-| Name       | Type   | Default   | Description                                          |
-|------------|--------|-----------|------------------------------------------------------|
-| id         | string | ''        | Wrapper ID.                                          |
-| class      | string | ''        | Class for wrapper.                                   |
-| attributes | array  | []        | Array of custom attributes.                          |
-| item_class | string | ''        | Class for item.                                      |
-| link       | string | ''        | Pagination link tpl, use %s placeholder for numbers. |
-| current    | int    | 1         | Current active page.                                 |
-| disabled   | int    | 0         | Disabled page.                                       |
-| prev_next  | bool   | true      | Enable Previous and Next links.                      |
-| prev_title | string | '&laquo;' | Previous page link title.                            |
-| next_title | string | '&raquo;' | Next page link title.                                |
+| Name       | Type       | Default   | Description                                          |
+|------------|------------|-----------|------------------------------------------------------|
+| id         | string     | ''        | Wrapper ID.                                          |
+| class      | string     | ''        | Class for wrapper.                                   |
+| attributes | array      | []        | Array of custom attributes.                          |
+| item_class | string     | ''        | Class for item.                                      |
+| link       | string     | ''        | Pagination link tpl, use %s placeholder for numbers. |
+| current    | int        | 1         | Current active page.                                 |
+| disabled   | int\string | 0         | Disabled page. Also, can disable prev and next.      |
+| prev_next  | bool       | true      | Enable Previous and Next links.                      |
+| prev_title | string     | '&laquo;' | Previous page link title.                            |
+| next_title | string     | '&raquo;' | Next page link title.                                |
 
 ## Basic Usage
 
