@@ -1,5 +1,6 @@
 <?php
 namespace PHPSTORM_META {
+    // Fix for magic properties
     override(\RobiNN\UiKit\Components::__get(0), map([
         // Layout
         'layout'       => \RobiNN\UiKit\Components\Layout\Layout::class,
@@ -28,9 +29,14 @@ namespace PHPSTORM_META {
         'tabs'         => \RobiNN\UiKit\Components\Tabs::class,
     ]));
 
+    // Autocomplete values
     expectedArguments(\RobiNN\UiKit\Components\Form\Form::open(0), 0, 'get', 'post');
+    expectedArguments(\RobiNN\UiKit\Components\Alert::render(0, 1), 1, 'default', 'success', 'warning', 'error', 'info');
+    expectedArguments(\RobiNN\UiKit\Components\Badge::render(0, 1), 1, 'default', 'primary', 'success', 'warning', 'error', 'info');
+    expectedArguments(\RobiNN\UiKit\Components\Button::render(0, 1), 1, 'button', 'submit', 'reset');
 
-    expectedArguments(\RobiNN\UiKit\Components\Alert::render(1), 1, 'default', 'success', 'warning', 'error', 'info');
-    expectedArguments(\RobiNN\UiKit\Components\Badge::render(1), 1, 'default', 'primary', 'success', 'warning', 'error', 'info');
-    expectedArguments(\RobiNN\UiKit\Components\Button::render(1), 1, 'button', 'submit', 'reset');
+    expectedArguments(form_open(0), 0, 'get', 'post');
+    expectedArguments(alert(0, 1), 1, 'default', 'success', 'warning', 'error', 'info');
+    expectedArguments(badge(0, 1), 1, 'default', 'primary', 'success', 'warning', 'error', 'info');
+    expectedArguments(button(0, 1), 1, 'button', 'submit', 'reset');
 }
