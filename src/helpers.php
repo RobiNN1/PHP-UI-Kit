@@ -108,12 +108,12 @@ if (!function_exists('grid_open') && !function_exists('grid_close')) {
     /**
      * Render opening tag of the grid.
      *
-     * @param array|string $col_sizes Column sizes.
-     * @param array        $options   Additional options.
+     * @param array $col_sizes Column sizes.
+     * @param array $options   Additional options.
      *
      * @return string
      */
-    function grid_open(array|string $col_sizes = [100], array $options = []): string {
+    function grid_open(array $col_sizes = [100], array $options = []): string {
         return get_ui()->grid->open($col_sizes, $options);
     }
 

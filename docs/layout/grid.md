@@ -4,11 +4,11 @@ Use grid to build layouts of all shapes.
 
 ---
 
-grid_open( [ mixed $col_sizes, array $options ] ) : string
+grid_open( [ array $col_sizes, array $options ] ) : string
 
 ## Parameters
 
-$col_sizes (array|string) (Optional) Column sizes. Default value: [100]
+$col_sizes (array) (Optional) Column sizes. Default value: [100]
 
 $options (array) (Optional) Additional options. Default value: []
 
@@ -71,7 +71,7 @@ The same column width.
 Not recommended for layouts that must support multiple css frameworks. Since not every framework support this.
 
 ```php
-echo grid_open('auto');
+echo grid_open(['auto']);
 // ...
 echo grid_close();
 ```

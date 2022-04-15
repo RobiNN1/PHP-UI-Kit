@@ -11,16 +11,15 @@ return [
         'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
         'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'],
     ],
-    'grid_func'    => function ($col_sizes): string {
+    'grid_func'    => function (array $col_sizes): string {
         $sizes = ['xs', 'sm', 'md', 'lg'];
-
-        if ($col_sizes === 'auto') {
-            return 'col';
-        }
-
         $columns = [];
 
         foreach ($col_sizes as $index => $value) {
+            if ($value === 'auto') {
+                return 'col';
+            }
+
             if (is_array($value) && !empty($value['bootstrap5'])) {
                 return $value['bootstrap5'] === 'auto' ? 'col' : $value['bootstrap5'];
             }
@@ -35,13 +34,9 @@ return [
             }
         }
 
-        if (!empty($columns)) {
-            return implode(' ', array_map(function ($size, $column) {
-                return 'col-'.$size.'-'.$column;
-            }, array_keys($columns), array_values($columns)));
-        }
-
-        return 'col';
+        return implode(' ', array_map(function ($size, $column): string {
+            return 'col-'.$size.'-'.$column;
+        }, array_keys($columns), array_values($columns)));
     },
     'input'        => [
         'sizes'      => [

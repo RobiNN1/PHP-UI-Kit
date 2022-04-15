@@ -27,6 +27,13 @@ final class GridTest extends ComponentTestCase {
         $this->assertComponentRender('</div>', $tpl);
     }
 
+    public function testGridVariants(): void {
+        $this->assertComponentRender('<div class="col-xs-12">', $this->uikit->grid->open([100]));
+        $this->assertComponentRender('<div class="col-xs-12 col-sm-6">', $this->uikit->grid->open([100, 50]));
+        $this->assertComponentRender('<div class="col-6">', $this->uikit->grid->open([100, 50, ['bootstrap5' => 'col-6',],]));
+        $this->assertComponentRender('<div class="col">', $this->uikit->grid->open(['auto']));
+    }
+
     public function testGridInTwig(): void {
         $this->assertComponentRender('<div class="col-xs-12">', $this->uikit->renderTpl("{{ grid_open([100]) }}", [], true));
         $this->assertComponentRender('</div>', $this->uikit->renderTpl("{{ grid_close() }}", [], true));
