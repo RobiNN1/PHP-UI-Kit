@@ -15,13 +15,15 @@ namespace Tests\Components;
 use Tests\ComponentTestCase;
 
 final class AlertTest extends ComponentTestCase {
+    public string $expectedTpl = '<div class="alert alert-primary" role="alert">Default </div>';
+
     public function testAlertRender(): void {
         $tpl = $this->uikit->alert->render('Default');
 
-        $this->assertComponentRender($this->getFile('components/alert'), $tpl);
+        $this->assertComponentRender($this->expectedTpl, $tpl);
     }
 
     public function testAlertInTwig(): void {
-        $this->assertComponentRenderTpl('components/alert', "{{ alert('Default') }}");
+        $this->assertComponentRenderTpl($this->expectedTpl, "{{ alert('Default') }}");
     }
 }

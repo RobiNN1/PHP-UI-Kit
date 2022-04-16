@@ -28,7 +28,8 @@ final class RowTest extends ComponentTestCase {
     }
 
     public function testRowInTwig(): void {
-        $this->assertComponentRender('<div class="row">', $this->uikit->renderTpl("{{ row_open() }}", [], true));
-        $this->assertComponentRender('</div>', $this->uikit->renderTpl("{{ row_close() }}", [], true));
+        $this->assertComponentRenderTpl('<div class="row">', '{{ row_open() }}');
+
+        $this->assertComponentRenderTpl('</div>', '{{ row_close() }}');
     }
 }

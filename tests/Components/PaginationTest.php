@@ -15,6 +15,16 @@ namespace Tests\Components;
 use Tests\ComponentTestCase;
 
 final class PaginationTest extends ComponentTestCase {
+    public string $expectedTpl = '<ul class="pagination">
+    <li class="page-item disabled"><a class="page-link" href="page.php?p=2">&laquo;</a></li>
+    <li class="page-item"><a class="page-link" href="page.php?p=1">1</a></li>
+    <li class="page-item"><a class="page-link" href="page.php?p=2">2</a></li>
+    <li class="page-item active"><a class="page-link" href="page.php?p=3">3</a></li>
+    <li class="page-item"><a class="page-link" href="page.php?p=4">4</a></li>
+    <li class="page-item"><a class="page-link" href="page.php?p=5">5</a></li>
+    <li class="page-item"><a class="page-link" href="page.php?p=4">&raquo;</a></li>
+</ul>';
+
     public function testPaginationRender(): void {
         $tpl = $this->uikit->pagination->render(range(1, 5), [
             'link'     => 'page.php?p=%s',
@@ -22,11 +32,11 @@ final class PaginationTest extends ComponentTestCase {
             'disabled' => 'prev',
         ]);
 
-        $this->assertComponentRender($this->getFile('components/pagination'), $tpl);
+        $this->assertComponentRender($this->expectedTpl, $tpl);
     }
 
     public function testPaginationInTwig(): void {
-        $this->assertComponentRenderTpl('components/pagination', "{{ pagination(range(1, 5), {
+        $this->assertComponentRenderTpl($this->expectedTpl, "{{ pagination(range(1, 5), {
             'link': 'page.php?p=%s',
             'current': 3,
             'disabled': 'prev',

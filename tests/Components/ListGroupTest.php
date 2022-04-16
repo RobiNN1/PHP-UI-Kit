@@ -15,17 +15,22 @@ namespace Tests\Components;
 use Tests\ComponentTestCase;
 
 final class ListGroupTest extends ComponentTestCase {
+    public string $expectedTpl = '<ul class="list-group">
+    <li class="list-group-item">Item 1</li>
+    <li class="list-group-item">Item 2</li>
+</ul>';
+
     public function testListGroupRender(): void {
         $tpl = $this->uikit->list_group->render([
             'Item 1',
             'Item 2',
         ]);
 
-        $this->assertComponentRender($this->getFile('components/list_group'), $tpl);
+        $this->assertComponentRender($this->expectedTpl, $tpl);
     }
 
     public function testListGroupInTwig(): void {
-        $this->assertComponentRenderTpl('components/list_group', "{{ list_group([
+        $this->assertComponentRenderTpl($this->expectedTpl, "{{ list_group([
             'Item 1',
             'Item 2',
         ]) }}");
