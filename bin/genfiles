@@ -56,7 +56,7 @@ $class_content = '<?php
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
+
 declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components'.($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : '').'
@@ -98,7 +98,7 @@ $test_class_content = '<?php
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
- 
+
 declare(strict_types=1);
 
 namespace Tests\Components'.($type === 'frm' ? '\Form' : '').';
@@ -106,19 +106,20 @@ namespace Tests\Components'.($type === 'frm' ? '\Form' : '').';
 use Tests\ComponentTestCase;
 
 final class '.$class_name.'Test extends ComponentTestCase {
+    public string $expectedTpl = \'\';
+
     public function test'.$class_name.'Render(): void {
         $tpl = $this->uikit->'.$name.'->render();
 
-        $this->assertComponentRender($this->getFile(\''.$path.$name.'\'), $tpl);
+        $this->assertComponentRender($this->expectedTpl, $tpl);
     }
 
     public function test'.$class_name.'InTwig(): void {
-        $this->assertComponentRenderTpl(\''.$path.$name.'\', "{{ '.$name.'() }}");
+        $this->assertComponentRenderTpl($this->expectedTpl, \'{{ '.$name.'() }}\');
     }
 }
 ';
 file_put_contents(__DIR__.'/../tests/Components/'.$path_class.$class_name.'Test.php', $test_class_content);
-file_put_contents(__DIR__.'/../tests/expected_html/'.$path.$name.'.html', '');
 
 /**
  * Docs content
