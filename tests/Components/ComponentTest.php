@@ -35,13 +35,13 @@ final class ComponentTest extends TestCase {
     }
 
     public function testGetOption(): void {
-        $array = [
+        $option = $this->component->getOption('colors', 'success', [
             'colors' => [
                 'default' => 'alert-primary',
                 'success' => 'alert-success',
             ],
-        ];
+        ]);
 
-        $this->assertSame('alert-success', $this->component->getOption('colors', 'success', $array));
+        $this->assertSame('alert-success', $option);
     }
 }

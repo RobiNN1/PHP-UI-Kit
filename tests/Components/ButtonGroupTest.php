@@ -15,6 +15,14 @@ namespace Tests\Components;
 use Tests\ComponentTestCase;
 
 final class ButtonGroupTest extends ComponentTestCase {
+    public string $expectedTpl = '<div class="btn-group" role="group">
+    <button type="button" class="btn btn-secondary" value="1">Yes</button>
+    <button type="button" class="btn btn-secondary" value="0">No</button>
+    <button type="button" class="btn btn-danger" value="delete">Delete</button>
+    <button type="button" class="btn btn-secondary">No value 1</button>
+    <button type="button" class="btn btn-secondary">No value 2</button>
+</div>';
+
     public function testButtonGroupRender(): void {
         $tpl = $this->uikit->button_group->render([
             1           => 'Yes',
@@ -24,11 +32,11 @@ final class ButtonGroupTest extends ComponentTestCase {
             'no-value2' => ['title' => 'No value 2', 'btn_options' => ['value' => null]],
         ]);
 
-        $this->assertComponentRender($this->getFile('components/button_group'), $tpl);
+        $this->assertComponentRender($this->expectedTpl, $tpl);
     }
 
     public function testButtonGroupInTwig(): void {
-        $this->assertComponentRenderTpl('components/button_group', "{{ button_group({
+        $this->assertComponentRenderTpl($this->expectedTpl, "{{ button_group({
             1: 'Yes',
             0: 'No',
             'delete': {'title': 'Delete', 'btn_options': {'color': 'error'}},

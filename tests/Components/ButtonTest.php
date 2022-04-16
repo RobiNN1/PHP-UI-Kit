@@ -15,13 +15,15 @@ namespace Tests\Components;
 use Tests\ComponentTestCase;
 
 final class ButtonTest extends ComponentTestCase {
+    public string $expectedTpl = '<button type="button" class="btn btn-secondary">Test</button>';
+
     public function testButtonRender(): void {
         $tpl = $this->uikit->button->render('Test');
 
-        $this->assertComponentRender($this->getFile('components/button'), $tpl);
+        $this->assertComponentRender($this->expectedTpl, $tpl);
     }
 
     public function testButtonInTwig(): void {
-        $this->assertComponentRenderTpl('components/button', "{{ button('Test') }}");
+        $this->assertComponentRenderTpl($this->expectedTpl, "{{ button('Test') }}");
     }
 }

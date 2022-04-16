@@ -16,7 +16,7 @@ use Tests\ComponentTestCase;
 
 final class ContainerTest extends ComponentTestCase {
     public function testOpenContainerRender(): void {
-        $tpl = $this->uikit->container->open(false);
+        $tpl = $this->uikit->container->open();
 
         $this->assertComponentRender('<div class="container">', $tpl);
     }
@@ -28,7 +28,8 @@ final class ContainerTest extends ComponentTestCase {
     }
 
     public function testContainerInTwig(): void {
-        $this->assertComponentRender('<div class="container">', $this->uikit->renderTpl("{{ container_open() }}", [], true));
-        $this->assertComponentRender('</div>', $this->uikit->renderTpl("{{ container_close() }}", [], true));
+        $this->assertComponentRenderTpl('<div class="container">', '{{ container_open() }}');
+
+        $this->assertComponentRenderTpl('</div>', '{{ container_close() }}');
     }
 }
