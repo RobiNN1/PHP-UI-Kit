@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
+use RobiNN\UiKit\Components\Component;
+
 class Components {
     /**
      * @var array
@@ -63,16 +65,16 @@ class Components {
         static $components = [];
 
         foreach ($this->components as $key => $class) {
-            $components[$key] = [
-                'class'      => $class,
-                'open_close' => method_exists($class, 'open') && method_exists($class, 'close'),
-            ];
+            if ((new $class()) instanceof Component) {
+                $components[$key] = [
+                    'class'      => $class,
+                    'open_close' => method_exists($class, 'open') && method_exists($class, 'close'),
+                ];
+            }
         }
 
         if (is_string($name) && isset($components[$name])) {
-            $component = $components[$name];
-
-            $class = new $component['class']();
+            $class = new $components[$name]['class']();
             $class->uikit = $this->uikit;
 
             return $class;

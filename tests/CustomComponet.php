@@ -12,7 +12,9 @@ declare(strict_types=1);
 
 namespace Tests;
 
-final class CustomComponet {
+use RobiNN\UiKit\Components\Component;
+
+final class CustomComponet extends Component {
     public function render(string $name): string {
         return 'Name: '.$name;
     }

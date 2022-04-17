@@ -86,8 +86,9 @@ $uikit->setPath(__DIR__.'/templates');
 Add component.
 
 ```php
-// The class can optionally extend the Component class to get access to UiKit methods.
-class ExampleComponent {
+use RobiNN\UiKit\Components\Component;
+
+class ExampleComponent extends Component {
     // Note, each component must have render method
     public function render(): string {
         return '...';
