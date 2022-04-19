@@ -4,7 +4,7 @@ parameters:
   paths:
     - src
     - resources/bootstrap5/config.php
-    - resources/semanticui2/config.php
+    - resources/fomanticui2/config.php
   ignoreErrors:
     # Ignore properties and methods accessed via magic methods
     - '#Access to an undefined property RobiNN\\UiKit\\UiKit#'

@@ -14,7 +14,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
     $config = new RobiNN\UiKit\Config([
         'cache'     => __DIR__.'/../cache',
         'debug'     => true,
-        'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
+        'framework' => isset($_GET['sm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
     ]);
 
     return RobiNN\UiKit\UiKit::getInstance()->init($config);
