@@ -16,7 +16,7 @@ use RobiNN\UiKit\Misc;
 
 class ButtonGroup extends Component {
     /**
-     * Render button group.
+     * Render a button group.
      *
      * @param array $items   Associative array or multidimensional array.
      * @param array $options Additional options.

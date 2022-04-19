@@ -61,7 +61,7 @@ final class UiKit extends Components {
      * @return UiKit
      */
     public static function getInstance(): UiKit {
-        if (self::$instance == null) {
+        if (self::$instance === null) {
             self::$instance = new self();
         }
 
@@ -115,7 +115,7 @@ final class UiKit extends Components {
      * @return void
      */
     public function setFrameworkOption(string $option, mixed $value, string $framework = ''): void {
-        if ($this->config->getFramework() === $framework || empty($framework)) {
+        if (empty($framework) || $this->config->getFramework() === $framework) {
             $this->fw_options[$option] = $value;
         }
     }

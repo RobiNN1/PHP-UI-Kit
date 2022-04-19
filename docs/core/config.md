@@ -7,7 +7,7 @@ An overview of all configuration options.
 ```php
 use RobiNN\UiKit\Config;
 
-$config = new Config([]); // All options can be set in constructor as well
+$config = new Config(); // All options can also be set in constructor
 ```
 
 #### Available options
@@ -21,7 +21,7 @@ $config = new Config([]); // All options can be set in constructor as well
 
 ## getCache()
 
-Returns cache object (depends on tpl engine), absolute path or false.
+Returns cache object (depends on the tpl engine), absolute path or false.
 
 ```php
 $tpl_config = [
@@ -31,7 +31,7 @@ $tpl_config = [
 
 ## setCache()
 
-Set cache object (depends on tpl engine), absolute path or false.
+Set cache object (depends on the tpl engine), absolute path or false.
 
 ```php
 $config->setCache(__DIR__.'/path/to/cache');
@@ -73,7 +73,7 @@ $config->setFramework('bootstrap5');
 
 ## getFrameworkPath()
 
-Get path of the currently loaded framework.
+Get a path of the currently loaded framework.
 
 ```php
 $fw_path = $config->getFrameworkPath($framework);

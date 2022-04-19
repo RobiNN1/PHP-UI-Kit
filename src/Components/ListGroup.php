@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components;
 
 class ListGroup extends Component {
     /**
-     * Render list group.
+     * Render a list group.
      *
      * @param array $items   Array of items.
      * @param array $options Additional options.

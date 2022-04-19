@@ -10,7 +10,7 @@ composer require robinn/uikit
 
 ## Usage
 
-Components can be loaded in several ways, it's up to you what you choose.
+Components can be loaded in several ways. It's up to you what you choose.
 
 Here are recommended ways
 
@@ -39,8 +39,7 @@ ob_start();
 echo 'HTML code';
 echo alert('Default');
 
-$body = ob_get_contents();
-ob_end_clean();
+$body = ob_get_clean();
 echo layout($body, [
     'title' => 'Site title',
 ]);

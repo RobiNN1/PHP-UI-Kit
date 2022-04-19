@@ -34,10 +34,11 @@ HTML output:
 </div>
 ```
 
-## Another possible values 
+## Another possible value
 
 100% of width on mobile, 50% on larger screen.
-Depending on the framework, multiple values can be added, however the recommended maximum is 4 values.
+Depending on the framework, multiple values can be added.
+However, the recommended maximum is 4 values.
 
 ```php
 echo grid_open([100, 50]);
@@ -52,7 +53,8 @@ HTML output:
 </div>
 ```
 
-It is also possible to specify a value for a specific framework, in this case the first and second values are ignored.
+It is also possible to specify a value for a specific framework.
+In this case, the first and second values are ignored.
 
 ```php
 echo grid_open([100, 50, ['bootstrap5' => 'col-6',],]);
@@ -68,7 +70,8 @@ HTML output:
 ```
 
 The same column width. 
-Not recommended for layouts that must support multiple css frameworks. Since not every framework support this.
+Not recommended for layouts that must support multiple css frameworks.
+Since not every framework supports this.
 
 ```php
 echo grid_open(['auto']);

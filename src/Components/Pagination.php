@@ -66,12 +66,14 @@ class Pagination extends Component {
             $prev = $key === 'prev' ? $options['prev_title'] : null;
             $next = $key === 'next' ? $options['next_title'] : null;
 
-            $disabled_prev = $options['disabled'] == 'prev' && $key === 'prev';
-            $disabled_next = $options['disabled'] == 'next' && $key === 'next';
+            $disabled_prev = $options['disabled'] === 'prev' && $key === 'prev';
+            $disabled_next = $options['disabled'] === 'next' && $key === 'next';
+
+            $title = $next ?: $item;
 
             $items[$key] = [
                 'link'     => sprintf($options['link'], $item),
-                'title'    => $prev ?: ($next ?: $item),
+                'title'    => $prev ?: $title,
                 'current'  => !($key === 'prev' || $key === 'next') && $item === $options['current'],
                 'disabled' => $item === $options['disabled'] || $disabled_prev || $disabled_next,
             ];

@@ -41,7 +41,7 @@ class Layout extends Component {
 
         $css_codes = '';
         if (!empty(AddTo::$css)) {
-            $minify_css = function (string $css): string {
+            $minify_css = static function (string $css): string {
                 $regexs = [
                     '/\/\*((?!\*\/).)*\*\//' => '',
                     '/\s{2,}/'               => ' ',

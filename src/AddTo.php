@@ -44,7 +44,7 @@ class AddTo {
      * @param string $tag
      */
     public static function head(string $tag): void {
-        if (!stristr(self::$head, $tag)) {
+        if (stripos(self::$head, $tag) === false) {
             self::$head .= $tag;
         }
     }
@@ -55,7 +55,7 @@ class AddTo {
      * @param string $tag
      */
     public static function footer(string $tag): void {
-        if (!stristr(self::$footer, $tag)) {
+        if (stripos(self::$footer, $tag) === false) {
             self::$footer .= $tag;
         }
     }
@@ -66,7 +66,7 @@ class AddTo {
      * @param string $code
      */
     public static function js(string $code): void {
-        if (!stristr(self::$js, $code)) {
+        if (stripos(self::$js, $code) === false) {
             self::$js .= $code;
         }
     }
@@ -77,7 +77,7 @@ class AddTo {
      * @param string $code
      */
     public static function jQuery(string $code): void {
-        if (!stristr(self::$jquery, $code)) {
+        if (stripos(self::$jquery, $code) === false) {
             self::$jquery .= $code;
         }
     }
@@ -88,7 +88,7 @@ class AddTo {
      * @param string $code
      */
     public static function css(string $code): void {
-        if (!stristr(self::$css, $code)) {
+        if (stripos(self::$css, $code) === false) {
             self::$css .= $code;
         }
     }

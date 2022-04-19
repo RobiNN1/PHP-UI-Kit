@@ -18,8 +18,8 @@ $uikit = UiKit::getInstance();
 
 Init UI Kit.
 
-Method has 2 parameters, firt one is Config object (optional) and
-second one instance of ITplEngine (optional).
+The method has 2 parameters, first one is a Config object (optional) and
+the second one instance of ITplEngine (optional).
 
 ```php
 $uikit->init();
@@ -53,7 +53,7 @@ Render template.
 ```php
 echo $uikit->renderTpl('tpl_name', []);
 
-// Set true on last parameter to enable loading templates from variable
+// Set true on the last parameter to enable loading templates from variable
 echo $uikit->renderTpl("{{ alert('Example') }}", [], true);
 ```
 
@@ -89,7 +89,7 @@ Add component.
 use RobiNN\UiKit\Components\Component;
 
 class ExampleComponent extends Component {
-    // Note, each component must have render method
+    // Note, each component must have `render` method
     public function render(): string {
         return '...';
     }
@@ -97,10 +97,10 @@ class ExampleComponent extends Component {
 
 $uikit->addComponent('example_component', ExampleComponent::class);
 
-// Then you can use it like all components
+// Then you can use it like all the components
 echo $uikit->example_component->render(); // or create helper function for it
 
-// The following examples only works with render() and open/close
+// The following examples only work with render() and open/close
 // (example_component_open(), example_component_close()) methods
 
 echo $uikit->example_component(); // Short version

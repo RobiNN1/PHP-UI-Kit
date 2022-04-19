@@ -20,7 +20,7 @@ return [
         'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
         'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'],
     ],
-    'grid_func'    => function (array $col_sizes): string {
+    'grid_func'    => static function (array $col_sizes): string {
         $sizes = ['xs', 'sm', 'md', 'lg'];
         $columns = [];
 
@@ -43,7 +43,7 @@ return [
             }
         }
 
-        return implode(' ', array_map(function ($size, $column): string {
+        return implode(' ', array_map(static function ($size, $column): string {
             return 'col-'.$size.'-'.$column;
         }, array_keys($columns), array_values($columns)));
     },

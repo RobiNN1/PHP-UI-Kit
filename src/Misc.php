@@ -39,13 +39,13 @@ class Misc {
      * Set an array item to a given value using "dot" notation.
      *
      * @param array  $array
-     * @param string $key
+     * @param string $array_key
      * @param mixed  $value
      *
      * @return array
      */
-    public static function arraySet(array &$array, string $key, mixed $value): array {
-        $keys = explode('.', $key);
+    public static function arraySet(array &$array, string $array_key, mixed $value): array {
+        $keys = explode('.', $array_key);
 
         foreach ($keys as $i => $key) {
             if (count($keys) === 1) {
@@ -67,7 +67,7 @@ class Misc {
     }
 
     /**
-     * Add space to left or right side.
+     * Add space to the left or the right side.
      *
      * @param mixed $value
      * @param bool  $right

@@ -46,7 +46,7 @@ echo menu('example', [
         ['title' => 'Sub Link 1', 'link' => 'sub_link1.php'],
         ['title' => 'Sub Link 2', 'link' => 'sub_link2.php'],
     ],
-    // Items on right side
+    // Items on the right side
     'right' => [
         ['title' => 'Right Link 1', 'link' => 'right1.php'],
         ['title' => 'Right Link 2', 'link' => 'right2.php'],

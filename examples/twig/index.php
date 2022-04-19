@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once __DIR__.'/../../vendor/autoload.php';
 
 /**
- * Get UI Kit object.
+ * Get a UI Kit object.
  *
  * Note: No need to create this function, it only overrides defaults when using helpers.
  *

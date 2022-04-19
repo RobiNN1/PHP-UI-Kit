@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
-class Config {
+final class Config {
     /**
      * @var mixed
      */
@@ -38,11 +38,11 @@ class Config {
      */
     public function __construct(array $options = []) {
         $options = array_merge([
-            'cache'          => false, // Cache object (depends on tpl engine), absolute path or false.
+            'cache'          => false, // Cache object (depends on the tpl engine), absolute path or false.
             'debug'          => false, // TPL engine debugging (if supported by engine).
             'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|fomanticui2
             'framework_path' => [
-                // Path to CSS Framework, each Framework can be in different path.
+                // Path to CSS Framework, each Framework can be in a different path.
                 'bootstrap5'  => __DIR__.'/../resources/bootstrap5',
                 'fomanticui2' => __DIR__.'/../resources/fomanticui2',
             ],
@@ -109,7 +109,7 @@ class Config {
     }
 
     /**
-     * Get path of the currently loaded framework.
+     * Get a path of the currently loaded framework.
      *
      * @param string $framework Framework name.
      *
