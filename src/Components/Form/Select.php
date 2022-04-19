@@ -37,7 +37,7 @@ class Select extends Component {
             'placeholder'       => '', // Placeholder.
             'size'              => 'default', // Select size. Possible value: default/sm/lg
             'state'             => '', // Validation state. Possible value: success/error
-            'feedback_text'     => '', // Custom feedback text. In your code do validation and then set state and feedback text.
+            'feedback_text'     => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
             'required'          => false, // Required.
             'help_text'         => '', // Custom help text.
         ], $options);

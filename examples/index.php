@@ -4,7 +4,7 @@ declare(strict_types=1);
 require_once __DIR__.'/../vendor/autoload.php';
 
 /**
- * Get UI Kit object.
+ * Get a UI Kit object.
  *
  * Note: No need to create this function, it only overrides defaults when using helpers.
  *
@@ -26,7 +26,7 @@ echo container_open(false, ['attributes' => ['style' => 'padding-top: 3rem;paddi
 
 echo '<div style="text-align:center;margin-bottom:3rem;">
 <h1>PHP UI Kit Examples</h1>
-<h2>Current CSS Framework: <b>'.get_ui()->config->getFramework().'</b></h2>';
+<h2>Current CSS Framework: <strong>'.get_ui()->config->getFramework().'</strong></h2>';
 
 if (get_ui()->config->getFramework() === 'bootstrap5') {
     echo '<p><a href="/examples/?sm">Open Fomantic UI version</a></p>';
@@ -53,7 +53,7 @@ echo grid_close();
 echo row_close();
 
 echo '<h5>Inputs with states</h5>';
-// In Fomantic UI states works only inside .ui.form element
+// In Fomantic UI states work only inside .ui.form element
 echo row_open();
 echo grid_open([100, 50]);
 echo input('input-success', 'Success', '', ['state' => 'success', 'required' => true]);
@@ -310,7 +310,7 @@ echo progress([15 => 'First', 30 => 'Second', 55 => 'Third'], [
     'color' => ['error', 'warning', 'success'],
 ]);
 echo progress([20, 75], [
-    'auto_colors' => function (int $num): string {
+    'auto_colors' => static function (int $num): string {
         $class = 'error';
         if ($num > 71) {
             $class = 'success';
@@ -339,8 +339,7 @@ echo '<div>Other components W.I.P.</div>';
 
 echo container_close();
 
-$body = ob_get_contents();
-ob_end_clean();
+$body = ob_get_clean();
 echo layout($body, [
     'title' => 'PHP UI Kit Examples',
 ]);

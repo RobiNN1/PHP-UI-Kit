@@ -20,7 +20,7 @@ return [
         'css' => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css'],
         'js'  => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js'],
     ],
-    'grid_func'    => function (array $col_sizes): string {
+    'grid_func'    => static function (array $col_sizes): string {
         $sizes = ['', 'tablet', 'computer', 'large screen'];
         $columns = [];
 
@@ -43,7 +43,7 @@ return [
             }
         }
 
-        return implode(' ', array_map(function ($size, $column): string {
+        return implode(' ', array_map(static function ($size, $column): string {
             $words = [
                 '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
                 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
@@ -116,7 +116,7 @@ return [
     ],
     'dropdown'     => [
         'button' => [
-            'title' => '<i class="dropdown icon"></i>',
+            'icon' => '<i class="dropdown icon"></i>',
         ],
     ],
     'menu'         => [

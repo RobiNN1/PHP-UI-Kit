@@ -31,7 +31,7 @@ $options (array) (Optional) Additional options. Default value: []
 | placeholder       | string | ''        | Placeholder.                                                                           |
 | size              | string | 'default' | Select size. Possible value: default/sm/lg                                             |
 | state             | string | ''        | Validation state. Possible value: success/error                                        |
-| feedback_text     | string | ''        | Custom feedback text. In your code do validation and then set state and feedback text. |
+| feedback_text     | string | ''        | Custom feedback text. Do validation in your code and then set state and feedback text. |
 | required          | bool   | false     | Required.                                                                              |
 | help_text         | string | ''        | Custom help text.                                                                      |
 

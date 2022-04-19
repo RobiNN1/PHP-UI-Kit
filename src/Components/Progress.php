@@ -16,7 +16,7 @@ class Progress extends Component {
     /**
      * Render progress.
      *
-     * @param array|int $percent Percents, array or asociative array for multiple bars.
+     * @param array|int $percent Percents, an array or asociative array for multiple bars.
      * @param array     $options Additional options.
      *
      * @return string
@@ -30,8 +30,8 @@ class Progress extends Component {
             'attributes'  => [], // Array of custom attributes.
             'item_class'  => '', // Class for item.
             'color'       => 'default', // Progress bar background color. Or array with colors. Possible value: default/success/warning/error
-            'auto_colors' => null, // Function that set the color depending on the width of the bar.
-            'percents'    => true, // Show percents in title.
+            'auto_colors' => null, // Function that sets the color depending on the width of the bar.
+            'percents'    => true, // Show percent in title.
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -79,7 +79,7 @@ class Progress extends Component {
         foreach ($percent as $bar => $title) {
             $color = is_array($options['color']) ? ($options['color'][$i] ?? 'default') : $options['color'];
 
-            $is_assoc = fn($arr) => ([] !== $arr) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
+            $is_assoc = static fn($arr) => ([] !== $arr) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
             $int = (int)$is_assoc($percent) ? $bar : $title;
 
             if ($auto_colors) {

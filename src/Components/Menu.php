@@ -33,7 +33,7 @@ class Menu extends Component {
             'brand'      => ['title' => '', 'link' => '#'], // Site name.
         ], $options);
 
-        // move right items to the end of array
+        // Move right items to the end of the array
         if (!empty($items['right'])) {
             $right = $items['right'];
             unset($items['right']);
@@ -75,7 +75,7 @@ class Menu extends Component {
         $items_formatted = [];
 
         foreach ($items as $key => $item) {
-            if ($key == 'right') {
+            if ($key === 'right') {
                 $items_formatted[$key] = $this->formatItems($item, $id);
             } else if (is_array($item) && count($item) !== count($item, COUNT_RECURSIVE)) {
                 $items_formatted[$key]['dropdown'] = $this->dropdown($item);

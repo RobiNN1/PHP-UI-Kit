@@ -31,7 +31,7 @@ class Dropdown extends Component {
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
             'button'     => [], // Button options.
-            'in_menu'    => false, // Set true if is used in menu. @internal
+            'in_menu'    => false, // Set true if is used in the menu item. @internal
         ], $options);
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
@@ -46,8 +46,8 @@ class Dropdown extends Component {
             $options['button']['attributes'] = array_merge($attr, $fwoptions['button']['attributes']);
         }
 
-        if (!empty($fwoptions['button']['title'])) {
-            $title = $title.' '.$fwoptions['button']['title'];
+        if (!empty($fwoptions['button']['icon'])) {
+            $title .= ' '.$fwoptions['button']['icon'];
         }
 
         $button = $this->uikit->button->render($title, 'button', $options['button']);

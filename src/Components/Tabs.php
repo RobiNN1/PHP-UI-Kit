@@ -39,7 +39,7 @@ class Tabs extends Component {
             }
         }
 
-        $active_tab = array_search(true, array_column($items, 'active'));
+        $active_tab = array_search(true, array_column($items, 'active'), true);
         $active_tab = !empty($active_tab) ? $active_tab : 0;
 
         $items_ = [];

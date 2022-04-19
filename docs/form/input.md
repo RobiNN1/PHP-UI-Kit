@@ -1,6 +1,6 @@
 # input()
 
-Show input field with variety of addons.
+Show input field with a variety of addons.
 
 ---
 
@@ -30,7 +30,7 @@ $options (array) (Optional) Additional options. Default value: []
 | type             | string | 'text'    | Input type.                                                                            |
 | size             | string | 'default' | Input size. Possible value: default/sm/lg                                              |
 | state            | string | ''        | Validation state. Possible value: success/error                                        |
-| feedback_text    | string | ''        | Custom feedback text. In your code do validation and then set state and feedback text. |
+| feedback_text    | string | ''        | Custom feedback text. Do validation in your code and then set state and feedback text. |
 | required         | bool   | false     | Required.                                                                              |
 | help_text        | string | ''        | Custom help text.                                                                      |
 | left_addon       | string | ''        | Left addon.                                                                            |

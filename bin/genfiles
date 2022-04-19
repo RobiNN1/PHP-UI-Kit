@@ -17,7 +17,7 @@ declare(strict_types=1);
  * Usage: php genfiles component_name [type - cmp|frm]
  */
 
-if (php_sapi_name() !== 'cli') {
+if (PHP_SAPI !== 'cli') {
     exit;
 }
 

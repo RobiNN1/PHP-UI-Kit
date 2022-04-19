@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 if (!function_exists('get_ui')) {
     /**
-     * Get UI Kit object.
+     * Get a UI Kit object.
      *
      * @return RobiNN\UiKit\UiKit
      */
@@ -260,7 +260,7 @@ if (!function_exists('button')) {
 
 if (!function_exists('button_group')) {
     /**
-     * Render button group.
+     * Render a button group.
      *
      * @param array $items   Associative array or multidimensional array.
      * @param array $options Additional options.
@@ -317,7 +317,7 @@ if (!function_exists('dropdown')) {
 
 if (!function_exists('list_group')) {
     /**
-     * Render list group.
+     * Render a list group.
      *
      * @param array $items   Array of items.
      * @param array $options Additional options.
@@ -377,7 +377,7 @@ if (!function_exists('progress')) {
     /**
      * Render progress.
      *
-     * @param array|int $percent Percents, array or asociative array for multiple bars.
+     * @param array|int $percent Percents, an array or asociative array for multiple bars.
      * @param array     $options Additional options.
      *
      * @return string

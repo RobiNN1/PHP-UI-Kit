@@ -1,6 +1,6 @@
 # progress()
 
-Show the completion progress.
+Show the completion of progress.
 
 ---
 
@@ -8,7 +8,7 @@ progress( mixed $percent [, array $options ] ) : string
 
 ## Parameters
 
-$percent (int|array) (Required) Percents, array or asociative array for multiple bars.
+$percent (int|array) (Required) Percents, an array or asociative array for multiple bars.
 
 $options (array) (Optional) Additional options. Default value: []
 
@@ -21,8 +21,8 @@ $options (array) (Optional) Additional options. Default value: []
 | attributes  | array        | []        | Array of custom attributes.                                                                        |
 | item_class  | string       | ''        | Class for item.                                                                                    |
 | color       | string/array | 'default' | Progress bar background color. Or array with colors. Possible value: default/success/warning/error |
-| auto_colors | object       | null      | Function that set the color depending on the width of the bar.                                     |
-| percents    | bool         | true      | Show percents in title.                                                                            |
+| auto_colors | object       | null      | Function that sets the color depending on the width of the bar.                                    |
+| percents    | bool         | true      | Show percent in title.                                                                             |
 
 ## Basic Usage
 
@@ -70,8 +70,9 @@ echo progress([20, 75,], [
 
 ## With titles and different colors
 
+In this case, every bar will have title and different color.
+
 ```php
-// In this case every bar will have title and different color
 echo progress([15 => 'First', 30 => 'Second', 55 => 'Third',], [
     'color' => ['error', 'warning', 'success'],
 ]);

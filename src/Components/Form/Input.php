@@ -37,7 +37,7 @@ class Input extends Component {
             'type'             => 'text', // Input type.
             'size'             => 'default', // Input size. Possible value: default/sm/lg
             'state'            => '', // Validation state. Possible value: success/error
-            'feedback_text'    => '', // Custom feedback text. In your code do validation and then set state and feedback text.
+            'feedback_text'    => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
             'required'         => false, // Required.
             'help_text'        => '', // Custom help text.
             'left_addon'       => '', // Left addon.
@@ -79,7 +79,7 @@ class Input extends Component {
             'input_id'         => $input_attributes['id'],
             'input_class'      => $options['input_class'],
             'input_attributes' => $this->getAttributes($input_attributes),
-            'type'             => in_array($options['type'], $input_types) ? $options['type'] : 'text',
+            'type'             => in_array($options['type'], $input_types, true) ? $options['type'] : 'text',
             'size'             => $this->getOption('sizes', $options['size'], $fwoptions),
             'state'            => $this->getOption('validation', $options['state'], $fwoptions),
             'feedback_text'    => $options['feedback_text'],
