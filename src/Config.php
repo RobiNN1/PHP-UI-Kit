@@ -40,11 +40,11 @@ class Config {
         $options = array_merge([
             'cache'          => false, // Cache object (depends on tpl engine), absolute path or false.
             'debug'          => false, // TPL engine debugging (if supported by engine).
-            'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|semanticui2
+            'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|fomanticui2
             'framework_path' => [
                 // Path to CSS Framework, each Framework can be in different path.
                 'bootstrap5'  => __DIR__.'/../resources/bootstrap5',
-                'semanticui2' => __DIR__.'/../resources/semanticui2',
+                'fomanticui2' => __DIR__.'/../resources/fomanticui2',
             ],
         ], $options);
 

@@ -42,7 +42,7 @@ $class_name = implode('', array_map('ucfirst', explode('_', $name)));
  */
 $twig_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
 file_put_contents(__DIR__.'/../resources/bootstrap5/templates/twig/'.$path.$name.'.twig', $twig_content);
-file_put_contents(__DIR__.'/../resources/semanticui2/templates/twig/'.$path.$name.'.twig', $twig_content);
+file_put_contents(__DIR__.'/../resources/fomanticui2/templates/twig/'.$path.$name.'.twig', $twig_content);
 
 /**
  * Class

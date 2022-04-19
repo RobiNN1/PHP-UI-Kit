@@ -14,7 +14,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
     $config = new RobiNN\UiKit\Config([
         'cache'     => __DIR__.'/cache',
         'debug'     => true,
-        'framework' => isset($_GET['sm']) ? 'semanticui2' : 'bootstrap5', // for development purposes
+        'framework' => isset($_GET['sm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
     ]);
 
     return RobiNN\UiKit\UiKit::getInstance()->init($config);
@@ -29,7 +29,7 @@ echo '<div style="text-align:center;margin-bottom:3rem;">
 <h2>Current CSS Framework: <b>'.get_ui()->config->getFramework().'</b></h2>';
 
 if (get_ui()->config->getFramework() === 'bootstrap5') {
-    echo '<p><a href="/examples/?sm">Open Semantic UI version</a></p>';
+    echo '<p><a href="/examples/?sm">Open Fomantic UI version</a></p>';
 } else {
     echo '<p><a href="/examples/">Open Bootstrap 5 version</a></p>';
 }
@@ -53,7 +53,7 @@ echo grid_close();
 echo row_close();
 
 echo '<h5>Inputs with states</h5>';
-// In Semantic (Fomantic) UI states works only inside .ui.form element
+// In Fomantic UI states works only inside .ui.form element
 echo row_open();
 echo grid_open([100, 50]);
 echo input('input-success', 'Success', '', ['state' => 'success', 'required' => true]);

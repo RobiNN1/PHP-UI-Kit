@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of UiKit.
+ *
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 /**
@@ -20,8 +29,8 @@ return [
                 return '';
             }
 
-            if (is_array($value) && !empty($value['semanticui2'])) {
-                return $value['semanticui2'] === 'auto' ? '' : $value['semanticui2'];
+            if (is_array($value) && !empty($value['fomanticui2'])) {
+                return $value['fomanticui2'] === 'auto' ? '' : $value['fomanticui2'];
             }
 
             if (!is_array($value)) {
