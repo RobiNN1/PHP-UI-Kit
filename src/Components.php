@@ -54,7 +54,7 @@ class Components {
     }
 
     /**
-     * Get array of components or component object.
+     * Get an array of components or component object.
      *
      * @param ?string $name
      *
@@ -123,6 +123,17 @@ class Components {
     }
 
     /**
+     * Check component.
+     *
+     * @param string $name
+     *
+     * @return bool
+     */
+    public function __isset(string $name) {
+        return isset($this->components[$name]);
+    }
+
+    /**
      * Create dynamic properties.
      *
      * @param string $name
@@ -135,6 +146,18 @@ class Components {
         }
 
         return null;
+    }
+
+    /**
+     * Set component.
+     *
+     * @param string $name
+     * @param string $value
+     *
+     * @return void
+     */
+    public function __set(string $name, string $value) {
+        $this->components[$name] = $value;
     }
 
     /**
