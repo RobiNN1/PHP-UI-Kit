@@ -11,6 +11,7 @@ namespace PHPSTORM_META {
         'form'         => \RobiNN\UiKit\Components\Form\Form::class,
         'input'        => \RobiNN\UiKit\Components\Form\Input::class,
         'select'       => \RobiNN\UiKit\Components\Form\Select::class,
+        'checkbox'     => Components\Form\Checkbox::class,
         // Components
         'accordion'    => \RobiNN\UiKit\Components\Accordion::class,
         'alert'        => \RobiNN\UiKit\Components\Alert::class,

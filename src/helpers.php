@@ -184,6 +184,22 @@ if (!function_exists('select')) {
     }
 }
 
+if (!function_exists('checkbox')) {
+    /**
+     * Render checkbox field.
+     *
+     * @param string     $name    Checkbox name.
+     * @param string     $label   Checkbox label.
+     * @param int|string $value   Checkbox value.
+     * @param array      $options Additional options.
+     *
+     * @return string
+     */
+    function checkbox(string $name, string $label = '', int|string $value = 0, array $options = []): string {
+        return get_ui()->checkbox->render($name, $label, $value, $options);
+    }
+}
+
 if (!function_exists('accordion')) {
     /**
      * Render accordion.

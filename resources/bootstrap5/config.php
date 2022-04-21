@@ -67,6 +67,12 @@ return [
             'error'   => 'is-invalid',
         ],
     ],
+    'checkbox' => [
+        'validation' => [
+            'success' => 'is-valid',
+            'error'   => 'is-invalid',
+        ],
+    ],
     'alert'        => [
         'colors' => [
             'default' => 'alert-primary',
