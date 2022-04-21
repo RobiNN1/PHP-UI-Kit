@@ -1,4 +1,5 @@
-<div class="ui fluid card{{ class|space }}"{{ attributes|space|raw }}>
+{% set tag = link ? 'a' : 'div' %}
+<{{ tag }} class="ui fluid card{{ class|space }}"{{ attributes|space|raw }}{{ (link ? ' href="'~ link ~'"' : '')|raw }}>
     {% if top_img %}
         <img class="image{{ top_img.class|space }}" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
     {% endif %}
@@ -13,4 +14,4 @@
     {% if footer %}
         <div class="content">{{ footer|raw }}</div>
     {% endif %}
-</div>
+</{{ tag }}>
