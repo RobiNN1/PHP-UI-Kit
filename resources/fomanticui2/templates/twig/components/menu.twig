@@ -29,7 +29,7 @@
     </div>
 {% endmacro %}
 
-<div class="ui stackable menu{{ color|space ~ class|space }}"{{ attributes|space|raw }}>
+<div class="ui stackable menu{{ dark ? ' inverted' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
     <div class="header item">
         {% if brand.title %}
             <a href="{{ brand.link }}">{{ brand.title|raw }}</a>

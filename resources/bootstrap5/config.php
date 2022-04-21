@@ -67,7 +67,7 @@ return [
             'error'   => 'is-invalid',
         ],
     ],
-    'checkbox' => [
+    'checkbox'     => [
         'validation' => [
             'success' => 'is-valid',
             'error'   => 'is-invalid',
@@ -120,12 +120,6 @@ return [
         'button' => [
             'class'      => 'dropdown-toggle',
             'attributes' => ['data-bs-toggle' => 'dropdown'],
-        ],
-    ],
-    'menu'         => [
-        'colors' => [
-            'light' => 'navbar-light bg-light',
-            'dark'  => 'navbar-dark bg-dark',
         ],
     ],
     'modal'        => [

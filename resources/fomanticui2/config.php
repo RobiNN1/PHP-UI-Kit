@@ -125,12 +125,6 @@ return [
             'icon' => '<i class="dropdown icon"></i>',
         ],
     ],
-    'menu'         => [
-        'colors' => [
-            'light' => '',
-            'dark'  => 'inverted',
-        ],
-    ],
     'modal'        => [
         'sizes'  => [
             'default'    => 'tiny',

@@ -2,7 +2,7 @@
 
 <{{ tag }} class="{{ in_menu ? 'nav-item ' : '' }}dropdown{{ class|space }}"{{ attributes|space|raw }}>
     {{ button|raw }}
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu{{ dark ? ' dropdown-menu-dark' : '' }}">
         {% for item in items %}
             {% set active = item.active ? ' active' : '' %}
 
