@@ -29,6 +29,7 @@ class Breadcrumbs extends Component {
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
+            'divider'    => '/', // Items divider.
         ], $options);
 
         return $this->uikit->renderTpl('components/'.$component, [
@@ -36,6 +37,7 @@ class Breadcrumbs extends Component {
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'item_class' => $options['item_class'],
+            'divider'    => $options['divider'],
         ]);
     }
 }
