@@ -71,6 +71,12 @@ return [
             'error'   => 'error',
         ],
     ],
+    'checkbox'     => [
+        'validation' => [
+            'success' => 'success',
+            'error'   => 'error',
+        ],
+    ],
     'alert'        => [
         'colors' => [
             'default' => 'blue',

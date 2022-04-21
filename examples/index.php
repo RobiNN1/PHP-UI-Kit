@@ -131,6 +131,21 @@ echo select('select-error2', 'Error field with text', '', $select_optioms, ['sta
 echo grid_close();
 echo row_close();
 
+echo '<h5>Checkbox & Radio</h5>';
+echo checkbox('checkbox', 'Checkbox');
+echo checkbox('radio', 'Radio', '', ['radio' => true]);
+
+echo checkbox('multiple-checkboxes', 'Multiple checkboxes', '', [
+    'items'         => [
+        0 => 'Checkbox 1',
+        1 => 'Checkbox 2',
+        2 => 'Checkbox 3',
+    ],
+    'state'         => 'success',
+    'feedback_text' => 'Text....',
+    'help_text'     => 'Help text',
+]);
+
 echo form_close();
 
 echo '<hr>';
