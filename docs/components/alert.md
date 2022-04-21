@@ -61,8 +61,12 @@ echo alert('Info', 'info');
 
 ## Dismissing
 
+By setting `dismiss` to true user can hide the alert.
+
 ```php
-echo alert('Dismissible', 'default', ['dismiss' => true]);
+echo alert('Dismissible', 'default', [
+    'dismiss' => true,
+]);
 ```
 
 <span class="html-output">HTML Output</span>

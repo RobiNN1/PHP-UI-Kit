@@ -64,8 +64,12 @@ echo badge('Info', 'info');
 
 ## Rounded
 
+To make the badges more rounded, set `rounded` to true.
+
 ```php
-echo badge('Rounded', 'default', ['rounded' => true]);
+echo badge('Rounded', 'default', [
+    'rounded' => true,
+]);
 ```
 
 <span class="html-output">HTML Output</span>

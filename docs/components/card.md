@@ -23,6 +23,7 @@ $options (array) (Optional) Additional options. Default value: []
 | body       | string | ''      | Card body.                                          |
 | bottom     | string | ''      | Card bottom content.                                |
 | footer     | string | ''      | Card footer.                                        |
+| link       | string | ''      | As link.                                            |
 
 ## Basic Usage
 
@@ -60,4 +61,44 @@ echo card([
     <img class="card-img-top" src="path/to/image.jpg" alt="Example image">
     <div class="card-body">Card body</div>
 </div>
+```
+
+## Colored
+
+Simply use the framework's color utilits or add custom class.
+
+```php
+echo card([
+    'header' => 'Card header',
+    'body'   => 'Card body',
+    'class'  => 'text-white bg-secondary',
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<div class="card text-white bg-secondary">
+    <div class="card-header">Card header</div>
+    <div class="card-body">Card body</div>
+</div>
+```
+
+## As link
+
+```php
+echo card([
+    'header' => 'Card header',
+    'body'   => 'Card body',
+    'link'   => 'cardlink.php',
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<a class="card" href="cardlink.php">
+    <div class="card-header">Card header</div>
+    <div class="card-body">Card body</div>
+</a>
 ```

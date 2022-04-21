@@ -21,7 +21,7 @@ Options for each item:
 | class  | string | ''      | Item class.                                                                  |
 | custom | string | ''      | Custom HTML in item. If this option is specified, other options are ignored. |
 
-Add `'divider',` item to create divider.
+> To create divider add `'divider',` item.
 
 $options (array) (Optional) Additional options. Default value: []
 
@@ -33,6 +33,7 @@ $options (array) (Optional) Additional options. Default value: []
 | class      | string | ''      | Class for wrapper.                                         |
 | attributes | array  | []      | Array of custom attributes.                                |
 | item_class | string | ''      | Class for item.                                            |
+| dark       | bool   | false   | Dark dropdown.                                             |
 | button     | array  | []      | Button options, see [available button options](button.md). |
 
 ## Basic Usage
@@ -60,7 +61,32 @@ echo dropdown('Dropdown', [
 </div>
 ```
 
+## Dark version
+
+```php
+echo dropdown('Dropdown', [
+    ['title' => 'Link 1', 'link' => 'darklink1.php'],
+    ['title' => 'Item'],
+], [
+    'dark' => true,
+]);
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<div class="dropdown">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+        <li><a class="dropdown-item" href="darklink1.php">Link 1</a></li>
+        <li><span class="dropdown-item-text">Item</span></li>
+    </ul>
+</div>
+```
+
 ## With custom button
+
+The dropdown button works with all [button options](button.md).
 
 ```php
 echo dropdown('Dropdown', [
@@ -68,7 +94,10 @@ echo dropdown('Dropdown', [
     ['title' => 'Link 2', 'link' => 'link2.php'],
 ], [
     'class' => 'd-inline-block',
-    'button' => ['color' => 'success', 'size' => 'lg',],
+    'button' => [
+        'color' => 'success',
+        'size' => 'lg',
+    ],
 ]);
 
 echo dropdown('Dropdown button as link', [
@@ -77,7 +106,10 @@ echo dropdown('Dropdown button as link', [
     ['title' => 'Link 3', 'link' => 'link3.php'],
 ], [
     'class' => 'd-inline-block',
-    'button' => ['link' => '#', 'no_classes' => true,],
+    'button' => [
+        'link' => '#',
+        'no_classes' => true,
+    ],
 ]);
 ```
 
