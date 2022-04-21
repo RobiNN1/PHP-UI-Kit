@@ -1,4 +1,4 @@
-<ol class="breadcrumb{{ class|space }}" aria-label="breadcrumb"{{ attributes|space|raw }}>
+<ol class="breadcrumb{{ class|space }}"{{ (divider is not same as('/') ? ' style="--bs-breadcrumb-divider: \''~ divider ~'\';"' : '')|raw }} aria-label="breadcrumb"{{ attributes|space|raw }}>
     {% for title,link in links %}
         {% if loop.last %}
             <li class="breadcrumb-item{{ item_class|space }} active" aria-current="page">{{ title|raw }}</li>
