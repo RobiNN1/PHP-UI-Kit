@@ -21,8 +21,8 @@ When is used `button-value => options` method, is possible to set these options:
 | class       | string          | ''        | Button class.                                                         |
 | btn_options | array           | []        | Button options, see [available button options](button.md).            |
 
-Note: All these options can be set via btn_options,
-but for convenience a couple of values it is possible to set directly.
+> All these options can be set via btn_options,
+> but for convenience a common options (title, value, link, type and class) is possible to set directly.
 
 $options (array) (Optional) Additional options. Default value: []
 
@@ -61,9 +61,9 @@ echo button_group([
 echo button_group([
     0          => 'First',
     1          => 'Second',
-    'example'  => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary',]],
-    'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata',]],
-    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null]],
+    'example'  => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary',],],
+    'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata',],],
+    'btn1'     => ['title' => 'No value', 'btn_options' => ['value' => null,],],
 ]);
 ```
 

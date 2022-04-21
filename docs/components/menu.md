@@ -25,14 +25,14 @@ $options (array) (Optional) Additional options. Default value: []
 
 #### Available options
 
-| Name       | Type   | Default                        | Description                            |
-|------------|--------|--------------------------------|----------------------------------------|
-| id         | string | ''                             | Wrapper ID.                            |
-| class      | string | ''                             | Class for wrapper.                     |
-| attributes | array  | []                             | Array of custom attributes.            |
-| item_class | string | ''                             | Class for item.                        |
-| color      | string | 'light'                        | Menu color. Possible value: light/dark |
-| brand      | array  | ['title' => '', 'link' => '#'] | Site name.                             |
+| Name       | Type   | Default                        | Description                 |
+|------------|--------|--------------------------------|-----------------------------|
+| id         | string | ''                             | Wrapper ID.                 |
+| class      | string | ''                             | Class for wrapper.          |
+| attributes | array  | []                             | Array of custom attributes. |
+| item_class | string | ''                             | Class for item.             |
+| dark       | bool   | false                          | Dark menu.                  |
+| brand      | array  | ['title' => '', 'link' => '#'] | Site name.                  |
 
 ## Basic Usage
 
@@ -97,7 +97,7 @@ echo menu('example-dark', [
         ['title' => 'Right Link 1', 'link' => 'right1.php'],
     ],
 ], [
-    'color' => 'dark',
+    'dark' => true,
 ]);
 ```
 
@@ -116,7 +116,7 @@ echo menu('example-dark', [
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-dark">
                         <li><a class="dropdown-item" href="sub_link1.php">Sub Link 1</a></li>
                         <li><a class="dropdown-item" href="sub_link2.php">Sub Link 2</a></li>
                     </ul>
@@ -135,7 +135,10 @@ echo menu('example-brand', [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     ['title' => 'Item 1', 'link' => 'link1.php'],
 ], [
-    'brand' => ['title' => 'Brand title', 'link' => 'link..'],
+    'brand' => [
+        'title' => 'Brand title',
+        'link' => 'link..'
+    ],
 ]);
 ```
 
