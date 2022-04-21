@@ -30,6 +30,7 @@ class Dropdown extends Component {
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
+            'dark'       => false, // Dark dropdown.
             'button'     => [], // Button options.
             'in_menu'    => false, // Set true if is used in the menu item. @internal
         ], $options);
@@ -57,8 +58,9 @@ class Dropdown extends Component {
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'item_class' => $options['item_class'],
-            'in_menu'    => $options['in_menu'],
+            'dark'       => $options['dark'],
             'button'     => $button,
+            'in_menu'    => $options['in_menu'],
         ]);
     }
 }

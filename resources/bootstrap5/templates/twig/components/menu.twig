@@ -18,8 +18,8 @@
         {% endif %}
     {% endfor %}
 {% endmacro %}
-
-<nav class="navbar navbar-expand-lg{{ color|space ~ class|space }}"{{ attributes|space|raw }}>
+{% set color = dark ? 'dark bg-dark' : 'light bg-light' %}
+<nav class="navbar navbar-expand-lg navbar-{{ color }}{{ class|space }}"{{ attributes|space|raw }}>
     <div class="container-fluid">
         {% if brand.title %}
             <a class="navbar-brand" href="{{ brand.link }}">{{ brand.title|raw }}</a>

@@ -29,7 +29,7 @@ class Menu extends Component {
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
-            'color'      => 'light', // Menu color. Possible value: light/dark
+            'dark'       => false, // Dark menu.
             'brand'      => ['title' => '', 'link' => '#'], // Site name.
         ], $options);
 
@@ -40,45 +40,52 @@ class Menu extends Component {
             $items['right'] = $right;
         }
 
-        $fwoptions = $this->uikit->getFrameworkOptions($component);
-
         return $this->uikit->renderTpl('components/'.$component, [
             'id'         => $id,
-            'items'      => $this->formatItems($items, $id),
+            'items'      => $this->formatItems($items, $id, $options['dark']),
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'item_class' => $options['item_class'],
-            'color'      => $this->getOption('colors', $options['color'], $fwoptions),
+            'dark'       => $options['dark'],
             'brand'      => $options['brand'],
         ]);
     }
 
     /**
      * @param array $items
+     * @param bool  $dark
      *
      * @return string
      */
-    private function dropdown(array $items): string {
+    private function dropdown(array $items, bool $dark): string {
         $title = $items['title'];
         array_shift($items);
 
-        return $this->uikit->dropdown->render($title, $items, ['in_menu' => true, 'button' => ['menu_dp' => true, 'link' => '#']]);
+        return $this->uikit->dropdown->render($title, $items, [
+            'dark'    => $dark,
+            'button'  => [
+                'menu_dp' => true,
+                'link'    => '#',
+            ],
+            'in_menu' => true,
+        ]);
     }
 
     /**
      * @param array  $items
      * @param string $id
+     * @param bool   $dark
      *
      * @return array
      */
-    private function formatItems(array $items, string $id): array {
+    private function formatItems(array $items, string $id, bool $dark): array {
         $items_formatted = [];
 
         foreach ($items as $key => $item) {
             if ($key === 'right') {
-                $items_formatted[$key] = $this->formatItems($item, $id);
+                $items_formatted[$key] = $this->formatItems($item, $id, $dark);
             } else if (is_array($item) && count($item) !== count($item, COUNT_RECURSIVE)) {
-                $items_formatted[$key]['dropdown'] = $this->dropdown($item);
+                $items_formatted[$key]['dropdown'] = $this->dropdown($item, $dark);
             } else {
                 $items_formatted[$key] = $item;
             }

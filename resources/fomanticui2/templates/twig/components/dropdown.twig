@@ -1,6 +1,6 @@
 {{ add_to_jquery("$('.ui.dropdown').dropdown();") }}
 
-<div class="ui dropdown{{ in_menu ? ' item' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
+<div class="ui dropdown{{ dark ? ' inverted' : '' }}{{ in_menu ? ' item' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
     {{ button|raw }}
     <div class="menu">
         {% for item in items %}
