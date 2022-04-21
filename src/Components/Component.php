@@ -56,6 +56,6 @@ class Component {
      */
     public function getOption(string $option, mixed $value, array $opts): mixed {
         $default = $opts[$option]['default'] ?? '';
-        return array_key_exists($value, $opts[$option]) ? $opts[$option][$value] : $default;
+        return isset($opts[$option]) && array_key_exists($value, $opts[$option]) ? $opts[$option][$value] : $default;
     }
 }
