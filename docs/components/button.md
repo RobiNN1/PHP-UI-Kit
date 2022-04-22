@@ -133,5 +133,5 @@ echo button('Disabled', '', [
 
 ```html
 <button type="button" class="btn btn-secondary active">Active</button>
-<button type="button" class="btn btn-secondary disabled" disabled="">Disabled</button>
+<button type="button" class="btn btn-secondary disabled" disabled>Disabled</button>
 ```

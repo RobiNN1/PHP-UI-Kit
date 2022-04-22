@@ -43,10 +43,11 @@ class Checkbox extends Component {
         $checkbox_attributes = [];
 
         if (!empty($name)) {
-            $checkbox_attributes['name'] = $name.(!empty($options['items']) ? '[]' : '');
+            $name .= $options['radio'] === false && !str_ends_with($name, '[]') && !empty($options['items']) ? '[]' : '';
+            $checkbox_attributes['name'] = $name;
         }
 
-        if (!empty($options['required'])) {
+        if ($options['required']) {
             $checkbox_attributes['required'] = null;
         }
 

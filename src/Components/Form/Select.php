@@ -48,7 +48,8 @@ class Select extends Component {
         $select_attributes['id'] = $options['select_id'];
 
         if (!empty($name)) {
-            $select_attributes['name'] = $name.($options['multiple'] ? '[]' : '');
+            $name .= $options['multiple'] && !str_ends_with($name, '[]') ? '[]' : '';
+            $select_attributes['name'] = $name;
         }
 
         if ($options['required']) {
