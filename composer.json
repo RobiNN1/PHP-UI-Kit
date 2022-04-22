@@ -1,6 +1,6 @@
 {
   "name": "robinn/uikit",
-  "description": "PHP UI Kit with support for multiple CSS frameworks.",
+  "description": "A toolkit for developing universal web interfaces with support for multiple CSS frameworks.",
   "keywords": [
     "templating",
     "twig",
