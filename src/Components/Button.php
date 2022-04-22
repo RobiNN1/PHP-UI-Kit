@@ -58,7 +58,7 @@ class Button extends Component {
             }
         }
 
-        if ($options['disabled'] === true) {
+        if ($options['disabled']) {
             $attributes['disabled'] = '';
         }
 

@@ -58,7 +58,7 @@ class Input extends Component {
             $input_attributes['placeholder'] = $options['placeholder'];
         }
 
-        if (!empty($options['required'])) {
+        if ($options['required']) {
             $input_attributes['required'] = null;
         }
 

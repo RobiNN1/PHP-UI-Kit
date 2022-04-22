@@ -44,15 +44,15 @@ final class CheckboxTest extends ComponentTestCase {
         $expected = '<div class="mb-1">
     <span>Test checkboxes</span>
     <div class="form-check">
-        <input value="0" type="checkbox" id="test-multiple0" name="test-multiple" class="form-check-input" checked>
+        <input value="0" type="checkbox" id="test-multiple0" name="test-multiple[]" class="form-check-input" checked>
         <label for="test-multiple0" class="form-check-label">Checkbox 1</label>
     </div>
     <div class="form-check">
-        <input value="1" type="checkbox" id="test-multiple1" name="test-multiple" class="form-check-input">
+        <input value="1" type="checkbox" id="test-multiple1" name="test-multiple[]" class="form-check-input">
         <label for="test-multiple1" class="form-check-label">Checkbox 2</label>
     </div>
     <div class="form-check">
-        <input value="2" type="checkbox" id="test-multiple2" name="test-multiple" class="form-check-input">
+        <input value="2" type="checkbox" id="test-multiple2" name="test-multiple[]" class="form-check-input">
         <label for="test-multiple2" class="form-check-label">Checkbox 3</label>
     </div>
 </div>';

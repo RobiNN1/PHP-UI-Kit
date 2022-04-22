@@ -83,15 +83,15 @@ echo checkbox('example-radio-multiple', 'Example radio checkboxes', 0, [
 <div class="mb-1">
     <span>Example checkboxes</span>
     <div class="form-check">
-        <input value="0" type="checkbox" id="example-multiple0" name="example-multiple" class="form-check-input" checked="">
+        <input value="0" type="checkbox" id="example-multiple0" name="example-multiple[]" class="form-check-input" checked>
         <label for="example-multiple0" class="form-check-label">Checkbox 1</label>
     </div>
     <div class="form-check">
-        <input value="1" type="checkbox" id="example-multiple1" name="example-multiple" class="form-check-input">
+        <input value="1" type="checkbox" id="example-multiple1" name="example-multiple[]" class="form-check-input">
         <label for="example-multiple1" class="form-check-label">Checkbox 2</label>
     </div>
     <div class="form-check">
-        <input value="2" type="checkbox" id="example-multiple2" name="example-multiple" class="form-check-input">
+        <input value="2" type="checkbox" id="example-multiple2" name="example-multiple[]" class="form-check-input">
         <label for="example-multiple2" class="form-check-label">Checkbox 3</label>
     </div>
 </div>
@@ -99,7 +99,7 @@ echo checkbox('example-radio-multiple', 'Example radio checkboxes', 0, [
 <div class="mb-1">
     <span>Example radio checkboxes</span>
     <div class="form-check">
-        <input value="0" type="radio" id="example-radio-multiple0" name="example-radio-multiple" class="form-check-input" checked="">
+        <input value="0" type="radio" id="example-radio-multiple0" name="example-radio-multiple" class="form-check-input" checked>
         <label for="example-radio-multiple0" class="form-check-label">Radio checkbox 1</label>
     </div>
     <div class="form-check">
