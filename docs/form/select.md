@@ -34,6 +34,7 @@ $options (array) (Optional) Additional options. Default value: []
 | feedback_text     | string | ''        | Custom feedback text. Do validation in your code and then set state and feedback text. |
 | required          | bool   | false     | Required.                                                                              |
 | help_text         | string | ''        | Custom help text.                                                                      |
+| multiple          | bool   | false     | Multiple.                                                                              |
 
 ## Basic Usage
 

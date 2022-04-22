@@ -40,6 +40,7 @@ class Select extends Component {
             'feedback_text'     => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
             'required'          => false, // Required.
             'help_text'         => '', // Custom help text.
+            'multiple'          => false, // Multiple.
         ], $options);
 
         $select_attributes = [];
@@ -47,11 +48,16 @@ class Select extends Component {
         $select_attributes['id'] = $options['select_id'];
 
         if (!empty($name)) {
-            $select_attributes['name'] = $name;
+            $select_attributes['name'] = $name.($options['multiple'] ? '[]' : '');
         }
 
-        if (!empty($options['required'])) {
+        if ($options['required']) {
             $select_attributes['required'] = null;
+        }
+
+        if ($options['multiple']) {
+            $select_attributes['multiple'] = null;
+            $select_attributes['size'] = 3;
         }
 
         $select_attributes += $options['select_attributes'];
@@ -73,6 +79,7 @@ class Select extends Component {
             'required'          => $options['required'],
             'help_text'         => $options['help_text'],
             'placeholder'       => $options['placeholder'],
+            'multiple'          => $options['multiple'],
         ]);
     }
 }

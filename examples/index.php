@@ -128,6 +128,8 @@ echo grid_open([100, 50]);
 echo select('select-success2', 'Success field with text', '', $select_optioms, ['state' => 'success', 'feedback_text' => 'Text...']);
 echo grid_close().grid_open([100, 50]);
 echo select('select-error2', 'Error field with text', '', $select_optioms, ['state' => 'error', 'feedback_text' => 'Text...']);
+echo grid_close().grid_open([100, 50]);
+echo select('select-multiple', 'Select multiple', '', $select_optioms, ['multiple' => true, 'placeholder' => 'Select items',]);
 echo grid_close();
 echo row_close();
 
