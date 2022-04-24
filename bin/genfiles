@@ -22,7 +22,7 @@ if (PHP_SAPI !== 'cli') {
 }
 
 if (!isset($_SERVER['argv'][1])) {
-    echo 'Enter component name (snake_case).';
+    echo "\033[31mEnter component name (snake_case).\033[0m\n";
     exit(1);
 }
 
@@ -158,5 +158,5 @@ echo '.$name.'();
 ';
 file_put_contents(__DIR__.'/../docs/'.$path.$name.'.md', $docs_content);
 
-echo 'Successfully generated component.';
+echo "\033[32mComponent successfully generated.\033[0m\n";
 exit(0);
