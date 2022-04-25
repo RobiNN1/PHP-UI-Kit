@@ -60,6 +60,7 @@ class Components {
      * @param ?string $name
      *
      * @return array|object
+     *
      * @internal
      */
     public function getComponents(string $name = null): array|object {
@@ -102,6 +103,7 @@ class Components {
      * @param string $component_name
      *
      * @return string
+     *
      * @internal
      */
     public function addSuggestions(string $component_name): string {

@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components\Layout;
 
-use RobiNN\UiKit\Components\Component;
 use RobiNN\UiKit\AddTo;
+use RobiNN\UiKit\Components\Component;
 
 class Layout extends Component {
     /**

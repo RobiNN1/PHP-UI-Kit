@@ -48,6 +48,7 @@ return [
                 '', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
                 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
             ];
+
             return $words[$column].' wide '.$size;
         }, array_keys($columns), array_values($columns)));
     },

@@ -76,6 +76,7 @@ class Misc {
      */
     public static function space(mixed $value, bool $right = false): string {
         $right_side = $right ? $value.' ' : ' '.$value;
+
         return !empty($value) ? $right_side : '';
     }
 }

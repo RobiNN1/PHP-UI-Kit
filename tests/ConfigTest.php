@@ -12,8 +12,8 @@ declare(strict_types=1);
 
 namespace Tests;
 
-use RobiNN\UiKit\Config;
 use PHPUnit\Framework\TestCase;
+use RobiNN\UiKit\Config;
 
 final class ConfigTest extends TestCase {
     private Config $config;

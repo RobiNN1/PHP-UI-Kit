@@ -36,7 +36,7 @@ final class MenuTest extends ComponentTestCase {
         $tpl = $this->uikit->menu->render('test', [
             ['title' => 'Item 1', 'link' => 'link1.php'],
             [
-                'title' => 'Dropdown',
+                'title'  => 'Dropdown',
                 ['title' => 'Sub Item 2', 'link' => 'sub_link2.php', 'active' => true],
             ],
         ]);

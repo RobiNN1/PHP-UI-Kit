@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 require_once __DIR__.'/../vendor/autoload.php';
@@ -129,7 +130,7 @@ echo select('select-success2', 'Success field with text', '', $select_optioms, [
 echo grid_close().grid_open([100, 50]);
 echo select('select-error2', 'Error field with text', '', $select_optioms, ['state' => 'error', 'feedback_text' => 'Text...']);
 echo grid_close().grid_open([100, 50]);
-echo select('select-multiple', 'Select multiple', '', $select_optioms, ['multiple' => true, 'placeholder' => 'Select items',]);
+echo select('select-multiple', 'Select multiple', '', $select_optioms, ['multiple' => true, 'placeholder' => 'Select items']);
 echo grid_close();
 echo row_close();
 
@@ -222,9 +223,9 @@ $btns = [
     'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
     'btn1'     => ['title' => 'No value', 'value' => null],
 ];
-echo button_group($btns, ['size' => 'sm',]);
+echo button_group($btns, ['size' => 'sm']);
 echo button_group($btns);
-echo button_group($btns, ['size' => 'lg',]);
+echo button_group($btns, ['size' => 'lg']);
 echo '<hr>';
 
 echo '<h4>Card</h4>';
@@ -263,7 +264,7 @@ echo '<h4>Dropdown</h4>';
 echo dropdown('Dropdown', [
     ['title' => 'Dropdown Item 1', 'link' => 'link1.php'],
     'divider',
-    ['title' => 'Dropdown Item 2'],
+    ['title'  => 'Dropdown Item 2'],
     ['custom' => '<b>Custom bold text</b>'],
 ]);
 echo '<hr>';
@@ -279,9 +280,9 @@ echo '<h4>Menu</h4>';
 echo menu('example', [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     ['custom' => button('Button')],
-    ['title' => 'Item 2', 'link' => 'link2.php', 'active' => true],
+    ['title'  => 'Item 2', 'link' => 'link2.php', 'active' => true],
     [
-        'title' => 'Dropdown',
+        'title'  => 'Dropdown',
         ['title' => 'Sub Item 1', 'link' => 'sub_link1.php'],
         ['title' => 'Sub Item 2', 'link' => 'sub_link2.php'],
     ],
@@ -290,7 +291,7 @@ echo menu('example', [
         ['title' => 'Right 1', 'link' => 'right1.php'],
         ['title' => 'Right 2', 'link' => 'right2.php'],
         [
-            'title' => 'Right Dropdown',
+            'title'  => 'Right Dropdown',
             ['title' => 'Sub Right Item 1', 'link' => 'sub_right_link1.php'],
             ['title' => 'Sub Right Item 2', 'link' => 'sub_right_link2.php'],
         ],
