@@ -76,9 +76,10 @@ class Twig implements TplEngineInterface {
             if ($string) {
                 return $this->twig->createTemplate($tpl)->render($data);
             }
+
             return $this->twig->render($tpl.'.twig', $data);
         } catch (Exception $e) {
-            die($e->getMessage().' in '.$e->getFile().' at line: '.$e->getLine());
+            exit($e->getMessage().' in '.$e->getFile().' at line: '.$e->getLine());
         }
     }
 }

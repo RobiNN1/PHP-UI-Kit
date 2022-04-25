@@ -28,6 +28,7 @@ class ComponentTestCase extends TestCase {
 
     public function assertComponentRender(string $expected, string $actual): void {
         $indenter = new Indenter();
+
         try {
             $actual = str_replace('> ', '>', $indenter->indent($actual));
         } catch (RuntimeException) {

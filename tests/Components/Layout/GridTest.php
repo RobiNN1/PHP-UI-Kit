@@ -34,7 +34,7 @@ final class GridTest extends ComponentTestCase {
         $tpl_100_50 = $this->uikit->grid->open([100, 50]);
         $this->assertComponentRender('<div class="col-xs-12 col-sm-6">', $tpl_100_50);
 
-        $tpl_bs = $this->uikit->grid->open([100, 50, ['bootstrap5' => 'col-6',],]);
+        $tpl_bs = $this->uikit->grid->open([100, 50, ['bootstrap5' => 'col-6']]);
         $this->assertComponentRender('<div class="col-6">', $tpl_bs);
 
         $tpl_auto = $this->uikit->grid->open(['auto']);

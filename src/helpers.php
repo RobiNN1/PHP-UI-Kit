@@ -23,7 +23,7 @@ if (!function_exists('get_ui')) {
 
 if (!function_exists('add_html')) {
     /**
-     * Add HTML code
+     * Add HTML code.
      *
      * @param string $html
      *
@@ -36,7 +36,7 @@ if (!function_exists('add_html')) {
 
 if (!function_exists('get_html')) {
     /**
-     * Get HTML code
+     * Get HTML code.
      *
      * @return string
      */
