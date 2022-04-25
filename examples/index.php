@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 require_once __DIR__.'/../vendor/autoload.php';
@@ -129,7 +130,7 @@ echo select('select-success2', 'Success field with text', '', $select_optioms, [
 echo grid_close().grid_open([100, 50]);
 echo select('select-error2', 'Error field with text', '', $select_optioms, ['state' => 'error', 'feedback_text' => 'Text...']);
 echo grid_close().grid_open([100, 50]);
-echo select('select-multiple', 'Select multiple', '', $select_optioms, ['multiple' => true, 'placeholder' => 'Select items',]);
+echo select('select-multiple', 'Select multiple', '', $select_optioms, ['multiple' => true, 'placeholder' => 'Select items']);
 echo grid_close();
 echo row_close();
 
@@ -222,9 +223,9 @@ $btns = [
     'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
     'btn1'     => ['title' => 'No value', 'value' => null],
 ];
-echo button_group($btns, ['size' => 'sm',]);
+echo button_group($btns, ['size' => 'sm']);
 echo button_group($btns);
-echo button_group($btns, ['size' => 'lg',]);
+echo button_group($btns, ['size' => 'lg']);
 echo '<hr>';
 
 echo '<h4>Card</h4>';
