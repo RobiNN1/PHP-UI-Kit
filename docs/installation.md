@@ -67,7 +67,7 @@ HTML code
 
 ## Config
 
-The simplest way to change config is to override `get_ui()` function (if you use components with helper functions).
+If you use components with helper functions, the simplest way to change config is to override `get_ui()` function.
 
 Simply place this function after class autoload.
 
@@ -80,6 +80,9 @@ function get_ui(): RobiNN\UiKit\UiKit {
     return RobiNN\UiKit\UiKit::getInstance()->init($config);
 }
 ```
+
+> [layout()](layout/layout.md) is not required, components can be used in any project.
+> However, if the `layout()` is not used, [Get HTML](#get-html) may not work.
 
 All options can be found [here](core/config.md).
 
