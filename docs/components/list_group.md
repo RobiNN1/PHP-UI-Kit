@@ -33,7 +33,6 @@ echo list_group([
 <span class="html-output">HTML Output</span>
 
 ```html
-
 <ul class="list-group">
     <li class="list-group-item">Item 1</li>
     <li class="list-group-item">Item 2</li>

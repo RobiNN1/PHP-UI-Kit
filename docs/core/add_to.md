@@ -38,13 +38,13 @@ AddTo::js('...');
 
 Add jQuery codes to the output.
 
-This only works if the css framework has enabled jQuery in the configuration file.
-
 ```php
 use RobiNN\UiKit\AddTo;
 
 AddTo::jQuery('...');
 ```
+
+> This only works if the css framework has enabled jQuery in the configuration file.
 
 ## css()
 

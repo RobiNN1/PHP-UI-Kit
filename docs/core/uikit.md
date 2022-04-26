@@ -86,25 +86,36 @@ $uikit->setPath(__DIR__.'/templates');
 Add component.
 
 ```php
-use RobiNN\UiKit\Components\Component;
+$uikit->addComponent('example_component', ExampleComponent::class);
+```
 
-class ExampleComponent extends Component {
-    // Note, each component must have `render` method
-    public function render(): string {
-        return '...';
-    }
+> More detailed into can be found [here](adding-components.md).
+
+## get_ui()
+
+Get a UI Kit object.
+
+This helper function can be used to easily access a UI Kit object and after overriding can set in it custom config.
+By default, this function uses default config.
+
+Example, access to a config object:
+
+```php
+$fw = get_ui()->config->getFramework();
+```
+
+Example, overriding function:
+
+```php
+function get_ui(): RobiNN\UiKit\UiKit {
+    $config = new RobiNN\UiKit\Config([
+        'cache' => __DIR__.'/cache',
+    ]);
+    
+    $config->enableDebug();
+
+    return RobiNN\UiKit\UiKit::getInstance()->init($config);
 }
 
-$uikit->addComponent('example_component', ExampleComponent::class);
-
-// Then you can use it like all the components
-echo $uikit->example_component->render(); // or create helper function for it
-
-// The following examples only work with render() and open/close
-// (example_component_open(), example_component_close()) methods
-
-echo $uikit->example_component(); // Short version
-
-// It will also work in the Twig
-// {{ example_component() }}
+// now all components will use this config
 ```
