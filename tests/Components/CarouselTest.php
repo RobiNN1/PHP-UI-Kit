@@ -24,8 +24,8 @@ final class CarouselTest extends ComponentTestCase {
         <div class="carousel-item active">Slide 1</div>
         <div class="carousel-item">Slide 2</div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-test" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel-test" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-test" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel-test" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
 </div>';
 
     public function testCarouselRender(): void {

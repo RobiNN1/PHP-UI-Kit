@@ -11,7 +11,6 @@
 
 {% macro menu_item(item, item_class) %}
     {% set active = item.active ? ' active' : '' %}
-
     <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
 {% endmacro %}
 
