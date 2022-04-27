@@ -4,11 +4,11 @@ Flexible and extensible content container.
 
 ---
 
-card( [ array $options ] ) : string
+card( [ array $options = [] ] ) : string
 
 ## Parameters
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

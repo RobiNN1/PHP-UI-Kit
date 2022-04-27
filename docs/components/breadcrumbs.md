@@ -4,13 +4,13 @@ Show the current page's location in a hierarchical structure.
 
 ---
 
-breadcrumbs( array $links [, array $options ] ) : string
+breadcrumbs( array $links [, array $options = [] ] ) : string
 
 ## Parameters
 
 $links (array) (Required) Associative array `link-title => link`.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

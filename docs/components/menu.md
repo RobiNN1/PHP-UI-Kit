@@ -4,7 +4,7 @@ Show a navigational bar at the top side of your website.
 
 ---
 
-menu( string $id, array $items [, array $options ] ) : string
+menu( string $id, array $items [, array $options = [] ] ) : string
 
 ## Parameters
 
@@ -21,7 +21,7 @@ Options for each item:
 | class  | string | ''      | Item class.                                                                  |
 | custom | string | ''      | Custom HTML in item. If this option is specified, other options are ignored. |
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

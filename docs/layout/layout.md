@@ -4,13 +4,13 @@ Show site layout.
 
 ---
 
-layout( string $body [, array $options ] ) : string
+layout( string $body [, array $options = [] ] ) : string
 
 ## Parameters
 
 $body (string) (Required) Site content.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

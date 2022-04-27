@@ -4,13 +4,13 @@ Display content to reasonable maximum width.
 
 ---
 
-container_open( [ bool $fluid, array $options ] ) : string
+container_open( [ bool $fluid = false, array $options = [] ] ) : string
 
 ## Parameters
 
-$fluid (bool) (Optional) Container without maximum width. Default value: ''
+$fluid (bool) (Optional) Container without maximum width.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

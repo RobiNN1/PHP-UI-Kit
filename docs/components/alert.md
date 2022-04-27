@@ -4,15 +4,15 @@ Contextual feedback messages for typical user actions.
 
 ---
 
-alert( string $text [, string $color, array $options ] ) : string
+alert( string $text [, string $color = 'default', array $options = [] ] ) : string
 
 ## Parameters
 
 $text (string) (Required) Alert text.
 
-$color (string) (Optional) Alert color. Possible value: default|success|warning|error|info Default value: 'default'
+$color (string) (Optional) Alert color. Possible value: default|success|warning|error|info
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

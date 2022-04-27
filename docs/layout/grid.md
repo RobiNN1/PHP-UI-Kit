@@ -4,13 +4,13 @@ Use grid to build layouts of all shapes.
 
 ---
 
-grid_open( [ array $col_sizes, array $options ] ) : string
+grid_open( [ array $col_sizes = [100], array $options = [] ] ) : string
 
 ## Parameters
 
-$col_sizes (array) (Optional) Column sizes. Default value: [100]
+$col_sizes (array) (Optional) Column sizes.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

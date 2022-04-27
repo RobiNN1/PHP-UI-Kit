@@ -4,15 +4,15 @@ Show the button where you need, as action button or a link.
 
 ---
 
-button( string $title [, string $type, array $options ] ) : string
+button( string $title [, string $type = 'button', array $options = [] ] ) : string
 
 ## Parameters
 
 $title (string) (Required) Button title.
 
-$type (string) (Optional) Button type. Possible value: button|submit|reset Default value: 'button'
+$type (string) (Optional) Button type. Possible value: button|submit|reset
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

@@ -4,19 +4,19 @@ Show select field.
 
 ---
 
-select( string $name [, string $label, mixed $value, array $items, array $options ] ) : string
+select( string $name [, string $label = '', mixed $value = '', array $items = [], array $options = [] ] ) : string
 
 ## Parameters
 
 $name (string) (Required) Select name.
 
-$label (string) (Optional) Select label. Default value: ''
+$label (string) (Optional) Select label.
 
-$value (string|int) (Optional) Select value. Default value: ''
+$value (string|int) (Optional) Select value.
 
-$items (array) (Optional) Select options - array or associative array. Default value: []
+$items (array) (Optional) Select options - array or associative array.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

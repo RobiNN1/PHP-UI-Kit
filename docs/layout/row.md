@@ -4,11 +4,11 @@ Group of columns.
 
 ---
 
-row_open( [ array $options ] ) : string
+row_open( [ array $options = [] ] ) : string
 
 ## Parameters
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

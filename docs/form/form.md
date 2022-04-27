@@ -4,15 +4,15 @@ Show `<form>` tag.
 
 ---
 
-form_open( [ string $method, string $action, array $options ] ) : string
+form_open( [ string $method = 'post', string $action = '', array $options = [] ] ) : string
 
 ## Parameters
 
-$method (string) (Optional) Form method. Possible value: get|post Default value: 'post'
+$method (string) (Optional) Form method. Possible value: get|post
 
-$action (string) (Optional) Form action. Default value: ''
+$action (string) (Optional) Form action.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

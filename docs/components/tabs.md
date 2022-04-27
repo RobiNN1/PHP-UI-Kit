@@ -4,7 +4,7 @@ Create content that can be hidden and activated onclick.
 
 ---
 
-tabs( string $id, array $items [, array $options ] ) : string
+tabs( string $id, array $items [, array $options = [] ] ) : string
 
 ## Parameters
 
@@ -20,7 +20,7 @@ Options for each item:
 | content | string | ''      | Tab content. (Required)               |
 | active  | bool   | false   | To set witch tab will be active.      |
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

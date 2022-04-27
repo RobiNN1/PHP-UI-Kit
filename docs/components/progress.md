@@ -4,13 +4,13 @@ Show the completion of progress.
 
 ---
 
-progress( mixed $percent [, array $options ] ) : string
+progress( mixed $percent [, array $options = [] ] ) : string
 
 ## Parameters
 
 $percent (int|array) (Required) Percents, an array or asociative array for multiple bars.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

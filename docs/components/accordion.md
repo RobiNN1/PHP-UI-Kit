@@ -4,7 +4,7 @@ Show hidden information based on the collapse.
 
 ---
 
-accordion( string $id, array $items [, array $options ] ) : string
+accordion( string $id, array $items [, array $options = [] ] ) : string
 
 ## Parameters
 
@@ -12,7 +12,7 @@ $id (string) (Required) Accordion ID.
 
 $items (array) (Required) Associative array `nav-title => content`.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 
