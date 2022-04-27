@@ -4,13 +4,13 @@ Display a series of items inside a single element.
 
 ---
 
-list_group( array $items [, array $options ] ) : string
+list_group( array $items [, array $options = [] ] ) : string
 
 ## Parameters
 
 $items (array) (Required) Array of items.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

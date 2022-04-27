@@ -4,7 +4,7 @@ Show interactive dialogs and notifications or any content.
 
 ---
 
-modal( string $id, array $content [, array $options ] ) : string
+modal( string $id, array $content [, array $options = [] ] ) : string
 
 ## Parameters
 
@@ -21,7 +21,7 @@ Options for content:
 | body   | string | ''      | Modal body.     |
 | footer | string | ''      | Modal footer.   |
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

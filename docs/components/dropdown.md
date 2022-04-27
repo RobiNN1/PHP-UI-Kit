@@ -4,7 +4,7 @@ Show a list of items displayed as a menu.
 
 ---
 
-dropdown( string $title, array $items [, array $options ] ) : string
+dropdown( string $title, array $items [, array $options = [] ] ) : string
 
 ## Parameters
 
@@ -23,7 +23,7 @@ Options for each item:
 
 > To create divider add `'divider',` item.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

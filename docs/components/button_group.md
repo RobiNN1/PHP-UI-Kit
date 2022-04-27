@@ -4,7 +4,7 @@ Show a group of buttons together in one line.
 
 ---
 
-button_group( array $items [, array $options ] ) : string
+button_group( array $items [, array $options = [] ] ) : string
 
 ## Parameters
 
@@ -24,7 +24,7 @@ When is used `button-value => options` method, is possible to set these options:
 > All these options can be set via btn_options,
 > but for convenience a common options (title, value, link, type and class) is possible to set directly.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

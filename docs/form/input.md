@@ -4,17 +4,17 @@ Show input field with a variety of addons.
 
 ---
 
-input( string $name [, string $label, mixed $value, array $options ] ) : string
+input( string $name [, string $label = '', mixed $value = '', array $options = [] ] ) : string
 
 ## Parameters
 
 $name (string) (Required) Input name.
 
-$label (string) (Optional) Input label. Default value: ''
+$label (string) (Optional) Input label.
 
-$value (string|int) (Optional) Input value. Default value: ''
+$value (string|int) (Optional) Input value.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

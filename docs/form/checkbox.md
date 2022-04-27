@@ -4,17 +4,17 @@ Render checkbox field.
 
 ---
 
-checkbox( string $name [, string $label, mixed $value, array $options ] ) : string
+checkbox( string $name [, string $label = '', mixed $value = 0, array $options = [] ] ) : string
 
 ## Parameters
 
 $name (string) (Required) Checkbox name.
 
-$label (string) (Optional) Checkbox label. Default value: ''
+$label (string) (Optional) Checkbox label.
 
-$value (string|int) (Optional) Checkbox value. Default value: 0
+$value (string|int) (Optional) Checkbox value.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

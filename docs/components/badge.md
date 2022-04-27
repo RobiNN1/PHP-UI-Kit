@@ -4,15 +4,15 @@ Show extra information like counts or labels.
 
 ---
 
-badge( string $text [, string $color, array $options ] ) : string
+badge( string $text [, string $color = 'default', array $options = [] ] ) : string
 
 ## Parameters
 
 $text (string) (Required) Badge text.
 
-$color (string) (Optional) Badge color. Possible value: default|primary|success|warning|error|info Default value: 'default'
+$color (string) (Optional) Badge color. Possible value: default|primary|success|warning|error|info
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

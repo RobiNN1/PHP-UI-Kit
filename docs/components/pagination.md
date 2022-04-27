@@ -4,13 +4,13 @@ Indicate a series of content across various pages.
 
 ---
 
-pagination( array $items [, array $options ] ) : string
+pagination( array $items [, array $options = [] ] ) : string
 
 ## Parameters
 
 $items (array) (Required) Array of items.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 

@@ -4,7 +4,7 @@ A slideshow component to slide through multiple elements.
 
 ---
 
-carousel( string $id, array $slides [, array $options ] ) : string
+carousel( string $id, array $slides [, array $options = [] ] ) : string
 
 ## Parameters
 
@@ -12,7 +12,7 @@ $id (string) (Required) Carousel ID.
 
 $slides (array) (Required) Array of items.
 
-$options (array) (Optional) Additional options. Default value: []
+$options (array) (Optional) Additional options.
 
 #### Available options
 
@@ -54,8 +54,8 @@ echo carousel('example', [
             <img class="d-block w-100" src="path/to/image3.jpg" alt="Slide 3">
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-example" data-bs-slide="prev"> <span class="carousel-control-prev-icon" aria-hidden="true"></span> <span class="visually-hidden">Previous</span> </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel-example" data-bs-slide="next"> <span class="carousel-control-next-icon" aria-hidden="true"></span> <span class="visually-hidden">Next</span> </button>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-example" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carousel-example" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
 </div>
 ```
 
