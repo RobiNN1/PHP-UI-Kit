@@ -30,7 +30,7 @@ class ComponentTestCase extends TestCase {
         $indenter = new Indenter();
 
         try {
-            $actual = str_replace('> ', '>', $indenter->indent($actual));
+            $actual = $indenter->indent($actual);
         } catch (RuntimeException) {
         }
 

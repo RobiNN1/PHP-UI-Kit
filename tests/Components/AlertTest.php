@@ -15,7 +15,7 @@ namespace Tests\Components;
 use Tests\ComponentTestCase;
 
 final class AlertTest extends ComponentTestCase {
-    public string $expectedTpl = '<div class="alert alert-primary" role="alert">Default </div>';
+    public string $expectedTpl = '<div class="alert alert-primary" role="alert">Default</div>';
 
     public function testAlertRender(): void {
         $tpl = $this->uikit->alert->render('Default');
