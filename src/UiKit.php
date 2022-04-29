@@ -94,7 +94,7 @@ final class UiKit extends Components {
     public function getFrameworkOptions(string $key = ''): mixed {
         static $config_array = [];
 
-        $config_array = (array)require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
+        $config_array = (array) require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
 
         if (!empty($this->fw_options)) {
             foreach ($this->fw_options as $option => $value) {
@@ -189,7 +189,7 @@ final class UiKit extends Components {
         $components = [];
 
         foreach ($this->getComponents() as $name => $component) {
-            if ((bool)$component['open_close'] === true) {
+            if ((bool) $component['open_close'] === true) {
                 $components[$name.'_open'] = [$this->$name, 'open'];
                 $components[$name.'_close'] = [$this->$name, 'close'];
             }
