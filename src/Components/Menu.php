@@ -84,7 +84,7 @@ class Menu extends Component {
         foreach ($items as $key => $item) {
             if ($key === 'right') {
                 $items_formatted[$key] = $this->formatItems($item, $id, $dark);
-            } else if (is_array($item) && count($item) !== count($item, COUNT_RECURSIVE)) {
+            } elseif (is_array($item) && count($item) !== count($item, COUNT_RECURSIVE)) {
                 $items_formatted[$key]['dropdown'] = $this->dropdown($item, $dark);
             } else {
                 $items_formatted[$key] = $item;

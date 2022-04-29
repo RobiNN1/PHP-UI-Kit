@@ -180,7 +180,7 @@ class Components {
 
             if (str_ends_with($name, '_open') && method_exists($component, 'open')) {
                 $method = 'open';
-            } else if (str_ends_with($name, '_close') && method_exists($component, 'close')) {
+            } elseif (str_ends_with($name, '_close') && method_exists($component, 'close')) {
                 $method = 'close';
             }
 

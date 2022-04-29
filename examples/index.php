@@ -332,11 +332,11 @@ echo progress([20, 75], [
         $class = 'error';
         if ($num > 71) {
             $class = 'success';
-        } else if ($num > 55) {
+        } elseif ($num > 55) {
             $class = '';
-        } else if ($num > 25) {
+        } elseif ($num > 25) {
             $class = 'warning';
-        } else if ($num < 25) {
+        } elseif ($num < 25) {
             $class = 'error';
         }
 
