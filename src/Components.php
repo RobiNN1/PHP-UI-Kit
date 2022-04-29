@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
+use ReflectionMethod;
 use RobiNN\UiKit\Components\Component;
 
 class Components {
@@ -70,7 +71,7 @@ class Components {
             if ((new $class()) instanceof Component) {
                 $components[$key] = [
                     'class'      => $class,
-                    'open_close' => method_exists($class, 'open') && method_exists($class, 'close'),
+                    'open_close' => $this->isPublic($class, 'open') && $this->isPublic($class, 'close'),
                 ];
             }
         }
@@ -176,11 +177,11 @@ class Components {
 
         if (is_object($this->getComponents($name_clean))) {
             $component = $this->getComponents($name_clean);
-            $method = 'render';
+            $method = $this->isPublic($component, 'render') ? 'render' : null;
 
-            if (str_ends_with($name, '_open') && method_exists($component, 'open')) {
+            if (str_ends_with($name, '_open') && $this->isPublic($component, 'open')) {
                 $method = 'open';
-            } elseif (str_ends_with($name, '_close') && method_exists($component, 'close')) {
+            } elseif (str_ends_with($name, '_close') && $this->isPublic($component, 'close')) {
                 $method = 'close';
             }
 
@@ -188,5 +189,17 @@ class Components {
         }
 
         return sprintf('Unknown "%s" function. ', $name).$this->addSuggestions($name);
+    }
+
+    /**
+     * Check if method exists and is public.
+     *
+     * @param object|string $class
+     * @param string        $method
+     *
+     * @return bool
+     */
+    private function isPublic(object|string $class, string $method): bool {
+        return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();
     }
 }
