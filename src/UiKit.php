@@ -13,7 +13,7 @@ declare(strict_types=1);
 namespace RobiNN\UiKit;
 
 use RobiNN\UiKit\TplEngines\TplEngineInterface;
-use RobiNN\UiKit\TplEngines\Twig;
+use RobiNN\UiKit\TplEngines\Twig\Twig;
 
 final class UiKit extends Components {
     /**

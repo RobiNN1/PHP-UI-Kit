@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace RobiNN\UiKit\TplEngines;
+namespace RobiNN\UiKit\TplEngines\Twig;
 
 use RobiNN\UiKit\UiKit;
 use Twig\Extension\AbstractExtension;

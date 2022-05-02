@@ -10,10 +10,11 @@
 
 declare(strict_types=1);
 
-namespace RobiNN\UiKit\TplEngines;
+namespace RobiNN\UiKit\TplEngines\Twig;
 
 use Exception;
 use RobiNN\UiKit\Config;
+use RobiNN\UiKit\TplEngines\TplEngineInterface;
 use RobiNN\UiKit\UiKit;
 use Twig\Environment;
 use Twig\Error\LoaderError;
