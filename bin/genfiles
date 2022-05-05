@@ -77,7 +77,7 @@ class '.$class_name.' extends Component {
             \'attributes\' => [], // Array of custom attributes.
         ], $options);
 
-        return $this->uikit->renderTpl(\''.$path.($type === 'frm' ? $name.'\'' : '\'.$component').', [
+        return $this->uikit->render(\''.$path.($type === 'frm' ? $name.'\'' : '\'.$component').', [
             \'class\'      => $options[\'class\'],
             \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
         ]);

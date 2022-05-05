@@ -38,6 +38,6 @@ class ComponentTestCase extends TestCase {
     }
 
     public function assertComponentRenderTpl(string $expected, string $tpl): void {
-        $this->assertComponentRender($expected, $this->uikit->renderTpl($tpl, [], true));
+        $this->assertComponentRender($expected, $this->uikit->render($tpl, [], true));
     }
 }

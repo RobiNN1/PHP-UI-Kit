@@ -55,7 +55,7 @@ class Progress extends Component {
             $bars = $this->multiple($percent, $options, $fwoptions, $auto_colors);
         }
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'item_class' => $options['item_class'],

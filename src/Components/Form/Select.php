@@ -65,7 +65,7 @@ class Select extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions('select');
 
-        return $this->uikit->renderTpl('form/select', [
+        return $this->uikit->render('form/select', [
             'value'             => $value,
             'label'             => $label,
             'items'             => $items,

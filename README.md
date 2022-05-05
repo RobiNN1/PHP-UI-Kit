@@ -29,7 +29,7 @@ It is also possible to call components in a template:
 
 ```php
 get_ui()->setPath(__DIR__.'/templates'); // Path to dir with custom templates 
-$html = get_ui()->renderTpl('page'); // page.twig in templates/ dir
+$html = get_ui()->render('page'); // page.twig in templates/ dir
 
 echo layout($html, [
     'title' => 'Site title',

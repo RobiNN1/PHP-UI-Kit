@@ -40,7 +40,7 @@ class Menu extends Component {
             $items['right'] = $right;
         }
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'id'         => $id,
             'items'      => $this->formatItems($items, $id, $options['dark']),
             'class'      => $options['class'],

@@ -54,7 +54,7 @@ class Tabs extends Component {
             $i++;
         }
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'id'             => $id,
             'items'          => $items_,
             'class'          => $options['class'],

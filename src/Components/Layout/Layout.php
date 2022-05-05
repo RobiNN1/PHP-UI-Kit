@@ -59,7 +59,7 @@ class Layout extends Component {
             $css_codes = '<style>'.$minify_css(AddTo::$css).'</style>';
         }
 
-        return $this->uikit->renderTpl('layout/layout', [
+        return $this->uikit->render('layout/layout', [
             'body'        => $body,
             'lang'        => $options['lang'],
             'title'       => $options['title'],

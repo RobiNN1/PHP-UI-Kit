@@ -57,7 +57,7 @@ class Form extends Component {
 
         $attributes += $options['attributes'];
 
-        return $this->uikit->renderTpl('form/form', [
+        return $this->uikit->render('form/form', [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($attributes),
             'open'       => $options['open'],

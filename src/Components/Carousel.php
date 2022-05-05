@@ -33,7 +33,7 @@ class Carousel extends Component {
             'controls'   => true, // Carousel controls buttons.
         ], $options);
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'id'         => $id,
             'slides'     => $slides,
             'class'      => $options['class'],

@@ -54,7 +54,7 @@ class Modal extends Component {
             $options['hide_button'] = true;
         }
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'id'           => $id,
             'content'      => $content,
             'class'        => $options['class'],

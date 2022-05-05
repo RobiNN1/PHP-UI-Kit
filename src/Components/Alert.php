@@ -34,7 +34,7 @@ class Alert extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions($component);
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'text'       => $text,
             'color'      => $this->getOption('colors', $color, $fwoptions),
             'class'      => $options['class'],

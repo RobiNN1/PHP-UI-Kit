@@ -62,7 +62,7 @@ class Checkbox extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions('checkbox');
 
-        return $this->uikit->renderTpl('form/checkbox', [
+        return $this->uikit->render('form/checkbox', [
             'value'               => $value,
             'label'               => $label,
             'class'               => $options['class'],
