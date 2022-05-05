@@ -32,7 +32,7 @@ class Breadcrumbs extends Component {
             'divider'    => '/', // Items divider.
         ], $options);
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'links'      => $links,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),

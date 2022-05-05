@@ -38,8 +38,8 @@ final class CustomComponetTest extends TestCase {
     }
 
     public function testCustomComponentInTwig(): void {
-        $this->assertSame('Name: test', $this->uikit->renderTpl('{{ custom_componet(\'test\') }}', [], true));
-        $this->assertSame('<nav>', $this->uikit->renderTpl('{{ custom_componet_open() }}', [], true));
-        $this->assertSame('</nav>', $this->uikit->renderTpl('{{ custom_componet_close() }}', [], true));
+        $this->assertSame('Name: test', $this->uikit->render('{{ custom_componet(\'test\') }}', [], true));
+        $this->assertSame('<nav>', $this->uikit->render('{{ custom_componet_open() }}', [], true));
+        $this->assertSame('</nav>', $this->uikit->render('{{ custom_componet_close() }}', [], true));
     }
 }

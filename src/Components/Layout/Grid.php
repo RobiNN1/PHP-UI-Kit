@@ -33,7 +33,7 @@ class Grid extends Component {
 
         $grid_function = $this->uikit->getFrameworkOptions('grid_func');
 
-        return $this->uikit->renderTpl('layout/grid', [
+        return $this->uikit->render('layout/grid', [
             'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),

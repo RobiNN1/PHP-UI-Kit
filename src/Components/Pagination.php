@@ -47,7 +47,7 @@ class Pagination extends Component {
 
         $items = $prev + $items + $next;
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'items'      => $this->items($items, $options),
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),

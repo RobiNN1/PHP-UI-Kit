@@ -53,7 +53,7 @@ class Dropdown extends Component {
 
         $button = $this->uikit->button->render($title, 'button', $options['button']);
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'items'      => $items,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),

@@ -148,7 +148,7 @@ final class UiKit extends Components {
      *
      * @return string
      */
-    public function renderTpl(string $tpl, array $data = [], bool $string = false): string {
+    public function render(string $tpl, array $data = [], bool $string = false): string {
         $this->tpl_engine->init($this, $this->config, $this->tpl_paths);
         $output = $this->tpl_engine->render($tpl, $data, $string);
 

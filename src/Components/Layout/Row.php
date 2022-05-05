@@ -30,7 +30,7 @@ class Row extends Component {
             'close'      => false, // Closing div. @internal
         ], $options);
 
-        return $this->uikit->renderTpl('layout/row', [
+        return $this->uikit->render('layout/row', [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),
             'open'       => $options['open'],

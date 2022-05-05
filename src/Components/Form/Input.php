@@ -71,7 +71,7 @@ class Input extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions('input');
 
-        return $this->uikit->renderTpl('form/input', [
+        return $this->uikit->render('form/input', [
             'value'            => $value,
             'label'            => $label,
             'class'            => $options['class'],

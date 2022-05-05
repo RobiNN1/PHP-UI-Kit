@@ -32,7 +32,7 @@ class Accordion extends Component {
             'first_open' => true, // Set false to close first item.
         ], $options);
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'id'         => $id,
             'items'      => $items,
             'class'      => $options['class'],

@@ -46,15 +46,15 @@ $uikit->setFrameworkOption('alert.colors.default', 'blue', 'bootstrap5');
 // blue - .blue class only for BS5
 ```
 
-## renderTpl()
+## render()
 
 Render template.
 
 ```php
-echo $uikit->renderTpl('tpl_name', []);
+echo $uikit->render('tpl_name', []);
 
 // Set true on the last parameter to enable loading templates from variable
-echo $uikit->renderTpl("{{ alert('Example') }}", [], true);
+echo $uikit->render("{{ alert('Example') }}", [], true);
 ```
 
 ## addHtml()

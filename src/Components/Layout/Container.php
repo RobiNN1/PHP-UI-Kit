@@ -31,7 +31,7 @@ class Container extends Component {
             'close'      => false, // Closing div. @internal
         ], $options);
 
-        return $this->uikit->renderTpl('layout/container', [
+        return $this->uikit->render('layout/container', [
             'fluid'      => $fluid,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes']),

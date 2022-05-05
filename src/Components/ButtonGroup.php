@@ -42,7 +42,7 @@ class ButtonGroup extends Component {
             $size = $this->getOption('sizes', $options['size'], $fwoptions);
         }
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'buttons'    => $this->buttons($items, $options),
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),

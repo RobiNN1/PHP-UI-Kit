@@ -69,7 +69,7 @@ class Button extends Component {
         $active_class = $this->getOption('states', 'active', $fwoptions);
         $disabled_class = $this->getOption('states', 'disabled', $fwoptions);
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'title'         => $title,
             'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
             'class'         => $options['class'],

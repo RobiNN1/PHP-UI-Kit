@@ -31,7 +31,7 @@ class ListGroup extends Component {
             'item_class' => '', // Class for item.
         ], $options);
 
-        return $this->uikit->renderTpl('components/'.$component, [
+        return $this->uikit->render('components/'.$component, [
             'items'      => $items,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
