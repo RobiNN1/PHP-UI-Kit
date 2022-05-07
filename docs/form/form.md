@@ -4,7 +4,9 @@ Show `<form>` tag.
 
 ---
 
+```php {.function-name}
 form_open( [ string $method = 'post', string $action = '', array $options = [] ] ) : string
+```
 
 ## Parameters
 

@@ -4,7 +4,9 @@ Indicate a series of content across various pages.
 
 ---
 
+```php {.function-name}
 pagination( array $items [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

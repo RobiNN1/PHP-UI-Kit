@@ -4,7 +4,9 @@ Show a navigational bar at the top side of your website.
 
 ---
 
+```php {.function-name}
 menu( string $id, array $items [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

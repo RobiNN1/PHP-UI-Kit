@@ -4,7 +4,9 @@ Show interactive dialogs and notifications or any content.
 
 ---
 
+```php {.function-name}
 modal( string $id, array $content [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

@@ -16,8 +16,7 @@ class ExampleComponent extends Component {
 }
 ```
 
-> Each component must extend the `Component` class
-> and must have `render()` method.
+> Each component must extend the `Component` class and must have `render()` method.
 
 ## Adding component to UI Kit
 

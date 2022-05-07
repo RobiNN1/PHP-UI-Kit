@@ -14,21 +14,6 @@ Components can be loaded in several ways. It's up to you what you choose.
 
 Here are recommended ways
 
-##### Get HTML
-
-Each component returns a string, so it can also be passed to a variable or printed with an echo.
-
-Note: any text or html must be added via `add_html()`
-
-```php
-add_html('HTML code'); // Use this function when using get_html()
-alert('Default');
-
-echo layout(get_html(), [
-    'title' => 'Site title',
-]);
-```
-
 ##### Echo
 
 Simply print everything with echo.
@@ -44,6 +29,22 @@ echo layout($body, [
     'title' => 'Site title',
 ]);
 ```
+
+##### Get HTML
+
+Each component returns a string, so it can also be passed to a variable or printed with an echo.
+
+```php
+add_html('HTML code'); // Use this function when using get_html()
+alert('Default');
+
+echo layout(get_html(), [
+    'title' => 'Site title',
+]);
+```
+
+> Any text or HTML must be added via `add_html()` when useing `get_html()`.
+
 
 ##### In template
 
@@ -76,15 +77,18 @@ function get_ui(): RobiNN\UiKit\UiKit {
     $config = new RobiNN\UiKit\Config([
         'cache'  => __DIR__.'/cache',
     ]);
+    
+    $uikit = RobiNN\UiKit\UiKit::getInstance();
 
-    return RobiNN\UiKit\UiKit::getInstance()->init($config);
+    return $uikit->init($config);
 }
 ```
 
-> [layout()](layout/layout.md) is not required, components can be used in any project.
-> However, if the `layout()` is not used, [Get HTML](#get-html) may not work.
-
 All options can be found [here](core/config.md).
+
+> [`layout()`](layout/layout.md) is not required and 
+> components can be used in any project that uses a compatible CSS framework.
+> However, if the [`layout()`](layout/layout.md) is not used, [Get HTML](#get-html) may not work.
 
 ## Requirements
 

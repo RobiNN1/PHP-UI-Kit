@@ -4,7 +4,9 @@ Create content that can be hidden and activated onclick.
 
 ---
 
+```php {.function-name}
 tabs( string $id, array $items [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

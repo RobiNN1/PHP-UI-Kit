@@ -4,7 +4,9 @@ Show input field with a variety of addons.
 
 ---
 
+```php {.function-name}
 input( string $name [, string $label = '', mixed $value = '', array $options = [] ] ) : string
+```
 
 ## Parameters
 

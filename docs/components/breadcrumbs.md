@@ -4,7 +4,9 @@ Show the current page's location in a hierarchical structure.
 
 ---
 
+```php {.function-name}
 breadcrumbs( array $links [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

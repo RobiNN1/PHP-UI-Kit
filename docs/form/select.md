@@ -4,7 +4,9 @@ Show select field.
 
 ---
 
+```php {.function-name}
 select( string $name [, string $label = '', mixed $value = '', array $items = [], array $options = [] ] ) : string
+```
 
 ## Parameters
 

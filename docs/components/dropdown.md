@@ -4,7 +4,9 @@ Show a list of items displayed as a menu.
 
 ---
 
+```php {.function-name}
 dropdown( string $title, array $items [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

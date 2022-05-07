@@ -4,7 +4,9 @@ Contextual feedback messages for typical user actions.
 
 ---
 
+```php {.function-name}
 alert( string $text [, string $color = 'default', array $options = [] ] ) : string
+```
 
 ## Parameters
 

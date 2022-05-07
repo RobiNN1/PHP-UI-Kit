@@ -4,7 +4,9 @@ Show hidden information based on the collapse.
 
 ---
 
+```php {.function-name}
 accordion( string $id, array $items [, array $options = [] ] ) : string
+```
 
 ## Parameters
 
