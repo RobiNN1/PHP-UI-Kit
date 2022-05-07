@@ -4,7 +4,9 @@ Display a series of items inside a single element.
 
 ---
 
+```php {.function-name}
 list_group( array $items [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

@@ -4,7 +4,9 @@ A slideshow component to slide through multiple elements.
 
 ---
 
+```php {.function-name}
 carousel( string $id, array $slides [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

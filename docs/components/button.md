@@ -4,7 +4,9 @@ Show the button where you need, as action button or a link.
 
 ---
 
+```php {.function-name}
 button( string $title [, string $type = 'button', array $options = [] ] ) : string
+```
 
 ## Parameters
 

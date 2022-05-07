@@ -4,7 +4,9 @@ Show a group of buttons together in one line.
 
 ---
 
+```php {.function-name}
 button_group( array $items [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

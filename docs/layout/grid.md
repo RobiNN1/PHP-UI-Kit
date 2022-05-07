@@ -4,7 +4,9 @@ Use grid to build layouts of all shapes.
 
 ---
 
+```php {.function-name}
 grid_open( [ array $col_sizes = [100], array $options = [] ] ) : string
+```
 
 ## Parameters
 

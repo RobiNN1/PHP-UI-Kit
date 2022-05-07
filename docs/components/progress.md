@@ -4,7 +4,9 @@ Show the completion of progress.
 
 ---
 
+```php {.function-name}
 progress( mixed $percent [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

@@ -4,7 +4,9 @@ Group of columns.
 
 ---
 
+```php {.function-name}
 row_open( [ array $options = [] ] ) : string
+```
 
 ## Parameters
 

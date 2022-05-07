@@ -4,7 +4,9 @@ Show site layout.
 
 ---
 
+```php {.function-name}
 layout( string $body [, array $options = [] ] ) : string
+```
 
 ## Parameters
 

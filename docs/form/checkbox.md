@@ -4,7 +4,9 @@ Render checkbox field.
 
 ---
 
+```php {.function-name}
 checkbox( string $name [, string $label = '', mixed $value = 0, array $options = [] ] ) : string
+```
 
 ## Parameters
 

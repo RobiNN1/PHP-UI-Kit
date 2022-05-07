@@ -4,7 +4,9 @@ Show extra information like counts or labels.
 
 ---
 
+```php {.function-name}
 badge( string $text [, string $color = 'default', array $options = [] ] ) : string
+```
 
 ## Parameters
 

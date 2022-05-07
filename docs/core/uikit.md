@@ -114,7 +114,9 @@ function get_ui(): RobiNN\UiKit\UiKit {
     
     $config->enableDebug();
 
-    return RobiNN\UiKit\UiKit::getInstance()->init($config);
+    $uikit = RobiNN\UiKit\UiKit::getInstance();
+
+    return $uikit->init($config);
 }
 
 // now all components will use this config

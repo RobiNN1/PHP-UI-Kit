@@ -4,7 +4,9 @@ Flexible and extensible content container.
 
 ---
 
+```php {.function-name}
 card( [ array $options = [] ] ) : string
+```
 
 ## Parameters
 

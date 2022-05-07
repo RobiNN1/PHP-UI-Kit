@@ -4,7 +4,9 @@ Display content to reasonable maximum width.
 
 ---
 
+```php {.function-name}
 container_open( [ bool $fluid = false, array $options = [] ] ) : string
+```
 
 ## Parameters
 
