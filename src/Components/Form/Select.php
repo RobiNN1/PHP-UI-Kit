@@ -16,6 +16,11 @@ use RobiNN\UiKit\Components\Component;
 
 class Select extends Component {
     /**
+     * @var string
+     */
+    protected string $component = 'form/select';
+
+    /**
      * Render select field.
      *
      * @param string     $name    Select name.
@@ -63,9 +68,7 @@ class Select extends Component {
 
         $select_attributes += $options['select_attributes'];
 
-        $fwoptions = $this->uikit->getFrameworkOptions('select');
-
-        return $this->uikit->render('form/select', [
+        return $this->tpl([
             'value'             => $value,
             'label'             => $label,
             'items'             => $items,
@@ -74,8 +77,8 @@ class Select extends Component {
             'select_id'         => $select_attributes['id'],
             'select_class'      => $options['select_class'],
             'select_attributes' => $this->getAttributes($select_attributes),
-            'size'              => $this->getOption('sizes', $options['size'], $fwoptions),
-            'state'             => $this->getOption('validation', $options['state'], $fwoptions),
+            'size'              => $this->getOption('sizes', $options['size']),
+            'state'             => $this->getOption('validation', $options['state']),
             'feedback_text'     => $options['feedback_text'],
             'required'          => $options['required'],
             'help_text'         => $options['help_text'],

@@ -22,8 +22,6 @@ class Breadcrumbs extends Component {
      * @return string
      */
     public function render(array $links, array $options = []): string {
-        $component = 'breadcrumbs';
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
@@ -32,7 +30,7 @@ class Breadcrumbs extends Component {
             'divider'    => '/', // Items divider.
         ], $options);
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/breadcrumbs', [
             'links'      => $links,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),

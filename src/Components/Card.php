@@ -21,8 +21,6 @@ class Card extends Component {
      * @return string
      */
     public function render(array $options = []): string {
-        $component = 'card';
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
@@ -36,7 +34,7 @@ class Card extends Component {
             'link'       => '', // As link.
         ], $options);
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/card', [
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'top_img'    => $options['top_img'],

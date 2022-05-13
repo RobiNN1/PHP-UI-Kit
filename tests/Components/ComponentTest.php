@@ -14,6 +14,7 @@ namespace Tests\Components;
 
 use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\Components\Component;
+use RobiNN\UiKit\UiKit;
 
 final class ComponentTest extends TestCase {
     private Component $component;
@@ -35,13 +36,14 @@ final class ComponentTest extends TestCase {
     }
 
     public function testGetOption(): void {
-        $option = $this->component->getOption('colors', 'success', [
+        $this->component->uikit = (new UiKit())->init();
+        $this->component->uikit->setFrameworkOption('test', [
             'colors' => [
                 'default' => 'alert-primary',
                 'success' => 'alert-success',
             ],
         ]);
 
-        $this->assertSame('alert-success', $option);
+        $this->assertSame('alert-success', $this->component->getOption('colors', 'success', 'test'));
     }
 }

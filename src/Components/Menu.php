@@ -23,8 +23,6 @@ class Menu extends Component {
      * @return string
      */
     public function render(string $id, array $items, array $options = []): string {
-        $component = 'menu';
-
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -40,7 +38,7 @@ class Menu extends Component {
             $items['right'] = $right;
         }
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/menu', [
             'id'         => $id,
             'items'      => $this->formatItems($items, $id, $options['dark']),
             'class'      => $options['class'],

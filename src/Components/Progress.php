@@ -14,6 +14,11 @@ namespace RobiNN\UiKit\Components;
 
 class Progress extends Component {
     /**
+     * @var string
+     */
+    protected string $component = 'components/progress';
+
+    /**
      * Render progress.
      *
      * @param array|int $percent Percents, an array or asociative array for multiple bars.
@@ -22,8 +27,6 @@ class Progress extends Component {
      * @return string
      */
     public function render(array|int $percent, array $options = []): string {
-        $component = 'progress';
-
         $options = array_merge([
             'id'          => '', // Wrapper ID.
             'class'       => '', // Class for wrapper.
@@ -33,8 +36,6 @@ class Progress extends Component {
             'auto_colors' => null, // Function that sets the color depending on the width of the bar.
             'percents'    => true, // Show percent in title.
         ], $options);
-
-        $fwoptions = $this->uikit->getFrameworkOptions($component);
 
         $bars = [];
 
@@ -47,15 +48,15 @@ class Progress extends Component {
             }
 
             $bars[] = [
-                'color'   => $this->getOption('colors', $color, $fwoptions),
+                'color'   => $this->getOption('colors', $color),
                 'title'   => $options['percents'] ? (int) $percent.'%' : '',
                 'percent' => (int) $percent,
             ];
         } else {
-            $bars = $this->multiple($percent, $options, $fwoptions, $auto_colors);
+            $bars = $this->multiple($percent, $options, $auto_colors);
         }
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->tpl([
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'item_class' => $options['item_class'],
@@ -68,12 +69,11 @@ class Progress extends Component {
      *
      * @param array         $percent
      * @param array         $options
-     * @param array         $fwoptions
      * @param callable|null $auto_colors
      *
      * @return array
      */
-    private function multiple(array $percent, array $options, array $fwoptions, ?callable $auto_colors): array {
+    private function multiple(array $percent, array $options, ?callable $auto_colors): array {
         $bars = [];
         $i = 0;
         foreach ($percent as $bar => $title) {
@@ -89,7 +89,7 @@ class Progress extends Component {
             $percents = $is_assoc($percent) ? ' '.$bar.'%' : '%';
 
             $bars[] = [
-                'color'   => $this->getOption('colors', $color, $fwoptions),
+                'color'   => $this->getOption('colors', $color),
                 'title'   => $title.($options['percents'] ? $percents : ''),
                 'percent' => $int,
             ];

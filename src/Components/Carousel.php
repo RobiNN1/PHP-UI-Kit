@@ -23,8 +23,6 @@ class Carousel extends Component {
      * @return string
      */
     public function render(string $id, array $slides, array $options = []): string {
-        $component = 'carousel';
-
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -33,7 +31,7 @@ class Carousel extends Component {
             'controls'   => true, // Carousel controls buttons.
         ], $options);
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/carousel', [
             'id'         => $id,
             'slides'     => $slides,
             'class'      => $options['class'],

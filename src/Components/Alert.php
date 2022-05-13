@@ -14,6 +14,11 @@ namespace RobiNN\UiKit\Components;
 
 class Alert extends Component {
     /**
+     * @var string
+     */
+    protected string $component = 'components/alert';
+
+    /**
      * Render alert.
      *
      * @param string $text    Alert text.
@@ -23,8 +28,6 @@ class Alert extends Component {
      * @return string
      */
     public function render(string $text, string $color = 'default', array $options = []): string {
-        $component = 'alert';
-
         $options = array_merge([
             'id'         => '', // Alert ID.
             'class'      => '', // Alert class.
@@ -32,11 +35,9 @@ class Alert extends Component {
             'dismiss'    => false, // Make alert dismissable.
         ], $options);
 
-        $fwoptions = $this->uikit->getFrameworkOptions($component);
-
-        return $this->uikit->render('components/'.$component, [
+        return $this->tpl([
             'text'       => $text,
-            'color'      => $this->getOption('colors', $color, $fwoptions),
+            'color'      => $this->getOption('colors', $color),
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
             'dismiss'    => $options['dismiss'],

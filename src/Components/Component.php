@@ -21,6 +21,11 @@ class Component {
     public ?UiKit $uikit = null;
 
     /**
+     * @var string
+     */
+    protected string $component = '';
+
+    /**
      * Get attributes.
      *
      * @param array  $attributes
@@ -46,17 +51,30 @@ class Component {
     }
 
     /**
-     * Get correct value from options.
+     * Get correct value from framework options.
      *
-     * @param string $option
-     * @param mixed  $value
-     * @param array  $opts
+     * @param string  $option
+     * @param mixed   $value
+     * @param ?string $component
      *
      * @return mixed
      */
-    public function getOption(string $option, mixed $value, array $opts): mixed {
+    public function getOption(string $option, mixed $value, string $component = null): mixed {
+        $component_path = explode('/', $this->component);
+        $opts = $this->uikit->getFrameworkOptions($component ?? ($component_path[1] ?? $component_path[0]));
         $default = $opts[$option]['default'] ?? '';
 
         return isset($opts[$option]) && array_key_exists($value, $opts[$option]) ? $opts[$option][$value] : $default;
+    }
+
+    /**
+     * Render template.
+     *
+     * @param array $data
+     *
+     * @return string
+     */
+    public function tpl(array $data = []): string {
+        return $this->uikit->render($this->component, $data);
     }
 }
