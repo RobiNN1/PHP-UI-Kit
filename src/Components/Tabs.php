@@ -23,8 +23,6 @@ class Tabs extends Component {
      * @return string
      */
     public function render(string $id, array $items, array $options = []): string {
-        $component = 'tabs';
-
         $options = array_merge([
             'class'          => '', // Class for wrapper.
             'attributes'     => [], // Array of custom attributes.
@@ -54,7 +52,7 @@ class Tabs extends Component {
             $i++;
         }
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/tabs', [
             'id'             => $id,
             'items'          => $items_,
             'class'          => $options['class'],

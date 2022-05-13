@@ -16,6 +16,11 @@ use RobiNN\UiKit\Components\Component;
 
 class Input extends Component {
     /**
+     * @var string
+     */
+    protected string $component = 'form/input';
+
+    /**
      * Render input field.
      *
      * @param string     $name    Input name.
@@ -69,9 +74,7 @@ class Input extends Component {
             'number', 'password', 'search', 'tel', 'text', 'time', 'url', 'week',
         ];
 
-        $fwoptions = $this->uikit->getFrameworkOptions('input');
-
-        return $this->uikit->render('form/input', [
+        return $this->tpl([
             'value'            => $value,
             'label'            => $label,
             'class'            => $options['class'],
@@ -80,8 +83,8 @@ class Input extends Component {
             'input_class'      => $options['input_class'],
             'input_attributes' => $this->getAttributes($input_attributes),
             'type'             => in_array($options['type'], $input_types, true) ? $options['type'] : 'text',
-            'size'             => $this->getOption('sizes', $options['size'], $fwoptions),
-            'state'            => $this->getOption('validation', $options['state'], $fwoptions),
+            'size'             => $this->getOption('sizes', $options['size']),
+            'state'            => $this->getOption('validation', $options['state']),
             'feedback_text'    => $options['feedback_text'],
             'required'         => $options['required'],
             'help_text'        => $options['help_text'],

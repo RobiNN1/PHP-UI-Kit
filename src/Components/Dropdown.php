@@ -35,20 +35,20 @@ class Dropdown extends Component {
             'in_menu'    => false, // Set true if is used in the menu item. @internal
         ], $options);
 
-        $fwoptions = $this->uikit->getFrameworkOptions($component);
+        $fwoptions = $this->uikit->getFrameworkOptions($component.'.button');
 
-        if (!empty($fwoptions['button']['class'])) {
+        if (!empty($fwoptions['class'])) {
             $class = !empty($options['button']['class']) ? $options['button']['class'].' ' : '';
-            $options['button']['class'] = $class.$fwoptions['button']['class'];
+            $options['button']['class'] = $class.$fwoptions['class'];
         }
 
-        if (!empty($fwoptions['button']['attributes'])) {
+        if (!empty($fwoptions['attributes'])) {
             $attr = !empty($options['button']['attributes']) ? $options['button']['attributes'] : [];
-            $options['button']['attributes'] = array_merge($attr, $fwoptions['button']['attributes']);
+            $options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
         }
 
-        if (!empty($fwoptions['button']['icon'])) {
-            $title .= ' '.$fwoptions['button']['icon'];
+        if (!empty($fwoptions['icon'])) {
+            $title .= ' '.$fwoptions['icon'];
         }
 
         $button = $this->uikit->button->render($title, 'button', $options['button']);

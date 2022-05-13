@@ -22,8 +22,6 @@ class ListGroup extends Component {
      * @return string
      */
     public function render(array $items, array $options = []): string {
-        $component = 'list_group';
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
@@ -31,7 +29,7 @@ class ListGroup extends Component {
             'item_class' => '', // Class for item.
         ], $options);
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/list_group', [
             'items'      => $items,
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),

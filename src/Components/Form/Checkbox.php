@@ -16,6 +16,11 @@ use RobiNN\UiKit\Components\Component;
 
 class Checkbox extends Component {
     /**
+     * @var string
+     */
+    protected string $component = 'form/checkbox';
+
+    /**
      * Render checkbox field.
      *
      * @param string     $name    Checkbox name.
@@ -60,9 +65,7 @@ class Checkbox extends Component {
             ];
         }
 
-        $fwoptions = $this->uikit->getFrameworkOptions('checkbox');
-
-        return $this->uikit->render('form/checkbox', [
+        return $this->tpl([
             'value'               => $value,
             'label'               => $label,
             'class'               => $options['class'],
@@ -71,7 +74,7 @@ class Checkbox extends Component {
             'checkbox_id'         => $options['checkbox_id'],
             'checkbox_attributes' => $this->getAttributes($checkbox_attributes),
             'type'                => $options['radio'] ? 'radio' : 'checkbox',
-            'state'               => $this->getOption('validation', $options['state'], $fwoptions),
+            'state'               => $this->getOption('validation', $options['state']),
             'feedback_text'       => $options['feedback_text'],
             'required'            => $options['required'],
             'help_text'           => $options['help_text'],

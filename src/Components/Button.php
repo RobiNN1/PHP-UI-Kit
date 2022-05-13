@@ -14,6 +14,11 @@ namespace RobiNN\UiKit\Components;
 
 class Button extends Component {
     /**
+     * @var string
+     */
+    protected string $component = 'components/button';
+
+    /**
      * Render button.
      *
      * @param string $title   Button title.
@@ -23,8 +28,6 @@ class Button extends Component {
      * @return string
      */
     public function render(string $title, string $type = 'button', array $options = []): string {
-        $component = 'button';
-
         $options = array_merge([
             'id'         => '', // Button ID.
             'class'      => '', // Button class.
@@ -64,18 +67,16 @@ class Button extends Component {
 
         $attributes += $options['attributes'];
 
-        $fwoptions = $this->uikit->getFrameworkOptions($component);
+        $active_class = $this->getOption('states', 'active');
+        $disabled_class = $this->getOption('states', 'disabled');
 
-        $active_class = $this->getOption('states', 'active', $fwoptions);
-        $disabled_class = $this->getOption('states', 'disabled', $fwoptions);
-
-        return $this->uikit->render('components/'.$component, [
+        return $this->tpl([
             'title'         => $title,
             'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
             'class'         => $options['class'],
             'attributes'    => $this->getAttributes($attributes),
-            'color'         => $this->getOption('colors', $options['color'], $fwoptions),
-            'size'          => $this->getOption('sizes', $options['size'], $fwoptions),
+            'color'         => $this->getOption('colors', $options['color']),
+            'size'          => $this->getOption('sizes', $options['size']),
             'active'        => $options['active'],
             'disabled'      => $options['disabled'],
             'link'          => $options['link'],

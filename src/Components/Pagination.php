@@ -22,8 +22,6 @@ class Pagination extends Component {
      * @return string
      */
     public function render(array $items, array $options = []): string {
-        $component = 'pagination';
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
@@ -47,7 +45,7 @@ class Pagination extends Component {
 
         $items = $prev + $items + $next;
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/pagination', [
             'items'      => $this->items($items, $options),
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),

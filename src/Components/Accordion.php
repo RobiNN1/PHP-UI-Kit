@@ -23,8 +23,6 @@ class Accordion extends Component {
      * @return string
      */
     public function render(string $id, array $items, array $options = []): string {
-        $component = 'accordion';
-
         $options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -32,7 +30,7 @@ class Accordion extends Component {
             'first_open' => true, // Set false to close first item.
         ], $options);
 
-        return $this->uikit->render('components/'.$component, [
+        return $this->uikit->render('components/accordion', [
             'id'         => $id,
             'items'      => $items,
             'class'      => $options['class'],

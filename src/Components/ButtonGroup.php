@@ -16,6 +16,11 @@ use RobiNN\UiKit\Misc;
 
 class ButtonGroup extends Component {
     /**
+     * @var string
+     */
+    protected string $component = 'components/button_group';
+
+    /**
      * Render a button group.
      *
      * @param array $items   Associative array or multidimensional array.
@@ -24,8 +29,6 @@ class ButtonGroup extends Component {
      * @return string
      */
     public function render(array $items, array $options = []): string {
-        $component = 'button_group';
-
         $options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
@@ -35,18 +38,11 @@ class ButtonGroup extends Component {
             'item_class' => '', // Class for item.
         ], $options);
 
-        $fwoptions = $this->uikit->getFrameworkOptions($component);
-
-        $size = '';
-        if (!empty($fwoptions['sizes'])) {
-            $size = $this->getOption('sizes', $options['size'], $fwoptions);
-        }
-
-        return $this->uikit->render('components/'.$component, [
+        return $this->tpl([
             'buttons'    => $this->buttons($items, $options),
             'class'      => $options['class'],
             'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'size'       => $size,
+            'size'       => $this->getOption('sizes', $options['size']),
         ]);
     }
 
