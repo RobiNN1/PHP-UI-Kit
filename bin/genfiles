@@ -63,21 +63,25 @@ namespace RobiNN\UiKit\Components'.($type === 'frm' ? '\Form' : '').';'.($type =
 
 class '.$class_name.' extends Component {
     /**
+     * @var string
+     */
+    protected string $component = \''.$path.$name.'\';
+
+    /**
      * Render '.str_replace('_', ' ', $name).'.
      *
      * @param array $options Additional options.
      *
      * @return string
      */
-    public function render(array $options = []): string {'.($type === 'cmp' ? '
-        $component = \''.$name.'\';'.PHP_EOL : '').'
+    public function render(array $options = []): string {
         $options = array_merge([
             \'id\'         => \'\', // Wrapper ID.
             \'class\'      => \'\', // Class for wrapper.
             \'attributes\' => [], // Array of custom attributes.
         ], $options);
 
-        return $this->uikit->render(\''.$path.($type === 'frm' ? $name.'\'' : '\'.$component').', [
+        return $this->tpl([
             \'class\'      => $options[\'class\'],
             \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
         ]);
