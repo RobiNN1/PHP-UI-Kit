@@ -30,9 +30,9 @@
 
 <div class="ui stackable menu{{ dark ? ' inverted' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
     <div class="header item">
-        {% if brand.title %}
+        {%- if brand.title -%}
             <a href="{{ brand.link }}">{{ brand.title|raw }}</a>
-        {% endif %}
+        {%- endif -%}
         <i class="sidebar icon toc"></i>
     </div>
 
