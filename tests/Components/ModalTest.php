@@ -14,37 +14,24 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-final class ModalTest extends ComponentTestCase {
-    public string $expectedTpl = '<div class="modal fade" id="modal-test" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">
-                    Modal Title
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body"><b>Testing</b></div>
-            <div class="modal-footer">Random text....</div>
-        </div>
-    </div>
-</div>';
+abstract class ModalTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testModalRender(): void {
         $tpl = $this->uikit->modal->render('test', [
             'title'  => 'Modal Title',
             'body'   => '<b>Testing</b>',
-            'footer' => 'Random text....',
+            'footer' => 'Random text...',
         ]);
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testModalInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ modal('test', {
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ modal('test', {
             'title': 'Modal Title',
             'body': '<b>Testing</b>',
-            'footer': 'Random text....',
+            'footer': 'Random text...',
         }) }}");
     }
 }

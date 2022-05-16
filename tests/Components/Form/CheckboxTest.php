@@ -14,22 +14,18 @@ namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-final class CheckboxTest extends ComponentTestCase {
-    public string $expectedTpl = '<div class="mb-1">
-    <div class="form-check">
-        <input value="0" type="checkbox" id="test" name="test" class="form-check-input">
-        <label for="test" class="form-check-label">Test</label>
-    </div>
-</div>';
+abstract class CheckboxTest extends ComponentTestCase {
+    protected string $expected_tpl;
+    protected string $expected_multiple_tpl;
 
     public function testCheckboxRender(): void {
         $tpl = $this->uikit->checkbox->render('test', 'Test');
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testCheckboxInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ checkbox('test', 'Test') }}");
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ checkbox('test', 'Test') }}");
     }
 
     public function testMultipleCheckboxesRender(): void {
@@ -41,22 +37,6 @@ final class CheckboxTest extends ComponentTestCase {
             ],
         ]);
 
-        $expected = '<div class="mb-1">
-    <span>Test checkboxes</span>
-    <div class="form-check">
-        <input value="0" type="checkbox" id="test-multiple0" name="test-multiple[]" class="form-check-input" checked>
-        <label for="test-multiple0" class="form-check-label">Checkbox 1</label>
-    </div>
-    <div class="form-check">
-        <input value="1" type="checkbox" id="test-multiple1" name="test-multiple[]" class="form-check-input">
-        <label for="test-multiple1" class="form-check-label">Checkbox 2</label>
-    </div>
-    <div class="form-check">
-        <input value="2" type="checkbox" id="test-multiple2" name="test-multiple[]" class="form-check-input">
-        <label for="test-multiple2" class="form-check-label">Checkbox 3</label>
-    </div>
-</div>';
-
-        $this->assertComponentRender($expected, $tpl);
+        $this->assertComponentRender($this->expected_multiple_tpl, $tpl);
     }
 }

@@ -14,23 +14,8 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-final class MenuTest extends ComponentTestCase {
-    public string $expectedTpl = '<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-test"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbar-test">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link" href="link1.php">Item 1</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item active" href="sub_link2.php">Sub Item 2</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>';
+abstract class MenuTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testMenuRender(): void {
         $tpl = $this->uikit->menu->render('test', [
@@ -41,11 +26,11 @@ final class MenuTest extends ComponentTestCase {
             ],
         ]);
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testMenuInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ menu('test', [
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ menu('test', [
             {'title': 'Item 1', 'link': 'link1.php'},
             {
                 'title': 'Dropdown',

@@ -14,19 +14,8 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-final class CarouselTest extends ComponentTestCase {
-    public string $expectedTpl = '<div id="carousel-test" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carousel-test" data-bs-slide-to="0" class="active" aria-current="true"></button>
-        <button type="button" data-bs-target="#carousel-test" data-bs-slide-to="1"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">Slide 1</div>
-        <div class="carousel-item">Slide 2</div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carousel-test" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carousel-test" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
-</div>';
+abstract class CarouselTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testCarouselRender(): void {
         $tpl = $this->uikit->carousel->render('test', [
@@ -34,11 +23,11 @@ final class CarouselTest extends ComponentTestCase {
             'Slide 2',
         ]);
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testCarouselInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ carousel('test', [
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ carousel('test', [
             'Slide 1',
             'Slide 2',
         ]) }}");

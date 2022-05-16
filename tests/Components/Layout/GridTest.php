@@ -14,36 +14,39 @@ namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-final class GridTest extends ComponentTestCase {
+abstract class GridTest extends ComponentTestCase {
+    protected string $expected_open_tpl;
+    protected string $expected_close_tpl;
+    protected string $expected_100_50_tpl;
+    protected string $expected_fw_tpl;
+    protected string $expected_auto_tpl;
+
     public function testOpenGridRender(): void {
         $tpl = $this->uikit->grid->open([100]);
 
-        $this->assertComponentRender('<div class="col-xs-12">', $tpl);
+        $this->assertComponentRender($this->expected_open_tpl, $tpl);
     }
 
     public function testCloseGridRender(): void {
         $tpl = $this->uikit->grid->close();
 
-        $this->assertComponentRender('</div>', $tpl);
+        $this->assertComponentRender($this->expected_close_tpl, $tpl);
     }
 
     public function testGridVariants(): void {
-        $tpl_100 = $this->uikit->grid->open([100]);
-        $this->assertComponentRender('<div class="col-xs-12">', $tpl_100);
-
         $tpl_100_50 = $this->uikit->grid->open([100, 50]);
-        $this->assertComponentRender('<div class="col-xs-12 col-sm-6">', $tpl_100_50);
+        $this->assertComponentRender($this->expected_100_50_tpl, $tpl_100_50);
 
-        $tpl_bs = $this->uikit->grid->open([100, 50, ['bootstrap5' => 'col-6']]);
-        $this->assertComponentRender('<div class="col-6">', $tpl_bs);
+        $tpl_fw = $this->uikit->grid->open([100, 50, ['bootstrap5' => 'col-6', 'fomanticui2' => 'five wide tablet']]);
+        $this->assertComponentRender($this->expected_fw_tpl, $tpl_fw);
 
         $tpl_auto = $this->uikit->grid->open(['auto']);
-        $this->assertComponentRender('<div class="col">', $tpl_auto);
+        $this->assertComponentRender($this->expected_auto_tpl, $tpl_auto);
     }
 
     public function testGridInTwig(): void {
-        $this->assertComponentRenderTpl('<div class="col-xs-12">', '{{ grid_open([100]) }}');
+        $this->assertComponentRenderTpl($this->expected_open_tpl, '{{ grid_open([100]) }}');
 
-        $this->assertComponentRenderTpl('</div>', '{{ grid_close() }}');
+        $this->assertComponentRenderTpl($this->expected_close_tpl, '{{ grid_close() }}');
     }
 }

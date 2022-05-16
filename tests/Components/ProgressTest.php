@@ -14,18 +14,16 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-final class ProgressTest extends ComponentTestCase {
-    public string $expectedTpl = '<div class="progress mb-2">
-    <div class="progress-bar" style="width: 27%;">27%</div>
-</div>';
+abstract class ProgressTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testProgressRender(): void {
         $tpl = $this->uikit->progress->render(27);
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testProgressInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, '{{ progress(27) }}');
+        $this->assertComponentRenderTpl($this->expected_tpl, '{{ progress(27) }}');
     }
 }
