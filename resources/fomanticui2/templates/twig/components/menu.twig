@@ -9,10 +9,10 @@
 }
 ') }}
 
-{% macro menu_item(item, item_class) %}
+{%- macro menu_item(item, item_class) -%}
     {% set active = item.active ? ' active' : '' %}
     <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
-{% endmacro %}
+{%- endmacro -%}
 
 {% macro right(items) %}
     <div class="right menu">
@@ -30,23 +30,23 @@
 
 <div class="ui stackable menu{{ dark ? ' inverted' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
     <div class="header item">
-        {%- if brand.title -%}
+        {% if brand.title %}
             <a href="{{ brand.link }}">{{ brand.title|raw }}</a>
-        {%- endif -%}
+        {% endif %}
         <i class="sidebar icon toc"></i>
     </div>
 
-    {% for key,item in items %}
+    {%- for key,item in items -%}
         {% set active = item.active ? ' active' : '' %}
 
-        {% if item.dropdown %}
+        {%- if item.dropdown -%}
             {{ item.dropdown|raw }}
         {% elseif item.custom %}
             <div class="item">{{ item.custom|raw }}</div>
         {% elseif key == 'right' %}
             {{ _self.right(item) }}
         {% else %}
-            {{ _self.menu_item(item, item_class) }}
+            {{- _self.menu_item(item, item_class) -}}
         {% endif %}
-    {% endfor %}
+    {%- endfor -%}
 </div>
