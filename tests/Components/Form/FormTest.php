@@ -14,20 +14,23 @@ namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-final class FormTest extends ComponentTestCase {
+abstract class FormTest extends ComponentTestCase {
+    protected string $expected_open_tpl;
+    protected string $expected_close_tpl;
+
     public function testOpenFormRender(): void {
         $tpl = $this->uikit->form->open('get');
-        $this->assertComponentRender('<form method="get">', $tpl);
+        $this->assertComponentRender($this->expected_open_tpl, $tpl);
     }
 
     public function testCloseFormRender(): void {
         $tpl = $this->uikit->form->close();
-        $this->assertComponentRender('</form>', $tpl);
+        $this->assertComponentRender($this->expected_close_tpl, $tpl);
     }
 
     public function testFormInTwig(): void {
-        $this->assertComponentRenderTpl('<form method="get">', "{{ form_open('get') }}");
+        $this->assertComponentRenderTpl($this->expected_open_tpl, "{{ form_open('get') }}");
 
-        $this->assertComponentRenderTpl('</form>', '{{ form_close() }}');
+        $this->assertComponentRenderTpl($this->expected_close_tpl, '{{ form_close() }}');
     }
 }

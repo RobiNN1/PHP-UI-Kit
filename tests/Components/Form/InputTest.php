@@ -14,18 +14,15 @@ namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-final class InputTest extends ComponentTestCase {
-    public string $expectedTpl = '<div class="mb-1">
-    <label for="test" class="form-label">Test</label>
-    <input value="2" type="text" id="test" name="test" class="form-control" aria-label="Test">
-</div>';
+abstract class InputTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testInputRender(): void {
         $tpl = $this->uikit->input->render('test', 'Test', 2);
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testInputInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ input('test', 'Test', 2) }}");
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ input('test', 'Test', 2) }}");
     }
 }

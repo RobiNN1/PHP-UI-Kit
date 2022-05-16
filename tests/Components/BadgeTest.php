@@ -14,16 +14,16 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-final class BadgeTest extends ComponentTestCase {
-    public string $expectedTpl = '<span class="badge bg-secondary">Default</span>';
+abstract class BadgeTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testBadgeRender(): void {
         $tpl = $this->uikit->badge->render('Default');
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testBadgeInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ badge('Default') }}");
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ badge('Default') }}");
     }
 }

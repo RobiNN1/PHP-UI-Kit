@@ -15,7 +15,7 @@ namespace Tests\Components\Layout;
 use Tests\ComponentTestCase;
 
 final class LayoutTest extends ComponentTestCase {
-    public string $expectedTpl = '<!doctype html>
+    protected string $expected_tpl = '<!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -33,10 +33,10 @@ final class LayoutTest extends ComponentTestCase {
     public function testLayoutRender(): void {
         $tpl = $this->uikit->layout->render('test');
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testLayoutInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ layout('test') }}");
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ layout('test') }}");
     }
 }

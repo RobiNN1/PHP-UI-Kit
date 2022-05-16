@@ -14,26 +14,19 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-final class CardTest extends ComponentTestCase {
-    public string $expectedTpl = '<div class="card">
-    <div class="card-body">
-        <h1>
-            Title
-        </h1>
-        <p>Testing</p>
-    </div>
-</div>';
+abstract class CardTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testCardRender(): void {
         $tpl = $this->uikit->card->render([
             'body' => '<h1>Title</h1><p>Testing</p>',
         ]);
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testCardInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ card({
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ card({
             'body': '<h1>Title</h1><p>Testing</p>',
         }) }}");
     }

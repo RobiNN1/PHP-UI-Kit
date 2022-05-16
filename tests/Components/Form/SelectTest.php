@@ -14,15 +14,8 @@ namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-final class SelectTest extends ComponentTestCase {
-    public string $expectedTpl = '<div class="mb-1">
-    <label for="test" class="form-label">Test</label>
-    <select id="test" name="test" class="form-select" aria-label="Test">
-        <option value="0">item1</option>
-        <option value="1">item2</option>
-        <option value="2" selected>item3</option>
-    </select>
-</div>';
+abstract class SelectTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testSelectRender(): void {
         $tpl = $this->uikit->select->render('test', 'Test', 2, [
@@ -31,11 +24,11 @@ final class SelectTest extends ComponentTestCase {
             'item3',
         ]);
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testSelectInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ select('test', 'Test', 2, [
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ select('test', 'Test', 2, [
             'item1',
             'item2',
             'item3',

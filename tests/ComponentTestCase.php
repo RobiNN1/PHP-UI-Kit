@@ -18,8 +18,6 @@ use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\UiKit;
 
 class ComponentTestCase extends TestCase {
-    public string $expectedTpl = '';
-
     public UiKit $uikit;
 
     protected function setUp(): void {

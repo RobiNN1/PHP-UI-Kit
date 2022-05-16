@@ -14,11 +14,8 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-final class BreadcrumbsTest extends ComponentTestCase {
-    public string $expectedTpl = '<ol class="breadcrumb" aria-label="breadcrumb">
-    <li class="breadcrumb-item"><a href="link1.php">Link 1</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Link 2</li>
-</ol>';
+abstract class BreadcrumbsTest extends ComponentTestCase {
+    protected string $expected_tpl;
 
     public function testBreadcrumbsRender(): void {
         $tpl = $this->uikit->breadcrumbs->render([
@@ -26,11 +23,11 @@ final class BreadcrumbsTest extends ComponentTestCase {
             'Link 2' => 'link2.php',
         ]);
 
-        $this->assertComponentRender($this->expectedTpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testBreadcrumbsInTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, "{{ breadcrumbs({
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ breadcrumbs({
             'Link 1': 'link1.php',
             'Link 2': 'link2.php',
         }) }}");
