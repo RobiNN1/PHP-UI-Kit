@@ -11,17 +11,16 @@
 {% endif %}
 
 <div class="ui{{ size|space }} modal{{ class|space }}" id="modal-{{ id }}"{{ attributes|space|raw }}>
-    {% if close_button == true %}
+    {%- if close_button == true -%}
         <i class="close icon"></i>
-    {% endif %}
-
-    {% if content.header %}
+    {%- endif -%}
+    {%- if content.header -%}
         <div class="header">
             {{ content.title|raw }}
             {{ content.header|raw }}
         </div>
-    {% endif %}
-    {% if content.body %}
+    {%- endif -%}
+    {%- if content.body -%}
         <div class="content">{{ content.body|raw }}</div>
     {% endif %}
     {% if content.footer %}
