@@ -50,6 +50,9 @@ Or
 echo $uikit->example_component();
 ```
 
+> This is short for `render()` method.
+> The parameters are therefore the same as for the `render()`.
+
 In template
 
 ```twig
