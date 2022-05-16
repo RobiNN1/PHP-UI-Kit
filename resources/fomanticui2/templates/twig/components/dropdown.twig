@@ -3,20 +3,20 @@
 <div class="ui dropdown{{ dark ? ' inverted' : '' }}{{ in_menu ? ' item' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
     {{- button|raw -}}
     <div class="menu">
-        {% for item in items %}
+        {%- for item in items -%}
             {% set active = item.active ? ' active' : '' %}
 
-            {% if item == 'divider' %}
+            {%- if item == 'divider' -%}
                 <div class="divider"></div>
             {% elseif item.custom %}
-                {{ item.custom|raw }}
+                {{- item.custom|raw -}}
             {% else %}
-                {% if item.link %}
+                {%- if item.link -%}
                     <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
-                {% else %}
+                {%- else -%}
                     <span class="item{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span>
-                {% endif %}
+                {%- endif -%}
             {% endif %}
-        {% endfor %}
+        {%- endfor -%}
     </div>
 </div>
