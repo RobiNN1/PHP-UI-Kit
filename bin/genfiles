@@ -37,6 +37,12 @@ $path_class = $type === 'frm' ? ucfirst($path) : '';
 $name = $_SERVER['argv'][1];
 $class_name = implode('', array_map('ucfirst', explode('_', $name)));
 
+/**
+ * @param string $file
+ * @param array  $replacements
+ *
+ * @return string
+ */
 function replace_vars(string $file, array $replacements): string {
     return str_replace(
         array_keys($replacements),
@@ -45,45 +51,54 @@ function replace_vars(string $file, array $replacements): string {
     );
 }
 
-// Twig files
 $twig_content = file_get_contents(__DIR__.'/stubs/twig.stub');
 file_put_contents(__DIR__.'/../resources/bootstrap5/templates/twig/'.$path.$name.'.twig', $twig_content);
 file_put_contents(__DIR__.'/../resources/fomanticui2/templates/twig/'.$path.$name.'.twig', $twig_content);
 
-// Class
-file_put_contents(__DIR__.'/../src/Components/'.$path_class.$class_name.'.php', replace_vars('class', [
-    '{{namespace}}'  => ($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : ''),
-    '{{class_name}}' => $class_name,
-    '{{name}}'       => $path.$name,
-    '{{title}}'      => str_replace('_', ' ', $name),
-]));
+file_put_contents(
+    __DIR__.'/../src/Components/'.$path_class.$class_name.'.php',
+    replace_vars('class', [
+        '{{namespace}}'  => ($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : ''),
+        '{{class_name}}' => $class_name,
+        '{{name}}'       => $path.$name,
+        '{{title}}'      => str_replace('_', ' ', $name),
+    ])
+);
 
-// Abstract test class
-file_put_contents(__DIR__.'/../tests/Components/'.$path_class.$class_name.'Test.php', replace_vars('abstract_test', [
-    '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
-    '{{class_name}}' => $class_name,
-    '{{name}}'       => $name,
-]));
+file_put_contents(
+    __DIR__.'/../tests/Components/'.$path_class.$class_name.'Test.php',
+    replace_vars('abstract_test', [
+        '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
+        '{{class_name}}' => $class_name,
+        '{{name}}'       => $name,
+    ])
+);
 
-// Bootstrap5 test class
-file_put_contents(__DIR__.'/../tests/Frameworks/Bootstrap5/'.$path_class.$class_name.'Bootstrap5Test.php', replace_vars('bootstrap5_test', [
-    '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
-    '{{class_name}}' => $class_name,
-    '{{name}}'       => $name,
-]));
+file_put_contents(
+    __DIR__.'/../tests/Frameworks/Bootstrap5/'.$path_class.$class_name.'Bootstrap5Test.php',
+    replace_vars('bootstrap5_test', [
+        '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
+        '{{class_name}}' => $class_name,
+        '{{name}}'       => $name,
+    ])
+);
 
-// Fomanticui2 test class
-file_put_contents(__DIR__.'/../tests/Frameworks/Fomanticui2/'.$path_class.$class_name.'Fomanticui2Test.php', replace_vars('fomanticui2_test', [
-    '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
-    '{{class_name}}' => $class_name,
-    '{{name}}'       => $name,
-]));
+file_put_contents(
+    __DIR__.'/../tests/Frameworks/Fomanticui2/'.$path_class.$class_name.'Fomanticui2Test.php',
+    replace_vars('fomanticui2_test', [
+        '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
+        '{{class_name}}' => $class_name,
+        '{{name}}'       => $name,
+    ])
+);
 
-// Docs content
-file_put_contents(__DIR__.'/../docs/'.$path.$name.'.md', replace_vars('docs', [
-    '{{name}}'  => $name,
-    '{{title}}' => str_replace('_', ' ', $name),
-]));
+file_put_contents(
+    __DIR__.'/../docs/'.$path.$name.'.md',
+    replace_vars('docs', [
+        '{{name}}'  => $name,
+        '{{title}}' => str_replace('_', ' ', $name),
+    ])
+);
 
 echo "\033[32mComponent successfully generated.\033[0m\n";
 exit(0);
