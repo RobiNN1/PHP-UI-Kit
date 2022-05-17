@@ -1,0 +1,1 @@
+<div class="{{ class|space }}"{{ attributes|space|raw }}></div>

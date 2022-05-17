@@ -1,0 +1,31 @@
+# {{name}}()
+
+Render {{title}}.
+
+---
+
+{{name}}( [ array $options ] ) : string
+
+## Parameters
+
+$options (array) (Optional) Additional options. Default value: []
+
+#### Available options
+
+| Name       | Type   | Default | Description                 |
+|------------|--------|---------|-----------------------------|
+| id         | string | ''      | Wrapper ID.                 |
+| class      | string | ''      | Class for wrapper.          |
+| attributes | array  | []      | Array of custom attributes. |
+
+## Basic Usage
+
+```php
+echo {{name}}();
+```
+
+<span class="html-output">HTML Output</span>
+
+```html
+<div></div>
+```
