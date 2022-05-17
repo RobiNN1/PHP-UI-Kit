@@ -37,130 +37,53 @@ $path_class = $type === 'frm' ? ucfirst($path) : '';
 $name = $_SERVER['argv'][1];
 $class_name = implode('', array_map('ucfirst', explode('_', $name)));
 
-/**
- * Twig files
- */
-$twig_content = '<div class="{{ class|space }}"{{ attributes|space|raw }}></div>';
+function replace_vars(string $file, array $replacements): string {
+    return str_replace(
+        array_keys($replacements),
+        array_values($replacements),
+        file_get_contents(__DIR__.'/stubs/'.$file.'.stub')
+    );
+}
+
+// Twig files
+$twig_content = file_get_contents(__DIR__.'/stubs/twig.stub');
 file_put_contents(__DIR__.'/../resources/bootstrap5/templates/twig/'.$path.$name.'.twig', $twig_content);
 file_put_contents(__DIR__.'/../resources/fomanticui2/templates/twig/'.$path.$name.'.twig', $twig_content);
 
-/**
- * Class
- */
-$class_content = '<?php
-/**
- * This file is part of UiKit.
- *
- * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+// Class
+file_put_contents(__DIR__.'/../src/Components/'.$path_class.$class_name.'.php', replace_vars('class', [
+    '{{namespace}}'  => ($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : ''),
+    '{{class_name}}' => $class_name,
+    '{{name}}'       => $path.$name,
+    '{{title}}'      => str_replace('_', ' ', $name),
+]));
 
-declare(strict_types=1);
+// Abstract test class
+file_put_contents(__DIR__.'/../tests/Components/'.$path_class.$class_name.'Test.php', replace_vars('abstract_test', [
+    '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
+    '{{class_name}}' => $class_name,
+    '{{name}}'       => $name,
+]));
 
-namespace RobiNN\UiKit\Components'.($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : '').'
+// Bootstrap5 test class
+file_put_contents(__DIR__.'/../tests/Frameworks/Bootstrap5/'.$path_class.$class_name.'Bootstrap5Test.php', replace_vars('bootstrap5_test', [
+    '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
+    '{{class_name}}' => $class_name,
+    '{{name}}'       => $name,
+]));
 
-class '.$class_name.' extends Component {
-    /**
-     * @var string
-     */
-    protected string $component = \''.$path.$name.'\';
+// Fomanticui2 test class
+file_put_contents(__DIR__.'/../tests/Frameworks/Fomanticui2/'.$path_class.$class_name.'Fomanticui2Test.php', replace_vars('fomanticui2_test', [
+    '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
+    '{{class_name}}' => $class_name,
+    '{{name}}'       => $name,
+]));
 
-    /**
-     * Render '.str_replace('_', ' ', $name).'.
-     *
-     * @param array $options Additional options.
-     *
-     * @return string
-     */
-    public function render(array $options = []): string {
-        $options = array_merge([
-            \'id\'         => \'\', // Wrapper ID.
-            \'class\'      => \'\', // Class for wrapper.
-            \'attributes\' => [], // Array of custom attributes.
-        ], $options);
-
-        return $this->tpl([
-            \'class\'      => $options[\'class\'],
-            \'attributes\' => $this->getAttributes($options[\'attributes\'], $options[\'id\']),
-        ]);
-    }
-}
-';
-file_put_contents(__DIR__.'/../src/Components/'.$path_class.$class_name.'.php', $class_content);
-
-/**
- * Test class
- */
-$test_class_content = '<?php
-/**
- * This file is part of UiKit.
- *
- * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
-declare(strict_types=1);
-
-namespace Tests\Components'.($type === 'frm' ? '\Form' : '').';
-
-use Tests\ComponentTestCase;
-
-final class '.$class_name.'Test extends ComponentTestCase {
-    public string $expectedTpl = \'\';
-
-    public function test'.$class_name.'Render(): void {
-        $tpl = $this->uikit->'.$name.'->render();
-
-        $this->assertComponentRender($this->expectedTpl, $tpl);
-    }
-
-    public function test'.$class_name.'InTwig(): void {
-        $this->assertComponentRenderTpl($this->expectedTpl, \'{{ '.$name.'() }}\');
-    }
-}
-';
-file_put_contents(__DIR__.'/../tests/Components/'.$path_class.$class_name.'Test.php', $test_class_content);
-
-/**
- * Docs content
- */
-$docs_content = '# '.$name.'()
-
-Render '.str_replace('_', ' ', $name).'.
-
----
-
-'.$name.'( [ array $options ] ) : string
-
-## Parameters
-
-$options (array) (Optional) Additional options. Default value: []
-
-#### Available options
-
-| Name       | Type   | Default | Description                 |
-|------------|--------|---------|-----------------------------|
-| id         | string | \'\'      | Wrapper ID.                 |
-| class      | string | \'\'      | Class for wrapper.          |
-| attributes | array  | []      | Array of custom attributes. |
-
-## Basic Usage
-
-```php
-echo '.$name.'();
-```
-
-<span class="html-output">HTML Output</span>
-
-```html
-<div></div>
-```
-';
-file_put_contents(__DIR__.'/../docs/'.$path.$name.'.md', $docs_content);
+// Docs content
+file_put_contents(__DIR__.'/../docs/'.$path.$name.'.md', replace_vars('docs', [
+    '{{name}}'  => $name,
+    '{{title}}' => str_replace('_', ' ', $name),
+]));
 
 echo "\033[32mComponent successfully generated.\033[0m\n";
 exit(0);
