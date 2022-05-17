@@ -17,8 +17,8 @@ declare(strict_types=1);
 return [
     'jquery'       => false,
     'files'        => [
-        'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css'],
-        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js'],
+        'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css'],
+        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js'],
     ],
     'grid_func'    => static function (array $col_sizes): string {
         $sizes = ['xs', 'sm', 'md', 'lg'];
