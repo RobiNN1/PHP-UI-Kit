@@ -64,7 +64,7 @@ echo carousel('example', [
 ## Slides only
 
 ```php
-echo carousel('example', [
+echo carousel('example-slides-only', [
     '<img class="d-block w-100" src="path/to/image1.jpg" alt="Slide 1">',
     '<img class="d-block w-100" src="path/to/image2.jpg" alt="Slide 2">',
     '<img class="d-block w-100" src="path/to/image3.jpg" alt="Slide 3">',
@@ -77,7 +77,7 @@ echo carousel('example', [
 <span class="html-output">HTML Output</span>
 
 ```html
-<div id="carousel-example" class="carousel slide" data-bs-ride="carousel">
+<div id="carousel-example-slides-only" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active"><img class="d-block w-100" src="path/to/image1.jpg" alt="Slide 1"></div>
         <div class="carousel-item"><img class="d-block w-100" src="path/to/image2.jpg" alt="Slide 2"></div>
