@@ -12,5 +12,5 @@ tests export-ignore
 .gitignore export-ignore
 phpstan.neon export-ignore
 phpunit.xml export-ignore
-_ide_helper.php export-ignore
+.phpstorm.meta.php export-ignore
 bin export-ignore
