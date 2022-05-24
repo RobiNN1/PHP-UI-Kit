@@ -12,31 +12,37 @@ declare(strict_types=1);
 
 namespace Tests\Components\Layout;
 
+use RobiNN\UiKit\AddTo;
 use Tests\ComponentTestCase;
 
-final class LayoutTest extends ComponentTestCase {
-    protected string $expected_tpl = '<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UI Kit</title>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
-    </head>
-    <body>
-        test
+abstract class LayoutTest extends ComponentTestCase {
+    protected string $expected_tpl;
+    protected string $expected_framework;
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-</html>';
+    protected function setUp(): void {
+        parent::setUp();
+
+        // hide files and scripts that can be changed frequently
+        $this->uikit->setFrameworkOption('files', ['css' => [], 'js' => []]);
+        $this->uikit->setFrameworkOption('jquery', false);
+        AddTo::$head = '';
+        AddTo::$css = '';
+        AddTo::$footer = '';
+    }
 
     public function testLayoutRender(): void {
-        $tpl = $this->uikit->layout->render('test');
+        $tpl = $this->uikit->layout->render($this->expected_framework);
+        $tpl = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $tpl);
 
         $this->assertComponentRender($this->expected_tpl, $tpl);
     }
 
     public function testLayoutInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_tpl, "{{ layout('test') }}");
+        $tpl = $this->uikit->render('{{ layout(framework) }}', [
+            'framework' => $this->expected_framework,
+        ], true);
+        $tpl = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $tpl);
+
+        $this->assertComponentRenderTpl($this->expected_tpl, $tpl);
     }
 }
