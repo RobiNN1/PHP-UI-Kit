@@ -14,13 +14,16 @@ composer require robinn/uikit
 
 ## Basic Usage
 
+Simply print everything with echo.
+
 ```php
-// Each component returns a string, so it can also be passed to a variable or printed with an echo
+ob_start();
 
-add_html('HTML code'); // Use this function when using get_html()
-alert('Default');
+echo 'HTML code';
+echo alert('Default');
 
-echo layout(get_html(), [
+$body = ob_get_clean();
+echo layout($body, [
     'title' => 'Site title',
 ]);
 ```
