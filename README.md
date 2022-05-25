@@ -49,3 +49,9 @@ HTML code
 ## Requirements
 
 - PHP >= 8.1
+
+## Testing
+
+```
+composer test
+```
