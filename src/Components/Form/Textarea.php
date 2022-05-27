@@ -83,6 +83,8 @@ class Textarea extends Component {
             'state'               => $this->getOption('validation', $options['state']),
             'feedback_text'       => $options['feedback_text'],
             'required'            => $options['required'],
+            'disabled'            => $options['disabled'],
+            'readonly'            => $options['readonly'],
             'help_text'           => $options['help_text'],
             'placeholder'         => $options['placeholder'],
         ]);
