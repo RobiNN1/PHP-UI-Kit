@@ -97,6 +97,8 @@ class Input extends Component {
             'state'            => $this->getOption('validation', $options['state']),
             'feedback_text'    => $options['feedback_text'],
             'required'         => $options['required'],
+            'disabled'         => $options['disabled'],
+            'readonly'         => $options['readonly'],
             'help_text'        => $options['help_text'],
             'left_addon'       => $options['left_addon'],
             'right_addon'      => $options['right_addon'],
