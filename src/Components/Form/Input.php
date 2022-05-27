@@ -44,6 +44,8 @@ class Input extends Component {
             'state'            => '', // Validation state. Possible value: success/error
             'feedback_text'    => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
             'required'         => false, // Required.
+            'disabled'         => false, // Disabled.
+            'readonly'         => false, // Readonly.
             'help_text'        => '', // Custom help text.
             'left_addon'       => '', // Left addon.
             'right_addon'      => '', // Right addon.
@@ -65,6 +67,14 @@ class Input extends Component {
 
         if ($options['required']) {
             $input_attributes['required'] = null;
+        }
+
+        if ($options['disabled']) {
+            $input_attributes['disabled'] = null;
+        }
+
+        if ($options['readonly']) {
+            $input_attributes['readonly'] = null;
         }
 
         $input_attributes += $options['input_attributes'];
