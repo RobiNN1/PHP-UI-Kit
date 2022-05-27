@@ -42,6 +42,7 @@ class Checkbox extends Component {
             'state'               => '', // Validation state. Possible value: success/error
             'feedback_text'       => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
             'required'            => false, // Required.
+            'disabled'            => false, // Disabled.
             'help_text'           => '', // Custom help text.
         ], $options);
 
@@ -54,6 +55,10 @@ class Checkbox extends Component {
 
         if ($options['required']) {
             $checkbox_attributes['required'] = null;
+        }
+
+        if ($options['disabled']) {
+            $checkbox_attributes['disabled'] = null;
         }
 
         $checkbox_attributes += $options['checkbox_attributes'];
@@ -77,6 +82,7 @@ class Checkbox extends Component {
             'state'               => $this->getOption('validation', $options['state']),
             'feedback_text'       => $options['feedback_text'],
             'required'            => $options['required'],
+            'disabled'            => $options['disabled'],
             'help_text'           => $options['help_text'],
         ]);
     }
