@@ -32,6 +32,7 @@ $options (array) (Optional) Additional options.
 | state               | string | ''      | Validation state. Possible value: success/error                                        |
 | feedback_text       | string | ''      | Custom feedback text. Do validation in your code and then set state and feedback text. |
 | required            | bool   | false   | Required.                                                                              |
+| disabled            | bool   | false   | Disabled.                                                                              |
 | help_text           | string | ''      | Custom help text.                                                                      |
 
 ## Basic Usage
