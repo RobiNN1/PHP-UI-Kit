@@ -36,6 +36,7 @@ class Components {
             'input'        => Components\Form\Input::class,
             'select'       => Components\Form\Select::class,
             'checkbox'     => Components\Form\Checkbox::class,
+            'textarea'     => Components\Form\Textarea::class,
             // Components
             'accordion'    => Components\Accordion::class,
             'alert'        => Components\Alert::class,

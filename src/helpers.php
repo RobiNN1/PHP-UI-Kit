@@ -200,6 +200,22 @@ if (!function_exists('checkbox')) {
     }
 }
 
+if (!function_exists('textarea')) {
+    /**
+     * Render textarea field.
+     *
+     * @param string     $name    Textarea name.
+     * @param string     $label   Textarea label.
+     * @param int|string $value   Textarea value.
+     * @param array      $options Additional options.
+     *
+     * @return string
+     */
+    function textarea(string $name, string $label = '', int|string $value = '', array $options = []): string {
+        return get_ui()->textarea->render($name, $label, $value, $options);
+    }
+}
+
 if (!function_exists('accordion')) {
     /**
      * Render accordion.
