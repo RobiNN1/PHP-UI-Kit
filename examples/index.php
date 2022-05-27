@@ -141,6 +141,32 @@ echo checkbox('multiple-checkboxes', 'Multiple checkboxes', '', [
     'help_text'     => 'Help text',
 ]);
 
+echo '<h5>Textarea</h5>';
+echo textarea('textarea', 'Textarea');
+echo textarea('textarea-disabled', 'Disabled textarea', '...', ['disabled' => true]);
+echo textarea('textarea-readonly', 'Readonly textarea', '...', ['readonly' => true]);
+echo textarea('textarea-state', 'Textarea with state', 'Text..', [
+    'state'         => 'success',
+    'feedback_text' => 'Text....',
+    'help_text'     => 'Help text',
+    'required'      => true,
+]);
+
+echo textarea('textarea-error-feedback', 'Error textarea with text', '', [
+    'state'         => 'error',
+    'feedback_text' => 'Please enter text',
+]);
+
+echo textarea('textarea-help', 'Textarea with help text', '', [
+    'help_text' => 'Something..',
+]);
+
+echo textarea('textarea-feedback-help', 'Textarea with feedback and help text', '', [
+    'state'         => 'error',
+    'feedback_text' => 'Please select text',
+    'help_text'     => 'Something..',
+]);
+
 echo form_close();
 
 echo '<hr>';

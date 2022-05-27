@@ -73,6 +73,12 @@ return [
             'error'   => 'is-invalid',
         ],
     ],
+    'textarea'     => [
+        'validation' => [
+            'success' => 'is-valid',
+            'error'   => 'is-invalid',
+        ],
+    ],
     'alert'        => [
         'colors' => [
             'default' => 'alert-primary',

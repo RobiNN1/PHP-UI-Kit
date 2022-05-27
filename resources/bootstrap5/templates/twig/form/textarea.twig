@@ -1,0 +1,12 @@
+<div class="mb-1{{ class|space }}"{{ attributes|space|raw }}>
+    {% if label %}
+        <label for="{{ textarea_id }}" class="form-label">{{ label }}</label>
+    {% endif %}
+    <textarea{{ textarea_attributes|space|raw }} class="form-control{{ textarea_class|space ~ state|space }}">{{ value }}</textarea>
+    {% if feedback_text %}
+        <div class="{{ state == 'is-invalid' ? 'in' : '' }}valid-feedback">{{ feedback_text|raw }}</div>
+    {% endif %}
+    {% if help_text %}
+        <div class="form-text">{{ help_text|raw }}</div>
+    {% endif %}
+</div>

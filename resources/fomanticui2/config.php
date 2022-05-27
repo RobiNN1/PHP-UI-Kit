@@ -78,6 +78,12 @@ return [
             'error'   => 'error',
         ],
     ],
+    'textarea'     => [
+        'validation' => [
+            'success' => 'success',
+            'error'   => 'error',
+        ],
+    ],
     'alert'        => [
         'colors' => [
             'default' => 'blue',
