@@ -1,22 +1,18 @@
 {% set left = left_addon or left_custom ? 'left' : '' %}
 {% set right = right_addon or right_custom ? 'right' : '' %}
-{% set corner = required ? 'corner' : '' %}
-{% set labeled = left_addon or right_addon or required ? 'labeled' : '' %}
+{% set labeled = left_addon or right_addon ? 'labeled' : '' %}
 {% set action = left_custom or right_custom ? 'action' : '' %}
 
 <div class="field{{ state|space }}"{{ attributes|space|raw }}>
     {% if label %}
         <label for="{{ input_id }}">{{ label }}</label>
     {% endif %}
-    <div class="ui input fluid{{ left|space ~ right|space ~ corner|space ~ labeled|space ~ action|space ~ size|space ~ class|space }}">
+    <div class="ui input fluid{{ left|space ~ right|space ~ labeled|space ~ action|space ~ size|space ~ class|space }}">
         {{ left_custom|raw }}
         {% if left_addon %}
             <div class="ui basic label">{{ left_addon|raw }}</div>
         {% endif %}
         <input value="{{ value }}" type="{{ type }}"{{ input_attributes|space|raw }}{{ (input_class ? ' class="'~ input_class ~'"' : '')|raw }} aria-label="{{ label }}">
-        {% if required %}
-            <div class="ui corner label"><i class="asterisk icon"></i></div>
-        {% endif %}
         {% if right_addon %}
             <div class="ui basic label">{{ right_addon|raw }}</div>
         {% endif %}

@@ -57,17 +57,9 @@ echo '<h5>Inputs with states</h5>';
 // In Fomantic UI states work only inside .ui.form element
 echo row_open();
 echo grid_open([100, 50]);
-echo input('input-success', 'Success', '', ['state' => 'success', 'required' => true]);
+echo input('input-success', 'Success field with text', '', ['state' => 'success', 'feedback_text' => 'Text']);
 echo grid_close().grid_open([100, 50]);
-echo input('input-error', 'Error', '', ['state' => 'error']);
-echo grid_close();
-echo row_close();
-
-echo row_open();
-echo grid_open([100, 50]);
-echo input('input-success2', 'Success field with text', '', ['state' => 'success', 'feedback_text' => 'Text']);
-echo grid_close().grid_open([100, 50]);
-echo input('input-error2', 'Error field with text', '', ['state' => 'error', 'feedback_text' => 'Another Text...']);
+echo input('input-error', 'Error field with text', '', ['state' => 'error', 'feedback_text' => 'Another Text...']);
 echo grid_close();
 echo row_close();
 
