@@ -145,7 +145,7 @@ echo checkbox('checkbox-error', 'Error', 0, [
 
 ```php
 echo checkbox('checkbox-error-feedback', 'Error checkbox with text', 0, [
-    'state' => 'error',
+    'state'         => 'error',
     'feedback_text' => 'Please check this',
 ]);
 

@@ -168,7 +168,7 @@ echo select('select-error-feedback', 'Error select with text', '', [
     'item2',
     'item3',
 ], [
-    'state' => 'error',
+    'state'         => 'error',
     'feedback_text' => 'Please select item',
 ]);
 
