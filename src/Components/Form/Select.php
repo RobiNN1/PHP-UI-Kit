@@ -44,6 +44,7 @@ class Select extends Component {
             'state'             => '', // Validation state. Possible value: success/error
             'feedback_text'     => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
             'required'          => false, // Required.
+            'disabled'          => false, // Disabled.
             'help_text'         => '', // Custom help text.
             'multiple'          => false, // Multiple.
         ], $options);
@@ -59,6 +60,10 @@ class Select extends Component {
 
         if ($options['required']) {
             $select_attributes['required'] = null;
+        }
+
+        if ($options['disabled']) {
+            $select_attributes['disabled'] = null;
         }
 
         if ($options['multiple']) {
@@ -81,6 +86,7 @@ class Select extends Component {
             'state'             => $this->getOption('validation', $options['state']),
             'feedback_text'     => $options['feedback_text'],
             'required'          => $options['required'],
+            'disabled'          => $options['disabled'],
             'help_text'         => $options['help_text'],
             'placeholder'       => $options['placeholder'],
             'multiple'          => $options['multiple'],
