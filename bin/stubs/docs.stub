@@ -4,7 +4,9 @@ Render {{title}}.
 
 ---
 
+```php {.function-name}
 {{name}}( [ array $options ] ) : string
+```
 
 ## Parameters
 
