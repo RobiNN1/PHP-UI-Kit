@@ -15,7 +15,7 @@ namespace Tests\Components{{namespace}};
 use Tests\ComponentTestCase;
 
 abstract class {{class_name}}Test extends ComponentTestCase {
-    public string $expected_tpl = '';
+    protected string $expected_tpl;
 
     public function test{{class_name}}Render(): void {
         $tpl = $this->uikit->{{name}}->render();
