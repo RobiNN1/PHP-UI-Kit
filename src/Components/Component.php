@@ -58,7 +58,7 @@ class Component {
      */
     public function getOption(string $option, mixed $value, string $component = null): mixed {
         $component_path = explode('/', $this->component);
-        $opts = $this->uikit->getFrameworkOptions($component ?? ($component_path[1] ?? $component_path[0]));
+        $opts = $this->uikit->getFrameworkOptions($component ?? $component_path[array_key_last($component_path)]);
         $default = $opts[$option]['default'] ?? '';
 
         return isset($opts[$option]) && array_key_exists($value, $opts[$option]) ? $opts[$option][$value] : $default;
