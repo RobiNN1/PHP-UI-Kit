@@ -9,7 +9,7 @@ Guide on how to add custom components.
 ```php
 use RobiNN\UiKit\Components\Component;
 
-class ExampleComponent extends Component {
+final class ExampleComponent extends Component {
     public function render(): string {
         return '...';
     }
@@ -74,3 +74,58 @@ In template
 {{ example_component_open() }}
 {{ example_component_close() }}
 ```
+
+## Available methods
+
+By extending Component class, your code has access to the `$this->uikit` and these methods
+
+### getAttributes()
+
+Create string from the given array.
+
+```php
+$this->getAttributes([
+    'disabled' => null,
+    'value'    => 'test',
+]);
+
+// disabled value="test"
+```
+
+### getOption()
+
+Get correct value from framework options.
+
+```php
+// E.g. alert component
+// 'alert' => [
+//     'colors' => [
+//         'default' => 'alert-primary',
+//         'success' => 'alert-success',
+//         ...
+//     ],
+// ],
+$this->getOption('colors', 'success');
+
+// alert-success
+```
+
+> Thanks to `protected string $component = 'components/alert';`
+> method automatically chooses an option from alert's config.
+> However, it is possible to explicitly set component name.
+
+```php
+$this->getOption('colors', 'success', 'alert');
+```
+
+### tpl()
+
+Render template.
+
+Method also sets `attributes` option to the template engine.
+
+```php
+$this->tpl([]);
+```
+
+> The method requires that the `protected string $component = '';` be set.
