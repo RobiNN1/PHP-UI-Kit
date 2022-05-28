@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-class Textarea extends Component {
+final class Textarea extends Component {
     /**
      * @var string
      */
@@ -31,7 +31,7 @@ class Textarea extends Component {
      * @return string
      */
     public function render(string $name, string $label = '', int|string $value = '', array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'                  => '', // Wrapper ID.
             'class'               => '', // Class for wrapper.
             'attributes'          => [], // Array of custom attributes.
@@ -50,43 +50,35 @@ class Textarea extends Component {
 
         $textarea_attributes = [];
 
-        $textarea_attributes['id'] = $options['textarea_id'];
+        $textarea_attributes['id'] = $this->options['textarea_id'];
 
         if (!empty($name)) {
             $textarea_attributes['name'] = $name;
         }
 
-        if ($options['required']) {
+        if ($this->options['required']) {
             $textarea_attributes['required'] = null;
         }
 
-        if ($options['disabled']) {
+        if ($this->options['disabled']) {
             $textarea_attributes['disabled'] = null;
         }
 
-        if ($options['readonly']) {
+        if ($this->options['readonly']) {
             $textarea_attributes['readonly'] = null;
         }
 
-        $textarea_attributes['rows'] = $options['rows'];
+        $textarea_attributes['rows'] = $this->options['rows'];
 
-        $textarea_attributes += $options['textarea_attributes'];
+        $textarea_attributes += $this->options['textarea_attributes'];
 
         return $this->tpl([
             'value'               => $value,
             'label'               => $label,
-            'class'               => $options['class'],
-            'attributes'          => $this->getAttributes($options['attributes'], $options['id']),
+            'attributes'          => $this->getAttributes($this->options['attributes'], $this->options['id']),
             'textarea_id'         => $textarea_attributes['id'],
-            'textarea_class'      => $options['textarea_class'],
             'textarea_attributes' => $this->getAttributes($textarea_attributes),
-            'state'               => $this->getOption('validation', $options['state']),
-            'feedback_text'       => $options['feedback_text'],
-            'required'            => $options['required'],
-            'disabled'            => $options['disabled'],
-            'readonly'            => $options['readonly'],
-            'help_text'           => $options['help_text'],
-            'placeholder'         => $options['placeholder'],
+            'state'               => $this->getOption('validation', $this->options['state']),
         ]);
     }
 }

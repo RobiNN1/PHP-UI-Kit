@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Tabs extends Component {
+final class Tabs extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/tabs';
+
     /**
      * Render tabs.
      *
@@ -23,13 +28,26 @@ class Tabs extends Component {
      * @return string
      */
     public function render(string $id, array $items, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'class'          => '', // Class for wrapper.
             'attributes'     => [], // Array of custom attributes.
             'nav_item_class' => '', // Class for nav item.
             'tab_item_class' => '', // Class for tab item.
         ], $options);
 
+        return $this->tpl([
+            'id'         => $id,
+            'items'      => $this->items($items),
+            'attributes' => $this->getAttributes($this->options['attributes']),
+        ]);
+    }
+
+    /**
+     * @param array $items
+     *
+     * @return array
+     */
+    private function items(array $items): array {
         // Add 'active' item if missing
         foreach ($items as $key => $item) {
             if (empty($item['active'])) {
@@ -52,13 +70,6 @@ class Tabs extends Component {
             $i++;
         }
 
-        return $this->uikit->render('components/tabs', [
-            'id'             => $id,
-            'items'          => $items_,
-            'class'          => $options['class'],
-            'attributes'     => $this->getAttributes($options['attributes']),
-            'nav_item_class' => $options['nav_item_class'],
-            'tab_item_class' => $options['tab_item_class'],
-        ]);
+        return $items_;
     }
 }

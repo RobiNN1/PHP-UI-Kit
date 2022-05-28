@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Progress extends Component {
+final class Progress extends Component {
     /**
      * @var string
      */
@@ -27,7 +27,7 @@ class Progress extends Component {
      * @return string
      */
     public function render(array|int $percent, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'          => '', // Wrapper ID.
             'class'       => '', // Class for wrapper.
             'attributes'  => [], // Array of custom attributes.
@@ -39,27 +39,25 @@ class Progress extends Component {
 
         $bars = [];
 
-        $auto_colors = is_callable($options['auto_colors']) ? $options['auto_colors'] : null;
+        $auto_colors = is_callable($this->options['auto_colors']) ? $this->options['auto_colors'] : null;
 
         if (!is_array($percent)) {
-            $color = is_array($options['color']) ? $options['color'][0] : $options['color'];
+            $color = is_array($this->options['color']) ? $this->options['color'][0] : $this->options['color'];
             if ($auto_colors) {
                 $color = $auto_colors($percent);
             }
 
             $bars[] = [
                 'color'   => $this->getOption('colors', $color),
-                'title'   => $options['percents'] ? (int) $percent.'%' : '',
+                'title'   => $this->options['percents'] ? (int) $percent.'%' : '',
                 'percent' => (int) $percent,
             ];
         } else {
-            $bars = $this->multiple($percent, $options, $auto_colors);
+            $bars = $this->multiple($percent, $this->options, $auto_colors);
         }
 
         return $this->tpl([
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'item_class' => $options['item_class'],
+            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
             'bars'       => $bars,
         ]);
     }

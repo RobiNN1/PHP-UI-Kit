@@ -15,7 +15,12 @@ namespace RobiNN\UiKit\Components\Layout;
 use RobiNN\UiKit\AddTo;
 use RobiNN\UiKit\Components\Component;
 
-class Layout extends Component {
+final class Layout extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'layout/layout';
+
     /**
      * Render site layout.
      *
@@ -25,7 +30,7 @@ class Layout extends Component {
      * @return string
      */
     public function render(string $body, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'lang'       => 'en', // Site lang (used for html lang attribute).
             'title'      => 'UI Kit', // Site title.
             'attributes' => [], // Array of custom attributes.
@@ -59,11 +64,9 @@ class Layout extends Component {
             $css_codes = '<style>'.$minify_css(AddTo::$css).'</style>';
         }
 
-        return $this->uikit->render('layout/layout', [
+        return $this->tpl([
             'body'        => $body,
-            'lang'        => $options['lang'],
-            'title'       => $options['title'],
-            'attributes'  => $this->getAttributes($options['attributes']),
+            'attributes'  => $this->getAttributes($this->options['attributes']),
             'head_tags'   => AddTo::$head,
             'css_codes'   => $css_codes,
             'footer_tags' => AddTo::$footer,

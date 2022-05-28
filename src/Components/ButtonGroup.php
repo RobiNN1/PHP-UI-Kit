@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components;
 
 use RobiNN\UiKit\Misc;
 
-class ButtonGroup extends Component {
+final class ButtonGroup extends Component {
     /**
      * @var string
      */
@@ -29,7 +29,7 @@ class ButtonGroup extends Component {
      * @return string
      */
     public function render(array $items, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -39,10 +39,9 @@ class ButtonGroup extends Component {
         ], $options);
 
         return $this->tpl([
-            'buttons'    => $this->buttons($items, $options),
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'size'       => $this->getOption('sizes', $options['size']),
+            'buttons'    => $this->buttons($items, $this->options),
+            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
+            'size'       => $this->getOption('sizes', $this->options['size']),
         ]);
     }
 

@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Badge extends Component {
+final class Badge extends Component {
     /**
      * @var string
      */
@@ -28,7 +28,7 @@ class Badge extends Component {
      * @return string
      */
     public function render(string $text, string $color = 'default', array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Badge ID.
             'class'      => '', // Badge class.
             'attributes' => [], // Array of custom attributes.
@@ -38,9 +38,7 @@ class Badge extends Component {
         return $this->tpl([
             'text'       => $text,
             'color'      => $this->getOption('colors', $color),
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'rounded'    => $options['rounded'],
+            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
         ]);
     }
 }

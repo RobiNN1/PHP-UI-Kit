@@ -14,7 +14,12 @@ namespace RobiNN\UiKit\Components\Layout;
 
 use RobiNN\UiKit\Components\Component;
 
-class Grid extends Component {
+final class Grid extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'layout/grid';
+
     /**
      * Render grid.
      *
@@ -24,7 +29,7 @@ class Grid extends Component {
      * @return string
      */
     public function render(array $col_sizes = [100], array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'open'       => false, // Opening div. @internal
@@ -33,12 +38,9 @@ class Grid extends Component {
 
         $grid_function = $this->uikit->getFrameworkOptions('grid_func');
 
-        return $this->uikit->render('layout/grid', [
+        return $this->tpl([
             'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes']),
-            'open'       => $options['open'],
-            'close'      => $options['close'],
+            'attributes' => $this->getAttributes($this->options['attributes']),
         ]);
     }
 

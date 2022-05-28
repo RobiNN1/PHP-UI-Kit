@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Menu extends Component {
+final class Menu extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/menu';
+
     /**
      * Render menu.
      *
@@ -23,7 +28,7 @@ class Menu extends Component {
      * @return string
      */
     public function render(string $id, array $items, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
@@ -38,14 +43,10 @@ class Menu extends Component {
             $items['right'] = $right;
         }
 
-        return $this->uikit->render('components/menu', [
+        return $this->tpl([
             'id'         => $id,
-            'items'      => $this->formatItems($items, $id, $options['dark']),
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes']),
-            'item_class' => $options['item_class'],
-            'dark'       => $options['dark'],
-            'brand'      => $options['brand'],
+            'items'      => $this->items($items, $id, $this->options['dark']),
+            'attributes' => $this->getAttributes($this->options['attributes']),
         ]);
     }
 
@@ -76,12 +77,12 @@ class Menu extends Component {
      *
      * @return array
      */
-    private function formatItems(array $items, string $id, bool $dark): array {
+    private function items(array $items, string $id, bool $dark): array {
         $items_formatted = [];
 
         foreach ($items as $key => $item) {
             if ($key === 'right') {
-                $items_formatted[$key] = $this->formatItems($item, $id, $dark);
+                $items_formatted[$key] = $this->items($item, $id, $dark);
             } elseif (is_array($item) && count($item) !== count($item, COUNT_RECURSIVE)) {
                 $items_formatted[$key]['dropdown'] = $this->dropdown($item, $dark);
             } else {

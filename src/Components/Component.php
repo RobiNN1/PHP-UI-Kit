@@ -26,6 +26,11 @@ class Component {
     protected string $component = '';
 
     /**
+     * @var array
+     */
+    protected array $options = [];
+
+    /**
      * Get attributes.
      *
      * @param array  $attributes
@@ -75,6 +80,6 @@ class Component {
      * @return string
      */
     public function tpl(array $data = []): string {
-        return $this->uikit->render($this->component, $data);
+        return $this->uikit->render($this->component, array_merge($this->options, $data));
     }
 }

@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-class Checkbox extends Component {
+final class Checkbox extends Component {
     /**
      * @var string
      */
@@ -31,7 +31,7 @@ class Checkbox extends Component {
      * @return string
      */
     public function render(string $name, string $label = '', int|string $value = 0, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'                  => '', // Wrapper ID.
             'class'               => '', // Class for wrapper.
             'attributes'          => [], // Array of custom attributes.
@@ -49,23 +49,23 @@ class Checkbox extends Component {
         $checkbox_attributes = [];
 
         if (!empty($name)) {
-            $name .= $options['radio'] === false && !str_ends_with($name, '[]') && !empty($options['items']) ? '[]' : '';
+            $name .= $this->options['radio'] === false && !str_ends_with($name, '[]') && !empty($this->options['items']) ? '[]' : '';
             $checkbox_attributes['name'] = $name;
         }
 
-        if ($options['required']) {
+        if ($this->options['required']) {
             $checkbox_attributes['required'] = null;
         }
 
-        if ($options['disabled']) {
+        if ($this->options['disabled']) {
             $checkbox_attributes['disabled'] = null;
         }
 
-        $checkbox_attributes += $options['checkbox_attributes'];
+        $checkbox_attributes += $this->options['checkbox_attributes'];
 
-        if (empty($options['items'])) {
+        if (empty($this->options['items'])) {
             $value = $value === '' ? 0 : $value;
-            $options['items'] = [
+            $this->options['items'] = [
                 $value => $label,
             ];
         }
@@ -73,17 +73,10 @@ class Checkbox extends Component {
         return $this->tpl([
             'value'               => $value,
             'label'               => $label,
-            'class'               => $options['class'],
-            'attributes'          => $this->getAttributes($options['attributes'], $options['id']),
-            'items'               => $options['items'],
-            'checkbox_id'         => $options['checkbox_id'],
+            'attributes'          => $this->getAttributes($this->options['attributes'], $this->options['id']),
             'checkbox_attributes' => $this->getAttributes($checkbox_attributes),
-            'type'                => $options['radio'] ? 'radio' : 'checkbox',
-            'state'               => $this->getOption('validation', $options['state']),
-            'feedback_text'       => $options['feedback_text'],
-            'required'            => $options['required'],
-            'disabled'            => $options['disabled'],
-            'help_text'           => $options['help_text'],
+            'type'                => $this->options['radio'] ? 'radio' : 'checkbox',
+            'state'               => $this->getOption('validation', $this->options['state']),
         ]);
     }
 }

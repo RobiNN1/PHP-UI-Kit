@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Button extends Component {
+final class Button extends Component {
     /**
      * @var string
      */
@@ -28,7 +28,7 @@ class Button extends Component {
      * @return string
      */
     public function render(string $title, string $type = 'button', array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Button ID.
             'class'      => '', // Button class.
             'attributes' => [], // Array of custom attributes.
@@ -47,25 +47,25 @@ class Button extends Component {
 
         $attributes = [];
 
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
+        if (!empty($this->options['id'])) {
+            $attributes['id'] = $this->options['id'];
         }
 
-        if (empty($options['link'])) {
-            if (!empty($options['name'])) {
-                $attributes['name'] = $options['name'];
+        if (empty($this->options['link'])) {
+            if (!empty($this->options['name'])) {
+                $attributes['name'] = $this->options['name'];
             }
 
-            if (isset($options['value'])) {
-                $attributes['value'] = $options['value'];
+            if (isset($this->options['value'])) {
+                $attributes['value'] = $this->options['value'];
             }
         }
 
-        if ($options['disabled']) {
+        if ($this->options['disabled']) {
             $attributes['disabled'] = '';
         }
 
-        $attributes += $options['attributes'];
+        $attributes += $this->options['attributes'];
 
         $active_class = $this->getOption('states', 'active');
         $disabled_class = $this->getOption('states', 'disabled');
@@ -73,18 +73,10 @@ class Button extends Component {
         return $this->tpl([
             'title'         => $title,
             'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
-            'class'         => $options['class'],
             'attributes'    => $this->getAttributes($attributes),
-            'color'         => $this->getOption('colors', $options['color']),
-            'size'          => $this->getOption('sizes', $options['size']),
-            'active'        => $options['active'],
-            'disabled'      => $options['disabled'],
-            'link'          => $options['link'],
-            'icon'          => $options['icon'],
-            'icon_right'    => $options['icon_right'],
-            'no_classes'    => $options['no_classes'],
-            'menu_dp'       => $options['menu_dp'],
-            'state_classes' => ($options['active'] ? $active_class : '').($options['disabled'] ? $disabled_class : ''),
+            'color'         => $this->getOption('colors', $this->options['color']),
+            'size'          => $this->getOption('sizes', $this->options['size']),
+            'state_classes' => ($this->options['active'] ? $active_class : '').($this->options['disabled'] ? $disabled_class : ''),
         ]);
     }
 }

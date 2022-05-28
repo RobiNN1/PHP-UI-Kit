@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class ListGroup extends Component {
+final class ListGroup extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/list_group';
+
     /**
      * Render a list group.
      *
@@ -22,18 +27,16 @@ class ListGroup extends Component {
      * @return string
      */
     public function render(array $items, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
         ], $options);
 
-        return $this->uikit->render('components/list_group', [
+        return $this->tpl([
             'items'      => $items,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'item_class' => $options['item_class'],
+            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
         ]);
     }
 }

@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Pagination extends Component {
+final class Pagination extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/pagination';
+
     /**
      * Render pagination.
      *
@@ -22,7 +27,7 @@ class Pagination extends Component {
      * @return string
      */
     public function render(array $items, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -38,18 +43,16 @@ class Pagination extends Component {
         $prev = [];
         $next = [];
 
-        if ($options['prev_next']) {
-            $prev['prev'] = $options['current'] > 1 ? $options['current'] - 1 : $options['current'];
-            $next['next'] = $options['current'] + 1;
+        if ($this->options['prev_next']) {
+            $prev['prev'] = $this->options['current'] > 1 ? $this->options['current'] - 1 : $this->options['current'];
+            $next['next'] = $this->options['current'] + 1;
         }
 
         $items = $prev + $items + $next;
 
-        return $this->uikit->render('components/pagination', [
-            'items'      => $this->items($items, $options),
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'item_class' => $options['item_class'],
+        return $this->tpl([
+            'items'      => $this->items($items, $this->options),
+            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
         ]);
     }
 
