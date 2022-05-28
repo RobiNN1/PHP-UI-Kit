@@ -60,6 +60,8 @@ class Twig implements TplEngineInterface {
 
         $this->twig->addExtension(new TwigUiKitExtension($uikit));
 
+        $this->twig->addGlobal('current_framework', $uikit->config->getFramework());
+
         return $this->twig;
     }
 
