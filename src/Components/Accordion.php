@@ -36,9 +36,8 @@ final class Accordion extends Component {
         ], $options);
 
         return $this->tpl([
-            'id'         => $id,
-            'items'      => $items,
-            'attributes' => $this->getAttributes($this->options['attributes']),
+            'id'    => $id,
+            'items' => $items,
         ]);
     }
 }

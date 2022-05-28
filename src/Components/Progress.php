@@ -57,8 +57,7 @@ final class Progress extends Component {
         }
 
         return $this->tpl([
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
-            'bars'       => $bars,
+            'bars' => $bars,
         ]);
     }
 

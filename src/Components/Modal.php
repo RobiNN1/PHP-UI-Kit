@@ -58,11 +58,10 @@ final class Modal extends Component {
         }
 
         return $this->tpl([
-            'id'         => $id,
-            'content'    => $content,
-            'attributes' => $this->getAttributes($this->options['attributes']),
-            'size'       => $this->getOption('sizes', $this->options['size']),
-            'button'     => $button,
+            'id'      => $id,
+            'content' => $content,
+            'size'    => $this->getOption('sizes', $this->options['size']),
+            'button'  => $button,
         ]);
     }
 }

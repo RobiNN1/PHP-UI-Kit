@@ -53,31 +53,27 @@ final class Input extends Component {
             'right_custom'     => '', // Right custom addon.
         ], $options);
 
-        $input_attributes = [];
-
-        $input_attributes['id'] = $this->options['input_id'];
+        $this->options['input_attributes']['id'] = $this->options['input_id'];
 
         if (!empty($name)) {
-            $input_attributes['name'] = $name;
+            $this->options['input_attributes']['name'] = $name;
         }
 
         if (!empty($this->options['placeholder'])) {
-            $input_attributes['placeholder'] = $this->options['placeholder'];
+            $this->options['input_attributes']['placeholder'] = $this->options['placeholder'];
         }
 
         if ($this->options['required']) {
-            $input_attributes['required'] = null;
+            $this->options['input_attributes']['required'] = null;
         }
 
         if ($this->options['disabled']) {
-            $input_attributes['disabled'] = null;
+            $this->options['input_attributes']['disabled'] = null;
         }
 
         if ($this->options['readonly']) {
-            $input_attributes['readonly'] = null;
+            $this->options['input_attributes']['readonly'] = null;
         }
-
-        $input_attributes += $this->options['input_attributes'];
 
         $input_types = [
             'color', 'date', 'datetime-local', 'email', 'file', 'hidden', 'image', 'month',
@@ -87,9 +83,8 @@ final class Input extends Component {
         return $this->tpl([
             'value'            => $value,
             'label'            => $label,
-            'attributes'       => $this->getAttributes($this->options['attributes'], $this->options['id']),
-            'input_id'         => $input_attributes['id'],
-            'input_attributes' => $this->getAttributes($input_attributes),
+            'input_id'         => $this->options['input_attributes']['id'],
+            'input_attributes' => $this->getAttributes($this->options['input_attributes']),
             'type'             => in_array($this->options['type'], $input_types, true) ? $this->options['type'] : 'text',
             'size'             => $this->getOption('sizes', $this->options['size']),
             'state'            => $this->getOption('validation', $this->options['state']),

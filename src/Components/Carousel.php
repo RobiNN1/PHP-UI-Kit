@@ -37,9 +37,8 @@ final class Carousel extends Component {
         ], $options);
 
         return $this->tpl([
-            'id'         => $id,
-            'slides'     => $slides,
-            'attributes' => $this->getAttributes($this->options['attributes']),
+            'id'     => $id,
+            'slides' => $slides,
         ]);
     }
 }

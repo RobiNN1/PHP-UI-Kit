@@ -40,7 +40,6 @@ final class Grid extends Component {
 
         return $this->tpl([
             'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
-            'attributes' => $this->getAttributes($this->options['attributes']),
         ]);
     }
 

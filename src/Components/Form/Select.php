@@ -49,37 +49,32 @@ final class Select extends Component {
             'multiple'          => false, // Multiple.
         ], $options);
 
-        $select_attributes = [];
-
-        $select_attributes['id'] = $this->options['select_id'];
+        $this->options['select_attributes']['id'] = $this->options['select_id'];
 
         if (!empty($name)) {
             $name .= $this->options['multiple'] && !str_ends_with($name, '[]') ? '[]' : '';
-            $select_attributes['name'] = $name;
+            $this->options['select_attributes']['name'] = $name;
         }
 
         if ($this->options['required']) {
-            $select_attributes['required'] = null;
+            $this->options['select_attributes']['required'] = null;
         }
 
         if ($this->options['disabled']) {
-            $select_attributes['disabled'] = null;
+            $this->options['select_attributes']['disabled'] = null;
         }
 
         if ($this->options['multiple']) {
-            $select_attributes['multiple'] = null;
-            $select_attributes['size'] = 3;
+            $this->options['select_attributes']['multiple'] = null;
+            $this->options['select_attributes']['size'] = 3;
         }
-
-        $select_attributes += $this->options['select_attributes'];
 
         return $this->tpl([
             'value'             => $value,
             'label'             => $label,
             'items'             => $items,
-            'attributes'        => $this->getAttributes($this->options['attributes'], $this->options['id']),
-            'select_id'         => $select_attributes['id'],
-            'select_attributes' => $this->getAttributes($select_attributes),
+            'select_id'         => $this->options['select_attributes']['id'],
+            'select_attributes' => $this->getAttributes($this->options['select_attributes']),
             'size'              => $this->getOption('sizes', $this->options['size']),
             'state'             => $this->getOption('validation', $this->options['state']),
         ]);

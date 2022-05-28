@@ -45,27 +45,23 @@ final class Button extends Component {
             'menu_dp'    => false, // Set true if is used as menu dropdown button. @internal
         ], $options);
 
-        $attributes = [];
-
         if (!empty($this->options['id'])) {
-            $attributes['id'] = $this->options['id'];
+            $this->options['attributes']['id'] = $this->options['id'];
         }
 
         if (empty($this->options['link'])) {
             if (!empty($this->options['name'])) {
-                $attributes['name'] = $this->options['name'];
+                $this->options['attributes']['name'] = $this->options['name'];
             }
 
             if (isset($this->options['value'])) {
-                $attributes['value'] = $this->options['value'];
+                $this->options['attributes']['value'] = $this->options['value'];
             }
         }
 
         if ($this->options['disabled']) {
-            $attributes['disabled'] = '';
+            $this->options['attributes']['disabled'] = '';
         }
-
-        $attributes += $this->options['attributes'];
 
         $active_class = $this->getOption('states', 'active');
         $disabled_class = $this->getOption('states', 'disabled');
@@ -73,7 +69,6 @@ final class Button extends Component {
         return $this->tpl([
             'title'         => $title,
             'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
-            'attributes'    => $this->getAttributes($attributes),
             'color'         => $this->getOption('colors', $this->options['color']),
             'size'          => $this->getOption('sizes', $this->options['size']),
             'state_classes' => ($this->options['active'] ? $active_class : '').($this->options['disabled'] ? $disabled_class : ''),

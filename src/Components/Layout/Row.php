@@ -35,9 +35,7 @@ final class Row extends Component {
             'close'      => false, // Closing div. @internal
         ], $options);
 
-        return $this->tpl([
-            'attributes' => $this->getAttributes($this->options['attributes']),
-        ]);
+        return $this->tpl();
     }
 
     /**

@@ -36,8 +36,7 @@ final class Breadcrumbs extends Component {
         ], $options);
 
         return $this->tpl([
-            'links'      => $links,
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
+            'links' => $links,
         ]);
     }
 }
