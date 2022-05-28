@@ -1,11 +1,11 @@
-{% macro page(framework) %}
+{% macro page() %}
     {{ container_open(false, {'attributes': {'style': 'padding-top: 3rem;padding-bottom: 3rem;'}}) }}
 
     <div style="text-align:center;margin-bottom:3rem;">
         <h1>PHP UI Kit Examples: Twig</h1>
-        <h2>Current CSS Framework: <strong>{{ framework }}</strong></h2>
+        <h2>Current CSS Framework: <strong>{{ current_framework }}</strong></h2>
 
-        {% if framework == 'bootstrap5' %}
+        {% if current_framework == 'bootstrap5' %}
             <p><a href="/examples/twig/?sm">Open Fomantic UI version</a></p>
         {% else %}
             <p><a href="/examples/twig/">Open Bootstrap 5 version</a></p>
@@ -23,4 +23,4 @@
     {{ container_close() }}
 {% endmacro %}
 
-{{ layout(_self.page(framework), {'title': 'PHP UI Kit Examples: Twig'}) }}
+{{ layout(_self.page(), {'title': 'PHP UI Kit Examples: Twig'}) }}
