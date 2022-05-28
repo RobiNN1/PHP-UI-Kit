@@ -40,31 +40,25 @@ final class Form extends Component {
             'close'      => false, // Close form. @internal
         ], $options);
 
-        $attributes = [];
-
         if (!empty($this->options['id'])) {
-            $attributes['id'] = $this->options['id'];
+            $this->options['attributes']['id'] = $this->options['id'];
         }
 
         if (!empty($this->options['name'])) {
-            $attributes['name'] = $this->options['name'];
+            $this->options['attributes']['name'] = $this->options['name'];
         }
 
-        $attributes['method'] = strtolower($method) === 'post' ? 'post' : 'get';
+        $this->options['attributes']['method'] = strtolower($method) === 'post' ? 'post' : 'get';
 
         if (!empty($action)) {
-            $attributes['action'] = $action;
+            $this->options['attributes']['action'] = $action;
         }
 
         if ($this->options['upload']) {
-            $attributes['enctype'] = 'multipart/form-data';
+            $this->options['attributes']['enctype'] = 'multipart/form-data';
         }
 
-        $attributes += $this->options['attributes'];
-
-        return $this->tpl([
-            'attributes' => $this->getAttributes($attributes),
-        ]);
+        return $this->tpl();
     }
 
     /**

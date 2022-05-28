@@ -35,8 +35,7 @@ final class ListGroup extends Component {
         ], $options);
 
         return $this->tpl([
-            'items'      => $items,
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
+            'items' => $items,
         ]);
     }
 }

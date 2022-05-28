@@ -44,9 +44,8 @@ final class Menu extends Component {
         }
 
         return $this->tpl([
-            'id'         => $id,
-            'items'      => $this->items($items, $id, $this->options['dark']),
-            'attributes' => $this->getAttributes($this->options['attributes']),
+            'id'    => $id,
+            'items' => $this->items($items, $id, $this->options['dark']),
         ]);
     }
 

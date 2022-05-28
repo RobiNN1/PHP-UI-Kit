@@ -55,9 +55,8 @@ final class Dropdown extends Component {
         }
 
         return $this->tpl([
-            'items'      => $items,
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
-            'button'     => $this->uikit->button->render($title, 'button', $this->options['button']),
+            'items'  => $items,
+            'button' => $this->uikit->button->render($title, 'button', $this->options['button']),
         ]);
     }
 }

@@ -39,9 +39,8 @@ final class ButtonGroup extends Component {
         ], $options);
 
         return $this->tpl([
-            'buttons'    => $this->buttons($items, $this->options),
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
-            'size'       => $this->getOption('sizes', $this->options['size']),
+            'buttons' => $this->buttons($items, $this->options),
+            'size'    => $this->getOption('sizes', $this->options['size']),
         ]);
     }
 

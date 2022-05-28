@@ -33,22 +33,14 @@ class Component {
     /**
      * Get attributes.
      *
-     * @param array  $attributes
-     * @param string $id
+     * @param array $attributes
      *
      * @return string
      */
-    public function getAttributes(array $attributes, string $id = ''): string {
-        $attributes_array = [];
-
-        if (!empty($id)) {
-            $attributes_array['id'] = $id;
-        }
-
-        $attributes_array += $attributes;
-
+    public function getAttributes(array $attributes): string {
         $array = [];
-        foreach ($attributes_array as $attr => $value) {
+
+        foreach ($attributes as $attr => $value) {
             $array[] = $attr.(isset($value) ? '="'.$value.'"' : '');
         }
 
@@ -80,6 +72,14 @@ class Component {
      * @return string
      */
     public function tpl(array $data = []): string {
-        return $this->uikit->render($this->component, array_merge($this->options, $data));
+        $array = array_merge($this->options, $data);
+
+        if (array_key_exists('id', $this->options) && !empty($this->options['id'])) {
+            $this->options['attributes']['id'] = $this->options['id'];
+        }
+
+        $array['attributes'] = $this->getAttributes($this->options['attributes']);
+
+        return $this->uikit->render($this->component, $array);
     }
 }

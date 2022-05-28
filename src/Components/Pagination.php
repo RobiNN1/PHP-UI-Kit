@@ -51,8 +51,7 @@ final class Pagination extends Component {
         $items = $prev + $items + $next;
 
         return $this->tpl([
-            'items'      => $this->items($items, $this->options),
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
+            'items' => $this->items($items, $this->options),
         ]);
     }
 

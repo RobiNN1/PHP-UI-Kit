@@ -36,9 +36,8 @@ final class Tabs extends Component {
         ], $options);
 
         return $this->tpl([
-            'id'         => $id,
-            'items'      => $this->items($items),
-            'attributes' => $this->getAttributes($this->options['attributes']),
+            'id'    => $id,
+            'items' => $this->items($items),
         ]);
     }
 

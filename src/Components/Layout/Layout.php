@@ -66,7 +66,6 @@ final class Layout extends Component {
 
         return $this->tpl([
             'body'        => $body,
-            'attributes'  => $this->getAttributes($this->options['attributes']),
             'head_tags'   => AddTo::$head,
             'css_codes'   => $css_codes,
             'footer_tags' => AddTo::$footer,

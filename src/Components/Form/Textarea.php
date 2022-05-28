@@ -48,36 +48,31 @@ final class Textarea extends Component {
             'rows'                => 4, // Textarea rows.
         ], $options);
 
-        $textarea_attributes = [];
-
-        $textarea_attributes['id'] = $this->options['textarea_id'];
+        $this->options['textarea_attributes']['id'] = $this->options['textarea_id'];
 
         if (!empty($name)) {
-            $textarea_attributes['name'] = $name;
+            $this->options['textarea_attributes']['name'] = $name;
         }
 
         if ($this->options['required']) {
-            $textarea_attributes['required'] = null;
+            $this->options['textarea_attributes']['required'] = null;
         }
 
         if ($this->options['disabled']) {
-            $textarea_attributes['disabled'] = null;
+            $this->options['textarea_attributes']['disabled'] = null;
         }
 
         if ($this->options['readonly']) {
-            $textarea_attributes['readonly'] = null;
+            $this->options['textarea_attributes']['readonly'] = null;
         }
 
-        $textarea_attributes['rows'] = $this->options['rows'];
-
-        $textarea_attributes += $this->options['textarea_attributes'];
+        $this->options['textarea_attributes']['rows'] = $this->options['rows'];
 
         return $this->tpl([
             'value'               => $value,
             'label'               => $label,
-            'attributes'          => $this->getAttributes($this->options['attributes'], $this->options['id']),
-            'textarea_id'         => $textarea_attributes['id'],
-            'textarea_attributes' => $this->getAttributes($textarea_attributes),
+            'textarea_id'         => $this->options['textarea_attributes']['id'],
+            'textarea_attributes' => $this->getAttributes($this->options['textarea_attributes']),
             'state'               => $this->getOption('validation', $this->options['state']),
         ]);
     }

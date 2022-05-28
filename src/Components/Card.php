@@ -39,8 +39,6 @@ final class Card extends Component {
             'link'       => '', // As link.
         ], $options);
 
-        return $this->tpl([
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
-        ]);
+        return $this->tpl();
     }
 }

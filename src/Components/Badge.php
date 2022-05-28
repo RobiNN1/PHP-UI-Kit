@@ -36,9 +36,8 @@ final class Badge extends Component {
         ], $options);
 
         return $this->tpl([
-            'text'       => $text,
-            'color'      => $this->getOption('colors', $color),
-            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
+            'text'  => $text,
+            'color' => $this->getOption('colors', $color),
         ]);
     }
 }

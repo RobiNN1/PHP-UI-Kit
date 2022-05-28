@@ -46,22 +46,18 @@ final class Checkbox extends Component {
             'help_text'           => '', // Custom help text.
         ], $options);
 
-        $checkbox_attributes = [];
-
         if (!empty($name)) {
             $name .= $this->options['radio'] === false && !str_ends_with($name, '[]') && !empty($this->options['items']) ? '[]' : '';
-            $checkbox_attributes['name'] = $name;
+            $this->options['checkbox_attributes']['name'] = $name;
         }
 
         if ($this->options['required']) {
-            $checkbox_attributes['required'] = null;
+            $this->options['checkbox_attributes']['required'] = null;
         }
 
         if ($this->options['disabled']) {
-            $checkbox_attributes['disabled'] = null;
+            $this->options['checkbox_attributes']['disabled'] = null;
         }
-
-        $checkbox_attributes += $this->options['checkbox_attributes'];
 
         if (empty($this->options['items'])) {
             $value = $value === '' ? 0 : $value;
@@ -73,8 +69,7 @@ final class Checkbox extends Component {
         return $this->tpl([
             'value'               => $value,
             'label'               => $label,
-            'attributes'          => $this->getAttributes($this->options['attributes'], $this->options['id']),
-            'checkbox_attributes' => $this->getAttributes($checkbox_attributes),
+            'checkbox_attributes' => $this->getAttributes($this->options['checkbox_attributes']),
             'type'                => $this->options['radio'] ? 'radio' : 'checkbox',
             'state'               => $this->getOption('validation', $this->options['state']),
         ]);

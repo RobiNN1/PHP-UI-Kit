@@ -37,8 +37,7 @@ final class Container extends Component {
         ], $options);
 
         return $this->tpl([
-            'fluid'      => $fluid,
-            'attributes' => $this->getAttributes($this->options['attributes']),
+            'fluid' => $fluid,
         ]);
     }
 
