@@ -38,12 +38,12 @@ final class ComponentTest extends TestCase {
     public function testGetOption(): void {
         $this->component->uikit = (new UiKit())->init();
         $this->component->uikit->setFrameworkOption('test', [
-            'colors' => [
-                'default' => 'alert-primary',
-                'success' => 'alert-success',
+            'array' => [
+                'default' => 'value1',
+                'primary' => 'value2',
             ],
         ]);
 
-        $this->assertSame('alert-success', $this->component->getOption('colors', 'success', 'test'));
+        $this->assertSame('value2', $this->component->getOption('array', 'primary', 'test'));
     }
 }
