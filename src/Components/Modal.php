@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Modal extends Component {
+final class Modal extends Component {
     /**
      * @var string
      */
@@ -28,7 +28,7 @@ class Modal extends Component {
      * @return string
      */
     public function render(string $id, array $content, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'class'        => '', // Class for wrapper.
             'attributes'   => [], // Array of custom attributes.
             'size'         => 'default', // Modal size. Possible value: default/sm/lg/fullscreen
@@ -40,33 +40,29 @@ class Modal extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions('modal.button');
 
-        if (!empty($options['button'])) {
+        if (!empty($this->options['button'])) {
             if (!empty($fwoptions['attributes'])) {
                 foreach ($fwoptions['attributes'] as $attr => $value) {
                     $fwoptions['attributes'][$attr] = strtr($value, ['{id}' => $id]);
                 }
 
-                $attr = !empty($options['button']['attributes']) ? $options['button']['attributes'] : [];
-                $options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
+                $attr = !empty($this->options['button']['attributes']) ? $this->options['button']['attributes'] : [];
+                $this->options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
             }
 
-            $button = $this->uikit->button->render($options['button']['title'], 'button', $options['button']);
+            $button = $this->uikit->button->render($this->options['button']['title'], 'button', $this->options['button']);
         } else {
             $button = '';
-            $options['always_open'] = true;
-            $options['hide_button'] = true;
+            $this->options['always_open'] = true;
+            $this->options['hide_button'] = true;
         }
 
         return $this->tpl([
-            'id'           => $id,
-            'content'      => $content,
-            'class'        => $options['class'],
-            'attributes'   => $this->getAttributes($options['attributes']),
-            'size'         => $this->getOption('sizes', $options['size']),
-            'close_button' => $options['close_button'],
-            'hide_button'  => $options['hide_button'],
-            'always_open'  => $options['always_open'],
-            'button'       => $button,
+            'id'         => $id,
+            'content'    => $content,
+            'attributes' => $this->getAttributes($this->options['attributes']),
+            'size'       => $this->getOption('sizes', $this->options['size']),
+            'button'     => $button,
         ]);
     }
 }

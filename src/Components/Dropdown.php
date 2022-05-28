@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Dropdown extends Component {
+final class Dropdown extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/dropdown';
+
     /**
      * Render dropdown.
      *
@@ -23,9 +28,7 @@ class Dropdown extends Component {
      * @return string
      */
     public function render(string $title, array $items, array $options = []): string {
-        $component = 'dropdown';
-
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Dropdown ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -35,32 +38,26 @@ class Dropdown extends Component {
             'in_menu'    => false, // Set true if is used in the menu item. @internal
         ], $options);
 
-        $fwoptions = $this->uikit->getFrameworkOptions($component.'.button');
+        $fwoptions = $this->uikit->getFrameworkOptions('dropdown.button');
 
         if (!empty($fwoptions['class'])) {
-            $class = !empty($options['button']['class']) ? $options['button']['class'].' ' : '';
-            $options['button']['class'] = $class.$fwoptions['class'];
+            $class = !empty($this->options['button']['class']) ? $this->options['button']['class'].' ' : '';
+            $this->options['button']['class'] = $class.$fwoptions['class'];
         }
 
         if (!empty($fwoptions['attributes'])) {
-            $attr = !empty($options['button']['attributes']) ? $options['button']['attributes'] : [];
-            $options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
+            $attr = !empty($this->options['button']['attributes']) ? $this->options['button']['attributes'] : [];
+            $this->options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
         }
 
         if (!empty($fwoptions['icon'])) {
             $title .= ' '.$fwoptions['icon'];
         }
 
-        $button = $this->uikit->button->render($title, 'button', $options['button']);
-
-        return $this->uikit->render('components/'.$component, [
+        return $this->tpl([
             'items'      => $items,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'item_class' => $options['item_class'],
-            'dark'       => $options['dark'],
-            'button'     => $button,
-            'in_menu'    => $options['in_menu'],
+            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
+            'button'     => $this->uikit->button->render($title, 'button', $this->options['button']),
         ]);
     }
 }

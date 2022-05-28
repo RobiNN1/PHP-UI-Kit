@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-class Input extends Component {
+final class Input extends Component {
     /**
      * @var string
      */
@@ -31,7 +31,7 @@ class Input extends Component {
      * @return string
      */
     public function render(string $name, string $label = '', int|string $value = '', array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'               => '', // Wrapper ID.
             'class'            => '', // Class for wrapper.
             'attributes'       => [], // Array of custom attributes.
@@ -55,29 +55,29 @@ class Input extends Component {
 
         $input_attributes = [];
 
-        $input_attributes['id'] = $options['input_id'];
+        $input_attributes['id'] = $this->options['input_id'];
 
         if (!empty($name)) {
             $input_attributes['name'] = $name;
         }
 
-        if (!empty($options['placeholder'])) {
-            $input_attributes['placeholder'] = $options['placeholder'];
+        if (!empty($this->options['placeholder'])) {
+            $input_attributes['placeholder'] = $this->options['placeholder'];
         }
 
-        if ($options['required']) {
+        if ($this->options['required']) {
             $input_attributes['required'] = null;
         }
 
-        if ($options['disabled']) {
+        if ($this->options['disabled']) {
             $input_attributes['disabled'] = null;
         }
 
-        if ($options['readonly']) {
+        if ($this->options['readonly']) {
             $input_attributes['readonly'] = null;
         }
 
-        $input_attributes += $options['input_attributes'];
+        $input_attributes += $this->options['input_attributes'];
 
         $input_types = [
             'color', 'date', 'datetime-local', 'email', 'file', 'hidden', 'image', 'month',
@@ -87,23 +87,12 @@ class Input extends Component {
         return $this->tpl([
             'value'            => $value,
             'label'            => $label,
-            'class'            => $options['class'],
-            'attributes'       => $this->getAttributes($options['attributes'], $options['id']),
+            'attributes'       => $this->getAttributes($this->options['attributes'], $this->options['id']),
             'input_id'         => $input_attributes['id'],
-            'input_class'      => $options['input_class'],
             'input_attributes' => $this->getAttributes($input_attributes),
-            'type'             => in_array($options['type'], $input_types, true) ? $options['type'] : 'text',
-            'size'             => $this->getOption('sizes', $options['size']),
-            'state'            => $this->getOption('validation', $options['state']),
-            'feedback_text'    => $options['feedback_text'],
-            'required'         => $options['required'],
-            'disabled'         => $options['disabled'],
-            'readonly'         => $options['readonly'],
-            'help_text'        => $options['help_text'],
-            'left_addon'       => $options['left_addon'],
-            'right_addon'      => $options['right_addon'],
-            'left_custom'      => $options['left_custom'],
-            'right_custom'     => $options['right_custom'],
+            'type'             => in_array($this->options['type'], $input_types, true) ? $this->options['type'] : 'text',
+            'size'             => $this->getOption('sizes', $this->options['size']),
+            'state'            => $this->getOption('validation', $this->options['state']),
         ]);
     }
 }

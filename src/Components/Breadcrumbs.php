@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Breadcrumbs extends Component {
+final class Breadcrumbs extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/breadcrumbs';
+
     /**
      * Render breadcrumbs.
      *
@@ -22,7 +27,7 @@ class Breadcrumbs extends Component {
      * @return string
      */
     public function render(array $links, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -30,12 +35,9 @@ class Breadcrumbs extends Component {
             'divider'    => '/', // Items divider.
         ], $options);
 
-        return $this->uikit->render('components/breadcrumbs', [
+        return $this->tpl([
             'links'      => $links,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-            'item_class' => $options['item_class'],
-            'divider'    => $options['divider'],
+            'attributes' => $this->getAttributes($this->options['attributes'], $this->options['id']),
         ]);
     }
 }

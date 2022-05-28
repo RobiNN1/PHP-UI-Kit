@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-class Select extends Component {
+final class Select extends Component {
     /**
      * @var string
      */
@@ -32,7 +32,7 @@ class Select extends Component {
      * @return string
      */
     public function render(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'                => '', // Wrapper ID.
             'class'             => '', // Class for wrapper.
             'attributes'        => [], // Array of custom attributes.
@@ -51,45 +51,37 @@ class Select extends Component {
 
         $select_attributes = [];
 
-        $select_attributes['id'] = $options['select_id'];
+        $select_attributes['id'] = $this->options['select_id'];
 
         if (!empty($name)) {
-            $name .= $options['multiple'] && !str_ends_with($name, '[]') ? '[]' : '';
+            $name .= $this->options['multiple'] && !str_ends_with($name, '[]') ? '[]' : '';
             $select_attributes['name'] = $name;
         }
 
-        if ($options['required']) {
+        if ($this->options['required']) {
             $select_attributes['required'] = null;
         }
 
-        if ($options['disabled']) {
+        if ($this->options['disabled']) {
             $select_attributes['disabled'] = null;
         }
 
-        if ($options['multiple']) {
+        if ($this->options['multiple']) {
             $select_attributes['multiple'] = null;
             $select_attributes['size'] = 3;
         }
 
-        $select_attributes += $options['select_attributes'];
+        $select_attributes += $this->options['select_attributes'];
 
         return $this->tpl([
             'value'             => $value,
             'label'             => $label,
             'items'             => $items,
-            'class'             => $options['class'],
-            'attributes'        => $this->getAttributes($options['attributes'], $options['id']),
+            'attributes'        => $this->getAttributes($this->options['attributes'], $this->options['id']),
             'select_id'         => $select_attributes['id'],
-            'select_class'      => $options['select_class'],
             'select_attributes' => $this->getAttributes($select_attributes),
-            'size'              => $this->getOption('sizes', $options['size']),
-            'state'             => $this->getOption('validation', $options['state']),
-            'feedback_text'     => $options['feedback_text'],
-            'required'          => $options['required'],
-            'disabled'          => $options['disabled'],
-            'help_text'         => $options['help_text'],
-            'placeholder'       => $options['placeholder'],
-            'multiple'          => $options['multiple'],
+            'size'              => $this->getOption('sizes', $this->options['size']),
+            'state'             => $this->getOption('validation', $this->options['state']),
         ]);
     }
 }

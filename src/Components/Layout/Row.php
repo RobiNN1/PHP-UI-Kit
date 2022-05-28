@@ -14,7 +14,12 @@ namespace RobiNN\UiKit\Components\Layout;
 
 use RobiNN\UiKit\Components\Component;
 
-class Row extends Component {
+final class Row extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'layout/row';
+
     /**
      * Render row.
      *
@@ -23,18 +28,15 @@ class Row extends Component {
      * @return string
      */
     public function render(array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'open'       => false, // Opening div. @internal
             'close'      => false, // Closing div. @internal
         ], $options);
 
-        return $this->uikit->render('layout/row', [
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes']),
-            'open'       => $options['open'],
-            'close'      => $options['close'],
+        return $this->tpl([
+            'attributes' => $this->getAttributes($this->options['attributes']),
         ]);
     }
 

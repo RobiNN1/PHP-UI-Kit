@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Carousel extends Component {
+final class Carousel extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/carousel';
+
     /**
      * Render carousel.
      *
@@ -23,7 +28,7 @@ class Carousel extends Component {
      * @return string
      */
     public function render(string $id, array $slides, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
@@ -31,14 +36,10 @@ class Carousel extends Component {
             'controls'   => true, // Carousel controls buttons.
         ], $options);
 
-        return $this->uikit->render('components/carousel', [
+        return $this->tpl([
             'id'         => $id,
             'slides'     => $slides,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes']),
-            'item_class' => $options['item_class'],
-            'indicators' => $options['indicators'],
-            'controls'   => $options['controls'],
+            'attributes' => $this->getAttributes($this->options['attributes']),
         ]);
     }
 }

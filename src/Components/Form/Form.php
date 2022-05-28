@@ -14,7 +14,12 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-class Form extends Component {
+final class Form extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'form/form';
+
     /**
      * Render form.
      *
@@ -25,7 +30,7 @@ class Form extends Component {
      * @return string
      */
     public function render(string $method = 'post', string $action = '', array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Form ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
@@ -37,12 +42,12 @@ class Form extends Component {
 
         $attributes = [];
 
-        if (!empty($options['id'])) {
-            $attributes['id'] = $options['id'];
+        if (!empty($this->options['id'])) {
+            $attributes['id'] = $this->options['id'];
         }
 
-        if (!empty($options['name'])) {
-            $attributes['name'] = $options['name'];
+        if (!empty($this->options['name'])) {
+            $attributes['name'] = $this->options['name'];
         }
 
         $attributes['method'] = strtolower($method) === 'post' ? 'post' : 'get';
@@ -51,17 +56,14 @@ class Form extends Component {
             $attributes['action'] = $action;
         }
 
-        if ($options['upload']) {
+        if ($this->options['upload']) {
             $attributes['enctype'] = 'multipart/form-data';
         }
 
-        $attributes += $options['attributes'];
+        $attributes += $this->options['attributes'];
 
-        return $this->uikit->render('form/form', [
-            'class'      => $options['class'],
+        return $this->tpl([
             'attributes' => $this->getAttributes($attributes),
-            'open'       => $options['open'],
-            'close'      => $options['close'],
         ]);
     }
 

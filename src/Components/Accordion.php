@@ -12,7 +12,12 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-class Accordion extends Component {
+final class Accordion extends Component {
+    /**
+     * @var string
+     */
+    protected string $component = 'components/accordion';
+
     /**
      * Render accordion.
      *
@@ -23,20 +28,17 @@ class Accordion extends Component {
      * @return string
      */
     public function render(string $id, array $items, array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
             'item_class' => '', // Class for item.
             'first_open' => true, // Set false to close first item.
         ], $options);
 
-        return $this->uikit->render('components/accordion', [
+        return $this->tpl([
             'id'         => $id,
             'items'      => $items,
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes']),
-            'item_class' => $options['item_class'],
-            'first_open' => $options['first_open'],
+            'attributes' => $this->getAttributes($this->options['attributes']),
         ]);
     }
 }
