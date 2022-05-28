@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components{{namespace}}
 
-class {{class_name}} extends Component {
+final class {{class_name}} extends Component {
     /**
      * @var string
      */
@@ -26,15 +26,12 @@ class {{class_name}} extends Component {
      * @return string
      */
     public function render(array $options = []): string {
-        $options = array_merge([
+        $this->options = array_merge([
             'id'         => '', // Wrapper ID.
             'class'      => '', // Class for wrapper.
             'attributes' => [], // Array of custom attributes.
         ], $options);
 
-        return $this->tpl([
-            'class'      => $options['class'],
-            'attributes' => $this->getAttributes($options['attributes'], $options['id']),
-        ]);
+        return $this->tpl();
     }
 }
