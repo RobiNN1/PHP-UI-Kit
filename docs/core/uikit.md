@@ -57,22 +57,6 @@ echo $uikit->render('tpl_name', []);
 echo $uikit->render("{{ alert('Example') }}", [], true);
 ```
 
-## addHtml()
-
-Add HTML code.
-
-```php
-$uikit->addHtml('HTML code');
-```
-
-## getHtml()
-
-Get HTML code.
-
-```php
-$html = $uikit->getHtml();
-```
-
 ## setPath()
 
 Set path with templates.
@@ -102,22 +86,4 @@ Example, access to a config object:
 
 ```php
 $fw = get_ui()->config->getFramework();
-```
-
-Example, overriding function:
-
-```php
-function get_ui(): RobiNN\UiKit\UiKit {
-    $config = new RobiNN\UiKit\Config([
-        'cache' => __DIR__.'/cache',
-    ]);
-    
-    $config->enableDebug();
-
-    $uikit = RobiNN\UiKit\UiKit::getInstance();
-
-    return $uikit->init($config);
-}
-
-// now all components will use this config
 ```

@@ -21,30 +21,6 @@ if (!function_exists('get_ui')) {
     }
 }
 
-if (!function_exists('add_html')) {
-    /**
-     * Add HTML code.
-     *
-     * @param string $html
-     *
-     * @return void
-     */
-    function add_html(string $html): void {
-        get_ui()->addHtml($html);
-    }
-}
-
-if (!function_exists('get_html')) {
-    /**
-     * Get HTML code.
-     *
-     * @return string
-     */
-    function get_html(): string {
-        return get_ui()->getHtml();
-    }
-}
-
 if (!function_exists('layout')) {
     /**
      * Render site layout.

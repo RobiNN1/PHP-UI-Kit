@@ -14,7 +14,7 @@ Components can be loaded in several ways. It's up to you what you choose.
 
 Here are recommended ways
 
-##### Echo
+#### Echo
 
 Simply print everything with echo.
 
@@ -30,23 +30,7 @@ echo layout($body, [
 ]);
 ```
 
-##### Get HTML
-
-Each component returns a string, so it can also be passed to a variable or printed with an echo.
-
-```php
-add_html('HTML code'); // Use this function when using get_html()
-alert('Default');
-
-echo layout(get_html(), [
-    'title' => 'Site title',
-]);
-```
-
-> Any text or HTML must be added via `add_html()` when useing `get_html()`.
-
-
-##### In template
+#### In template
 
 It is also possible to call components in a template.
 
