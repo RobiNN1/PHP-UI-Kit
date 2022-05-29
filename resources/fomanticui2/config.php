@@ -33,13 +33,9 @@ return [
                 return $value['fomanticui2'] === 'auto' ? '' : $value['fomanticui2'];
             }
 
-            if (!is_array($value)) {
+            if (!is_array($value) && !empty($sizes[$index])) {
                 $column = ($value * 16) / 100;
-                $column = $column < 5 ? ceil($column) : floor($column);
-
-                if (!empty($sizes[$index])) {
-                    $columns[$sizes[$index]] = $column;
-                }
+                $columns[$sizes[$index]] = $column < 5 ? ceil($column) : floor($column);
             }
         }
 
