@@ -46,11 +46,6 @@ final class UiKit extends Components {
      */
     private array $tpl_paths = [];
 
-    /**
-     * @var string
-     */
-    private string $html = '';
-
     public function __construct() {
         parent::__construct($this);
     }
@@ -152,30 +147,7 @@ final class UiKit extends Components {
         $this->tpl_engine->init($this, $this->config, $this->tpl_paths);
         $output = $this->tpl_engine->render($tpl, $data, $string);
 
-        $output = trim($output);
-        $this->html .= $output;
-
-        return $output;
-    }
-
-    /**
-     * Add HTML code.
-     *
-     * @param string $html
-     *
-     * @return void
-     */
-    public function addHtml(string $html): void {
-        $this->html .= $html;
-    }
-
-    /**
-     * Get HTML code.
-     *
-     * @return string
-     */
-    public function getHtml(): string {
-        return $this->html;
+        return trim($output);
     }
 
     /**
