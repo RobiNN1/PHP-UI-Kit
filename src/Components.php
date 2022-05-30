@@ -57,15 +57,13 @@ class Components {
     }
 
     /**
-     * Get an array of components or component object.
+     * Get an array of all valid components.
      *
-     * @param ?string $name
-     *
-     * @return array|object
+     * @return array
      *
      * @internal
      */
-    public function getComponents(string $name = null): array|object {
+    public function allComponents(): array {
         static $components = [];
 
         foreach ($this->components as $key => $class) {
@@ -77,18 +75,31 @@ class Components {
             }
         }
 
-        if (is_string($name) && isset($components[$name])) {
-            $class = new $components[$name]['class']();
+        return $components;
+    }
+
+    /**
+     * Get component's object.
+     *
+     * @param string $name
+     *
+     * @return ?object Null if doesn't exists.
+     */
+    public function getComponent(string $name): ?object {
+        $all_components = $this->allComponents();
+
+        if (isset($all_components[$name])) {
+            $class = new $all_components[$name]['class']();
             $class->uikit = $this->uikit;
 
             return $class;
         }
 
-        return $components;
+        return null;
     }
 
     /**
-     * Add component.
+     * Register new component.
      *
      * @param string $name
      * @param string $class
@@ -111,7 +122,7 @@ class Components {
     public function addSuggestions(string $component_name): string {
         $alternatives = [];
 
-        foreach ($this->getComponents() as $name => $component) {
+        foreach ($this->allComponents() as $name => $component) {
             $lev = levenshtein($component_name, $name);
             if ($lev <= strlen($component_name) / 3 || str_contains($name, $component_name)) {
                 $alternatives[$name] = $lev;
@@ -146,8 +157,8 @@ class Components {
      * @return ?object
      */
     public function __get(string $name): ?object {
-        if (is_object($this->getComponents($name))) {
-            return $this->getComponents($name);
+        if (is_object($this->getComponent($name))) {
+            return $this->getComponent($name);
         }
 
         return null;
@@ -171,13 +182,13 @@ class Components {
      * @param string $name
      * @param array  $arguments
      *
-     * @return mixed
+     * @return object|string
      */
-    public function __call(string $name, array $arguments): mixed {
+    public function __call(string $name, array $arguments): object|string {
         $name_clean = str_replace(['_open', '_close'], '', $name);
 
-        if (is_object($this->getComponents($name_clean))) {
-            $component = $this->getComponents($name_clean);
+        if (is_object($this->getComponent($name_clean))) {
+            $component = $this->getComponent($name_clean);
             $method = $this->isPublic($component, 'render') ? 'render' : null;
 
             if (str_ends_with($name, '_open') && $this->isPublic($component, 'open')) {

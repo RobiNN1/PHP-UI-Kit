@@ -65,9 +65,17 @@ Set path with templates.
 $uikit->setPath(__DIR__.'/templates');
 ```
 
+## getComponent()
+
+Get component's object.
+
+```php
+$alert = $uikit->getComponent('alert');
+```
+
 ## addComponent()
 
-Add component.
+Register new component.
 
 ```php
 $uikit->addComponent('example_component', ExampleComponent::class);
