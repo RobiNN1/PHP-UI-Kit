@@ -12,13 +12,11 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2\Layout;
 
-use RobiNN\UiKit\Config;
 use Tests\Components\Layout\LayoutTest;
 
 final class LayoutFomanticui2Test extends LayoutTest {
-    protected function setUp(): void {
-        parent::setUp();
-        $this->uikit->init(new Config(['framework' => 'fomanticui2']));
+    protected function setUp(string $framework = ''): void {
+        parent::setUp('fomanticui2');
 
         $this->expected_framework = $this->uikit->config->getFramework();
 

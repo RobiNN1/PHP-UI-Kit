@@ -17,7 +17,7 @@ if (!function_exists('get_ui')) {
      * @return RobiNN\UiKit\UiKit
      */
     function get_ui(): RobiNN\UiKit\UiKit {
-        return RobiNN\UiKit\UiKit::getInstance()->init();
+        return new RobiNN\UiKit\UiKit();
     }
 }
 

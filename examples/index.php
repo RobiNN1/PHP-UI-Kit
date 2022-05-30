@@ -18,7 +18,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
         'framework' => isset($_GET['sm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
     ]);
 
-    return RobiNN\UiKit\UiKit::getInstance()->init($config);
+    return new RobiNN\UiKit\UiKit($config);
 }
 
 ob_start();

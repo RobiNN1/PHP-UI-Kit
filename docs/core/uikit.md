@@ -1,28 +1,16 @@
 # UI Kit
 
-Methods that can be used directly from a UI Kit instance.
+Methods that can be used directly from a UI Kit object.
 
----
+## Constructor
 
-## getInstance()
-
-Get instance.
+The __construct() has 2 parameters, first one is a Config object (optional) and
+the second one instance of ITplEngine (optional).
 
 ```php
 use RobiNN\UiKit\UiKit;
 
-$uikit = UiKit::getInstance();
-```
-
-## init()
-
-Init UI Kit.
-
-The method has 2 parameters, first one is a Config object (optional) and
-the second one instance of ITplEngine (optional).
-
-```php
-$uikit->init();
+$uikit new UiKit();
 ```
 
 ## getFrameworkOptions()

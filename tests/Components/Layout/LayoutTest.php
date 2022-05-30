@@ -13,18 +13,18 @@ declare(strict_types=1);
 namespace Tests\Components\Layout;
 
 use RobiNN\UiKit\AddTo;
+use RobiNN\UiKit\Config;
+use RobiNN\UiKit\UiKit;
 use Tests\ComponentTestCase;
 
 abstract class LayoutTest extends ComponentTestCase {
     protected string $expected_tpl;
     protected string $expected_framework;
 
-    protected function setUp(): void {
-        parent::setUp();
+    protected function setUp(string $framework = ''): void {
+        $this->uikit = new UiKit(new Config(['framework' => $framework]));
 
         // hide files and scripts that can be changed frequently
-        $this->uikit->setFrameworkOption('files', ['css' => [], 'js' => []]);
-        $this->uikit->setFrameworkOption('jquery', false);
         AddTo::$head = '';
         AddTo::$css = '';
         AddTo::$footer = '';
