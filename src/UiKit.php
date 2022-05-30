@@ -22,61 +22,24 @@ final class UiKit extends Components {
     public const VERSION = '1.0.0';
 
     /**
-     * @var ?UiKit
-     */
-    private static ?UiKit $instance = null;
-
-    /**
-     * @var Config
-     */
-    public Config $config;
-
-    /**
      * @var array
      */
     private array $fw_options = [];
-
-    /**
-     * @var TplEngineInterface
-     */
-    private TplEngineInterface $tpl_engine;
 
     /**
      * @var array
      */
     private array $tpl_paths = [];
 
-    public function __construct() {
+    public function __construct(
+        public ?Config              $config = null,
+        private ?TplEngineInterface $tpl_engine = null
+    ) {
         parent::__construct($this);
-    }
 
-    /**
-     * Get instance.
-     *
-     * @return UiKit
-     */
-    public static function getInstance(): UiKit {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-
-        return self::$instance;
-    }
-
-    /**
-     * Init UI Kit.
-     *
-     * @param ?Config             $config
-     * @param ?TplEngineInterface $tpl_engine
-     *
-     * @return UiKit
-     */
-    public function init(?Config $config = null, ?TplEngineInterface $tpl_engine = null): UiKit {
         $this->config = $config instanceof Config ? $config : new Config();
         $this->tpl_engine = $tpl_engine instanceof TplEngineInterface ? $tpl_engine : new Twig();
         $this->loadFrameworkAssets();
-
-        return $this;
     }
 
     /**
@@ -198,9 +161,11 @@ final class UiKit extends Components {
      *
      * @param string $path
      *
-     * @return void
+     * @return object
      */
-    public function setPath(string $path): void {
+    public function setPath(string $path): object {
         $this->tpl_paths[] = $path;
+
+        return $this;
     }
 }

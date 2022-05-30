@@ -36,7 +36,7 @@ final class ComponentTest extends TestCase {
     }
 
     public function testGetOption(): void {
-        $this->component->uikit = (new UiKit())->init();
+        $this->component->uikit = new UiKit();
         $this->component->uikit->setFrameworkOption('test', [
             'array' => [
                 'default' => 'value1',

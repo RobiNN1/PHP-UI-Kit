@@ -61,16 +61,14 @@ function get_ui(): RobiNN\UiKit\UiKit {
     $config = new RobiNN\UiKit\Config([
         'cache'  => __DIR__.'/cache',
     ]);
-    
-    $uikit = RobiNN\UiKit\UiKit::getInstance();
 
-    return $uikit->init($config);
+    return new RobiNN\UiKit\UiKit($config);
 }
 ```
 
 All options can be found [here](core/config.md).
 
-> [`layout()`](layout/layout.md) is not required and 
+> [`layout()`](layout/layout.md) is not required and
 > components can be used in any project that uses a compatible CSS framework.
 > However, if the [`layout()`](layout/layout.md) is not used, [Get HTML](#get-html) may not work.
 
