@@ -375,7 +375,6 @@ echo '<div>Other components W.I.P.</div>';
 
 echo container_close();
 
-$body = ob_get_clean();
-echo layout($body, [
+echo layout(ob_get_clean(), [
     'title' => 'PHP UI Kit Examples',
 ]);

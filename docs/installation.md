@@ -10,9 +10,21 @@ composer require robinn/uikit
 
 ## Usage
 
+Initialize UI Kit and then call methods or simply use `get_ui()` helper function.
+
 Components can be loaded in several ways. It's up to you what you choose.
 
-Here are recommended ways
+```php
+use RobiNN\UiKit\UiKit;
+
+$uikit = new UiKit();
+
+ob_start();
+
+// ...
+
+$uikit->layout(ob_get_clean());
+```
 
 #### Echo
 
@@ -24,8 +36,7 @@ ob_start();
 echo 'HTML code';
 echo alert('Default');
 
-$body = ob_get_clean();
-echo layout($body, [
+echo layout(ob_get_clean(), [
     'title' => 'Site title',
 ]);
 ```
@@ -35,8 +46,9 @@ echo layout($body, [
 It is also possible to call components in a template.
 
 ```php
-get_ui()->setPath(__DIR__.'/templates'); // Path to dir with custom templates
-$html = get_ui()->render('page'); // page.twig in templates/ dir
+$html = get_ui()
+    ->setPath(__DIR__.'/templates') // Path to dir with custom templates
+    ->render('page'); // page.twig in templates/ dir
 
 echo layout($html, [
     'title' => 'Site title',
@@ -70,7 +82,6 @@ All options can be found [here](core/config.md).
 
 > [`layout()`](layout/layout.md) is not required and
 > components can be used in any project that uses a compatible CSS framework.
-> However, if the [`layout()`](layout/layout.md) is not used, [Get HTML](#get-html) may not work.
 
 ## Requirements
 

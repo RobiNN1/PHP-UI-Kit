@@ -22,8 +22,7 @@ ob_start();
 echo 'HTML code';
 echo alert('Default');
 
-$body = ob_get_clean();
-echo layout($body, [
+echo layout(ob_get_clean(), [
     'title' => 'Site title',
 ]);
 ```
@@ -31,8 +30,9 @@ echo layout($body, [
 It is also possible to call components in a template:
 
 ```php
-get_ui()->setPath(__DIR__.'/templates'); // Path to dir with custom templates 
-$html = get_ui()->render('page'); // page.twig in templates/ dir
+$html = get_ui()
+    ->setPath(__DIR__.'/templates') // Path to dir with custom templates
+    ->render('page'); // page.twig in templates/ dir
 
 echo layout($html, [
     'title' => 'Site title',
