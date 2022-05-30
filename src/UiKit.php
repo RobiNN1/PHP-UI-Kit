@@ -114,49 +114,6 @@ final class UiKit extends Components {
     }
 
     /**
-     * Get custom TPL functions.
-     *
-     * @return array
-     *
-     * @internal
-     */
-    public function tplFunctions(): array {
-        $components = [];
-
-        foreach ($this->allComponents() as $name => $component) {
-            if ((bool) $component['open_close'] === true) {
-                $components[$name.'_open'] = [$this->$name, 'open'];
-                $components[$name.'_close'] = [$this->$name, 'close'];
-            }
-
-            $components[$name] = [$this->$name, 'render'];
-        }
-
-        $functions = [
-            'add_to_head'   => [AddTo::class, 'head'],
-            'add_to_footer' => [AddTo::class, 'footer'],
-            'add_to_js'     => [AddTo::class, 'js'],
-            'add_to_jquery' => [AddTo::class, 'jQuery'],
-            'add_to_css'    => [AddTo::class, 'css'],
-        ];
-
-        return array_merge($functions, $components);
-    }
-
-    /**
-     * Get custom TPL filters.
-     *
-     * @return array
-     *
-     * @internal
-     */
-    public function tplFilters(): array {
-        return [
-            'space' => [Misc::class, 'space'],
-        ];
-    }
-
-    /**
      * Set path with templates.
      *
      * @param string $path
