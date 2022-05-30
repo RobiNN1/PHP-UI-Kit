@@ -10,7 +10,7 @@ the second one instance of ITplEngine (optional).
 ```php
 use RobiNN\UiKit\UiKit;
 
-$uikit new UiKit();
+$uikit = new UiKit();
 ```
 
 ## getFrameworkOptions()
