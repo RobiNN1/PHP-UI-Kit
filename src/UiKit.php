@@ -160,7 +160,7 @@ final class UiKit extends Components {
     public function tplFunctions(): array {
         $components = [];
 
-        foreach ($this->getComponents() as $name => $component) {
+        foreach ($this->allComponents() as $name => $component) {
             if ((bool) $component['open_close'] === true) {
                 $components[$name.'_open'] = [$this->$name, 'open'];
                 $components[$name.'_close'] = [$this->$name, 'close'];
