@@ -34,6 +34,7 @@ final class Layout extends Component {
             'lang'       => 'en', // Site lang (used for html lang attribute).
             'title'      => 'UI Kit', // Site title.
             'attributes' => [], // Array of custom attributes.
+            'minify_css' => true, // Minify CSS code.
         ], $options);
 
         if (!empty(AddTo::$jquery) && $this->uikit->getFrameworkOptions('jquery')) {
@@ -47,21 +48,14 @@ final class Layout extends Component {
         $css_codes = '';
         if (!empty(AddTo::$css)) {
             $minify_css = static function (string $css): string {
-                $regexs = [
-                    '/\/\*((?!\*\/).)*\*\//' => '',
-                    '/\s{2,}/'               => ' ',
-                    '/\s*([:;{}])\s*/'       => '$1',
-                    '/;}/'                   => '}',
-                ];
-
-                foreach ($regexs as $regex => $replace) {
-                    $css = preg_replace($regex, $replace, $css);
-                }
-
-                return $css;
+                return preg_replace(
+                    ['/\/\*((?!\*\/).)*\*\//', '/\s{2,}/', '/\s*([:;{}])\s*/', '/;}/',],
+                    ['', ' ', '$1', '}',],
+                    $css
+                );
             };
 
-            $css_codes = '<style>'.$minify_css(AddTo::$css).'</style>';
+            $css_codes = '<style>'.($this->options['minify_css'] ? $minify_css(AddTo::$css) : AddTo::$css).'</style>';
         }
 
         return $this->tpl([
