@@ -21,6 +21,7 @@ $options (array) (Optional) Additional options.
 | lang       | string | 'en'     | Site lang (used for html lang attribute). |
 | title      | string | 'UI Kit' | Site title.                               |
 | attributes | array  | []       | Array of custom attributes.               |
+| minify_css | bool   | true     | Minify CSS code.                          |
 
 ## Basic Usage
 
