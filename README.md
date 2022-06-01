@@ -52,6 +52,20 @@ HTML code
 
 ## Testing
 
+PHPUnit
+
 ```
 composer test
+```
+
+PHPStan
+
+```
+composer phpstan
+```
+
+TwigCS
+
+```
+composer tcs resources  
 ```
