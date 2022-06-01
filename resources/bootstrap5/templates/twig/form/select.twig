@@ -8,7 +8,7 @@
         {% if placeholder %}
             <option disabled selected>{{ placeholder }}</option>
         {% endif %}
-        {% for item_value,item_title in items %}
+        {% for item_value, item_title in items %}
             <option value="{{ item_value }}"{{ item_value == value ? ' selected' : '' }}>{{ item_title }}</option>
         {% endfor %}
     </select>

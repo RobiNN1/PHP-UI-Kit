@@ -2,7 +2,7 @@
     {% if items|length > 1 %}
         <span>{{ label }}</span>
     {%- endif -%}
-    {%- for item_value,title in items -%}
+    {%- for item_value, title in items -%}
         <div class="form-check">
             {% if items|length == 1 %}
                 {% set checked = value > 0 ? ' checked' : '' %}

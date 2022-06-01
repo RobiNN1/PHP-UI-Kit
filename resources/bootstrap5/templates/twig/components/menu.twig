@@ -25,7 +25,7 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-{{ id }}"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbar-{{ id }}">
             <ul class="navbar-nav me-auto">
-                {% for key,item in items %}
+                {% for key, item in items %}
                     {% if key == 'right' %}
                         {{ _self.right(item, item_class) }}
                     {% elseif item.dropdown %}

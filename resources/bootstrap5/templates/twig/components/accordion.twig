@@ -1,5 +1,5 @@
 <div class="accordion{{ class|space }}" id="accordion-{{ id }}"{{ attributes|space|raw }}>
-    {% for title,body in items %}
+    {% for title, body in items %}
         {% set collapse_id = id ~ loop.index %}
 
         <div class="accordion-item{{ item_class|space }}">

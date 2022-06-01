@@ -1,5 +1,5 @@
 <div class="ui breadcrumb{{ class|space }}"{{ attributes|space|raw }}>
-    {% for title,link in links %}
+    {% for title, link in links %}
         {%- if loop.last -%}
             <div class="active section">{{ title|raw }}</div>
         {%- else -%}

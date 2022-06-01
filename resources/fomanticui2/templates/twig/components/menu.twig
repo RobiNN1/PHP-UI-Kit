@@ -16,7 +16,7 @@
 
 {% macro right(items) %}
     <div class="right menu">
-        {% for key,item in items %}
+        {% for key, item in items %}
             {% if item.dropdown %}
                 {{ item.dropdown|raw }}
             {% elseif item.custom %}
@@ -36,9 +36,7 @@
         <i class="sidebar icon toc"></i>
     </div>
 
-    {%- for key,item in items -%}
-        {% set active = item.active ? ' active' : '' %}
-
+    {%- for key, item in items -%}
         {%- if item.dropdown -%}
             {{ item.dropdown|raw }}
         {% elseif item.custom %}
