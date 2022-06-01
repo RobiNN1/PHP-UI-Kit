@@ -26,6 +26,10 @@ ob_start();
 $uikit->layout(ob_get_clean());
 ```
 
+> `$uikit->...` can be replaced by `get_ui()` function, or simply use for everything helper functions.
+> 
+> Note: when using `get_ui()` and you want custom config, you have to redeclare this function.
+
 #### Echo
 
 Simply print everything with echo.
