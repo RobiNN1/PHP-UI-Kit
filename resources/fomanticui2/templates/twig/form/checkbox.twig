@@ -2,7 +2,7 @@
     {% if items|length > 1 %}
         <span>{{ label }}</span>
     {%- endif -%}
-    {%- for item_value,title in items -%}
+    {%- for item_value, title in items -%}
         <div class="field">
             <div class="ui checkbox{{ type == 'radio' ? ' radio' : '' }}">
                 {% if items|length == 1 %}

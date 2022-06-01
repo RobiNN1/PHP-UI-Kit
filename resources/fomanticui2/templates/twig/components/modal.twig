@@ -1,11 +1,11 @@
 {% if always_open == true %}
-    {{ add_to_jquery("$('#modal-"~ id ~"').modal('show');") }}
+    {{ add_to_jquery("$('#modal-" ~ id ~ "').modal('show');") }}
 {% else %}
-    {{ add_to_jquery("$('#modal-"~ id ~"').modal({closable:"~ (close_button == true ? 'true' : 'false') ~"});") }}
+    {{ add_to_jquery("$('#modal-" ~ id ~ "').modal({closable:" ~ (close_button == true ? 'true' : 'false') ~ "});") }}
 {% endif %}
 
 {% if hide_button == false %}
-    {{ add_to_jquery("$('#toggle-modal-"~ id ~"').click(function(){$('#modal-"~ id ~"').modal('show');});") }}
+    {{ add_to_jquery("$('#toggle-modal-" ~ id ~ "').click(function(){$('#modal-" ~ id ~ "').modal('show');});") }}
 
     {{ button|raw }}
 {% endif %}

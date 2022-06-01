@@ -3,7 +3,7 @@
         <label for="{{ textarea_id }}">{{ label }}</label>
     {% endif %}
     <div class="fluid{{ class|space }}">
-        <textarea{{ textarea_attributes|space|raw }}{{ (textarea_class ? ' class="'~ textarea_class ~'"' : '')|raw }}>{{ value }}</textarea>
+        <textarea{{ textarea_attributes|space|raw }}{{ (textarea_class ? ' class="' ~ textarea_class ~ '"' : '')|raw }}>{{ value }}</textarea>
     </div>
     {% if feedback_text %}
         <div class="ui pointing basic label">{{ feedback_text|raw }}</div>
