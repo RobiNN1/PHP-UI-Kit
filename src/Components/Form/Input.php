@@ -15,10 +15,29 @@ namespace RobiNN\UiKit\Components\Form;
 use RobiNN\UiKit\Components\Component;
 
 final class Input extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'form/input';
+
+    protected array $options = [
+        'id'               => '', // Wrapper ID.
+        'class'            => '', // Class for wrapper.
+        'attributes'       => [], // Array of custom attributes.
+        'input_id'         => '', // Input ID.
+        'input_class'      => '', // Input class.
+        'input_attributes' => [], // Array of custom attributes for input.
+        'placeholder'      => '', // Placeholder.
+        'type'             => 'text', // Input type.
+        'size'             => 'default', // Input size. Possible value: default/sm/lg
+        'state'            => '', // Validation state. Possible value: success/error
+        'feedback_text'    => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
+        'required'         => false, // Required.
+        'disabled'         => false, // Disabled.
+        'readonly'         => false, // Readonly.
+        'help_text'        => '', // Custom help text.
+        'left_addon'       => '', // Left addon.
+        'right_addon'      => '', // Right addon.
+        'left_custom'      => '', // Left custom addon.
+        'right_custom'     => '', // Right custom addon.
+    ];
 
     /**
      * Render input field.
@@ -28,30 +47,12 @@ final class Input extends Component {
      * @param int|string $value   Input value.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $name, string $label = '', int|string $value = '', array $options = []): string {
-        $this->options = array_merge([
-            'id'               => '', // Wrapper ID.
-            'class'            => '', // Class for wrapper.
-            'attributes'       => [], // Array of custom attributes.
-            'input_id'         => $name, // Input ID.
-            'input_class'      => '', // Input class.
-            'input_attributes' => [], // Array of custom attributes for input.
-            'placeholder'      => '', // Placeholder.
-            'type'             => 'text', // Input type.
-            'size'             => 'default', // Input size. Possible value: default/sm/lg
-            'state'            => '', // Validation state. Possible value: success/error
-            'feedback_text'    => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
-            'required'         => false, // Required.
-            'disabled'         => false, // Disabled.
-            'readonly'         => false, // Readonly.
-            'help_text'        => '', // Custom help text.
-            'left_addon'       => '', // Left addon.
-            'right_addon'      => '', // Right addon.
-            'left_custom'      => '', // Left custom addon.
-            'right_custom'     => '', // Right custom addon.
-        ], $options);
+    public function render(string $name, string $label = '', int|string $value = '', array $options = []): object {
+        $this->options($options);
+
+        $this->options['input_id'] = !empty($this->options['input_id']) ? $this->options['input_id'] : $name;
 
         $this->options['input_attributes']['id'] = $this->options['input_id'];
 
@@ -80,7 +81,7 @@ final class Input extends Component {
             'number', 'password', 'search', 'tel', 'text', 'time', 'url', 'week',
         ];
 
-        return $this->tpl([
+        return $this->tplData([
             'value'            => $value,
             'label'            => $label,
             'input_id'         => $this->options['input_attributes']['id'],

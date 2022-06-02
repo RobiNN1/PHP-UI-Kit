@@ -15,10 +15,17 @@ namespace RobiNN\UiKit\Components\Form;
 use RobiNN\UiKit\Components\Component;
 
 final class Form extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'form/form';
+
+    protected array $options = [
+        'id'         => '', // Form ID.
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'name'       => '', // Name attribute.
+        'upload'     => false, // Set true for adding enctype multipart/form-data.
+        'open'       => false, // Open form. @internal
+        'close'      => false, // Close form. @internal
+    ];
 
     /**
      * Render form.
@@ -27,18 +34,10 @@ final class Form extends Component {
      * @param string $action  Form action.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $method = 'post', string $action = '', array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Form ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'name'       => '', // Name attribute.
-            'upload'     => false, // Set true for adding enctype multipart/form-data.
-            'open'       => false, // Open form. @internal
-            'close'      => false, // Close form. @internal
-        ], $options);
+    public function render(string $method = 'post', string $action = '', array $options = []): object {
+        $this->options($options);
 
         if (!empty($this->options['id'])) {
             $this->options['attributes']['id'] = $this->options['id'];
@@ -58,7 +57,7 @@ final class Form extends Component {
             $this->options['attributes']['enctype'] = 'multipart/form-data';
         }
 
-        return $this->tpl();
+        return $this;
     }
 
     /**
@@ -68,9 +67,9 @@ final class Form extends Component {
      * @param string $action  Form action.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function open(string $method = 'post', string $action = '', array $options = []): string {
+    public function open(string $method = 'post', string $action = '', array $options = []): object {
         return $this->render($method, $action, array_merge(['open' => true], $options));
     }
 
@@ -80,6 +79,6 @@ final class Form extends Component {
      * @return string
      */
     public function close(): string {
-        return $this->render('', '', ['close' => true]);
+        return $this->render()->options(['close' => true])->toHtml();
     }
 }

@@ -15,10 +15,14 @@ namespace RobiNN\UiKit\Components\Layout;
 use RobiNN\UiKit\Components\Component;
 
 final class Container extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'layout/container';
+
+    protected array $options = [
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'open'       => false, // Opening div. @internal
+        'close'      => false, // Closing div. @internal
+    ];
 
     /**
      * Render container.
@@ -26,17 +30,12 @@ final class Container extends Component {
      * @param bool  $fluid   Container without maximum width.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(bool $fluid = false, array $options = []): string {
-        $this->options = array_merge([
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'open'       => false, // Opening div. @internal
-            'close'      => false, // Closing div. @internal
-        ], $options);
+    public function render(bool $fluid = false, array $options = []): object {
+        $this->options($options);
 
-        return $this->tpl([
+        return $this->tplData([
             'fluid' => $fluid,
         ]);
     }
@@ -47,9 +46,9 @@ final class Container extends Component {
      * @param bool  $fluid   Container without maximum width.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function open(bool $fluid = false, array $options = []): string {
+    public function open(bool $fluid = false, array $options = []): object {
         return $this->render($fluid, array_merge(['open' => true], $options));
     }
 
@@ -59,6 +58,6 @@ final class Container extends Component {
      * @return string
      */
     public function close(): string {
-        return $this->render(false, ['close' => true]);
+        return $this->render()->options(['close' => true])->toHtml();
     }
 }

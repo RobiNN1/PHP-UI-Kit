@@ -13,32 +13,31 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Card extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/card';
+
+    protected array $options = [
+        'id'         => '', // Wrapper ID.
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'top_img'    => [], // Card top image.
+        'header'     => '', // Card header.
+        'top'        => '', // Card top content.
+        'body'       => '', // Card body.
+        'bottom'     => '', // Card bottom content.
+        'footer'     => '', // Card footer.
+        'link'       => '', // As link.
+    ];
 
     /**
      * Render card.
      *
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Wrapper ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'top_img'    => [], // Card top image.
-            'header'     => '', // Card header.
-            'top'        => '', // Card top content.
-            'body'       => '', // Card body.
-            'bottom'     => '', // Card bottom content.
-            'footer'     => '', // Card footer.
-            'link'       => '', // As link.
-        ], $options);
+    public function render(array $options = []): object {
+        $this->options($options);
 
-        return $this->tpl();
+        return $this;
     }
 }

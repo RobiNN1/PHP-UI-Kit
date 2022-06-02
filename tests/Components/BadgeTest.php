@@ -20,7 +20,7 @@ abstract class BadgeTest extends ComponentTestCase {
     public function testBadgeRender(): void {
         $tpl = $this->uikit->badge->render('Default');
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testBadgeInTwig(): void {

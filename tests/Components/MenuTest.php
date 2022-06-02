@@ -26,7 +26,7 @@ abstract class MenuTest extends ComponentTestCase {
             ],
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testMenuInTwig(): void {

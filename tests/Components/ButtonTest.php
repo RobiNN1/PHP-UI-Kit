@@ -20,7 +20,7 @@ abstract class ButtonTest extends ComponentTestCase {
     public function testButtonRender(): void {
         $tpl = $this->uikit->button->render('Test');
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testButtonInTwig(): void {

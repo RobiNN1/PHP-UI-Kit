@@ -20,7 +20,7 @@ abstract class AlertTest extends ComponentTestCase {
     public function testAlertRender(): void {
         $tpl = $this->uikit->alert->render('Default');
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testAlertInTwig(): void {

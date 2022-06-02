@@ -16,10 +16,14 @@ use RobiNN\UiKit\AddTo;
 use RobiNN\UiKit\Components\Component;
 
 final class Layout extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'layout/layout';
+
+    protected array $options = [
+        'lang'       => 'en', // Site lang (used for html lang attribute).
+        'title'      => 'UI Kit', // Site title.
+        'attributes' => [], // Array of custom attributes.
+        'minify_css' => true, // Minify CSS code.
+    ];
 
     /**
      * Render site layout.
@@ -27,15 +31,10 @@ final class Layout extends Component {
      * @param string $body    Site content.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $body, array $options = []): string {
-        $this->options = array_merge([
-            'lang'       => 'en', // Site lang (used for html lang attribute).
-            'title'      => 'UI Kit', // Site title.
-            'attributes' => [], // Array of custom attributes.
-            'minify_css' => true, // Minify CSS code.
-        ], $options);
+    public function render(string $body, array $options = []): object {
+        $this->options($options);
 
         if (!empty(AddTo::$jquery) && $this->uikit->getFrameworkOptions('jquery')) {
             AddTo::js('$(function(){'.AddTo::$jquery.'});');
@@ -58,7 +57,7 @@ final class Layout extends Component {
             $css_codes = '<style>'.($this->options['minify_css'] ? $minify_css(AddTo::$css) : AddTo::$css).'</style>';
         }
 
-        return $this->tpl([
+        return $this->tplData([
             'body'        => $body,
             'head_tags'   => AddTo::$head,
             'css_codes'   => $css_codes,

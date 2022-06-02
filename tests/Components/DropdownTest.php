@@ -25,7 +25,7 @@ abstract class DropdownTest extends ComponentTestCase {
             ['custom' => '<b>Custom bold text</b>'],
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testDropdownInTwig(): void {

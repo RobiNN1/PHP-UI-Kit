@@ -13,10 +13,14 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Tabs extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/tabs';
+
+    protected array $options = [
+        'class'          => '', // Class for wrapper.
+        'attributes'     => [], // Array of custom attributes.
+        'nav_item_class' => '', // Class for nav item.
+        'tab_item_class' => '', // Class for tab item.
+    ];
 
     /**
      * Render tabs.
@@ -25,17 +29,12 @@ final class Tabs extends Component {
      * @param array  $items   Multidimensional array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $id, array $items, array $options = []): string {
-        $this->options = array_merge([
-            'class'          => '', // Class for wrapper.
-            'attributes'     => [], // Array of custom attributes.
-            'nav_item_class' => '', // Class for nav item.
-            'tab_item_class' => '', // Class for tab item.
-        ], $options);
+    public function render(string $id, array $items, array $options = []): object {
+        $this->options($options);
 
-        return $this->tpl([
+        return $this->tplData([
             'id'    => $id,
             'items' => $this->items($items),
         ]);

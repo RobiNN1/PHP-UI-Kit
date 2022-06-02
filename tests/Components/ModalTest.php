@@ -24,7 +24,7 @@ abstract class ModalTest extends ComponentTestCase {
             'footer' => 'Random text...',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testModalInTwig(): void {
