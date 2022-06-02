@@ -13,10 +13,17 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Dropdown extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/dropdown';
+
+    protected array $options = [
+        'id'         => '', // Dropdown ID.
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'item_class' => '', // Class for item.
+        'dark'       => false, // Dark dropdown.
+        'button'     => [], // Button options.
+        'in_menu'    => false, // Set true if is used in the menu item. @internal
+    ];
 
     /**
      * Render dropdown.
@@ -25,18 +32,10 @@ final class Dropdown extends Component {
      * @param array  $items   Multidimensional array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $title, array $items, array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Dropdown ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'item_class' => '', // Class for item.
-            'dark'       => false, // Dark dropdown.
-            'button'     => [], // Button options.
-            'in_menu'    => false, // Set true if is used in the menu item. @internal
-        ], $options);
+    public function render(string $title, array $items, array $options = []): object {
+        $this->options($options);
 
         $fwoptions = $this->uikit->getFrameworkOptions('dropdown.button');
 
@@ -54,9 +53,9 @@ final class Dropdown extends Component {
             $title .= ' '.$fwoptions['icon'];
         }
 
-        return $this->tpl([
+        return $this->tplData([
             'items'  => $items,
-            'button' => $this->uikit->button->render($title, 'button', $this->options['button']),
+            'button' => $this->uikit->button->render($title, 'button', $this->options['button'])->toHtml(),
         ]);
     }
 }

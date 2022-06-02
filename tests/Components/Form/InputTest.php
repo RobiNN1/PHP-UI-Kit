@@ -19,7 +19,7 @@ abstract class InputTest extends ComponentTestCase {
 
     public function testInputRender(): void {
         $tpl = $this->uikit->input->render('test', 'Test', 2);
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testInputInTwig(): void {

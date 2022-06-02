@@ -13,10 +13,17 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Progress extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/progress';
+
+    protected array $options = [
+        'id'          => '', // Wrapper ID.
+        'class'       => '', // Class for wrapper.
+        'attributes'  => [], // Array of custom attributes.
+        'item_class'  => '', // Class for item.
+        'color'       => 'default', // Progress bar background color. Or array with colors. Possible value: default/success/warning/error
+        'auto_colors' => null, // Function that sets the color depending on the width of the bar.
+        'percents'    => true, // Show percent in title.
+    ];
 
     /**
      * Render progress.
@@ -24,18 +31,10 @@ final class Progress extends Component {
      * @param array|int $percent Percents, an array or asociative array for multiple bars.
      * @param array     $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(array|int $percent, array $options = []): string {
-        $this->options = array_merge([
-            'id'          => '', // Wrapper ID.
-            'class'       => '', // Class for wrapper.
-            'attributes'  => [], // Array of custom attributes.
-            'item_class'  => '', // Class for item.
-            'color'       => 'default', // Progress bar background color. Or array with colors. Possible value: default/success/warning/error
-            'auto_colors' => null, // Function that sets the color depending on the width of the bar.
-            'percents'    => true, // Show percent in title.
-        ], $options);
+    public function render(array|int $percent, array $options = []): object {
+        $this->options($options);
 
         $bars = [];
 
@@ -56,7 +55,7 @@ final class Progress extends Component {
             $bars = $this->multiple($percent, $this->options, $auto_colors);
         }
 
-        return $this->tpl([
+        return $this->tplData([
             'bars' => $bars,
         ]);
     }

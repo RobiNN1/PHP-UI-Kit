@@ -28,9 +28,9 @@ if (!function_exists('layout')) {
      * @param string $body    Site content.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function layout(string $body, array $options = []): string {
+    function layout(string $body, array $options = []): object {
         return get_ui()->layout->render($body, $options);
     }
 }
@@ -42,9 +42,9 @@ if (!function_exists('container_open') && !function_exists('container_close')) {
      * @param bool  $fluid   Container without maximum width.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function container_open(bool $fluid = false, array $options = []): string {
+    function container_open(bool $fluid = false, array $options = []): object {
         return get_ui()->container->open($fluid, $options);
     }
 
@@ -64,9 +64,9 @@ if (!function_exists('row_open') && !function_exists('row_close')) {
      *
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function row_open(array $options = []): string {
+    function row_open(array $options = []): object {
         return get_ui()->row->open($options);
     }
 
@@ -87,9 +87,9 @@ if (!function_exists('grid_open') && !function_exists('grid_close')) {
      * @param array $col_sizes Column sizes.
      * @param array $options   Additional options.
      *
-     * @return string
+     * @return object
      */
-    function grid_open(array $col_sizes = [100], array $options = []): string {
+    function grid_open(array $col_sizes = [100], array $options = []): object {
         return get_ui()->grid->open($col_sizes, $options);
     }
 
@@ -111,9 +111,9 @@ if (!function_exists('form_open') && !function_exists('form_close')) {
      * @param string $action  Form action.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function form_open(string $method = 'post', string $action = '', array $options = []): string {
+    function form_open(string $method = 'post', string $action = '', array $options = []): object {
         return get_ui()->form->open($method, $action, $options);
     }
 
@@ -136,9 +136,9 @@ if (!function_exists('input')) {
      * @param int|string $value   Input value.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function input(string $name, string $label = '', int|string $value = '', array $options = []): string {
+    function input(string $name, string $label = '', int|string $value = '', array $options = []): object {
         return get_ui()->input->render($name, $label, $value, $options);
     }
 }
@@ -153,9 +153,9 @@ if (!function_exists('select')) {
      * @param array      $items   Select options - array or associative array.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function select(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): string {
+    function select(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): object {
         return get_ui()->select->render($name, $label, $value, $items, $options);
     }
 }
@@ -169,9 +169,9 @@ if (!function_exists('checkbox')) {
      * @param int|string $value   Checkbox value.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function checkbox(string $name, string $label = '', int|string $value = 0, array $options = []): string {
+    function checkbox(string $name, string $label = '', int|string $value = 0, array $options = []): object {
         return get_ui()->checkbox->render($name, $label, $value, $options);
     }
 }
@@ -185,9 +185,9 @@ if (!function_exists('textarea')) {
      * @param int|string $value   Textarea value.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function textarea(string $name, string $label = '', int|string $value = '', array $options = []): string {
+    function textarea(string $name, string $label = '', int|string $value = '', array $options = []): object {
         return get_ui()->textarea->render($name, $label, $value, $options);
     }
 }
@@ -200,9 +200,9 @@ if (!function_exists('accordion')) {
      * @param array  $items   Associative array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function accordion(string $id, array $items, array $options = []): string {
+    function accordion(string $id, array $items, array $options = []): object {
         return get_ui()->accordion->render($id, $items, $options);
     }
 }
@@ -215,9 +215,9 @@ if (!function_exists('alert')) {
      * @param string $color   Alert color. Possible value: default|success|warning|error|info
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function alert(string $text, string $color = 'default', array $options = []): string {
+    function alert(string $text, string $color = 'default', array $options = []): object {
         return get_ui()->alert->render($text, $color, $options);
     }
 }
@@ -230,9 +230,9 @@ if (!function_exists('badge')) {
      * @param string $color   Badge color. Possible value: default|primary|success|warning|error|info
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function badge(string $text, string $color = 'default', array $options = []): string {
+    function badge(string $text, string $color = 'default', array $options = []): object {
         return get_ui()->badge->render($text, $color, $options);
     }
 }
@@ -244,9 +244,9 @@ if (!function_exists('breadcrumbs')) {
      * @param array $links   Associative array.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function breadcrumbs(array $links, array $options = []): string {
+    function breadcrumbs(array $links, array $options = []): object {
         return get_ui()->breadcrumbs->render($links, $options);
     }
 }
@@ -259,9 +259,9 @@ if (!function_exists('button')) {
      * @param string $type    Button type. Possible value: button|submit|reset
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function button(string $title, string $type = 'button', array $options = []): string {
+    function button(string $title, string $type = 'button', array $options = []): object {
         return get_ui()->button->render($title, $type, $options);
     }
 }
@@ -273,9 +273,9 @@ if (!function_exists('button_group')) {
      * @param array $items   Associative array or multidimensional array.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function button_group(array $items, array $options = []): string {
+    function button_group(array $items, array $options = []): object {
         return get_ui()->button_group->render($items, $options);
     }
 }
@@ -286,9 +286,9 @@ if (!function_exists('card')) {
      *
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function card(array $options = []): string {
+    function card(array $options = []): object {
         return get_ui()->card->render($options);
     }
 }
@@ -301,9 +301,9 @@ if (!function_exists('carousel')) {
      * @param array  $slides  Array of items.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function carousel(string $id, array $slides, array $options = []): string {
+    function carousel(string $id, array $slides, array $options = []): object {
         return get_ui()->carousel->render($id, $slides, $options);
     }
 }
@@ -316,9 +316,9 @@ if (!function_exists('dropdown')) {
      * @param array  $items   Multidimensional array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function dropdown(string $title, array $items, array $options = []): string {
+    function dropdown(string $title, array $items, array $options = []): object {
         return get_ui()->dropdown->render($title, $items, $options);
     }
 }
@@ -330,9 +330,9 @@ if (!function_exists('list_group')) {
      * @param array $items   Array of items.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function list_group(array $items, array $options = []): string {
+    function list_group(array $items, array $options = []): object {
         return get_ui()->list_group->render($items, $options);
     }
 }
@@ -345,9 +345,9 @@ if (!function_exists('menu')) {
      * @param array  $items   Multidimensional array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function menu(string $id, array $items, array $options = []): string {
+    function menu(string $id, array $items, array $options = []): object {
         return get_ui()->menu->render($id, $items, $options);
     }
 }
@@ -360,9 +360,9 @@ if (!function_exists('modal')) {
      * @param array  $content Associative array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function modal(string $id, array $content, array $options = []): string {
+    function modal(string $id, array $content, array $options = []): object {
         return get_ui()->modal->render($id, $content, $options);
     }
 }
@@ -374,9 +374,9 @@ if (!function_exists('pagination')) {
      * @param array $items   Array of items.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function pagination(array $items, array $options = []): string {
+    function pagination(array $items, array $options = []): object {
         return get_ui()->pagination->render($items, $options);
     }
 }
@@ -388,9 +388,9 @@ if (!function_exists('progress')) {
      * @param array|int $percent Percents, an array or asociative array for multiple bars.
      * @param array     $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function progress(array|int $percent, array $options = []): string {
+    function progress(array|int $percent, array $options = []): object {
         return get_ui()->progress->render($percent, $options);
     }
 }
@@ -403,9 +403,9 @@ if (!function_exists('tabs')) {
      * @param array  $items   Multidimensional array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    function tabs(string $id, array $items, array $options = []): string {
+    function tabs(string $id, array $items, array $options = []): object {
         return get_ui()->tabs->render($id, $items, $options);
     }
 }

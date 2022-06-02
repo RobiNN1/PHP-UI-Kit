@@ -15,10 +15,24 @@ namespace RobiNN\UiKit\Components\Form;
 use RobiNN\UiKit\Components\Component;
 
 final class Select extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'form/select';
+
+    protected array $options = [
+        'id'                => '', // Wrapper ID.
+        'class'             => '', // Class for wrapper.
+        'attributes'        => [], // Array of custom attributes.
+        'select_id'         => '', // Select ID.
+        'select_class'      => '', // Select class.
+        'select_attributes' => [], // Array of custom attributes for select.
+        'placeholder'       => '', // Placeholder.
+        'size'              => 'default', // Select size. Possible value: default/sm/lg
+        'state'             => '', // Validation state. Possible value: success/error
+        'feedback_text'     => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
+        'required'          => false, // Required.
+        'disabled'          => false, // Disabled.
+        'help_text'         => '', // Custom help text.
+        'multiple'          => false, // Multiple.
+    ];
 
     /**
      * Render select field.
@@ -29,25 +43,12 @@ final class Select extends Component {
      * @param array      $items   Select options - array or associative array.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): string {
-        $this->options = array_merge([
-            'id'                => '', // Wrapper ID.
-            'class'             => '', // Class for wrapper.
-            'attributes'        => [], // Array of custom attributes.
-            'select_id'         => $name, // Select ID.
-            'select_class'      => '', // Select class.
-            'select_attributes' => [], // Array of custom attributes for select.
-            'placeholder'       => '', // Placeholder.
-            'size'              => 'default', // Select size. Possible value: default/sm/lg
-            'state'             => '', // Validation state. Possible value: success/error
-            'feedback_text'     => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
-            'required'          => false, // Required.
-            'disabled'          => false, // Disabled.
-            'help_text'         => '', // Custom help text.
-            'multiple'          => false, // Multiple.
-        ], $options);
+    public function render(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): object {
+        $this->options($options);
+
+        $this->options['select_id'] = !empty($this->options['select_id']) ? $this->options['select_id'] : $name;
 
         $this->options['select_attributes']['id'] = $this->options['select_id'];
 
@@ -69,7 +70,7 @@ final class Select extends Component {
             $this->options['select_attributes']['size'] = 3;
         }
 
-        return $this->tpl([
+        return $this->tplData([
             'value'             => $value,
             'label'             => $label,
             'items'             => $items,

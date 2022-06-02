@@ -15,10 +15,14 @@ namespace RobiNN\UiKit\Components\Layout;
 use RobiNN\UiKit\Components\Component;
 
 final class Grid extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'layout/grid';
+
+    protected array $options = [
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'open'       => false, // Opening div. @internal
+        'close'      => false, // Closing div. @internal
+    ];
 
     /**
      * Render grid.
@@ -26,19 +30,14 @@ final class Grid extends Component {
      * @param array $col_sizes Column sizes.
      * @param array $options   Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(array $col_sizes = [100], array $options = []): string {
-        $this->options = array_merge([
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'open'       => false, // Opening div. @internal
-            'close'      => false, // Closing div. @internal
-        ], $options);
+    public function render(array $col_sizes = [100], array $options = []): object {
+        $this->options($options);
 
         $grid_function = $this->uikit->getFrameworkOptions('grid_func');
 
-        return $this->tpl([
+        return $this->tplData([
             'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
         ]);
     }
@@ -49,9 +48,9 @@ final class Grid extends Component {
      * @param array $col_sizes Column sizes.
      * @param array $options   Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function open(array $col_sizes = [100], array $options = []): string {
+    public function open(array $col_sizes = [100], array $options = []): object {
         return $this->render($col_sizes, array_merge(['open' => true], $options));
     }
 
@@ -61,6 +60,6 @@ final class Grid extends Component {
      * @return string
      */
     public function close(): string {
-        return $this->render([], ['close' => true]);
+        return $this->render()->options(['close' => true])->toHtml();
     }
 }

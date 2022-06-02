@@ -21,7 +21,7 @@ abstract class CheckboxTest extends ComponentTestCase {
     public function testCheckboxRender(): void {
         $tpl = $this->uikit->checkbox->render('test', 'Test');
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testCheckboxInTwig(): void {
@@ -37,6 +37,6 @@ abstract class CheckboxTest extends ComponentTestCase {
             ],
         ]);
 
-        $this->assertComponentRender($this->expected_multiple_tpl, $tpl);
+        $this->assertComponentRender($this->expected_multiple_tpl, $tpl->toHtml());
     }
 }

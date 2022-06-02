@@ -15,10 +15,22 @@ namespace RobiNN\UiKit\Components\Form;
 use RobiNN\UiKit\Components\Component;
 
 final class Checkbox extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'form/checkbox';
+
+    protected array $options = [
+        'id'                  => '', // Wrapper ID.
+        'class'               => '', // Class for wrapper.
+        'attributes'          => [], // Array of custom attributes.
+        'items'               => [], // Multiple checkbox items - associative array.
+        'checkbox_id'         => '', // Checkbox ID.
+        'checkbox_attributes' => [], // Array of custom attributes for checkbox.
+        'radio'               => false, // Change to radio checkbox.
+        'state'               => '', // Validation state. Possible value: success/error
+        'feedback_text'       => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
+        'required'            => false, // Required.
+        'disabled'            => false, // Disabled.
+        'help_text'           => '', // Custom help text.
+    ];
 
     /**
      * Render checkbox field.
@@ -28,23 +40,12 @@ final class Checkbox extends Component {
      * @param int|string $value   Checkbox value.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $name, string $label = '', int|string $value = 0, array $options = []): string {
-        $this->options = array_merge([
-            'id'                  => '', // Wrapper ID.
-            'class'               => '', // Class for wrapper.
-            'attributes'          => [], // Array of custom attributes.
-            'items'               => [], // Multiple checkbox items - associative array.
-            'checkbox_id'         => $name, // Checkbox ID.
-            'checkbox_attributes' => [], // Array of custom attributes for checkbox.
-            'radio'               => false, // Change to radio checkbox.
-            'state'               => '', // Validation state. Possible value: success/error
-            'feedback_text'       => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
-            'required'            => false, // Required.
-            'disabled'            => false, // Disabled.
-            'help_text'           => '', // Custom help text.
-        ], $options);
+    public function render(string $name, string $label = '', int|string $value = 0, array $options = []): object {
+        $this->options($options);
+
+        $this->options['checkbox_id'] = !empty($this->options['checkbox_id']) ? $this->options['checkbox_id'] : $name;
 
         if (!empty($name)) {
             $name .= $this->options['radio'] === false && !str_ends_with($name, '[]') && !empty($this->options['items']) ? '[]' : '';
@@ -66,7 +67,7 @@ final class Checkbox extends Component {
             ];
         }
 
-        return $this->tpl([
+        return $this->tplData([
             'value'               => $value,
             'label'               => $label,
             'checkbox_attributes' => $this->getAttributes($this->options['checkbox_attributes']),

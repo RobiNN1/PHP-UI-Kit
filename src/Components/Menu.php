@@ -13,10 +13,15 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Menu extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/menu';
+
+    protected array $options = [
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'item_class' => '', // Class for item.
+        'dark'       => false, // Dark menu.
+        'brand'      => ['title' => '', 'link' => '#'], // Site name.
+    ];
 
     /**
      * Render menu.
@@ -25,16 +30,10 @@ final class Menu extends Component {
      * @param array  $items   Multidimensional array.
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $id, array $items, array $options = []): string {
-        $this->options = array_merge([
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'item_class' => '', // Class for item.
-            'dark'       => false, // Dark menu.
-            'brand'      => ['title' => '', 'link' => '#'], // Site name.
-        ], $options);
+    public function render(string $id, array $items, array $options = []): object {
+        $this->options($options);
 
         // Move right items to the end of the array
         if (!empty($items['right'])) {
@@ -43,7 +42,7 @@ final class Menu extends Component {
             $items['right'] = $right;
         }
 
-        return $this->tpl([
+        return $this->tplData([
             'id'    => $id,
             'items' => $this->items($items, $id, $this->options['dark']),
         ]);
@@ -66,7 +65,7 @@ final class Menu extends Component {
                 'link'    => '#',
             ],
             'in_menu' => true,
-        ]);
+        ])->toHtml();
     }
 
     /**

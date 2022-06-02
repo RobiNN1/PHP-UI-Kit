@@ -23,7 +23,7 @@ abstract class ListGroupTest extends ComponentTestCase {
             'Item 2',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testListGroupInTwig(): void {

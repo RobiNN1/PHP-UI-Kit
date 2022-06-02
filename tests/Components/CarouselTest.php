@@ -23,7 +23,7 @@ abstract class CarouselTest extends ComponentTestCase {
             'Slide 2',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testCarouselInTwig(): void {

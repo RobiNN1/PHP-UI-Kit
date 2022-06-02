@@ -13,10 +13,15 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Breadcrumbs extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/breadcrumbs';
+
+    protected array $options = [
+        'id'         => '', // Wrapper ID.
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'item_class' => '', // Class for item.
+        'divider'    => '/', // Items divider.
+    ];
 
     /**
      * Render breadcrumbs.
@@ -24,18 +29,12 @@ final class Breadcrumbs extends Component {
      * @param array $links   Associative array.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(array $links, array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Wrapper ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'item_class' => '', // Class for item.
-            'divider'    => '/', // Items divider.
-        ], $options);
+    public function render(array $links, array $options = []): object {
+        $this->options($options);
 
-        return $this->tpl([
+        return $this->tplData([
             'links' => $links,
         ]);
     }

@@ -15,10 +15,24 @@ namespace RobiNN\UiKit\Components\Form;
 use RobiNN\UiKit\Components\Component;
 
 final class Textarea extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'form/textarea';
+
+    protected array $options = [
+        'id'                  => '', // Wrapper ID.
+        'class'               => '', // Class for wrapper.
+        'attributes'          => [], // Array of custom attributes.
+        'textarea_id'         => '', // Textarea ID.
+        'textarea_class'      => '', // Textarea class.
+        'textarea_attributes' => [], // Array of custom attributes for textarea.
+        'placeholder'         => '', // Placeholder.
+        'state'               => '', // Validation state. Possible value: success/error
+        'feedback_text'       => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
+        'required'            => false, // Required.
+        'disabled'            => false, // Disabled.
+        'readonly'            => false, // Readonly.
+        'help_text'           => '', // Custom help text.
+        'rows'                => 4, // Textarea rows.
+    ];
 
     /**
      * Render textarea field.
@@ -28,25 +42,12 @@ final class Textarea extends Component {
      * @param int|string $value   Textarea value.
      * @param array      $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $name, string $label = '', int|string $value = '', array $options = []): string {
-        $this->options = array_merge([
-            'id'                  => '', // Wrapper ID.
-            'class'               => '', // Class for wrapper.
-            'attributes'          => [], // Array of custom attributes.
-            'textarea_id'         => $name, // Textarea ID.
-            'textarea_class'      => '', // Textarea class.
-            'textarea_attributes' => [], // Array of custom attributes for textarea.
-            'placeholder'         => '', // Placeholder.
-            'state'               => '', // Validation state. Possible value: success/error
-            'feedback_text'       => '', // Custom feedback text. Do validation in your code and then set state and feedback text.
-            'required'            => false, // Required.
-            'disabled'            => false, // Disabled.
-            'readonly'            => false, // Readonly.
-            'help_text'           => '', // Custom help text.
-            'rows'                => 4, // Textarea rows.
-        ], $options);
+    public function render(string $name, string $label = '', int|string $value = '', array $options = []): object {
+        $this->options($options);
+
+        $this->options['textarea_id'] = !empty($this->options['textarea_id']) ? $this->options['textarea_id'] : $name;
 
         $this->options['textarea_attributes']['id'] = $this->options['textarea_id'];
 
@@ -68,7 +69,7 @@ final class Textarea extends Component {
 
         $this->options['textarea_attributes']['rows'] = $this->options['rows'];
 
-        return $this->tpl([
+        return $this->tplData([
             'value'               => $value,
             'label'               => $label,
             'textarea_id'         => $this->options['textarea_attributes']['id'],

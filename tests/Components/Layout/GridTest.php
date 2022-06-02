@@ -24,7 +24,7 @@ abstract class GridTest extends ComponentTestCase {
     public function testOpenGridRender(): void {
         $tpl = $this->uikit->grid->open([100]);
 
-        $this->assertComponentRender($this->expected_open_tpl, $tpl);
+        $this->assertComponentRender($this->expected_open_tpl, $tpl->toHtml());
     }
 
     public function testCloseGridRender(): void {
@@ -35,13 +35,13 @@ abstract class GridTest extends ComponentTestCase {
 
     public function testGridVariants(): void {
         $tpl_100_50 = $this->uikit->grid->open([100, 50]);
-        $this->assertComponentRender($this->expected_100_50_tpl, $tpl_100_50);
+        $this->assertComponentRender($this->expected_100_50_tpl, $tpl_100_50->toHtml());
 
         $tpl_fw = $this->uikit->grid->open([100, 50, ['bootstrap5' => 'col-6', 'fomanticui2' => 'five wide tablet']]);
-        $this->assertComponentRender($this->expected_fw_tpl, $tpl_fw);
+        $this->assertComponentRender($this->expected_fw_tpl, $tpl_fw->toHtml());
 
         $tpl_auto = $this->uikit->grid->open(['auto']);
-        $this->assertComponentRender($this->expected_auto_tpl, $tpl_auto);
+        $this->assertComponentRender($this->expected_auto_tpl, $tpl_auto->toHtml());
     }
 
     public function testGridInTwig(): void {

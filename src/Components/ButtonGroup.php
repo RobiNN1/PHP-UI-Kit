@@ -15,10 +15,16 @@ namespace RobiNN\UiKit\Components;
 use RobiNN\UiKit\Misc;
 
 final class ButtonGroup extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/button_group';
+
+    protected array $options = [
+        'id'         => '', // Wrapper ID.
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'size'       => 'default', // Button group size. Possible value: default/sm/lg
+        'type'       => 'button', // Default type for all buttons. Possible value: button/submit/reset
+        'item_class' => '', // Class for item.
+    ];
 
     /**
      * Render a button group.
@@ -26,19 +32,12 @@ final class ButtonGroup extends Component {
      * @param array $items   Associative array or multidimensional array.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(array $items, array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Wrapper ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'size'       => 'default', // Button group size. Possible value: default/sm/lg
-            'type'       => 'button', // Default type for all buttons. Possible value: button/submit/reset
-            'item_class' => '', // Class for item.
-        ], $options);
+    public function render(array $items, array $options = []): object {
+        $this->options($options);
 
-        return $this->tpl([
+        return $this->tplData([
             'buttons' => $this->buttons($items, $this->options),
             'size'    => $this->getOption('sizes', $this->options['size']),
         ]);
@@ -70,7 +69,7 @@ final class ButtonGroup extends Component {
                 'link'  => !empty($button['link']) ? $button['link'] : '',
             ];
 
-            $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options));
+            $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options))->toHtml();
         }
 
         return $buttons;

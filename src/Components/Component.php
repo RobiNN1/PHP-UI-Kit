@@ -31,6 +31,11 @@ class Component {
     protected array $options = [];
 
     /**
+     * @var array
+     */
+    protected array $tpl_data = [];
+
+    /**
      * Get attributes.
      *
      * @param array $attributes
@@ -71,7 +76,7 @@ class Component {
      *
      * @return string
      */
-    public function tpl(array $data = []): string {
+    protected function tpl(array $data = []): string {
         $array = array_merge($this->options, $data);
 
         if (array_key_exists('id', $this->options) && !empty($this->options['id'])) {
@@ -81,5 +86,62 @@ class Component {
         $array['attributes'] = $this->getAttributes($this->options['attributes']);
 
         return $this->uikit->render($this->component, $array);
+    }
+
+    /**
+     * Set template data.
+     *
+     * @param array $data
+     *
+     * @return object
+     */
+    protected function tplData(array $data = []): object {
+        $this->tpl_data = $data;
+
+        return $this;
+    }
+
+    /**
+     * Set component options.
+     *
+     * @param array $options
+     *
+     * @return object
+     */
+    public function options(array $options = []): object {
+        $this->options = array_merge($this->options, $options);
+
+        return $this;
+    }
+
+    /**
+     * Set component attributes.
+     *
+     * @param array $attributes
+     *
+     * @return object
+     */
+    public function attributes(array $attributes = []): object {
+        $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
+
+        return $this;
+    }
+
+    /**
+     * Get HTML of a component.
+     *
+     * @return string
+     */
+    public function toHtml(): string {
+        return $this->tpl($this->tpl_data);
+    }
+
+    /**
+     * Render component.
+     *
+     * @return string
+     */
+    public function __toString(): string {
+        return $this->tpl($this->tpl_data);
     }
 }

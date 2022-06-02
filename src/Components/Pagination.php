@@ -13,10 +13,20 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Pagination extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/pagination';
+
+    protected array $options = [
+        'id'         => '', // Wrapper ID.
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'item_class' => '', // Class for item.
+        'link'       => '', // Pagination link tpl, use %s placeholder for numbers.
+        'current'    => 1, // Current active page.
+        'disabled'   => 0, // Disabled page. Also, can disable prev and next.
+        'prev_next'  => true, // Enable Previous and Next links.
+        'prev_title' => '&laquo;', // Previous page link title.
+        'next_title' => '&raquo;', // Next page link title.
+    ];
 
     /**
      * Render pagination.
@@ -24,21 +34,10 @@ final class Pagination extends Component {
      * @param array $items   Array of items.
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(array $items, array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Wrapper ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'item_class' => '', // Class for item.
-            'link'       => '', // Pagination link tpl, use %s placeholder for numbers.
-            'current'    => 1, // Current active page.
-            'disabled'   => 0, // Disabled page. Also, can disable prev and next.
-            'prev_next'  => true, // Enable Previous and Next links.
-            'prev_title' => '&laquo;', // Previous page link title.
-            'next_title' => '&raquo;', // Next page link title.
-        ], $options);
+    public function render(array $items, array $options = []): object {
+        $this->options($options);
 
         $prev = [];
         $next = [];
@@ -50,7 +49,7 @@ final class Pagination extends Component {
 
         $items = $prev + $items + $next;
 
-        return $this->tpl([
+        return $this->tplData([
             'items' => $this->items($items, $this->options),
         ]);
     }

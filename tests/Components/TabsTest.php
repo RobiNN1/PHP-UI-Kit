@@ -23,7 +23,7 @@ abstract class TabsTest extends ComponentTestCase {
             ['title' => 'Tab 2', 'content' => 'Content 2'],
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl);
+        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 
     public function testTabsInTwig(): void {

@@ -13,10 +13,14 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 final class Alert extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'components/alert';
+
+    protected array $options = [
+        'id'         => '', // Alert ID.
+        'class'      => '', // Alert class.
+        'attributes' => [], // Array of custom attributes.
+        'dismiss'    => false, // Make alert dismissable.
+    ];
 
     /**
      * Render alert.
@@ -25,17 +29,12 @@ final class Alert extends Component {
      * @param string $color   Alert color. Possible value: default|success|warning|error|info
      * @param array  $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(string $text, string $color = 'default', array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Alert ID.
-            'class'      => '', // Alert class.
-            'attributes' => [], // Array of custom attributes.
-            'dismiss'    => false, // Make alert dismissable.
-        ], $options);
+    public function render(string $text, string $color = 'default', array $options = []): object {
+        $this->options($options);
 
-        return $this->tpl([
+        return $this->tplData([
             'text'  => $text,
             'color' => $this->getOption('colors', $color),
         ]);

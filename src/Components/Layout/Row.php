@@ -15,27 +15,26 @@ namespace RobiNN\UiKit\Components\Layout;
 use RobiNN\UiKit\Components\Component;
 
 final class Row extends Component {
-    /**
-     * @var string
-     */
     protected string $component = 'layout/row';
+
+    protected array $options = [
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+        'open'       => false, // Opening div. @internal
+        'close'      => false, // Closing div. @internal
+    ];
 
     /**
      * Render row.
      *
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function render(array $options = []): string {
-        $this->options = array_merge([
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-            'open'       => false, // Opening div. @internal
-            'close'      => false, // Closing div. @internal
-        ], $options);
+    public function render(array $options = []): object {
+        $this->options($options);
 
-        return $this->tpl();
+        return $this;
     }
 
     /**
@@ -43,9 +42,9 @@ final class Row extends Component {
      *
      * @param array $options Additional options.
      *
-     * @return string
+     * @return object
      */
-    public function open(array $options = []): string {
+    public function open(array $options = []): object {
         return $this->render(array_merge(['open' => true], $options));
     }
 
@@ -55,6 +54,6 @@ final class Row extends Component {
      * @return string
      */
     public function close(): string {
-        return $this->render(['close' => true]);
+        return $this->render()->options(['close' => true])->toHtml();
     }
 }
