@@ -46,13 +46,11 @@ final class Layout extends Component {
 
         $css_codes = '';
         if (!empty(AddTo::$css)) {
-            $minify_css = static function (string $css): string {
-                return preg_replace(
-                    ['/\/\*((?!\*\/).)*\*\//', '/\s{2,}/', '/\s*([:;{}])\s*/', '/;}/',],
-                    ['', ' ', '$1', '}',],
-                    $css
-                );
-            };
+            $minify_css = static fn (string $css): string => preg_replace(
+                ['/\/\*((?!\*\/).)*\*\//', '/\s{2,}/', '/\s*([:;{}])\s*/', '/;}/',],
+                ['', ' ', '$1', '}',],
+                $css
+            );
 
             $css_codes = '<style>'.($this->options['minify_css'] ? $minify_css(AddTo::$css) : AddTo::$css).'</style>';
         }
