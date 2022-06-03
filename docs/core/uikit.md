@@ -104,7 +104,7 @@ echo $uikit->alert->render('example')->attributes([]);
 
 Get HTML of a component.
 
-Components return their object, that can be cast to a string (it uses `__toString ()` under the hood).
+Components return their object, that can be cast to a string (it uses `__toString()` under the hood).
 Alternatively, you can call this method to do this.
 
 ```php
