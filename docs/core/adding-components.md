@@ -129,3 +129,12 @@ $this->tpl([]);
 ```
 
 > The method requires that the `protected string $component = '';` be set.
+
+
+### tplData()
+
+Set template data.
+
+```php
+$this->tplData([]);
+```

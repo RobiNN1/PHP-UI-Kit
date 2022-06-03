@@ -83,3 +83,30 @@ Example, access to a config object:
 ```php
 $fw = get_ui()->config->getFramework();
 ```
+
+## options()
+
+Set component options.
+
+```php
+echo $uikit->alert->render('example')->options([]);
+```
+
+## attributes()
+
+Set component attributes.
+
+```php
+echo $uikit->alert->render('example')->attributes([]);
+```
+
+## toHtml()
+
+Get HTML of a component.
+
+Components return their object, that can be cast to a string (it uses `__toString ()` under the hood).
+Alternatively, you can call this method to do this.
+
+```php
+$uikit->alert->render('example')->toHtml();
+```
