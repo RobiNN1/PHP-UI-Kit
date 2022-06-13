@@ -63,14 +63,3 @@ PHPStan
 ```
 composer phpstan
 ```
-
-TwigCS
-
-```
-composer tcs resources  
-```
-
-## Sponsors
-
-[![name](https://static.blackfire.io/assets/intemporals/logo/png/blackfire-io_secondary_horizontal_transparent.png)](https://www.blackfire.io/?utm_source=php-ui-kit&utm_medium=readme&utm_campaign=free-open-source
-)
