@@ -48,8 +48,8 @@ final class Progress extends Component {
 
             $bars[] = [
                 'color'   => $this->getOption('colors', $color),
-                'title'   => $this->options['percents'] ? (int) $percent.'%' : '',
-                'percent' => (int) $percent,
+                'title'   => $this->options['percents'] ? $percent.'%' : '',
+                'percent' => $percent,
             ];
         } else {
             $bars = $this->multiple($percent, $this->options, $auto_colors);
@@ -76,7 +76,7 @@ final class Progress extends Component {
             $color = is_array($options['color']) ? ($options['color'][$i] ?? 'default') : $options['color'];
 
             $is_assoc = static fn ($arr) => ([] !== $arr) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
-            $int = (int) $is_assoc($percent) ? $bar : $title;
+            $int = $is_assoc($percent) ? $bar : $title;
 
             if ($auto_colors) {
                 $color = $auto_colors((int) $int);

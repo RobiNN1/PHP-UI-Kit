@@ -67,7 +67,7 @@ final class Button extends Component {
 
         return $this->tplData([
             'title'         => $title,
-            'type'          => in_array($type, ['button', 'submit', 'reset']) ? $type : 'button',
+            'type'          => in_array($type, ['button', 'submit', 'reset'], true) ? $type : 'button',
             'color'         => $this->getOption('colors', $this->options['color']),
             'size'          => $this->getOption('sizes', $this->options['size']),
             'state_classes' => ($this->options['active'] ? $active_class : '').($this->options['disabled'] ? $disabled_class : ''),

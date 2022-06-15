@@ -129,7 +129,7 @@ class Components {
             }
         }
 
-        if (!$alternatives) {
+        if (empty($alternatives)) {
             return '';
         }
 
