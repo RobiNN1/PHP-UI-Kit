@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Pagination extends Component {
     protected string $component = 'components/pagination';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Wrapper ID.
         'class'      => '', // Class for wrapper.
@@ -31,8 +34,8 @@ final class Pagination extends Component {
     /**
      * Render pagination.
      *
-     * @param array $items   Array of items.
-     * @param array $options Additional options.
+     * @param array<mixed, mixed>  $items   Array of items.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -55,10 +58,10 @@ final class Pagination extends Component {
     }
 
     /**
-     * @param array $items
-     * @param array $options
+     * @param array<mixed, mixed>  $items
+     * @param array<string, mixed> $options
      *
-     * @return array
+     * @return array<mixed, mixed>
      */
     private function items(array $items, array $options): array {
         foreach ($items as $key => $item) {

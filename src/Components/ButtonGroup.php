@@ -17,6 +17,9 @@ use RobiNN\UiKit\Misc;
 final class ButtonGroup extends Component {
     protected string $component = 'components/button_group';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Wrapper ID.
         'class'      => '', // Class for wrapper.
@@ -29,8 +32,8 @@ final class ButtonGroup extends Component {
     /**
      * Render a button group.
      *
-     * @param array $items   Associative array or multidimensional array.
-     * @param array $options Additional options.
+     * @param array<int|string, mixed> $items   Associative array or multidimensional array.
+     * @param array<string, mixed>     $options Additional options.
      *
      * @return object
      */
@@ -46,10 +49,10 @@ final class ButtonGroup extends Component {
     /**
      * Render buttons.
      *
-     * @param array $items
-     * @param array $options
+     * @param array<int|string, mixed> $items
+     * @param array<string, mixed>     $options
      *
-     * @return array
+     * @return array<int, string>
      */
     private function buttons(array $items, array $options): array {
         $buttons = [];

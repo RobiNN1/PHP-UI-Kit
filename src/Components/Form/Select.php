@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Select extends Component {
     protected string $component = 'form/select';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'                => '', // Wrapper ID.
         'class'             => '', // Class for wrapper.
@@ -37,11 +40,11 @@ final class Select extends Component {
     /**
      * Render select field.
      *
-     * @param string     $name    Select name.
-     * @param string     $label   Select label.
-     * @param int|string $value   Select value.
-     * @param array      $items   Select options - array or associative array.
-     * @param array      $options Additional options.
+     * @param string                        $name    Select name.
+     * @param string                        $label   Select label.
+     * @param int|string                    $value   Select value.
+     * @param array<string|int, string|int> $items   Select options - array or associative array.
+     * @param array<string, mixed>          $options Additional options.
      *
      * @return object
      */

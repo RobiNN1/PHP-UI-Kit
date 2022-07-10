@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Tabs extends Component {
     protected string $component = 'components/tabs';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'          => '', // Class for wrapper.
         'attributes'     => [], // Array of custom attributes.
@@ -25,9 +28,9 @@ final class Tabs extends Component {
     /**
      * Render tabs.
      *
-     * @param string $id      The ID of Tabs.
-     * @param array  $items   Multidimensional array.
-     * @param array  $options Additional options.
+     * @param string               $id      The ID of Tabs.
+     * @param array<int, mixed>    $items   Multidimensional array.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -41,9 +44,9 @@ final class Tabs extends Component {
     }
 
     /**
-     * @param array $items
+     * @param array<int, mixed> $items
      *
-     * @return array
+     * @return array<int, mixed>
      */
     private function items(array $items): array {
         // Add 'active' item if missing

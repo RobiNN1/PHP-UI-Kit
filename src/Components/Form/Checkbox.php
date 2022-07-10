@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Checkbox extends Component {
     protected string $component = 'form/checkbox';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'                  => '', // Wrapper ID.
         'class'               => '', // Class for wrapper.
@@ -35,10 +38,10 @@ final class Checkbox extends Component {
     /**
      * Render checkbox field.
      *
-     * @param string     $name    Checkbox name.
-     * @param string     $label   Checkbox label.
-     * @param int|string $value   Checkbox value.
-     * @param array      $options Additional options.
+     * @param string               $name    Checkbox name.
+     * @param string               $label   Checkbox label.
+     * @param int|string           $value   Checkbox value.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

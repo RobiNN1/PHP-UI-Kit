@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Menu extends Component {
     protected string $component = 'components/menu';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'      => '', // Class for wrapper.
         'attributes' => [], // Array of custom attributes.
@@ -26,9 +29,9 @@ final class Menu extends Component {
     /**
      * Render menu.
      *
-     * @param string $id      The ID of Menu.
-     * @param array  $items   Multidimensional array.
-     * @param array  $options Additional options.
+     * @param string               $id      The ID of Menu.
+     * @param array<mixed, mixed>  $items   Multidimensional array.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -49,8 +52,8 @@ final class Menu extends Component {
     }
 
     /**
-     * @param array $items
-     * @param bool  $dark
+     * @param array<mixed, mixed> $items
+     * @param bool                $dark
      *
      * @return string
      */
@@ -69,11 +72,11 @@ final class Menu extends Component {
     }
 
     /**
-     * @param array  $items
-     * @param string $id
-     * @param bool   $dark
+     * @param array<mixed, mixed> $items
+     * @param string              $id
+     * @param bool                $dark
      *
-     * @return array
+     * @return array<mixed, mixed>
      */
     private function items(array $items, string $id, bool $dark): array {
         $items_formatted = [];

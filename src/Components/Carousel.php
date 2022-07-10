@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Carousel extends Component {
     protected string $component = 'components/carousel';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'      => '', // Class for wrapper.
         'attributes' => [], // Array of custom attributes.
@@ -26,9 +29,9 @@ final class Carousel extends Component {
     /**
      * Render carousel.
      *
-     * @param string $id      Carousel ID.
-     * @param array  $slides  Array of items.
-     * @param array  $options Additional options.
+     * @param string               $id      Carousel ID.
+     * @param array<int, string>   $slides  Array of items.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

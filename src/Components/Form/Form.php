@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Form extends Component {
     protected string $component = 'form/form';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Form ID.
         'class'      => '', // Class for wrapper.
@@ -30,9 +33,9 @@ final class Form extends Component {
     /**
      * Render form.
      *
-     * @param string $method  Form method. Possible value: get|post
-     * @param string $action  Form action.
-     * @param array  $options Additional options.
+     * @param string               $method  Form method. Possible value: get|post
+     * @param string               $action  Form action.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -63,9 +66,9 @@ final class Form extends Component {
     /**
      * Render opening tag of the form.
      *
-     * @param string $method  Form method. Possible value: get|post
-     * @param string $action  Form action.
-     * @param array  $options Additional options.
+     * @param string               $method  Form method. Possible value: get|post
+     * @param string               $action  Form action.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Dropdown extends Component {
     protected string $component = 'components/dropdown';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Dropdown ID.
         'class'      => '', // Class for wrapper.
@@ -28,9 +31,9 @@ final class Dropdown extends Component {
     /**
      * Render dropdown.
      *
-     * @param string $title   Button title.
-     * @param array  $items   Multidimensional array.
-     * @param array  $options Additional options.
+     * @param string               $title   Button title.
+     * @param array<mixed, mixed>  $items   Multidimensional array.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

@@ -16,8 +16,8 @@ class Misc {
     /**
      * Get an item from an array using "dot" notation.
      *
-     * @param array  $array
-     * @param string $key
+     * @param array<mixed, mixed> $array
+     * @param string              $key
      *
      * @return mixed
      */
@@ -38,11 +38,11 @@ class Misc {
     /**
      * Set an array item to a given value using "dot" notation.
      *
-     * @param array  $array
-     * @param string $array_key
-     * @param mixed  $value
+     * @param array<mixed, mixed> $array
+     * @param string              $array_key
+     * @param mixed               $value
      *
-     * @return array
+     * @return array<mixed, mixed>
      */
     public static function arraySet(array &$array, string $array_key, mixed $value): array {
         $keys = explode('.', $array_key);

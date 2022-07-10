@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Input extends Component {
     protected string $component = 'form/input';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'               => '', // Wrapper ID.
         'class'            => '', // Class for wrapper.
@@ -42,10 +45,10 @@ final class Input extends Component {
     /**
      * Render input field.
      *
-     * @param string     $name    Input name.
-     * @param string     $label   Input label.
-     * @param int|string $value   Input value.
-     * @param array      $options Additional options.
+     * @param string               $name    Input name.
+     * @param string               $label   Input label.
+     * @param int|string           $value   Input value.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Textarea extends Component {
     protected string $component = 'form/textarea';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'                  => '', // Wrapper ID.
         'class'               => '', // Class for wrapper.
@@ -37,10 +40,10 @@ final class Textarea extends Component {
     /**
      * Render textarea field.
      *
-     * @param string     $name    Textarea name.
-     * @param string     $label   Textarea label.
-     * @param int|string $value   Textarea value.
-     * @param array      $options Additional options.
+     * @param string               $name    Textarea name.
+     * @param string               $label   Textarea label.
+     * @param int|string           $value   Textarea value.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

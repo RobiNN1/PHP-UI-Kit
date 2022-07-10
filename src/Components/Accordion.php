@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Accordion extends Component {
     protected string $component = 'components/accordion';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'      => '', // Class for wrapper.
         'attributes' => [], // Array of custom attributes.
@@ -25,9 +28,9 @@ final class Accordion extends Component {
     /**
      * Render accordion.
      *
-     * @param string $id      Accordion ID.
-     * @param array  $items   Associative array.
-     * @param array  $options Additional options.
+     * @param string                $id      Accordion ID.
+     * @param array<string, string> $items   Associative array.
+     * @param array<string, mixed>  $options Additional options.
      *
      * @return object
      */

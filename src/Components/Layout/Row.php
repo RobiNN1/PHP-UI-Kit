@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Row extends Component {
     protected string $component = 'layout/row';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'      => '', // Class for wrapper.
         'attributes' => [], // Array of custom attributes.
@@ -27,7 +30,7 @@ final class Row extends Component {
     /**
      * Render row.
      *
-     * @param array $options Additional options.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -40,7 +43,7 @@ final class Row extends Component {
     /**
      * Render opening tag of the row.
      *
-     * @param array $options Additional options.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

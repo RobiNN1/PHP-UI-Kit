@@ -25,8 +25,8 @@ if (!function_exists('layout')) {
     /**
      * Render site layout.
      *
-     * @param string $body    Site content.
-     * @param array  $options Additional options.
+     * @param string               $body    Site content.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -39,8 +39,8 @@ if (!function_exists('container_open') && !function_exists('container_close')) {
     /**
      * Render opening tag of the container.
      *
-     * @param bool  $fluid   Container without maximum width.
-     * @param array $options Additional options.
+     * @param bool                 $fluid   Container without maximum width.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -62,7 +62,7 @@ if (!function_exists('row_open') && !function_exists('row_close')) {
     /**
      * Render opening tag of the row.
      *
-     * @param array $options Additional options.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -84,8 +84,8 @@ if (!function_exists('grid_open') && !function_exists('grid_close')) {
     /**
      * Render opening tag of the grid.
      *
-     * @param array $col_sizes Column sizes.
-     * @param array $options   Additional options.
+     * @param array<int, mixed>    $col_sizes Column sizes.
+     * @param array<string, mixed> $options   Additional options.
      *
      * @return object
      */
@@ -107,9 +107,9 @@ if (!function_exists('form_open') && !function_exists('form_close')) {
     /**
      * Render opening tag of the form.
      *
-     * @param string $method  Form method. Possible value: get|post
-     * @param string $action  Form action.
-     * @param array  $options Additional options.
+     * @param string               $method  Form method. Possible value: get|post
+     * @param string               $action  Form action.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -131,10 +131,10 @@ if (!function_exists('input')) {
     /**
      * Render input field.
      *
-     * @param string     $name    Input name.
-     * @param string     $label   Input label.
-     * @param int|string $value   Input value.
-     * @param array      $options Additional options.
+     * @param string               $name    Input name.
+     * @param string               $label   Input label.
+     * @param int|string           $value   Input value.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -147,11 +147,11 @@ if (!function_exists('select')) {
     /**
      * Render select field.
      *
-     * @param string     $name    Select name.
-     * @param string     $label   Select label.
-     * @param int|string $value   Select value.
-     * @param array      $items   Select options - array or associative array.
-     * @param array      $options Additional options.
+     * @param string                        $name    Select name.
+     * @param string                        $label   Select label.
+     * @param int|string                    $value   Select value.
+     * @param array<string|int, string|int> $items   Select options - array or associative array.
+     * @param array<string, mixed>          $options Additional options.
      *
      * @return object
      */
@@ -164,10 +164,10 @@ if (!function_exists('checkbox')) {
     /**
      * Render checkbox field.
      *
-     * @param string     $name    Checkbox name.
-     * @param string     $label   Checkbox label.
-     * @param int|string $value   Checkbox value.
-     * @param array      $options Additional options.
+     * @param string               $name    Checkbox name.
+     * @param string               $label   Checkbox label.
+     * @param int|string           $value   Checkbox value.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -180,10 +180,10 @@ if (!function_exists('textarea')) {
     /**
      * Render textarea field.
      *
-     * @param string     $name    Textarea name.
-     * @param string     $label   Textarea label.
-     * @param int|string $value   Textarea value.
-     * @param array      $options Additional options.
+     * @param string               $name    Textarea name.
+     * @param string               $label   Textarea label.
+     * @param int|string           $value   Textarea value.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -196,9 +196,9 @@ if (!function_exists('accordion')) {
     /**
      * Render accordion.
      *
-     * @param string $id      Accordion ID.
-     * @param array  $items   Associative array.
-     * @param array  $options Additional options.
+     * @param string                $id      Accordion ID.
+     * @param array<string, string> $items   Associative array.
+     * @param array<string, mixed>  $options Additional options.
      *
      * @return object
      */
@@ -211,9 +211,9 @@ if (!function_exists('alert')) {
     /**
      * Render alert.
      *
-     * @param string $text    Alert text.
-     * @param string $color   Alert color. Possible value: default|success|warning|error|info
-     * @param array  $options Additional options.
+     * @param string               $text    Alert text.
+     * @param string               $color   Alert color. Possible value: default|success|warning|error|info
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -226,9 +226,9 @@ if (!function_exists('badge')) {
     /**
      * Render badge.
      *
-     * @param string $text    Badge text.
-     * @param string $color   Badge color. Possible value: default|primary|success|warning|error|info
-     * @param array  $options Additional options.
+     * @param string               $text    Badge text.
+     * @param string               $color   Badge color. Possible value: default|primary|success|warning|error|info
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -241,8 +241,8 @@ if (!function_exists('breadcrumbs')) {
     /**
      * Render breadcrumbs.
      *
-     * @param array $links   Associative array.
-     * @param array $options Additional options.
+     * @param array<string, mixed> $links   Associative array.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -255,9 +255,9 @@ if (!function_exists('button')) {
     /**
      * Render button.
      *
-     * @param string $title   Button title.
-     * @param string $type    Button type. Possible value: button|submit|reset
-     * @param array  $options Additional options.
+     * @param string               $title   Button title.
+     * @param string               $type    Button type. Possible value: button|submit|reset
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -270,8 +270,8 @@ if (!function_exists('button_group')) {
     /**
      * Render a button group.
      *
-     * @param array $items   Associative array or multidimensional array.
-     * @param array $options Additional options.
+     * @param array<int|string, mixed> $items   Associative array or multidimensional array.
+     * @param array<string, mixed>     $options Additional options.
      *
      * @return object
      */
@@ -284,7 +284,7 @@ if (!function_exists('card')) {
     /**
      * Render card.
      *
-     * @param array $options Additional options.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -297,9 +297,9 @@ if (!function_exists('carousel')) {
     /**
      * Render carousel.
      *
-     * @param string $id      Carousel ID.
-     * @param array  $slides  Array of items.
-     * @param array  $options Additional options.
+     * @param string               $id      Carousel ID.
+     * @param array<int, string>   $slides  Array of items.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -312,9 +312,9 @@ if (!function_exists('dropdown')) {
     /**
      * Render dropdown.
      *
-     * @param string $title   Button title.
-     * @param array  $items   Multidimensional array.
-     * @param array  $options Additional options.
+     * @param string               $title   Button title.
+     * @param array<mixed, mixed>  $items   Multidimensional array.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -327,8 +327,8 @@ if (!function_exists('list_group')) {
     /**
      * Render a list group.
      *
-     * @param array $items   Array of items.
-     * @param array $options Additional options.
+     * @param array<int, mixed>    $items   Array of items.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -341,9 +341,9 @@ if (!function_exists('menu')) {
     /**
      * Render menu.
      *
-     * @param string $id      The ID of Menu.
-     * @param array  $items   Multidimensional array.
-     * @param array  $options Additional options.
+     * @param string               $id      The ID of Menu.
+     * @param array<mixed, mixed>  $items   Multidimensional array.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -356,9 +356,9 @@ if (!function_exists('modal')) {
     /**
      * Render modal.
      *
-     * @param string $id      The ID of Modal.
-     * @param array  $content Associative array.
-     * @param array  $options Additional options.
+     * @param string                $id      The ID of Modal.
+     * @param array<string, string> $content Associative array.
+     * @param array<string, mixed>  $options Additional options.
      *
      * @return object
      */
@@ -371,8 +371,8 @@ if (!function_exists('pagination')) {
     /**
      * Render pagination.
      *
-     * @param array $items   Array of items.
-     * @param array $options Additional options.
+     * @param array<mixed, mixed>  $items   Array of items.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -385,8 +385,8 @@ if (!function_exists('progress')) {
     /**
      * Render progress.
      *
-     * @param array|int $percent Percents, an array or asociative array for multiple bars.
-     * @param array     $options Additional options.
+     * @param array<int, mixed>|int $percent Percents, an array or asociative array for multiple bars.
+     * @param array<string, mixed>  $options Additional options.
      *
      * @return object
      */
@@ -399,9 +399,9 @@ if (!function_exists('tabs')) {
     /**
      * Render tabs.
      *
-     * @param string $id      The ID of Tabs.
-     * @param array  $items   Multidimensional array.
-     * @param array  $options Additional options.
+     * @param string               $id      The ID of Tabs.
+     * @param array<int, mixed>    $items   Multidimensional array.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

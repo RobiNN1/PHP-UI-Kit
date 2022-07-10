@@ -19,9 +19,9 @@ interface TplEngineInterface {
     /**
      * Init TPL engine.
      *
-     * @param UiKit  $uikit
-     * @param Config $config
-     * @param ?array $paths
+     * @param UiKit               $uikit
+     * @param Config              $config
+     * @param ?array<int, string> $paths
      *
      * @return object
      */
@@ -30,9 +30,9 @@ interface TplEngineInterface {
     /**
      * Render template.
      *
-     * @param string $tpl
-     * @param array  $data
-     * @param bool   $string
+     * @param string               $tpl
+     * @param array<string, mixed> $data
+     * @param bool                 $string
      *
      * @return string
      */

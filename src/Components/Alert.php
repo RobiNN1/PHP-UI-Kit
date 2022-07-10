@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Alert extends Component {
     protected string $component = 'components/alert';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Alert ID.
         'class'      => '', // Alert class.
@@ -25,9 +28,9 @@ final class Alert extends Component {
     /**
      * Render alert.
      *
-     * @param string $text    Alert text.
-     * @param string $color   Alert color. Possible value: default|success|warning|error|info
-     * @param array  $options Additional options.
+     * @param string               $text    Alert text.
+     * @param string               $color   Alert color. Possible value: default|success|warning|error|info
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
