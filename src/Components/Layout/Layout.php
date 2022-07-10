@@ -18,6 +18,9 @@ use RobiNN\UiKit\Components\Component;
 final class Layout extends Component {
     protected string $component = 'layout/layout';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'lang'       => 'en', // Site lang (used for html lang attribute).
         'title'      => 'UI Kit', // Site title.
@@ -28,8 +31,8 @@ final class Layout extends Component {
     /**
      * Render site layout.
      *
-     * @param string $body    Site content.
-     * @param array  $options Additional options.
+     * @param string               $body    Site content.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

@@ -23,6 +23,9 @@ class TwigUiKitExtension extends AbstractExtension {
     public function __construct(private readonly UiKit $uikit) {
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions(): array {
         $functions = [];
 
@@ -46,6 +49,9 @@ class TwigUiKitExtension extends AbstractExtension {
         return $functions;
     }
 
+    /**
+     * @return TwigFilter[]
+     */
     public function getFilters(): array {
         return [
             new TwigFilter('space', [Misc::class, 'space']),

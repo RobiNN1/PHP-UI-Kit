@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Grid extends Component {
     protected string $component = 'layout/grid';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'      => '', // Class for wrapper.
         'attributes' => [], // Array of custom attributes.
@@ -27,8 +30,8 @@ final class Grid extends Component {
     /**
      * Render grid.
      *
-     * @param array $col_sizes Column sizes.
-     * @param array $options   Additional options.
+     * @param array<int, mixed>    $col_sizes Column sizes.
+     * @param array<string, mixed> $options   Additional options.
      *
      * @return object
      */
@@ -45,8 +48,8 @@ final class Grid extends Component {
     /**
      * Render opening tag of the grid.
      *
-     * @param array $col_sizes Column sizes.
-     * @param array $options   Additional options.
+     * @param array<int, mixed>    $col_sizes Column sizes.
+     * @param array<string, mixed> $options   Additional options.
      *
      * @return object
      */

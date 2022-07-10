@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class ListGroup extends Component {
     protected string $component = 'components/list_group';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Wrapper ID.
         'class'      => '', // Class for wrapper.
@@ -25,8 +28,8 @@ final class ListGroup extends Component {
     /**
      * Render a list group.
      *
-     * @param array $items   Array of items.
-     * @param array $options Additional options.
+     * @param array<int, string>   $items   Array of items.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

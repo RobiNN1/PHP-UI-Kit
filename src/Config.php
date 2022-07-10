@@ -29,12 +29,12 @@ final class Config {
     private string $framework;
 
     /**
-     * @var array
+     * @var array<string, string>
      */
     private array $framework_path;
 
     /**
-     * @param array $options
+     * @param array<string, mixed> $options
      */
     public function __construct(array $options = []) {
         $options = array_merge([

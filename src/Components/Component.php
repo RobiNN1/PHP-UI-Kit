@@ -27,19 +27,19 @@ class Component implements Stringable {
     protected string $component = '';
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     protected array $options = [];
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     protected array $tpl_data = [];
 
     /**
      * Get attributes.
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      *
      * @return string
      */
@@ -73,7 +73,7 @@ class Component implements Stringable {
     /**
      * Render template.
      *
-     * @param array $data
+     * @param array<string, mixed> $data
      *
      * @return string
      */
@@ -92,7 +92,7 @@ class Component implements Stringable {
     /**
      * Set template data.
      *
-     * @param array $data
+     * @param array<string, mixed> $data
      *
      * @return object
      */
@@ -105,7 +105,7 @@ class Component implements Stringable {
     /**
      * Set component options.
      *
-     * @param array $options
+     * @param array<string, mixed> $options
      *
      * @return object
      */
@@ -118,7 +118,7 @@ class Component implements Stringable {
     /**
      * Set component attributes.
      *
-     * @param array $attributes
+     * @param array<string, mixed> $attributes
      *
      * @return object
      */

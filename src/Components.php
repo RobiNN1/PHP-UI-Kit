@@ -17,7 +17,7 @@ use RobiNN\UiKit\Components\Component;
 
 class Components {
     /**
-     * @var array
+     * @var array<string, string>
      */
     private array $components;
 
@@ -59,7 +59,7 @@ class Components {
     /**
      * Get an array of all valid components.
      *
-     * @return array
+     * @return array<string, mixed>
      *
      * @internal
      */
@@ -179,8 +179,8 @@ class Components {
     /**
      * Create dynamic methods.
      *
-     * @param string $name
-     * @param array  $arguments
+     * @param string             $name
+     * @param array<int, string> $arguments
      *
      * @return object|string
      */

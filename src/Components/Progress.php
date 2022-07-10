@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Progress extends Component {
     protected string $component = 'components/progress';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'          => '', // Wrapper ID.
         'class'       => '', // Class for wrapper.
@@ -28,8 +31,8 @@ final class Progress extends Component {
     /**
      * Render progress.
      *
-     * @param array|int $percent Percents, an array or asociative array for multiple bars.
-     * @param array     $options Additional options.
+     * @param array<int, mixed>|int $percent Percents, an array or asociative array for multiple bars.
+     * @param array<string, mixed>  $options Additional options.
      *
      * @return object
      */
@@ -63,11 +66,11 @@ final class Progress extends Component {
     /**
      * Multiple bars.
      *
-     * @param array         $percent
-     * @param array         $options
-     * @param callable|null $auto_colors
+     * @param array<int, mixed>    $percent
+     * @param array<string, mixed> $options
+     * @param callable|null        $auto_colors
      *
-     * @return array
+     * @return array<int, mixed>
      */
     private function multiple(array $percent, array $options, ?callable $auto_colors): array {
         $bars = [];

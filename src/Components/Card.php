@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Card extends Component {
     protected string $component = 'components/card';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Wrapper ID.
         'class'      => '', // Class for wrapper.
@@ -31,7 +34,7 @@ final class Card extends Component {
     /**
      * Render card.
      *
-     * @param array $options Additional options.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

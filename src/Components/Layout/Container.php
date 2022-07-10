@@ -17,6 +17,9 @@ use RobiNN\UiKit\Components\Component;
 final class Container extends Component {
     protected string $component = 'layout/container';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'      => '', // Class for wrapper.
         'attributes' => [], // Array of custom attributes.
@@ -27,8 +30,8 @@ final class Container extends Component {
     /**
      * Render container.
      *
-     * @param bool  $fluid   Container without maximum width.
-     * @param array $options Additional options.
+     * @param bool                 $fluid   Container without maximum width.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
@@ -43,8 +46,8 @@ final class Container extends Component {
     /**
      * Render opening tag of the container.
      *
-     * @param bool  $fluid   Container without maximum width.
-     * @param array $options Additional options.
+     * @param bool                 $fluid   Container without maximum width.
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

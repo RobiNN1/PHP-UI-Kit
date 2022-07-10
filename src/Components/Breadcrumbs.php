@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Breadcrumbs extends Component {
     protected string $component = 'components/breadcrumbs';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Wrapper ID.
         'class'      => '', // Class for wrapper.
@@ -26,8 +29,8 @@ final class Breadcrumbs extends Component {
     /**
      * Render breadcrumbs.
      *
-     * @param array $links   Associative array.
-     * @param array $options Additional options.
+     * @param array<string, string> $links   Associative array.
+     * @param array<string, mixed>  $options Additional options.
      *
      * @return object
      */

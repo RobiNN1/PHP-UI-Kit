@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Modal extends Component {
     protected string $component = 'components/modal';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'class'        => '', // Class for wrapper.
         'attributes'   => [], // Array of custom attributes.
@@ -28,9 +31,9 @@ final class Modal extends Component {
     /**
      * Render modal.
      *
-     * @param string $id      The ID of Modal.
-     * @param array  $content Associative array.
-     * @param array  $options Additional options.
+     * @param string                $id      The ID of Modal.
+     * @param array<string, string> $content Associative array.
+     * @param array<string, mixed>  $options Additional options.
      *
      * @return object
      */

@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Badge extends Component {
     protected string $component = 'components/badge';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Badge ID.
         'class'      => '', // Badge class.
@@ -25,9 +28,9 @@ final class Badge extends Component {
     /**
      * Render badge.
      *
-     * @param string $text    Badge text.
-     * @param string $color   Badge color. Possible value: default|primary|success|warning|error|info
-     * @param array  $options Additional options.
+     * @param string               $text    Badge text.
+     * @param string               $color   Badge color. Possible value: default|primary|success|warning|error|info
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */

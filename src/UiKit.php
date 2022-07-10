@@ -22,12 +22,12 @@ final class UiKit extends Components {
     public const VERSION = '1.0.0';
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
     private array $fw_options = [];
 
     /**
-     * @var array
+     * @var array<int, string>
      */
     private array $tpl_paths = [];
 
@@ -100,9 +100,9 @@ final class UiKit extends Components {
     /**
      * Render template.
      *
-     * @param string $tpl
-     * @param array  $data
-     * @param bool   $string
+     * @param string               $tpl
+     * @param array<string, mixed> $data
+     * @param bool                 $string
      *
      * @return string
      */

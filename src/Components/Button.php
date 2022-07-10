@@ -15,6 +15,9 @@ namespace RobiNN\UiKit\Components;
 final class Button extends Component {
     protected string $component = 'components/button';
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $options = [
         'id'         => '', // Button ID.
         'class'      => '', // Button class.
@@ -35,9 +38,9 @@ final class Button extends Component {
     /**
      * Render button.
      *
-     * @param string $title   Button title.
-     * @param string $type    Button type. Possible value: button|submit|reset
-     * @param array  $options Additional options.
+     * @param string               $title   Button title.
+     * @param string               $type    Button type. Possible value: button|submit|reset
+     * @param array<string, mixed> $options Additional options.
      *
      * @return object
      */
