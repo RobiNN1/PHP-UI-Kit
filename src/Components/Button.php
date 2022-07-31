@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class Button extends Component {
+class Button extends Component {
     protected string $component = 'components/button';
 
     /**

@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-final class Input extends Component {
+class Input extends Component {
     protected string $component = 'form/input';
 
     /**

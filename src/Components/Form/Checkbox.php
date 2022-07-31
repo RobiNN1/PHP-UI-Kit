@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-final class Checkbox extends Component {
+class Checkbox extends Component {
     protected string $component = 'form/checkbox';
 
     /**

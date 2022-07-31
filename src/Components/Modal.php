@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class Modal extends Component {
+class Modal extends Component {
     protected string $component = 'components/modal';
 
     /**

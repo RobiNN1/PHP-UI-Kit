@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class Dropdown extends Component {
+class Dropdown extends Component {
     protected string $component = 'components/dropdown';
 
     /**

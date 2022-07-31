@@ -15,7 +15,7 @@ namespace RobiNN\UiKit;
 use RobiNN\UiKit\TplEngines\TplEngineInterface;
 use RobiNN\UiKit\TplEngines\Twig\Twig;
 
-final class UiKit extends Components {
+class UiKit extends Components {
     /**
      * @const string UI Kit version.
      */

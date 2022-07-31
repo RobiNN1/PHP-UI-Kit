@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components;
 
 use RobiNN\UiKit\Misc;
 
-final class ButtonGroup extends Component {
+class ButtonGroup extends Component {
     protected string $component = 'components/button_group';
 
     /**

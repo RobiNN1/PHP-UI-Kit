@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class Accordion extends Component {
+class Accordion extends Component {
     protected string $component = 'components/accordion';
 
     /**

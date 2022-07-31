@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
-final class Config {
+class Config {
     /**
      * @var mixed
      */

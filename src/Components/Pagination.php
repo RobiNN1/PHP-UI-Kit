@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class Pagination extends Component {
+class Pagination extends Component {
     protected string $component = 'components/pagination';
 
     /**
