@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components{{namespace}}
 
-final class {{class_name}} extends Component {
+class {{class_name}} extends Component {
     /**
      * @var string
      */

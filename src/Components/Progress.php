@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class Progress extends Component {
+class Progress extends Component {
     protected string $component = 'components/progress';
 
     /**

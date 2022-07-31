@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Layout;
 
 use RobiNN\UiKit\Components\Component;
 
-final class Container extends Component {
+class Container extends Component {
     protected string $component = 'layout/container';
 
     /**

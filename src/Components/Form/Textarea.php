@@ -14,7 +14,7 @@ namespace RobiNN\UiKit\Components\Form;
 
 use RobiNN\UiKit\Components\Component;
 
-final class Textarea extends Component {
+class Textarea extends Component {
     protected string $component = 'form/textarea';
 
     /**

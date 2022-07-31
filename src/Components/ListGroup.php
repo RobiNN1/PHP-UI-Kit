@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class ListGroup extends Component {
+class ListGroup extends Component {
     protected string $component = 'components/list_group';
 
     /**

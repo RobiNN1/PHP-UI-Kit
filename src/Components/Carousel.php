@@ -12,7 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
-final class Carousel extends Component {
+class Carousel extends Component {
     protected string $component = 'components/carousel';
 
     /**
