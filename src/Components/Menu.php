@@ -29,9 +29,9 @@ class Menu extends Component {
     /**
      * Render menu.
      *
-     * @param string               $id      The ID of Menu.
-     * @param array<mixed, mixed>  $items   Multidimensional array.
-     * @param array<string, mixed> $options Additional options.
+     * @param string                   $id      The ID of Menu.
+     * @param array<int|string, mixed> $items   Multidimensional array.
+     * @param array<string, mixed>     $options Additional options.
      *
      * @return object
      */
@@ -52,8 +52,8 @@ class Menu extends Component {
     }
 
     /**
-     * @param array<mixed, mixed> $items
-     * @param bool                $dark
+     * @param array<int|string, mixed> $items
+     * @param bool                     $dark
      *
      * @return string
      */
@@ -72,11 +72,11 @@ class Menu extends Component {
     }
 
     /**
-     * @param array<mixed, mixed> $items
-     * @param string              $id
-     * @param bool                $dark
+     * @param array<int|string, mixed> $items
+     * @param string                   $id
+     * @param bool                     $dark
      *
-     * @return array<mixed, mixed>
+     * @return array<int|string, mixed>
      */
     private function items(array $items, string $id, bool $dark): array {
         $items_formatted = [];

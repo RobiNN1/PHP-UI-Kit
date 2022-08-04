@@ -34,8 +34,8 @@ class Pagination extends Component {
     /**
      * Render pagination.
      *
-     * @param array<mixed, mixed>  $items   Array of items.
-     * @param array<string, mixed> $options Additional options.
+     * @param array<string|int, mixed> $items   Array of items.
+     * @param array<string, mixed>     $options Additional options.
      *
      * @return object
      */
@@ -58,10 +58,10 @@ class Pagination extends Component {
     }
 
     /**
-     * @param array<mixed, mixed>  $items
-     * @param array<string, mixed> $options
+     * @param array<string|int, mixed> $items
+     * @param array<string, mixed>     $options
      *
-     * @return array<mixed, mixed>
+     * @return array<string|int, mixed>
      */
     private function items(array $items, array $options): array {
         foreach ($items as $key => $item) {

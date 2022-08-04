@@ -313,7 +313,7 @@ if (!function_exists('dropdown')) {
      * Render dropdown.
      *
      * @param string               $title   Button title.
-     * @param array<mixed, mixed>  $items   Multidimensional array.
+     * @param array<int, mixed>    $items   Multidimensional array.
      * @param array<string, mixed> $options Additional options.
      *
      * @return object
@@ -341,9 +341,9 @@ if (!function_exists('menu')) {
     /**
      * Render menu.
      *
-     * @param string               $id      The ID of Menu.
-     * @param array<mixed, mixed>  $items   Multidimensional array.
-     * @param array<string, mixed> $options Additional options.
+     * @param string                   $id      The ID of Menu.
+     * @param array<int|string, mixed> $items   Multidimensional array.
+     * @param array<string, mixed>     $options Additional options.
      *
      * @return object
      */
@@ -371,8 +371,8 @@ if (!function_exists('pagination')) {
     /**
      * Render pagination.
      *
-     * @param array<mixed, mixed>  $items   Array of items.
-     * @param array<string, mixed> $options Additional options.
+     * @param array<string|int, mixed> $items   Array of items.
+     * @param array<string, mixed>     $options Additional options.
      *
      * @return object
      */
