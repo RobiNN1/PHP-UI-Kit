@@ -48,10 +48,10 @@ class Checkbox extends Component {
     public function render(string $name, string $label = '', int|string $value = 0, array $options = []): Component {
         $this->options($options);
 
-        $this->options['checkbox_id'] = !empty($this->options['checkbox_id']) ? $this->options['checkbox_id'] : $name;
+        $this->options['checkbox_id'] = $this->options['checkbox_id'] !== '' ? $this->options['checkbox_id'] : $name;
 
-        if (!empty($name)) {
-            $name .= $this->options['radio'] === false && !str_ends_with($name, '[]') && !empty($this->options['items']) ? '[]' : '';
+        if ($name !== '') {
+            $name .= $this->options['radio'] === false && !str_ends_with($name, '[]') && count($this->options['items']) > 0 ? '[]' : '';
             $this->options['checkbox_attributes']['name'] = $name;
         }
 
@@ -63,7 +63,7 @@ class Checkbox extends Component {
             $this->options['checkbox_attributes']['disabled'] = null;
         }
 
-        if (empty($this->options['items'])) {
+        if (count($this->options['items']) === 0) {
             $value = $value === '' ? 0 : $value;
             $this->options['items'] = [
                 $value => $label,

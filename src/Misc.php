@@ -69,14 +69,14 @@ class Misc {
     /**
      * Add space to the left or the right side.
      *
-     * @param mixed $value
-     * @param bool  $right
+     * @param ?string $value
+     * @param bool    $right
      *
      * @return string
      */
-    public static function space(mixed $value, bool $right = false): string {
+    public static function space(?string $value, bool $right = false): string {
         $right_side = $right ? $value.' ' : ' '.$value;
 
-        return !empty($value) ? $right_side : '';
+        return $value !== null && $value !== '' ? $right_side : '';
     }
 }

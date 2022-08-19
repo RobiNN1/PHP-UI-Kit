@@ -80,7 +80,7 @@ class Component implements Stringable {
     protected function tpl(array $data = []): string {
         $array = array_merge($this->options, $data);
 
-        if (array_key_exists('id', $this->options) && !empty($this->options['id'])) {
+        if (array_key_exists('id', $this->options) && $this->options['id'] !== '') {
             $this->options['attributes']['id'] = $this->options['id'];
         }
 

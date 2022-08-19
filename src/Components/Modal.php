@@ -42,13 +42,13 @@ class Modal extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions('modal.button');
 
-        if (!empty($this->options['button'])) {
-            if (!empty($fwoptions['attributes'])) {
+        if (count($this->options['button']) > 0) {
+            if (isset($fwoptions['attributes'])) {
                 foreach ($fwoptions['attributes'] as $attr => $value) {
                     $fwoptions['attributes'][$attr] = strtr($value, ['{id}' => $id]);
                 }
 
-                $attr = !empty($this->options['button']['attributes']) ? $this->options['button']['attributes'] : [];
+                $attr = $this->options['button']['attributes'] ?? [];
                 $this->options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
             }
 

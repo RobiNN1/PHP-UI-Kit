@@ -55,15 +55,15 @@ class Input extends Component {
     public function render(string $name, string $label = '', int|string $value = '', array $options = []): Component {
         $this->options($options);
 
-        $this->options['input_id'] = !empty($this->options['input_id']) ? $this->options['input_id'] : $name;
+        $this->options['input_id'] = $this->options['input_id'] !== '' ? $this->options['input_id'] : $name;
 
         $this->options['input_attributes']['id'] = $this->options['input_id'];
 
-        if (!empty($name)) {
+        if ($name !== '') {
             $this->options['input_attributes']['name'] = $name;
         }
 
-        if (!empty($this->options['placeholder'])) {
+        if ($this->options['placeholder'] !== '') {
             $this->options['input_attributes']['placeholder'] = $this->options['placeholder'];
         }
 

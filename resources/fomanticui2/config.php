@@ -29,7 +29,7 @@ return [
                 return '';
             }
 
-            if (is_array($value) && !empty($value['fomanticui2'])) {
+            if (is_array($value) && isset($value['fomanticui2'])) {
                 return $value['fomanticui2'] === 'auto' ? '' : $value['fomanticui2'];
             }
 

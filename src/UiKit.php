@@ -88,7 +88,7 @@ class UiKit extends Components {
             AddTo::head('<link rel="stylesheet" href="'.$css.'">');
         }
 
-        if (!empty($fwoptions['jquery']) && $fwoptions['jquery'] === true) {
+        if (isset($fwoptions['jquery']) && $fwoptions['jquery'] === true) {
             AddTo::footer('<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>');
         }
 

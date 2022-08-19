@@ -29,11 +29,11 @@ return [
                 return 'col';
             }
 
-            if (is_array($value) && !empty($value['bootstrap5'])) {
+            if (is_array($value) && isset($value['bootstrap5'])) {
                 return $value['bootstrap5'] === 'auto' ? 'col' : $value['bootstrap5'];
             }
 
-            if (!is_array($value) && !empty($sizes[$index])) {
+            if (!is_array($value) && isset($sizes[$index])) {
                 $column = ($value * 12) / 100;
                 $columns[$sizes[$index]] = $column < 5 ? ceil($column) : floor($column);
             }

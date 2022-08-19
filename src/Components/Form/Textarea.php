@@ -50,11 +50,11 @@ class Textarea extends Component {
     public function render(string $name, string $label = '', int|string $value = '', array $options = []): Component {
         $this->options($options);
 
-        $this->options['textarea_id'] = !empty($this->options['textarea_id']) ? $this->options['textarea_id'] : $name;
+        $this->options['textarea_id'] = $this->options['textarea_id'] !== '' ? $this->options['textarea_id'] : $name;
 
         $this->options['textarea_attributes']['id'] = $this->options['textarea_id'];
 
-        if (!empty($name)) {
+        if ($name !== '') {
             $this->options['textarea_attributes']['name'] = $name;
         }
 

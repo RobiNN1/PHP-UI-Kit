@@ -51,11 +51,11 @@ class Select extends Component {
     public function render(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): Component {
         $this->options($options);
 
-        $this->options['select_id'] = !empty($this->options['select_id']) ? $this->options['select_id'] : $name;
+        $this->options['select_id'] = $this->options['select_id'] !== '' ? $this->options['select_id'] : $name;
 
         $this->options['select_attributes']['id'] = $this->options['select_id'];
 
-        if (!empty($name)) {
+        if ($name !== '') {
             $name .= $this->options['multiple'] && !str_ends_with($name, '[]') ? '[]' : '';
             $this->options['select_attributes']['name'] = $name;
         }

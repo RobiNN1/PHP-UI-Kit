@@ -39,16 +39,16 @@ class Layout extends Component {
     public function render(string $body, array $options = []): Component {
         $this->options($options);
 
-        if (!empty(AddTo::$jquery) && $this->uikit->getFrameworkOptions('jquery')) {
+        if (AddTo::$jquery !== '' && $this->uikit->getFrameworkOptions('jquery')) {
             AddTo::js('$(function(){'.AddTo::$jquery.'});');
         }
 
-        if (!empty(AddTo::$js)) {
+        if (AddTo::$js !== '') {
             AddTo::footer('<script>'.AddTo::$js.'</script>');
         }
 
         $css_codes = '';
-        if (!empty(AddTo::$css)) {
+        if (AddTo::$css !== '') {
             $minify_css = static fn (string $css): string => preg_replace(
                 ['/\/\*((?!\*\/).)*\*\//', '/\s{2,}/', '/\s*([:;{}])\s*/', '/;}/',],
                 ['', ' ', '$1', '}',],

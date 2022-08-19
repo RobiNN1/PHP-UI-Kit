@@ -42,17 +42,17 @@ class Dropdown extends Component {
 
         $fwoptions = $this->uikit->getFrameworkOptions('dropdown.button');
 
-        if (!empty($fwoptions['class'])) {
-            $class = !empty($this->options['button']['class']) ? $this->options['button']['class'].' ' : '';
+        if (isset($fwoptions['class'])) {
+            $class = isset($this->options['button']['class']) ? $this->options['button']['class'].' ' : '';
             $this->options['button']['class'] = $class.$fwoptions['class'];
         }
 
-        if (!empty($fwoptions['attributes'])) {
-            $attr = !empty($this->options['button']['attributes']) ? $this->options['button']['attributes'] : [];
+        if (isset($fwoptions['attributes'])) {
+            $attr = $this->options['button']['attributes'] ?? [];
             $this->options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
         }
 
-        if (!empty($fwoptions['icon'])) {
+        if (isset($fwoptions['icon'])) {
             $title .= ' '.$fwoptions['icon'];
         }
 

@@ -51,13 +51,13 @@ class Tabs extends Component {
     private function items(array $items): array {
         // Add 'active' item if missing
         foreach ($items as $key => $item) {
-            if (empty($item['active'])) {
+            if (!isset($item['active'])) {
                 $items[$key]['active'] = false;
             }
         }
 
         $active_tab = array_search(true, array_column($items, 'active'), true);
-        $active_tab = !empty($active_tab) ? $active_tab : 0;
+        $active_tab = $active_tab !== false ? $active_tab : 0;
 
         $items_ = [];
         $i = 0;

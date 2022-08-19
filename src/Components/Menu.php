@@ -39,7 +39,7 @@ class Menu extends Component {
         $this->options($options);
 
         // Move right items to the end of the array
-        if (!empty($items['right'])) {
+        if (isset($items['right'])) {
             $right = $items['right'];
             unset($items['right']);
             $items['right'] = $right;

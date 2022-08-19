@@ -47,12 +47,12 @@ class Button extends Component {
     public function render(string $title, string $type = 'button', array $options = []): Component {
         $this->options($options);
 
-        if (!empty($this->options['id'])) {
+        if ($this->options['id'] !== '') {
             $this->options['attributes']['id'] = $this->options['id'];
         }
 
-        if (empty($this->options['link'])) {
-            if (!empty($this->options['name'])) {
+        if ($this->options['link'] === '') {
+            if ($this->options['name'] !== '') {
                 $this->options['attributes']['name'] = $this->options['name'];
             }
 

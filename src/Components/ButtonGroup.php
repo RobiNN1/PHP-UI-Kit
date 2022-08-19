@@ -59,17 +59,17 @@ class ButtonGroup extends Component {
 
         foreach ($items as $value => $button) {
             $title = is_array($button) ? $button['title'] : $button;
-            $type = !empty($button['type']) ? $button['type'] : $options['type'];
-            $btn_options = !empty($button['btn_options']) ? $button['btn_options'] : [];
+            $type = $button['type'] ?? $options['type'];
+            $btn_options = $button['btn_options'] ?? [];
 
             $btn_opt_value = array_key_exists('value', $btn_options) ? $btn_options['value'] : $value;
             $value = array_key_exists('value', (array) $button) ? $button['value'] : $btn_opt_value;
 
-            $btn_options['class'] = $options['item_class'].(!empty($btn_options['class']) ? Misc::space($btn_options['class']) : '');
+            $btn_options['class'] = $options['item_class'].(isset($btn_options['class']) ? Misc::space($btn_options['class']) : '');
 
             $btn = [
                 'value' => $value,
-                'link'  => !empty($button['link']) ? $button['link'] : '',
+                'link'  => $button['link'] ?? '',
             ];
 
             $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options))->toHtml();
