@@ -32,9 +32,9 @@ class Breadcrumbs extends Component {
      * @param array<string, string> $links   Associative array.
      * @param array<string, mixed>  $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(array $links, array $options = []): object {
+    public function render(array $links, array $options = []): Component {
         $this->options($options);
 
         return $this->tplData([

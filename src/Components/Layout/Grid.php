@@ -33,9 +33,9 @@ class Grid extends Component {
      * @param array<int, mixed>    $col_sizes Column sizes.
      * @param array<string, mixed> $options   Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(array $col_sizes = [100], array $options = []): object {
+    public function render(array $col_sizes = [100], array $options = []): Component {
         $this->options($options);
 
         $grid_function = $this->uikit->getFrameworkOptions('grid_func');
@@ -51,9 +51,9 @@ class Grid extends Component {
      * @param array<int, mixed>    $col_sizes Column sizes.
      * @param array<string, mixed> $options   Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function open(array $col_sizes = [100], array $options = []): object {
+    public function open(array $col_sizes = [100], array $options = []): Component {
         return $this->render($col_sizes, array_merge(['open' => true], $options));
     }
 

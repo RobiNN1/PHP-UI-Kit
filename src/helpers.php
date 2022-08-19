@@ -10,6 +10,8 @@
 
 declare(strict_types=1);
 
+use RobiNN\UiKit\Components\Component;
+
 if (!function_exists('get_ui')) {
     /**
      * Get a UI Kit object.
@@ -28,9 +30,9 @@ if (!function_exists('layout')) {
      * @param string               $body    Site content.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function layout(string $body, array $options = []): object {
+    function layout(string $body, array $options = []): Component {
         return get_ui()->layout->render($body, $options);
     }
 }
@@ -42,9 +44,9 @@ if (!function_exists('container_open') && !function_exists('container_close')) {
      * @param bool                 $fluid   Container without maximum width.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function container_open(bool $fluid = false, array $options = []): object {
+    function container_open(bool $fluid = false, array $options = []): Component {
         return get_ui()->container->open($fluid, $options);
     }
 
@@ -64,9 +66,9 @@ if (!function_exists('row_open') && !function_exists('row_close')) {
      *
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function row_open(array $options = []): object {
+    function row_open(array $options = []): Component {
         return get_ui()->row->open($options);
     }
 
@@ -87,9 +89,9 @@ if (!function_exists('grid_open') && !function_exists('grid_close')) {
      * @param array<int, mixed>    $col_sizes Column sizes.
      * @param array<string, mixed> $options   Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function grid_open(array $col_sizes = [100], array $options = []): object {
+    function grid_open(array $col_sizes = [100], array $options = []): Component {
         return get_ui()->grid->open($col_sizes, $options);
     }
 
@@ -111,9 +113,9 @@ if (!function_exists('form_open') && !function_exists('form_close')) {
      * @param string               $action  Form action.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function form_open(string $method = 'post', string $action = '', array $options = []): object {
+    function form_open(string $method = 'post', string $action = '', array $options = []): Component {
         return get_ui()->form->open($method, $action, $options);
     }
 
@@ -136,9 +138,9 @@ if (!function_exists('input')) {
      * @param int|string           $value   Input value.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function input(string $name, string $label = '', int|string $value = '', array $options = []): object {
+    function input(string $name, string $label = '', int|string $value = '', array $options = []): Component {
         return get_ui()->input->render($name, $label, $value, $options);
     }
 }
@@ -153,9 +155,9 @@ if (!function_exists('select')) {
      * @param array<string|int, string|int> $items   Select options - array or associative array.
      * @param array<string, mixed>          $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function select(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): object {
+    function select(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): Component {
         return get_ui()->select->render($name, $label, $value, $items, $options);
     }
 }
@@ -169,9 +171,9 @@ if (!function_exists('checkbox')) {
      * @param int|string           $value   Checkbox value.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function checkbox(string $name, string $label = '', int|string $value = 0, array $options = []): object {
+    function checkbox(string $name, string $label = '', int|string $value = 0, array $options = []): Component {
         return get_ui()->checkbox->render($name, $label, $value, $options);
     }
 }
@@ -185,9 +187,9 @@ if (!function_exists('textarea')) {
      * @param int|string           $value   Textarea value.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function textarea(string $name, string $label = '', int|string $value = '', array $options = []): object {
+    function textarea(string $name, string $label = '', int|string $value = '', array $options = []): Component {
         return get_ui()->textarea->render($name, $label, $value, $options);
     }
 }
@@ -200,9 +202,9 @@ if (!function_exists('accordion')) {
      * @param array<string, string> $items   Associative array.
      * @param array<string, mixed>  $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function accordion(string $id, array $items, array $options = []): object {
+    function accordion(string $id, array $items, array $options = []): Component {
         return get_ui()->accordion->render($id, $items, $options);
     }
 }
@@ -215,9 +217,9 @@ if (!function_exists('alert')) {
      * @param string               $color   Alert color. Possible value: default|success|warning|error|info
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function alert(string $text, string $color = 'default', array $options = []): object {
+    function alert(string $text, string $color = 'default', array $options = []): Component {
         return get_ui()->alert->render($text, $color, $options);
     }
 }
@@ -230,9 +232,9 @@ if (!function_exists('badge')) {
      * @param string               $color   Badge color. Possible value: default|primary|success|warning|error|info
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function badge(string $text, string $color = 'default', array $options = []): object {
+    function badge(string $text, string $color = 'default', array $options = []): Component {
         return get_ui()->badge->render($text, $color, $options);
     }
 }
@@ -244,9 +246,9 @@ if (!function_exists('breadcrumbs')) {
      * @param array<string, mixed> $links   Associative array.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function breadcrumbs(array $links, array $options = []): object {
+    function breadcrumbs(array $links, array $options = []): Component {
         return get_ui()->breadcrumbs->render($links, $options);
     }
 }
@@ -259,9 +261,9 @@ if (!function_exists('button')) {
      * @param string               $type    Button type. Possible value: button|submit|reset
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function button(string $title, string $type = 'button', array $options = []): object {
+    function button(string $title, string $type = 'button', array $options = []): Component {
         return get_ui()->button->render($title, $type, $options);
     }
 }
@@ -273,9 +275,9 @@ if (!function_exists('button_group')) {
      * @param array<int|string, mixed> $items   Associative array or multidimensional array.
      * @param array<string, mixed>     $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function button_group(array $items, array $options = []): object {
+    function button_group(array $items, array $options = []): Component {
         return get_ui()->button_group->render($items, $options);
     }
 }
@@ -286,9 +288,9 @@ if (!function_exists('card')) {
      *
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function card(array $options = []): object {
+    function card(array $options = []): Component {
         return get_ui()->card->render($options);
     }
 }
@@ -301,9 +303,9 @@ if (!function_exists('carousel')) {
      * @param array<int, string>   $slides  Array of items.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function carousel(string $id, array $slides, array $options = []): object {
+    function carousel(string $id, array $slides, array $options = []): Component {
         return get_ui()->carousel->render($id, $slides, $options);
     }
 }
@@ -316,9 +318,9 @@ if (!function_exists('dropdown')) {
      * @param array<int, mixed>    $items   Multidimensional array.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function dropdown(string $title, array $items, array $options = []): object {
+    function dropdown(string $title, array $items, array $options = []): Component {
         return get_ui()->dropdown->render($title, $items, $options);
     }
 }
@@ -330,9 +332,9 @@ if (!function_exists('list_group')) {
      * @param array<int, mixed>    $items   Array of items.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function list_group(array $items, array $options = []): object {
+    function list_group(array $items, array $options = []): Component {
         return get_ui()->list_group->render($items, $options);
     }
 }
@@ -345,9 +347,9 @@ if (!function_exists('menu')) {
      * @param array<int|string, mixed> $items   Multidimensional array.
      * @param array<string, mixed>     $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function menu(string $id, array $items, array $options = []): object {
+    function menu(string $id, array $items, array $options = []): Component {
         return get_ui()->menu->render($id, $items, $options);
     }
 }
@@ -360,9 +362,9 @@ if (!function_exists('modal')) {
      * @param array<string, string> $content Associative array.
      * @param array<string, mixed>  $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function modal(string $id, array $content, array $options = []): object {
+    function modal(string $id, array $content, array $options = []): Component {
         return get_ui()->modal->render($id, $content, $options);
     }
 }
@@ -374,9 +376,9 @@ if (!function_exists('pagination')) {
      * @param array<string|int, mixed> $items   Array of items.
      * @param array<string, mixed>     $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function pagination(array $items, array $options = []): object {
+    function pagination(array $items, array $options = []): Component {
         return get_ui()->pagination->render($items, $options);
     }
 }
@@ -388,9 +390,9 @@ if (!function_exists('progress')) {
      * @param array<int, mixed>|int $percent Percents, an array or asociative array for multiple bars.
      * @param array<string, mixed>  $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function progress(array|int $percent, array $options = []): object {
+    function progress(array|int $percent, array $options = []): Component {
         return get_ui()->progress->render($percent, $options);
     }
 }
@@ -403,9 +405,9 @@ if (!function_exists('tabs')) {
      * @param array<int, mixed>    $items   Multidimensional array.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    function tabs(string $id, array $items, array $options = []): object {
+    function tabs(string $id, array $items, array $options = []): Component {
         return get_ui()->tabs->render($id, $items, $options);
     }
 }

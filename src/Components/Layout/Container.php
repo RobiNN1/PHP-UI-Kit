@@ -33,9 +33,9 @@ class Container extends Component {
      * @param bool                 $fluid   Container without maximum width.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(bool $fluid = false, array $options = []): object {
+    public function render(bool $fluid = false, array $options = []): Component {
         $this->options($options);
 
         return $this->tplData([
@@ -49,9 +49,9 @@ class Container extends Component {
      * @param bool                 $fluid   Container without maximum width.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function open(bool $fluid = false, array $options = []): object {
+    public function open(bool $fluid = false, array $options = []): Component {
         return $this->render($fluid, array_merge(['open' => true], $options));
     }
 

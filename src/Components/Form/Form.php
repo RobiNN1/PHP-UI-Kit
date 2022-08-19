@@ -37,9 +37,9 @@ class Form extends Component {
      * @param string               $action  Form action.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(string $method = 'post', string $action = '', array $options = []): object {
+    public function render(string $method = 'post', string $action = '', array $options = []): Component {
         $this->options($options);
 
         if (!empty($this->options['id'])) {
@@ -70,9 +70,9 @@ class Form extends Component {
      * @param string               $action  Form action.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function open(string $method = 'post', string $action = '', array $options = []): object {
+    public function open(string $method = 'post', string $action = '', array $options = []): Component {
         return $this->render($method, $action, array_merge(['open' => true], $options));
     }
 

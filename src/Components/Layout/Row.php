@@ -32,9 +32,9 @@ class Row extends Component {
      *
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(array $options = []): object {
+    public function render(array $options = []): Component {
         $this->options($options);
 
         return $this;
@@ -45,9 +45,9 @@ class Row extends Component {
      *
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function open(array $options = []): object {
+    public function open(array $options = []): Component {
         return $this->render(array_merge(['open' => true], $options));
     }
 

@@ -54,7 +54,7 @@ class UiKit extends Components {
 
         $config_array = (array) require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
 
-        if (!empty($this->fw_options)) {
+        if (count($this->fw_options)) {
             foreach ($this->fw_options as $option => $value) {
                 Misc::arraySet($config_array, $option, $value);
             }
@@ -118,9 +118,9 @@ class UiKit extends Components {
      *
      * @param string $path
      *
-     * @return object
+     * @return static
      */
-    public function setPath(string $path): object {
+    public function setPath(string $path): static {
         $this->tpl_paths[] = $path;
 
         return $this;

@@ -35,9 +35,9 @@ class Modal extends Component {
      * @param array<string, string> $content Associative array.
      * @param array<string, mixed>  $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(string $id, array $content, array $options = []): object {
+    public function render(string $id, array $content, array $options = []): Component {
         $this->options($options);
 
         $fwoptions = $this->uikit->getFrameworkOptions('modal.button');

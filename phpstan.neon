@@ -1,6 +1,6 @@
 parameters:
   reportUnmatchedIgnoredErrors: false
-  level: 6
+  level: 7
   paths:
     - src
     - resources/bootstrap5/config.php
@@ -9,3 +9,4 @@ parameters:
     # Ignore properties and methods accessed via magic methods
     - '#Access to an undefined property RobiNN\\UiKit\\UiKit#'
     - '#Call to an undefined method RobiNN\\UiKit\\UiKit#'
+    - '#Access to an undefined property object::\$uikit#'

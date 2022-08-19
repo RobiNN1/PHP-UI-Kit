@@ -33,11 +33,18 @@ class TwigUiKitExtension extends AbstractExtension {
 
         foreach ($this->uikit->allComponents() as $name => $component) {
             if ((bool) $component['open_close'] === true) {
-                $functions[] = new TwigFunction($name.'_open', [$this->uikit->getComponent($name), 'open'], $is_safe);
-                $functions[] = new TwigFunction($name.'_close', [$this->uikit->getComponent($name), 'close'], $is_safe);
+                if (is_callable([$this->uikit->getComponent($name), 'open'])) {
+                    $functions[] = new TwigFunction($name.'_open', [$this->uikit->getComponent($name), 'open'], $is_safe);
+                }
+
+                if (is_callable([$this->uikit->getComponent($name), 'close'])) {
+                    $functions[] = new TwigFunction($name.'_close', [$this->uikit->getComponent($name), 'close'], $is_safe);
+                }
             }
 
-            $functions[] = new TwigFunction($name, [$this->uikit->getComponent($name), 'render'], $is_safe);
+            if (is_callable([$this->uikit->getComponent($name), 'render'])) {
+                $functions[] = new TwigFunction($name, [$this->uikit->getComponent($name), 'render'], $is_safe);
+            }
         }
 
         $functions[] = new TwigFunction('add_to_head', [AddTo::class, 'head'], $is_safe);

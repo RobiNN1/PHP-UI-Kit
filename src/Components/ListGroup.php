@@ -31,9 +31,9 @@ class ListGroup extends Component {
      * @param array<int, string>   $items   Array of items.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(array $items, array $options = []): object {
+    public function render(array $items, array $options = []): Component {
         $this->options($options);
 
         return $this->tplData([

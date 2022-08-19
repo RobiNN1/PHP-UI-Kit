@@ -94,9 +94,9 @@ class Component implements Stringable {
      *
      * @param array<string, mixed> $data
      *
-     * @return object
+     * @return static
      */
-    protected function tplData(array $data = []): object {
+    protected function tplData(array $data = []): static {
         $this->tpl_data = $data;
 
         return $this;
@@ -107,9 +107,9 @@ class Component implements Stringable {
      *
      * @param array<string, mixed> $options
      *
-     * @return object
+     * @return static
      */
-    public function options(array $options = []): object {
+    public function options(array $options = []): static {
         $this->options = array_merge($this->options, $options);
 
         return $this;
@@ -120,9 +120,9 @@ class Component implements Stringable {
      *
      * @param array<string, mixed> $attributes
      *
-     * @return object
+     * @return static
      */
-    public function attributes(array $attributes = []): object {
+    public function attributes(array $attributes = []): static {
         $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
 
         return $this;

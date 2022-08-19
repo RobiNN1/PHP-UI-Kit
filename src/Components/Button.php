@@ -42,9 +42,9 @@ class Button extends Component {
      * @param string               $type    Button type. Possible value: button|submit|reset
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(string $title, string $type = 'button', array $options = []): object {
+    public function render(string $title, string $type = 'button', array $options = []): Component {
         $this->options($options);
 
         if (!empty($this->options['id'])) {

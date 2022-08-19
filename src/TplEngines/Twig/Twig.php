@@ -45,9 +45,9 @@ class Twig implements TplEngineInterface {
         ]);
 
         foreach ($paths as $path) {
-            if (!empty($path)) {
+            if ($path !== '') {
                 try {
-                    $loader->addPath(realpath($path));
+                    $loader->addPath((string) realpath($path));
                 } catch (LoaderError $e) {
                     echo $e->getMessage();
                 }

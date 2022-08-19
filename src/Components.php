@@ -59,7 +59,7 @@ class Components {
     /**
      * Get an array of all valid components.
      *
-     * @return array<string, mixed>
+     * @return array<string, array<string, object|bool>>
      *
      * @internal
      */
@@ -182,7 +182,7 @@ class Components {
      * @param string             $name
      * @param array<int, string> $arguments
      *
-     * @return object|string
+     * @return Component|string
      */
     public function __call(string $name, array $arguments): object|string {
         $name_clean = str_replace(['_open', '_close'], '', $name);
@@ -197,7 +197,9 @@ class Components {
                 $method = 'close';
             }
 
-            return call_user_func_array([$component, $method], $arguments);
+            return call_user_func_array(static function (...$parameters) use ($component, $method) {
+                return $component->$method(...$parameters);
+            }, $arguments);
         }
 
         return sprintf('Unknown "%s" function. ', $name).$this->addSuggestions($name);

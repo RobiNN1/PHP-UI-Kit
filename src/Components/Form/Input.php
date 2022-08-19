@@ -50,9 +50,9 @@ class Input extends Component {
      * @param int|string           $value   Input value.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(string $name, string $label = '', int|string $value = '', array $options = []): object {
+    public function render(string $name, string $label = '', int|string $value = '', array $options = []): Component {
         $this->options($options);
 
         $this->options['input_id'] = !empty($this->options['input_id']) ? $this->options['input_id'] : $name;

@@ -32,9 +32,9 @@ class Tabs extends Component {
      * @param array<int, mixed>    $items   Multidimensional array.
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(string $id, array $items, array $options = []): object {
+    public function render(string $id, array $items, array $options = []): Component {
         $this->options($options);
 
         return $this->tplData([

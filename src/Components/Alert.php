@@ -32,9 +32,9 @@ class Alert extends Component {
      * @param string               $color   Alert color. Possible value: default|success|warning|error|info
      * @param array<string, mixed> $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(string $text, string $color = 'default', array $options = []): object {
+    public function render(string $text, string $color = 'default', array $options = []): Component {
         $this->options($options);
 
         return $this->tplData([

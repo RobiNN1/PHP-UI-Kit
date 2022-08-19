@@ -32,9 +32,9 @@ class Accordion extends Component {
      * @param array<string, string> $items   Associative array.
      * @param array<string, mixed>  $options Additional options.
      *
-     * @return object
+     * @return Component
      */
-    public function render(string $id, array $items, array $options = []): object {
+    public function render(string $id, array $items, array $options = []): Component {
         $this->options($options);
 
         return $this->tplData([
