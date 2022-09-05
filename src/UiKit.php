@@ -32,12 +32,11 @@ class UiKit extends Components {
     private array $tpl_paths = [];
 
     public function __construct(
-        public ?Config              $config = null,
+        public Config               $config = new Config(),
         private ?TplEngineInterface $tpl_engine = null
     ) {
         parent::__construct($this);
 
-        $this->config = $config instanceof Config ? $config : new Config();
         $this->tpl_engine = $tpl_engine instanceof TplEngineInterface ? $tpl_engine : new Twig();
         $this->loadFrameworkAssets();
     }
@@ -107,10 +106,10 @@ class UiKit extends Components {
      * @return string
      */
     public function render(string $tpl, array $data = [], bool $string = false): string {
-        $this->tpl_engine->init($this, $this->config, $this->tpl_paths);
-        $output = $this->tpl_engine->render($tpl, $data, $string);
+        $this->tpl_engine?->init($this, $this->config, $this->tpl_paths);
+        $output = $this->tpl_engine?->render($tpl, $data, $string);
 
-        return trim($output);
+        return trim($output ?? '');
     }
 
     /**

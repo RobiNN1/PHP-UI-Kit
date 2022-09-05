@@ -49,7 +49,7 @@ class Layout extends Component {
 
         $css_codes = '';
         if (AddTo::$css !== '') {
-            $minify_css = static fn (string $css): string => preg_replace(
+            $minify_css = static fn (string $css): string => (string) preg_replace(
                 ['/\/\*((?!\*\/).)*\*\//', '/\s{2,}/', '/\s*([:;{}])\s*/', '/;}/',],
                 ['', ' ', '$1', '}',],
                 $css

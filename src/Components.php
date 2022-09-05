@@ -83,7 +83,7 @@ class Components {
      *
      * @param string $name
      *
-     * @return ?object Null if doesn't exists.
+     * @return ?object
      */
     public function getComponent(string $name): ?object {
         $all_components = $this->allComponents();
@@ -184,7 +184,7 @@ class Components {
      *
      * @return Component|string
      */
-    public function __call(string $name, array $arguments): object|string {
+    public function __call(string $name, array $arguments): Component|string {
         $name_clean = str_replace(['_open', '_close'], '', $name);
 
         if (is_object($this->getComponent($name_clean))) {
@@ -197,7 +197,7 @@ class Components {
                 $method = 'close';
             }
 
-            return call_user_func_array(static function (...$parameters) use ($component, $method) {
+            return call_user_func_array(static function (...$parameters) use ($component, $method): Component|string {
                 return $component->$method(...$parameters);
             }, $arguments);
         }

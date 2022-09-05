@@ -19,13 +19,13 @@ interface TplEngineInterface {
     /**
      * Init TPL engine.
      *
-     * @param UiKit               $uikit
-     * @param Config              $config
-     * @param ?array<int, string> $paths
+     * @param UiKit              $uikit
+     * @param Config             $config
+     * @param array<int, string> $paths
      *
      * @return object
      */
-    public function init(UiKit $uikit, Config $config, ?array $paths = null): object;
+    public function init(UiKit $uikit, Config $config, array $paths = []): object;
 
     /**
      * Render template.

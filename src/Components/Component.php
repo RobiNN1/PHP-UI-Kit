@@ -17,9 +17,9 @@ use Stringable;
 
 class Component implements Stringable {
     /**
-     * @var ?UiKit
+     * @var UiKit
      */
-    public ?UiKit $uikit = null;
+    public UiKit $uikit;
 
     /**
      * @var string

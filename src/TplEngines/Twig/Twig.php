@@ -30,13 +30,13 @@ class Twig implements TplEngineInterface {
     /**
      * Init TPL engine.
      *
-     * @param UiKit               $uikit
-     * @param Config              $config
-     * @param ?array<int, string> $paths
+     * @param UiKit              $uikit
+     * @param Config             $config
+     * @param array<int, string> $paths
      *
      * @return Environment
      */
-    public function init(UiKit $uikit, Config $config, ?array $paths = null): Environment {
+    public function init(UiKit $uikit, Config $config, array $paths = []): Environment {
         $loader = new FilesystemLoader($config->getFrameworkPath($config->getFramework()).'/templates/twig');
 
         $this->twig = new Environment($loader, [
