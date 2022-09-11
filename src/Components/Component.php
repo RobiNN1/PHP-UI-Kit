@@ -13,9 +13,8 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components;
 
 use RobiNN\UiKit\UiKit;
-use Stringable;
 
-class Component implements Stringable {
+class Component {
     /**
      * @var UiKit
      */
