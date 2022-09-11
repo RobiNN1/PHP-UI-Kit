@@ -16,7 +16,6 @@ use ReflectionMethod;
 use RobiNN\UiKit\Components\Component;
 
 class Components {
-
     private UiKit $uikit;
 
     /**
