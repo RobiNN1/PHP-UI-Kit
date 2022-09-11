@@ -37,7 +37,11 @@ abstract class GridTest extends ComponentTestCase {
         $tpl_100_50 = $this->uikit->grid->open([100, 50]);
         $this->assertComponentRender($this->expected_100_50_tpl, $tpl_100_50->toHtml());
 
-        $tpl_fw = $this->uikit->grid->open([100, 50, ['bootstrap5' => 'col-6', 'fomanticui2' => 'five wide tablet']]);
+        $tpl_fw = $this->uikit->grid->open([100, 50, [
+            'bootstrap4'  => 'col-6',
+            'bootstrap5'  => 'col-6',
+            'fomanticui2' => 'five wide tablet',
+        ]]);
         $this->assertComponentRender($this->expected_fw_tpl, $tpl_fw->toHtml());
 
         $tpl_auto = $this->uikit->grid->open(['auto']);

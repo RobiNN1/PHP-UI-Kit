@@ -1,0 +1,17 @@
+{% set tag = link ? 'a' : 'div' %}
+<{{ tag }} class="card{{ class|space }}"{{ attributes|space|raw }}{{ (link ? ' href="' ~ link ~ '"' : '')|raw }}>
+    {% if top_img %}
+        <img class="card-img-top{{ top_img.class|space }}" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
+    {% endif %}
+    {% if header %}
+        <div class="card-header">{{ header|raw }}</div>
+    {% endif %}
+    {{ top|raw }}
+    {% if body %}
+        <div class="card-body">{{ body|raw }}</div>
+    {% endif %}
+    {{ bottom|raw }}
+    {% if footer %}
+        <div class="card-footer">{{ footer|raw }}</div>
+    {% endif %}
+</{{ tag }}>
