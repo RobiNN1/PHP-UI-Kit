@@ -24,7 +24,6 @@
   },
   "require": {
     "php": ">=7.4",
-    "ext-dom": "*",
     "symfony/polyfill-php80": "^1.26",
     "twig/twig": "^3.4"
   },
