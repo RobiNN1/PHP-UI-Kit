@@ -16,8 +16,12 @@ declare(strict_types=1);
  */
 return [
     'files'        => [
-        'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css'],
-        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'],
+        'css' => [
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css',
+        ],
+        'js'  => [
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js',
+        ],
     ],
     'grid_func'    => static function (array $col_sizes): string {
         $sizes = ['xs', 'sm', 'md', 'lg'];
@@ -125,7 +129,6 @@ return [
     ],
     'modal'        => [
         'sizes'  => [
-            'default'    => '',
             'sm'         => 'modal-sm',
             'lg'         => 'modal-lg',
             'fullscreen' => 'modal-fullscreen',
@@ -139,7 +142,6 @@ return [
     ],
     'progress'     => [
         'colors' => [
-            'default' => '',
             'success' => 'bg-success',
             'warning' => 'bg-warning',
             'error'   => 'bg-danger',
