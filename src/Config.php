@@ -35,17 +35,22 @@ class Config {
             'cache'           => false, // An absolute path, a \Twig\Cache\CacheInterface implementation, or false.
             'debug'           => false, // TPL engine debugging.
             'framework'       => 'bootstrap5', // CSS Framework.
-            'framework_paths' => [
-                // Path to CSS Framework, each Framework can be in a different path.
-                'bootstrap5'  => __DIR__.'/../resources/bootstrap5',
-                'fomanticui2' => __DIR__.'/../resources/fomanticui2',
-            ],
+            'framework_paths' => [], // Path to CSS Framework, each Framework can be in a different path.
         ], $options);
 
         $this->cache = $options['cache'];
         $this->debug = $options['debug'];
         $this->framework = $options['framework'];
         $this->framework_paths = $options['framework_paths'];
+
+        $resources = __DIR__.'/../resources/';
+        $frameworks = array_diff((array) scandir($resources), ['.', '..']);
+
+        foreach ($frameworks as $framework) {
+            if (is_file($resources.'/'.$framework.'/config.php')) {
+                $this->framework_paths[(string) $framework] = $resources.'/'.$framework;
+            }
+        }
     }
 
     /**
@@ -100,6 +105,15 @@ class Config {
      */
     public function setFramework(string $framework): void {
         $this->framework = $framework;
+    }
+
+    /**
+     * Get all frameworks with their path.
+     *
+     * @return array<string, string>
+     */
+    public function getAllFrameworks(): array {
+        return $this->framework_paths;
     }
 
     /**

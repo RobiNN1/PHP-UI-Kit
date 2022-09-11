@@ -15,8 +15,11 @@ function get_ui(): RobiNN\UiKit\UiKit {
     return new RobiNN\UiKit\UiKit([
         'cache'     => __DIR__.'/../cache',
         'debug'     => true,
-        'framework' => isset($_GET['fm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
+        'framework' => $_GET['fw'] ?? 'bootstrap5',
     ]);
 }
 
-echo get_ui()->addPath(__DIR__.'/templates')->render('page');
+echo get_ui()->addPath(__DIR__.'/templates')->render('page', [
+    'frameworks' => array_keys(get_ui()->config->getAllFrameworks()),
+    'fw'         => $_GET['fw'] ?? '',
+]);

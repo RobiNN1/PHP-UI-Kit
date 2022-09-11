@@ -15,7 +15,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
     return new RobiNN\UiKit\UiKit([
         'cache'     => __DIR__.'/cache',
         'debug'     => true,
-        'framework' => isset($_GET['fm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
+        'framework' => $_GET['fw'] ?? 'bootstrap5',
     ]);
 }
 
@@ -27,10 +27,9 @@ echo '<div style="text-align:center;margin-bottom:3rem;">
 <h1>PHP UI Kit Examples</h1>
 <h2>Current CSS Framework: <strong>'.get_ui()->config->getFramework().'</strong></h2>';
 
-if (get_ui()->config->getFramework() === 'bootstrap5') {
-    echo '<p><a href="/examples/?fm">Open Fomantic UI version</a></p>';
-} else {
-    echo '<p><a href="/examples/">Open Bootstrap 5 version</a></p>';
+foreach (array_keys(get_ui()->config->getAllFrameworks()) as $framework) {
+    $active = isset($_GET['fw']) && $_GET['fw'] === $framework ? ' style="font-weight:bold;"' : '';
+    echo '<p><a'.$active.' href="?fw='.$framework.'">Open '.$framework.' version</a></p>';
 }
 
 echo '<p>This file shows the basic usage of all components.</p>
@@ -128,6 +127,20 @@ echo '<h5>Checkbox & Radio</h5>';
 echo checkbox('checkbox', 'Checkbox');
 echo checkbox('radio', 'Radio', '', ['radio' => true]);
 
+echo row_open();
+echo grid_open([100, 50]);
+echo checkbox('multiple-radios', 'Multiple radios', '', [
+    'radio'         => true,
+    'items'         => [
+        0 => 'Radio 1',
+        1 => 'Radio 2',
+        2 => 'Radio 3',
+    ],
+    'state'         => 'error',
+    'feedback_text' => 'Text....',
+    'help_text'     => 'Help text',
+]);
+echo grid_close().grid_open([100, 50]);
 echo checkbox('multiple-checkboxes', 'Multiple checkboxes', '', [
     'items'         => [
         0 => 'Checkbox 1',
@@ -138,32 +151,45 @@ echo checkbox('multiple-checkboxes', 'Multiple checkboxes', '', [
     'feedback_text' => 'Text....',
     'help_text'     => 'Help text',
 ]);
+echo grid_close();
+echo row_close();
 
 echo '<h5>Textarea</h5>';
+echo row_open();
+echo grid_open([100, 25]);
 echo textarea('textarea', 'Textarea');
+echo grid_close().grid_open([100, 25]);
 echo textarea('textarea-disabled', 'Disabled textarea', '...', ['disabled' => true]);
+echo grid_close().grid_open([100, 25]);
 echo textarea('textarea-readonly', 'Readonly textarea', '...', ['readonly' => true]);
+echo grid_close();
+echo row_close();
+
+echo row_open();
+echo grid_open([100, 25]);
 echo textarea('textarea-state', 'Textarea with state', 'Text..', [
     'state'         => 'success',
     'feedback_text' => 'Text....',
     'help_text'     => 'Help text',
     'required'      => true,
 ]);
-
+echo grid_close().grid_open([100, 25]);
 echo textarea('textarea-error-feedback', 'Error textarea with text', '', [
     'state'         => 'error',
     'feedback_text' => 'Please enter text',
 ]);
-
+echo grid_close().grid_open([100, 25]);
 echo textarea('textarea-help', 'Textarea with help text', '', [
     'help_text' => 'Something..',
 ]);
-
+echo grid_close().grid_open([100, 25]);
 echo textarea('textarea-feedback-help', 'Textarea with feedback and help text', '', [
     'state'         => 'error',
     'feedback_text' => 'Please select text',
     'help_text'     => 'Something..',
 ]);
+echo grid_close();
+echo row_close();
 
 echo form_close();
 
@@ -212,6 +238,12 @@ echo '<h4>Breadcrumbs</h4>';
 echo breadcrumbs([
     'Link 1' => 'blink1.php',
     'Link 2' => 'blink2.php',
+]);
+echo breadcrumbs([
+    'Link 1' => 'blink1.php',
+    'Link 2' => 'blink2.php',
+], [
+    'divider' => '>',
 ]);
 echo '<hr>';
 
@@ -367,9 +399,6 @@ echo tabs('example', [
     ['title' => 'Tab 2', 'content' => 'Content 2'],
     ['title' => 'Tab 3', 'content' => 'Content 3'],
 ]);
-echo '<hr>';
-
-echo '<div>Other components W.I.P.</div>';
 
 echo container_close();
 

@@ -20,7 +20,7 @@ return [
             'https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css',
         ],
         'js'  => [
-            'https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js',
+            'https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js',
             'https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js',
         ],
     ],
