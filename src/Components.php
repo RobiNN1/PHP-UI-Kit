@@ -16,9 +16,7 @@ use ReflectionMethod;
 use RobiNN\UiKit\Components\Component;
 
 class Components {
-    /**
-     * @var UiKit
-     */
+
     private UiKit $uikit;
 
     /**
@@ -26,9 +24,6 @@ class Components {
      */
     private array $components;
 
-    /**
-     * @param UiKit $uikit
-     */
     public function __construct(UiKit $uikit) {
         $this->uikit = $uikit;
 

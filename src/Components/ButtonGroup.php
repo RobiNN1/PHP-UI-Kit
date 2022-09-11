@@ -65,7 +65,7 @@ class ButtonGroup extends Component {
             $btn_opt_value = array_key_exists('value', $btn_options) ? $btn_options['value'] : $value;
             $value = array_key_exists('value', (array) $button) ? $button['value'] : $btn_opt_value;
 
-            $btn_options['class'] = $options['item_class'].(isset($btn_options['class']) ? Misc::space($btn_options['class']) : '');
+            $btn_options['class'] = $options['item_class'].Misc::space($btn_options['class'] ?? '');
 
             $btn = [
                 'value' => $value,

@@ -4,8 +4,7 @@ Methods that can be used directly from a UI Kit object.
 
 ## Constructor
 
-The __construct() has 2 parameters, first one is a Config object (optional) and
-the second one instance of ITplEngine (optional).
+A Constructor has one paramater - $config, that can be an array or Config object.
 
 ```php
 use RobiNN\UiKit\UiKit;
@@ -45,12 +44,14 @@ echo $uikit->render('tpl_name', []);
 echo $uikit->render("{{ alert('Example') }}", [], true);
 ```
 
-## setPath()
+## addPath()
 
 Set path with templates.
 
+https://twig.symfony.com/doc/3.x/api.html#built-in-loaders
+
 ```php
-$uikit->setPath(__DIR__.'/templates');
+$uikit->addPath(__DIR__.'/templates', 'path_namespace');
 ```
 
 ## getComponent()

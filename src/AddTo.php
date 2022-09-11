@@ -13,24 +13,12 @@ declare(strict_types=1);
 namespace RobiNN\UiKit;
 
 class AddTo {
-    /**
-     * @var string
-     */
     public static string $head = '';
 
-    /**
-     * @var string
-     */
     public static string $footer = '';
 
-    /**
-     * @var string
-     */
     public static string $js = '';
 
-    /**
-     * @var string
-     */
     public static string $css = '';
 
     /**

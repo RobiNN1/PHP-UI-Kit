@@ -9,9 +9,7 @@ Functions for adding content to the output.
 Append content to head.
 
 ```php
-use RobiNN\UiKit\AddTo;
-
-AddTo::head('<meta ...>');
+RobiNN\UiKit\AddTo::head('<meta ...>');
 ```
 
 ## footer()
@@ -19,9 +17,7 @@ AddTo::head('<meta ...>');
 Append content to footer.
 
 ```php
-use RobiNN\UiKit\AddTo;
-
-AddTo::footer('<script>...</script>');
+RobiNN\UiKit\AddTo::footer('<script>...</script>');
 ```
 
 ## js()
@@ -29,9 +25,7 @@ AddTo::footer('<script>...</script>');
 Add JS codes to the output.
 
 ```php
-use RobiNN\UiKit\AddTo;
-
-AddTo::js('...');
+RobiNN\UiKit\AddTo::js('...');
 ```
 
 ## css()
@@ -39,7 +33,5 @@ AddTo::js('...');
 Add CSS codes to the output.
 
 ```php
-use RobiNN\UiKit\AddTo;
-
-AddTo::css('body { color: #000; }');
+RobiNN\UiKit\AddTo::css('body { color: #000; }');
 ```

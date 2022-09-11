@@ -18,30 +18,24 @@ class Config {
      */
     private $cache;
 
-    /**
-     * @var bool
-     */
     private bool $debug;
 
-    /**
-     * @var string
-     */
     private string $framework;
 
     /**
      * @var array<string, string>
      */
-    private array $framework_path;
+    private array $framework_paths;
 
     /**
      * @param array<string, mixed> $options
      */
     public function __construct(array $options = []) {
         $options = array_merge([
-            'cache'          => false, // Cache object (depends on the tpl engine), absolute path or false.
-            'debug'          => false, // TPL engine debugging (if supported by engine).
-            'framework'      => 'bootstrap5', // CSS Framework. Possible value: bootstrap5|fomanticui2
-            'framework_path' => [
+            'cache'           => false, // An absolute path, a \Twig\Cache\CacheInterface implementation, or false.
+            'debug'           => false, // TPL engine debugging.
+            'framework'       => 'bootstrap5', // CSS Framework.
+            'framework_paths' => [
                 // Path to CSS Framework, each Framework can be in a different path.
                 'bootstrap5'  => __DIR__.'/../resources/bootstrap5',
                 'fomanticui2' => __DIR__.'/../resources/fomanticui2',
@@ -51,7 +45,7 @@ class Config {
         $this->cache = $options['cache'];
         $this->debug = $options['debug'];
         $this->framework = $options['framework'];
-        $this->framework_path = $options['framework_path'];
+        $this->framework_paths = $options['framework_paths'];
     }
 
     /**
@@ -66,7 +60,7 @@ class Config {
     /**
      * Set cache.
      *
-     * @param mixed $cache Cache object, path or bool.
+     * @param mixed $cache An absolute path, a \Twig\Cache\CacheInterface implementation, or false.
      */
     public function setCache($cache): void {
         $this->cache = $cache;
@@ -116,7 +110,7 @@ class Config {
      * @return string
      */
     public function getFrameworkPath(string $framework): string {
-        return $this->framework_path[$framework];
+        return $this->framework_paths[$framework];
     }
 
     /**
@@ -128,6 +122,6 @@ class Config {
      * @return void
      */
     public function setFrameworkPath(string $framework, string $path): void {
-        $this->framework_path[$framework] = $path;
+        $this->framework_paths[$framework] = $path;
     }
 }

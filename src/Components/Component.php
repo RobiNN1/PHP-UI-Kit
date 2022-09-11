@@ -16,14 +16,8 @@ use RobiNN\UiKit\UiKit;
 use Stringable;
 
 class Component implements Stringable {
-    /**
-     * @var UiKit
-     */
     public UiKit $uikit;
 
-    /**
-     * @var string
-     */
     protected string $component = '';
 
     /**

@@ -12,8 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
-use RobiNN\UiKit\TplEngines\TplEngineInterface;
-use RobiNN\UiKit\TplEngines\Twig\Twig;
+use RobiNN\UiKit\Twig\Twig;
 
 class UiKit extends Components {
     /**
@@ -21,9 +20,6 @@ class UiKit extends Components {
      */
     public const VERSION = '1.0.0';
 
-    /**
-     * @var Config
-     */
     public Config $config;
 
     /**
@@ -32,20 +28,21 @@ class UiKit extends Components {
     private array $fw_options = [];
 
     /**
-     * @var array<int, string>
+     * @var array<string, string>
      */
     private array $tpl_paths = [];
 
-    /**
-     * @var TplEngineInterface
-     */
-    private TplEngineInterface $tpl_engine;
+    private Twig $twig;
 
-    public function __construct(Config $config = null, TplEngineInterface $tpl_engine = null) {
+    /**
+     * @param array<string, mixed>|Config $config
+     */
+    public function __construct($config = []) {
         parent::__construct($this);
 
-        $this->config = $config ?? new Config();
-        $this->tpl_engine = $tpl_engine instanceof TplEngineInterface ? $tpl_engine : new Twig();
+        $this->config = is_array($config) ? new Config($config) : $config;
+        $this->twig = new Twig();
+
         $this->loadFrameworkAssets();
     }
 
@@ -110,21 +107,24 @@ class UiKit extends Components {
      * @return string
      */
     public function render(string $tpl, array $data = [], bool $string = false): string {
-        $this->tpl_engine->init($this, $this->config, $this->tpl_paths);
-        $output = $this->tpl_engine->render($tpl, $data, $string);
+        $this->twig->init($this, $this->config, $this->tpl_paths);
+        $output = $this->twig->render($tpl, $data, $string);
 
         return trim($output);
     }
 
     /**
-     * Set path with templates.
+     * Add a tpl path with namespace.
+     *
+     * https://twig.symfony.com/doc/3.x/api.html#built-in-loaders
      *
      * @param string $path
+     * @param string $namespace
      *
      * @return UiKit
      */
-    public function setPath(string $path): UiKit {
-        $this->tpl_paths[] = $path;
+    public function addPath(string $path, string $namespace = '__main__'): UiKit {
+        $this->tpl_paths[$namespace] = $path;
 
         return $this;
     }

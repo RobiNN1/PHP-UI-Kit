@@ -5,9 +5,7 @@ An overview of all configuration options.
 ---
 
 ```php
-use RobiNN\UiKit\Config;
-
-$config = new Config(); // All options can also be set in constructor
+$config = new RobiNN\UiKit\Config(); // All options can also be set in constructor
 ```
 
 #### Available options
@@ -21,7 +19,7 @@ $config = new Config(); // All options can also be set in constructor
 
 ## getCache()
 
-Returns cache object (depends on the tpl engine), absolute path or false.
+Returns an absolute path, a \Twig\Cache\CacheInterface implementation, or false.
 
 ```php
 $tpl_config = [
@@ -31,7 +29,7 @@ $tpl_config = [
 
 ## setCache()
 
-Set cache object (depends on the tpl engine), absolute path or false.
+Set an absolute path, a \Twig\Cache\CacheInterface implementation, or false.
 
 ```php
 $config->setCache(__DIR__.'/path/to/cache');
@@ -49,7 +47,7 @@ $tpl_config = [
 
 ## enableDebug()
 
-TPL engine debugging (if supported by engine).
+TPL engine debugging.
 
 ```php
 $config->enableDebug();

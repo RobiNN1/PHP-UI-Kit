@@ -12,13 +12,11 @@ require_once __DIR__.'/../../vendor/autoload.php';
  * @return RobiNN\UiKit\UiKit
  */
 function get_ui(): RobiNN\UiKit\UiKit {
-    $config = new RobiNN\UiKit\Config([
+    return new RobiNN\UiKit\UiKit([
         'cache'     => __DIR__.'/../cache',
         'debug'     => true,
-        'framework' => isset($_GET['sm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
+        'framework' => isset($_GET['fm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
     ]);
-
-    return new RobiNN\UiKit\UiKit($config);
 }
 
-echo get_ui()->setPath(__DIR__.'/templates')->render('page');
+echo get_ui()->addPath(__DIR__.'/templates')->render('page');

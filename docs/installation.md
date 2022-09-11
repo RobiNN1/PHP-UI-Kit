@@ -51,7 +51,7 @@ It is also possible to call components in a template.
 
 ```php
 $html = get_ui()
-    ->setPath(__DIR__.'/templates') // Path to dir with custom templates
+    ->addPath(__DIR__.'/templates') // Path to dir with custom templates
     ->render('page'); // page.twig in templates/ dir
 
 echo layout($html, [
@@ -74,11 +74,9 @@ Simply place this function after class autoload.
 
 ```php
 function get_ui(): RobiNN\UiKit\UiKit {
-    $config = new RobiNN\UiKit\Config([
+    return new RobiNN\UiKit\UiKit([
         'cache'  => __DIR__.'/cache',
     ]);
-
-    return new RobiNN\UiKit\UiKit($config);
 }
 ```
 

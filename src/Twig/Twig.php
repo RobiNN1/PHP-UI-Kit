@@ -10,29 +10,25 @@
 
 declare(strict_types=1);
 
-namespace RobiNN\UiKit\TplEngines\Twig;
+namespace RobiNN\UiKit\Twig;
 
 use Exception;
 use RobiNN\UiKit\Config;
-use RobiNN\UiKit\TplEngines\TplEngineInterface;
 use RobiNN\UiKit\UiKit;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
 
-class Twig implements TplEngineInterface {
-    /**
-     * @var Environment
-     */
+class Twig {
     private Environment $twig;
 
     /**
      * Init TPL engine.
      *
-     * @param UiKit              $uikit
-     * @param Config             $config
-     * @param array<int, string> $paths
+     * @param UiKit                 $uikit
+     * @param Config                $config
+     * @param array<string, string> $paths
      *
      * @return Environment
      */
@@ -44,13 +40,11 @@ class Twig implements TplEngineInterface {
             'debug' => $config->getDebug(),
         ]);
 
-        foreach ($paths as $path) {
-            if ($path !== '') {
-                try {
-                    $loader->addPath((string) realpath($path));
-                } catch (LoaderError $e) {
-                    echo $e->getMessage();
-                }
+        foreach ($paths as $namespace => $path) {
+            try {
+                $loader->addPath((string) realpath($path), $namespace);
+            } catch (LoaderError $e) {
+                echo $e->getMessage();
             }
         }
 

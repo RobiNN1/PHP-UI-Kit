@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace RobiNN\UiKit\TplEngines\Twig;
+namespace RobiNN\UiKit\Twig;
 
 use RobiNN\UiKit\AddTo;
 use RobiNN\UiKit\Misc;
@@ -20,9 +20,6 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class TwigUiKitExtension extends AbstractExtension {
-    /**
-     * @var UiKit
-     */
     private UiKit $uikit;
 
     public function __construct(UiKit $uikit) {
@@ -58,9 +55,9 @@ class TwigUiKitExtension extends AbstractExtension {
         $functions[] = new TwigFunction('add_to_js', [AddTo::class, 'js'], $is_safe);
         $functions[] = new TwigFunction('add_to_css', [AddTo::class, 'css'], $is_safe);
 
-        foreach ($this->uikit->getFrameworkOptions('tpl_funcs') as $name => $callback) {
+        foreach ($this->uikit->getFrameworkOptions('tpl_funcs') as $function_name => $callback) {
             if (is_callable($callback)) {
-                $functions[] = new TwigFunction($name, $callback, $is_safe);
+                $functions[] = new TwigFunction($function_name, $callback, $is_safe);
             }
         }
 

@@ -12,13 +12,11 @@ require_once __DIR__.'/../vendor/autoload.php';
  * @return RobiNN\UiKit\UiKit
  */
 function get_ui(): RobiNN\UiKit\UiKit {
-    $config = new RobiNN\UiKit\Config([
+    return new RobiNN\UiKit\UiKit([
         'cache'     => __DIR__.'/cache',
         'debug'     => true,
-        'framework' => isset($_GET['sm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
+        'framework' => isset($_GET['fm']) ? 'fomanticui2' : 'bootstrap5', // for development purposes
     ]);
-
-    return new RobiNN\UiKit\UiKit($config);
 }
 
 ob_start();
@@ -30,7 +28,7 @@ echo '<div style="text-align:center;margin-bottom:3rem;">
 <h2>Current CSS Framework: <strong>'.get_ui()->config->getFramework().'</strong></h2>';
 
 if (get_ui()->config->getFramework() === 'bootstrap5') {
-    echo '<p><a href="/examples/?sm">Open Fomantic UI version</a></p>';
+    echo '<p><a href="/examples/?fm">Open Fomantic UI version</a></p>';
 } else {
     echo '<p><a href="/examples/">Open Bootstrap 5 version</a></p>';
 }
@@ -375,6 +373,6 @@ echo '<div>Other components W.I.P.</div>';
 
 echo container_close();
 
-echo layout(ob_get_clean(), [
+echo layout((string) ob_get_clean(), [
     'title' => 'PHP UI Kit Examples',
 ]);

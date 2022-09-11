@@ -31,7 +31,7 @@ It is also possible to call components in a template:
 
 ```php
 $html = get_ui()
-    ->setPath(__DIR__.'/templates') // Path to dir with custom templates
+    ->addPath(__DIR__.'/templates') // Path to dir with custom templates
     ->render('page'); // page.twig in templates/ dir
 
 echo layout($html, [
