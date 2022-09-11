@@ -7,7 +7,7 @@
 
         {% for framework in frameworks %}
             {% set active = fw == framework ? ' style="font-weight:bold;"' : '' %}
-            <p><a{{ active}} href="/examples/twig/?fw={{ framework }}">Open {{ framework}} version</a></p>
+            <p><a{{ active}} href="?fw={{ framework }}">Open {{ framework}} version</a></p>
         {% endfor %}
 
         <p>This file shows how to use components in Twig.</p>
