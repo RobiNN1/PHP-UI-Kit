@@ -48,7 +48,7 @@ class Select extends Component {
      *
      * @return Component
      */
-    public function render(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): Component {
+    public function render(string $name, string $label = '', $value = '', array $items = [], array $options = []): Component {
         $this->options($options);
 
         $this->options['select_id'] = $this->options['select_id'] !== '' ? $this->options['select_id'] : $name;

@@ -15,10 +15,9 @@ declare(strict_types=1);
  * If you need to change any value, use the setFrameworkOption() function.
  */
 return [
-    'jquery'       => false,
     'files'        => [
-        'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css'],
-        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js'],
+        'css' => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css'],
+        'js'  => ['https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'],
     ],
     'grid_func'    => static function (array $col_sizes): string {
         $sizes = ['xs', 'sm', 'md', 'lg'];

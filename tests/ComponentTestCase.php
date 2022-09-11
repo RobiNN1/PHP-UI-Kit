@@ -25,14 +25,14 @@ class ComponentTestCase extends TestCase {
     }
 
     public function assertComponentRender(string $expected, string $actual): void {
-        $indenter = new Indenter();
-
         try {
-            $actual = $indenter->indent($actual);
-        } catch (RuntimeException) {
+            $indenter = new Indenter();
+            $actual_indented = $indenter->indent($actual);
+        } catch (RuntimeException $e) {
+            $actual_indented = $actual;
         }
 
-        $this->assertSame($expected, $actual);
+        $this->assertSame($expected, $actual_indented);
     }
 
     public function assertComponentRenderTpl(string $expected, string $tpl): void {

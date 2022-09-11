@@ -31,11 +31,6 @@ class AddTo {
     /**
      * @var string
      */
-    public static string $jquery = '';
-
-    /**
-     * @var string
-     */
     public static string $css = '';
 
     /**
@@ -68,17 +63,6 @@ class AddTo {
     public static function js(string $code): void {
         if (stripos(self::$js, $code) === false) {
             self::$js .= $code;
-        }
-    }
-
-    /**
-     * Add jQuery codes to the output.
-     *
-     * @param string $code
-     */
-    public static function jQuery(string $code): void {
-        if (stripos(self::$jquery, $code) === false) {
-            self::$jquery .= $code;
         }
     }
 

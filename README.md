@@ -48,7 +48,7 @@ HTML code
 
 ## Requirements
 
-- PHP >= 8.1
+- PHP >= 7.4
 
 ## Testing
 

@@ -140,7 +140,7 @@ if (!function_exists('input')) {
      *
      * @return Component
      */
-    function input(string $name, string $label = '', int|string $value = '', array $options = []): Component {
+    function input(string $name, string $label = '', $value = '', array $options = []): Component {
         return get_ui()->input->render($name, $label, $value, $options);
     }
 }
@@ -157,7 +157,7 @@ if (!function_exists('select')) {
      *
      * @return Component
      */
-    function select(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): Component {
+    function select(string $name, string $label = '', $value = '', array $items = [], array $options = []): Component {
         return get_ui()->select->render($name, $label, $value, $items, $options);
     }
 }
@@ -173,7 +173,7 @@ if (!function_exists('checkbox')) {
      *
      * @return Component
      */
-    function checkbox(string $name, string $label = '', int|string $value = 0, array $options = []): Component {
+    function checkbox(string $name, string $label = '', $value = 0, array $options = []): Component {
         return get_ui()->checkbox->render($name, $label, $value, $options);
     }
 }
@@ -189,7 +189,7 @@ if (!function_exists('textarea')) {
      *
      * @return Component
      */
-    function textarea(string $name, string $label = '', int|string $value = '', array $options = []): Component {
+    function textarea(string $name, string $label = '', $value = '', array $options = []): Component {
         return get_ui()->textarea->render($name, $label, $value, $options);
     }
 }
@@ -392,7 +392,7 @@ if (!function_exists('progress')) {
      *
      * @return Component
      */
-    function progress(array|int $percent, array $options = []): Component {
+    function progress($percent, array $options = []): Component {
         return get_ui()->progress->render($percent, $options);
     }
 }

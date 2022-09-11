@@ -16,7 +16,7 @@ class Config {
     /**
      * @var mixed
      */
-    private mixed $cache;
+    private $cache;
 
     /**
      * @var bool
@@ -59,7 +59,7 @@ class Config {
      *
      * @return mixed
      */
-    public function getCache(): mixed {
+    public function getCache() {
         return $this->cache;
     }
 
@@ -68,7 +68,7 @@ class Config {
      *
      * @param mixed $cache Cache object, path or bool.
      */
-    public function setCache(mixed $cache): void {
+    public function setCache($cache): void {
         $this->cache = $cache;
     }
 

@@ -15,10 +15,17 @@ declare(strict_types=1);
  * If you need to change any value, use the setFrameworkOption() function.
  */
 return [
-    'jquery'       => true,
     'files'        => [
         'css' => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css'],
-        'js'  => ['https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js'],
+        'js'  => [
+            'https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js',
+        ],
+    ],
+    'tpl_funcs'    => [
+        'add_to_jquery' => static function (string $code): void {
+            RobiNN\UiKit\AddTo::js('$(function(){'.$code.'});');
+        },
     ],
     'grid_func'    => static function (array $col_sizes): string {
         $sizes = ['', 'tablet', 'computer', 'large screen'];

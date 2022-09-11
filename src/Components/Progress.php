@@ -36,7 +36,7 @@ class Progress extends Component {
      *
      * @return Component
      */
-    public function render(array|int $percent, array $options = []): Component {
+    public function render($percent, array $options = []): Component {
         $this->options($options);
 
         $bars = [];

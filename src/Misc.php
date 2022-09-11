@@ -21,7 +21,7 @@ class Misc {
      *
      * @return mixed
      */
-    public static function arrayGet(array $array, string $key): mixed {
+    public static function arrayGet(array $array, string $key) {
         if (array_key_exists($key, $array)) {
             return $array[$key];
         }
@@ -44,7 +44,7 @@ class Misc {
      *
      * @return array<int|string, mixed>
      */
-    public static function arraySet(array &$array, string $array_key, mixed $value): array {
+    public static function arraySet(array &$array, string $array_key, $value): array {
         $keys = explode('.', $array_key);
 
         foreach ($keys as $i => $key) {

@@ -39,10 +39,6 @@ class Layout extends Component {
     public function render(string $body, array $options = []): Component {
         $this->options($options);
 
-        if (AddTo::$jquery !== '' && $this->uikit->getFrameworkOptions('jquery')) {
-            AddTo::js('$(function(){'.AddTo::$jquery.'});');
-        }
-
         if (AddTo::$js !== '') {
             AddTo::footer('<script>'.AddTo::$js.'</script>');
         }

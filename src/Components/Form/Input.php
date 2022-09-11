@@ -52,7 +52,7 @@ class Input extends Component {
      *
      * @return Component
      */
-    public function render(string $name, string $label = '', int|string $value = '', array $options = []): Component {
+    public function render(string $name, string $label = '', $value = '', array $options = []): Component {
         $this->options($options);
 
         $this->options['input_id'] = $this->options['input_id'] !== '' ? $this->options['input_id'] : $name;

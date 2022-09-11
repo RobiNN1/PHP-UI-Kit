@@ -22,6 +22,11 @@ class UiKit extends Components {
     public const VERSION = '1.0.0';
 
     /**
+     * @var Config
+     */
+    public Config $config;
+
+    /**
      * @var array<string, mixed>
      */
     private array $fw_options = [];
@@ -31,12 +36,15 @@ class UiKit extends Components {
      */
     private array $tpl_paths = [];
 
-    public function __construct(
-        public Config               $config = new Config(),
-        private ?TplEngineInterface $tpl_engine = null
-    ) {
+    /**
+     * @var TplEngineInterface
+     */
+    private TplEngineInterface $tpl_engine;
+
+    public function __construct(Config $config = null, TplEngineInterface $tpl_engine = null) {
         parent::__construct($this);
 
+        $this->config = $config ?? new Config();
         $this->tpl_engine = $tpl_engine instanceof TplEngineInterface ? $tpl_engine : new Twig();
         $this->loadFrameworkAssets();
     }
@@ -48,7 +56,7 @@ class UiKit extends Components {
      *
      * @return mixed
      */
-    public function getFrameworkOptions(string $key = ''): mixed {
+    public function getFrameworkOptions(string $key = '') {
         static $config_array = [];
 
         $config_array = (array) require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
@@ -71,7 +79,7 @@ class UiKit extends Components {
      *
      * @return void
      */
-    public function setFrameworkOption(string $option, mixed $value, string $framework = ''): void {
+    public function setFrameworkOption(string $option, $value, string $framework = ''): void {
         if (empty($framework) || $this->config->getFramework() === $framework) {
             $this->fw_options[$option] = $value;
         }
@@ -85,10 +93,6 @@ class UiKit extends Components {
 
         foreach ($fwoptions['files']['css'] as $css) {
             AddTo::head('<link rel="stylesheet" href="'.$css.'">');
-        }
-
-        if (isset($fwoptions['jquery']) && $fwoptions['jquery'] === true) {
-            AddTo::footer('<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>');
         }
 
         foreach ($fwoptions['files']['js'] as $js) {
@@ -106,10 +110,10 @@ class UiKit extends Components {
      * @return string
      */
     public function render(string $tpl, array $data = [], bool $string = false): string {
-        $this->tpl_engine?->init($this, $this->config, $this->tpl_paths);
-        $output = $this->tpl_engine?->render($tpl, $data, $string);
+        $this->tpl_engine->init($this, $this->config, $this->tpl_paths);
+        $output = $this->tpl_engine->render($tpl, $data, $string);
 
-        return trim($output ?? '');
+        return trim($output);
     }
 
     /**
@@ -117,9 +121,9 @@ class UiKit extends Components {
      *
      * @param string $path
      *
-     * @return static
+     * @return UiKit
      */
-    public function setPath(string $path): static {
+    public function setPath(string $path): UiKit {
         $this->tpl_paths[] = $path;
 
         return $this;

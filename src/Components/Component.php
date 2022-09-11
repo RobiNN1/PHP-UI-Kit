@@ -62,7 +62,7 @@ class Component implements Stringable {
      *
      * @return mixed
      */
-    public function getOption(string $option, mixed $value, string $component = null): mixed {
+    public function getOption(string $option, $value, string $component = null) {
         $component_path = explode('/', $this->component);
         $opts = $this->uikit->getFrameworkOptions($component ?? $component_path[array_key_last($component_path)]);
         $default = $opts[$option]['default'] ?? '';
@@ -94,9 +94,9 @@ class Component implements Stringable {
      *
      * @param array<string, mixed> $data
      *
-     * @return static
+     * @return Component
      */
-    protected function tplData(array $data = []): static {
+    protected function tplData(array $data = []): Component {
         $this->tpl_data = $data;
 
         return $this;
@@ -107,9 +107,9 @@ class Component implements Stringable {
      *
      * @param array<string, mixed> $options
      *
-     * @return static
+     * @return Component
      */
-    public function options(array $options = []): static {
+    public function options(array $options = []): Component {
         $this->options = array_merge($this->options, $options);
 
         return $this;
@@ -120,9 +120,9 @@ class Component implements Stringable {
      *
      * @param array<string, mixed> $attributes
      *
-     * @return static
+     * @return Component
      */
-    public function attributes(array $attributes = []): static {
+    public function attributes(array $attributes = []): Component {
         $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
 
         return $this;

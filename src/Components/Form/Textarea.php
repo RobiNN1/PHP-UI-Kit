@@ -47,7 +47,7 @@ class Textarea extends Component {
      *
      * @return Component
      */
-    public function render(string $name, string $label = '', int|string $value = '', array $options = []): Component {
+    public function render(string $name, string $label = '', $value = '', array $options = []): Component {
         $this->options($options);
 
         $this->options['textarea_id'] = $this->options['textarea_id'] !== '' ? $this->options['textarea_id'] : $name;

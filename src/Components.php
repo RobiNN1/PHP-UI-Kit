@@ -17,6 +17,11 @@ use RobiNN\UiKit\Components\Component;
 
 class Components {
     /**
+     * @var UiKit
+     */
+    private UiKit $uikit;
+
+    /**
      * @var array<string, string>
      */
     private array $components;
@@ -24,7 +29,9 @@ class Components {
     /**
      * @param UiKit $uikit
      */
-    public function __construct(private readonly UiKit $uikit) {
+    public function __construct(UiKit $uikit) {
+        $this->uikit = $uikit;
+
         $this->components = [
             // Layout
             'layout'       => Components\Layout\Layout::class,
@@ -184,7 +191,7 @@ class Components {
      *
      * @return Component|string
      */
-    public function __call(string $name, array $arguments): Component|string {
+    public function __call(string $name, array $arguments) {
         $name_clean = str_replace(['_open', '_close'], '', $name);
 
         if (is_object($this->getComponent($name_clean))) {
@@ -197,7 +204,7 @@ class Components {
                 $method = 'close';
             }
 
-            return call_user_func_array(static function (...$parameters) use ($component, $method): Component|string {
+            return call_user_func_array(static function (...$parameters) use ($component, $method) {
                 return $component->$method(...$parameters);
             }, $arguments);
         }
@@ -213,7 +220,7 @@ class Components {
      *
      * @return bool
      */
-    private function isPublic(object|string $class, string $method): bool {
+    private function isPublic($class, string $method): bool {
         return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();
     }
 }
