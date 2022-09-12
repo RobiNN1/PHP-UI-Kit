@@ -10,14 +10,14 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2{{namespace}};
+namespace Tests\Frameworks\{{fw_name}}{{namespace}};
 
 use Tests\Components{{namespace}}\{{class_name}}Test;
 
-final class {{class_name}}Fomanticui2Test extends {{class_name}}Test {
+final class {{class_name}}{{fw_name}}Test extends {{class_name}}Test {
     protected function setUp(): void {
         parent::setUp();
-        $this->uikit->config->setFramework('fomanticui2');
+        $this->uikit->config->setFramework('{{framework}}');
 
         $this->expected_tpl = '';
     }

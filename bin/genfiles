@@ -14,7 +14,7 @@ declare(strict_types=1);
 /**
  * Script for generating components
  *
- * Usage: php genfiles component_name [type - cmp|frm]
+ * Usage: php genfiles component_name [type - cmp|form]
  */
 
 if (PHP_SAPI !== 'cli') {
@@ -26,13 +26,13 @@ if (!isset($_SERVER['argv'][1])) {
     exit(1);
 }
 
-$type = 'frm';
+$type = 'form';
 if (isset($_SERVER['argv'][2])) {
-    $type = in_array($_SERVER['argv'][2], ['cmp', 'frm']) ? $_SERVER['argv'][2] : 'cmp';
+    $type = in_array($_SERVER['argv'][2], ['cmp', 'form']) ? $_SERVER['argv'][2] : 'cmp';
 }
 
-$path = ($type === 'frm' ? 'form' : 'components').'/';
-$path_class = $type === 'frm' ? ucfirst($path) : '';
+$path = ($type === 'form' ? 'form' : 'components').'/';
+$path_class = $type === 'form' ? ucfirst($path) : '';
 
 $name = $_SERVER['argv'][1];
 $class_name = implode('', array_map('ucfirst', explode('_', $name)));
@@ -40,8 +40,8 @@ $class_name = implode('', array_map('ucfirst', explode('_', $name)));
 /**
  * Replace custom vars in stubs.
  *
- * @param string                    $file
- * @param array<string, string|int> $replacements
+ * @param string                $file
+ * @param array<string, string> $replacements
  *
  * @return string
  */
@@ -60,7 +60,7 @@ file_put_contents(__DIR__.'/../resources/fomanticui2/templates/twig/'.$path.$nam
 file_put_contents(
     __DIR__.'/../src/Components/'.$path_class.$class_name.'.php',
     replace_vars('class', [
-        '{{namespace}}'  => ($type === 'frm' ? '\Form' : '').';'.($type === 'frm' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : ''),
+        '{{namespace}}'  => ($type === 'form' ? '\Form' : '').';'.($type === 'form' ? PHP_EOL.PHP_EOL.'use RobiNN\UiKit\Components\Component;' : ''),
         '{{class_name}}' => $class_name,
         '{{name}}'       => $path.$name,
         '{{title}}'      => str_replace('_', ' ', $name),
@@ -70,29 +70,30 @@ file_put_contents(
 file_put_contents(
     __DIR__.'/../tests/Components/'.$path_class.$class_name.'Test.php',
     replace_vars('abstract_test', [
-        '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
+        '{{namespace}}'  => ($type === 'form' ? '\Form' : ''),
         '{{class_name}}' => $class_name,
         '{{name}}'       => $name,
     ])
 );
 
-file_put_contents(
-    __DIR__.'/../tests/Frameworks/Bootstrap5/'.$path_class.$class_name.'Bootstrap5Test.php',
-    replace_vars('bootstrap5_test', [
-        '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
-        '{{class_name}}' => $class_name,
-        '{{name}}'       => $name,
-    ])
-);
+$resources = __DIR__.'/../resources/';
 
-file_put_contents(
-    __DIR__.'/../tests/Frameworks/Fomanticui2/'.$path_class.$class_name.'Fomanticui2Test.php',
-    replace_vars('fomanticui2_test', [
-        '{{namespace}}'  => ($type === 'frm' ? '\Form' : ''),
-        '{{class_name}}' => $class_name,
-        '{{name}}'       => $name,
-    ])
-);
+foreach (array_diff((array) scandir($resources), ['.', '..']) as $framework) {
+    if (is_file($resources.'/'.$framework.'/config.php')) {
+        $fw_name = ucfirst((string) $framework);
+
+        file_put_contents(
+            __DIR__.'/../tests/Frameworks/'.$fw_name.'/'.$path_class.$class_name.$fw_name.'Test.php',
+            replace_vars('framework_test', [
+                '{{fw_name}}'    => $fw_name,
+                '{{framework}}'  => (string) $framework,
+                '{{namespace}}'  => ($type === 'form' ? '\Form' : ''),
+                '{{class_name}}' => $class_name,
+                '{{name}}'       => $name,
+            ])
+        );
+    }
+}
 
 file_put_contents(
     __DIR__.'/../docs/'.$path.$name.'.md',
