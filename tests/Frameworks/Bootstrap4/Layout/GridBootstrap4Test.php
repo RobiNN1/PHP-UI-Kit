@@ -22,6 +22,7 @@ final class GridBootstrap4Test extends GridTest {
         $this->expected_open_tpl = '<div class="col-xs-12">';
         $this->expected_close_tpl = '</div>';
         $this->expected_100_50_tpl = '<div class="col-xs-12 col-sm-6">';
+        $this->fw_option_tpl = ['bootstrap4' => 'col-6'];
         $this->expected_fw_tpl = '<div class="col-6">';
         $this->expected_auto_tpl = '<div class="col">';
     }
