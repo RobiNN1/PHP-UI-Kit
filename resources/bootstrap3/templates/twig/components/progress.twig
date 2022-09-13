@@ -1,0 +1,5 @@
+<div class="progress{{ class|space }}"{{ attributes|space|raw }}>
+    {% for bar in bars %}
+        <div class="progress-bar{{ bar.color|space ~ item_class|space }}" style="width: {{ bar.percent }}%;">{{ bar.title }}</div>
+    {% endfor %}
+</div>

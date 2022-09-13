@@ -1,0 +1,19 @@
+<div class="form-group{{ size ? ' form-group-' ~ size : '' ~ class|space ~ state|space }}"{{ attributes|space|raw }}>
+    {% if label %}
+        <label for="{{ select_id }}" class="form-label">{{ label }}</label>
+    {% endif %}
+    <select{{ select_attributes|space|raw }} class="form-control{{ select_class|space }}" aria-label="{{ label }}">
+        {% if placeholder %}
+            <option disabled selected>{{ placeholder }}</option>
+        {% endif %}
+        {% for item_value, item_title in items %}
+            <option value="{{ item_value }}"{{ item_value == value ? ' selected' : '' }}>{{ item_title }}</option>
+        {% endfor %}
+    </select>
+    {% if feedback_text %}
+        <div class="help-block">{{ feedback_text|raw }}</div>
+    {% endif %}
+    {% if help_text %}
+        <div class="text-muted">{{ help_text|raw }}</div>
+    {% endif %}
+</div>
