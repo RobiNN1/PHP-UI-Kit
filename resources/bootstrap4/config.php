@@ -132,7 +132,7 @@ return [
         'sizes'  => [
             'sm'         => 'modal-sm',
             'lg'         => 'modal-lg',
-            'fullscreen' => 'modal-fullscreen',
+            'fullscreen' => 'modal-lg',
         ],
         'button' => [
             'attributes' => [
