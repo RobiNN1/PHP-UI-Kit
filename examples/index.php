@@ -325,7 +325,7 @@ echo list_group([
 echo '<hr>';
 
 echo '<h4>Menu</h4>';
-echo menu('example', [
+$menu_content = [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     ['custom' => button('Button')],
     ['title' => 'Item 2', 'link' => 'link2.php', 'active' => true],
@@ -344,19 +344,44 @@ echo menu('example', [
             ['title' => 'Sub Right Item 2', 'link' => 'sub_right_link2.php'],
         ],
     ],
+];
+
+echo menu('example', $menu_content);
+echo menu('example-dark', $menu_content, [
+    'dark' => true,
 ]);
 echo '<hr>';
 
 echo '<h4>Modal</h4>';
-echo modal('example', [
+$modal_content = [
     'title'  => 'Modal title',
     'header' => 'idk',
     'body'   => 'Modal body',
     'footer' => 'Random text...',
-], [
+];
+
+echo modal('example-default', $modal_content, [
     'button' => [
-        'title' => 'Open Modal',
+        'title' => 'Open Default Modal',
     ],
+]);
+echo modal('example-sm', $modal_content, [
+    'button' => [
+        'title' => 'Open Sm Modal',
+    ],
+    'size'   => 'sm',
+]);
+echo modal('example-lg', $modal_content, [
+    'button' => [
+        'title' => 'Open Lg Modal',
+    ],
+    'size'   => 'lg',
+]);
+echo modal('example-fullscreen', $modal_content, [
+    'button' => [
+        'title' => 'Open Fullscreen Modal',
+    ],
+    'size'   => 'fullscreen',
 ]);
 echo '<hr>';
 
