@@ -30,7 +30,7 @@ final class MenuBootstrap3Test extends MenuTest {
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item active" href="sub_link2.php">Sub Item 2</a></li>
+                        <li class="active"><a class="dropdown-item" href="sub_link2.php">Sub Item 2</a></li>
                     </ul>
                 </li>
             </ul>

@@ -4,7 +4,7 @@
     {{- button|raw -}}
     <ul class="dropdown-menu{{ dark ? ' dropdown-menu-dark' : '' }}">
         {% for item in items %}
-            {% set active = item.active ? ' active' : '' %}
+            {% set active = item.active ? ' class="active"' : '' %}
 
             {% if item == 'divider' %}
                 <li><hr class="divider"></li>
@@ -12,9 +12,9 @@
                 <li>{{ item.custom|raw }}</li>
             {% else %}
                 {% if item.link %}
-                    <li><a class="dropdown-item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a></li>
+                    <li{{ active|raw }}><a class="dropdown-item{{ item_class|space ~ item.class|space }}" href="{{ item.link }}">{{ item.title|raw }}</a></li>
                 {% else %}
-                    <li><span class="dropdown-item-text{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span></li>
+                    <li{{ active|raw }}><span class="dropdown-item-text{{ item_class|space ~ item.class|space }}">{{ item.title|raw }}</span></li>
                 {% endif %}
             {% endif %}
         {% endfor %}
