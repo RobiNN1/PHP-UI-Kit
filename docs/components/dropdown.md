@@ -21,6 +21,7 @@ Options for each item:
 | title  | string | ''      | Item title                                                                   |
 | link   | string | ''      | Item link.                                                                   |
 | class  | string | ''      | Item class.                                                                  |
+| active | bool   | false   | Active state.                                                                |
 | custom | string | ''      | Custom HTML in item. If this option is specified, other options are ignored. |
 
 > To create divider add `'divider',` item.
