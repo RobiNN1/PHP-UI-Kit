@@ -13,9 +13,15 @@ declare(strict_types=1);
 namespace RobiNN\UiKit;
 
 class AddTo {
-    public static string $head = '';
+    /**
+     * @var array<string, string>
+     */
+    public static array $head = ['before' => '', 'after' => ''];
 
-    public static string $footer = '';
+    /**
+     * @var array<string, string>
+     */
+    public static array $footer = ['before' => '', 'after' => ''];
 
     public static string $js = '';
 
@@ -25,22 +31,36 @@ class AddTo {
      * Append content to head.
      *
      * @param string $tag
+     * @param string $order
      */
-    public static function head(string $tag): void {
-        if (stripos(self::$head, $tag) === false) {
-            self::$head .= $tag;
+    public static function head(string $tag, string $order = 'after'): void {
+        $order = in_array($order, ['before', 'after'], true) ? $order : 'after';
+
+        if (stripos(self::getHeadTags(), $tag) === false) {
+            self::$head[$order] .= $tag;
         }
+    }
+
+    public static function getHeadTags(): string {
+        return self::$head['before'].self::$head['after'];
     }
 
     /**
      * Append content to footer.
      *
      * @param string $tag
+     * @param string $order
      */
-    public static function footer(string $tag): void {
-        if (stripos(self::$footer, $tag) === false) {
-            self::$footer .= $tag;
+    public static function footer(string $tag, string $order = 'after'): void {
+        $order = in_array($order, ['before', 'after'], true) ? $order : 'after';
+
+        if (stripos(self::getFooterTags(), $tag) === false) {
+            self::$footer[$order] .= $tag;
         }
+    }
+
+    public static function getFooterTags(): string {
+        return self::$footer['before'].self::$footer['after'];
     }
 
     /**

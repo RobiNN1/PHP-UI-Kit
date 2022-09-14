@@ -56,9 +56,9 @@ class Layout extends Component {
 
         return $this->tplData([
             'body'        => $body,
-            'head_tags'   => AddTo::$head,
+            'head_tags'   => AddTo::getHeadTags(),
             'css_codes'   => $css_codes,
-            'footer_tags' => AddTo::$footer,
+            'footer_tags' => AddTo::getFooterTags(),
         ]);
     }
 }

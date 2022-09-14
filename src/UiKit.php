@@ -110,11 +110,11 @@ class UiKit extends Components {
         $fwoptions = $this->getFrameworkOptions();
 
         foreach ($fwoptions['files']['css'] as $css) {
-            AddTo::head('<link rel="stylesheet" href="'.$css.'">');
+            AddTo::head('<link rel="stylesheet" href="'.$css.'">', 'before');
         }
 
         foreach ($fwoptions['files']['js'] as $js) {
-            AddTo::footer('<script src="'.$js.'"></script>');
+            AddTo::footer('<script src="'.$js.'"></script>', 'before');
         }
     }
 
