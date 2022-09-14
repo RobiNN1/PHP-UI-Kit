@@ -21,5 +21,4 @@ function get_ui(): RobiNN\UiKit\UiKit {
 
 echo get_ui()->addPath(__DIR__.'/templates')->render('page', [
     'frameworks' => array_keys(get_ui()->config->getAllFrameworks()),
-    'fw'         => $_GET['fw'] ?? '',
 ]);

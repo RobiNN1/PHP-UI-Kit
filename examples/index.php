@@ -28,8 +28,8 @@ echo '<div style="text-align:center;margin-bottom:3rem;">
 <h2>Current CSS Framework: <strong>'.get_ui()->config->getFramework().'</strong></h2>';
 
 foreach (array_keys(get_ui()->config->getAllFrameworks()) as $framework) {
-    $active = isset($_GET['fw']) && $_GET['fw'] === $framework ? ' style="font-weight:bold;"' : '';
-    echo '<p><a'.$active.' href="?fw='.$framework.'">Open '.$framework.' version</a></p>';
+    $active = get_ui()->config->getFramework() === $framework ? ' style="font-weight:bold;"' : '';
+    echo '<a'.$active.' href="?fw='.$framework.'">Open '.$framework.'</a> ';
 }
 
 echo '<p>This file shows the basic usage of all components.</p>
