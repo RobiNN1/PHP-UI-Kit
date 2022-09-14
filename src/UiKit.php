@@ -77,7 +77,7 @@ class UiKit extends Components {
      * @return void
      */
     public function setFrameworkOption(string $option, $value, string $framework = ''): void {
-        if (empty($framework) || $this->config->getFramework() === $framework) {
+        if ($framework === '' || $this->config->getFramework() === $framework) {
             $this->fw_options[$option] = $value;
         }
     }

@@ -327,7 +327,7 @@ echo '<hr>';
 echo '<h4>Menu</h4>';
 $menu_content = [
     ['title' => 'Item 1', 'link' => 'link1.php'],
-    ['custom' => button('Button')],
+    ['custom' => button('Button')->options(['class' => 'navbar-btn'], 'bootstrap3')],
     ['title' => 'Item 2', 'link' => 'link2.php', 'active' => true],
     [
         'title' => 'Dropdown',
@@ -335,7 +335,7 @@ $menu_content = [
         ['title' => 'Sub Item 2', 'link' => 'sub_link2.php'],
     ],
     'right' => [
-        ['custom' => button('Button 2')],
+        ['custom' => button('Button 2')->options(['class' => 'navbar-btn'], 'bootstrap3')],
         ['title' => 'Right 1', 'link' => 'right1.php'],
         ['title' => 'Right 2', 'link' => 'right2.php'],
         [
