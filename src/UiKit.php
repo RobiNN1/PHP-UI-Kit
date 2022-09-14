@@ -68,16 +68,37 @@ class UiKit extends Components {
     }
 
     /**
+     * Set something only for a scpefied framework(s).
+     *
+     * @param string|array<int, string>|null $framework
+     *
+     * @return bool
+     */
+    public function checkFramework($framework = null): bool {
+        if ($framework === null) {
+            return true;
+        }
+
+        if (is_array($framework)) {
+            $fw = in_array($this->config->getFramework(), $framework, true);
+        } else {
+            $fw = $this->config->getFramework() === $framework;
+        }
+
+        return $fw;
+    }
+
+    /**
      * Set CSS framework options using "dot" notation.
      *
-     * @param string $option
-     * @param mixed  $value
-     * @param string $framework
+     * @param string                         $option
+     * @param mixed                          $value
+     * @param string|array<int, string>|null $framework
      *
      * @return void
      */
-    public function setFrameworkOption(string $option, $value, string $framework = ''): void {
-        if ($framework === '' || $this->config->getFramework() === $framework) {
+    public function setFrameworkOption(string $option, $value, $framework = null): void {
+        if ($this->checkFramework($framework)) {
             $this->fw_options[$option] = $value;
         }
     }

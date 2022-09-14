@@ -328,6 +328,12 @@ echo '<h4>Menu</h4>';
 $menu_content = [
     ['title' => 'Item 1', 'link' => 'link1.php'],
     ['custom' => button('Button')->options(['class' => 'navbar-btn'], 'bootstrap3')],
+    ['custom' => get_ui()->button
+        ->options(['color' => 'success'])
+        ->attributes(['style' => 'margin-left:10px'], ['bootstrap3', 'bootstrap4', 'bootstrap5']) // This will be applied only when BS is loaded
+        ->options(['class' => 'navbar-btn'], 'bootstrap3') // This will be applied only when BS3 is loaded
+        ->render('Button success'), // The render method must be called last in order to apply options, such as color
+    ],
     ['title' => 'Item 2', 'link' => 'link2.php', 'active' => true],
     [
         'title' => 'Dropdown',

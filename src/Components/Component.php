@@ -99,13 +99,13 @@ class Component implements Stringable {
     /**
      * Set component options.
      *
-     * @param array<string, mixed> $options
-     * @param string               $framework
+     * @param array<string, mixed>           $options
+     * @param string|array<int, string>|null $framework
      *
      * @return Component
      */
-    public function options(array $options = [], string $framework = ''): Component {
-        if ($framework === '' || $this->uikit->config->getFramework() === $framework) {
+    public function options(array $options = [], $framework = null): Component {
+        if ($this->uikit->checkFramework($framework)) {
             $this->options = array_merge($this->options, $options);
         }
 
@@ -115,13 +115,13 @@ class Component implements Stringable {
     /**
      * Set component attributes.
      *
-     * @param array<string, mixed> $attributes
-     * @param string               $framework
+     * @param array<string, mixed>           $attributes
+     * @param string|array<int, string>|null $framework
      *
      * @return Component
      */
-    public function attributes(array $attributes = [], string $framework = ''): Component {
-        if ($framework === '' || $this->uikit->config->getFramework() === $framework) {
+    public function attributes(array $attributes = [], $framework = null): Component {
+        if ($this->uikit->checkFramework($framework)) {
             $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
         }
 
