@@ -5,6 +5,7 @@
     <div class="menu">
         {%- for item in items -%}
             {% set active = item.active ? ' active' : '' %}
+            {%- set new_window = item.new_window ? ' target="_blank"' : '' -%}
 
             {%- if item == 'divider' -%}
                 <div class="divider"></div>
@@ -12,7 +13,7 @@
                 {{- item.custom|raw -}}
             {% else %}
                 {%- if item.link -%}
-                    <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}">{{ item.title|raw }}</a>
+                    <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}"{{ new_window|raw }}>{{ item.title|raw }}</a>
                 {%- else -%}
                     <span class="item{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span>
                 {%- endif -%}

@@ -16,13 +16,14 @@ $items (array) (Required) Multidimensional array.
 
 Options for each item:
 
-| Name   | Type   | Default | Description                                                                  |
-|--------|--------|---------|------------------------------------------------------------------------------|
-| title  | string | ''      | Item title                                                                   |
-| link   | string | ''      | Item link.                                                                   |
-| class  | string | ''      | Item class.                                                                  |
-| active | bool   | false   | Active state.                                                                |
-| custom | string | ''      | Custom HTML in item. If this option is specified, other options are ignored. |
+| Name       | Type   | Default | Description                                                                  |
+|------------|--------|---------|------------------------------------------------------------------------------|
+| title      | string | ''      | Item title                                                                   |
+| link       | string | ''      | Item link.                                                                   |
+| class      | string | ''      | Item class.                                                                  |
+| new_window | bool   | false   | Open in new window.                                                          |
+| active     | bool   | false   | Active state.                                                                |
+| custom     | string | ''      | Custom HTML in item. If this option is specified, other options are ignored. |
 
 $options (array) (Optional) Additional options.
 
