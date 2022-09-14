@@ -81,7 +81,7 @@ return [
     ],
     'alert'        => [
         'colors' => [
-            'default' => 'bg-primary',
+            'default' => 'alert-info',
             'success' => 'alert-success',
             'warning' => 'alert-warning',
             'error'   => 'alert-danger',
