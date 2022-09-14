@@ -19,6 +19,6 @@ final class AlertBootstrap3Test extends AlertTest {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');
 
-        $this->expected_tpl = '<div class="alert bg-primary" role="alert">Default</div>';
+        $this->expected_tpl = '<div class="alert alert-info" role="alert">Default</div>';
     }
 }
