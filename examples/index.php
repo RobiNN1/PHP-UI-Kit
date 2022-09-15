@@ -14,7 +14,6 @@ function get_ui(): RobiNN\UiKit\UiKit {
 $current = get_ui()->config->getFramework();
 
 RobiNN\UiKit\AddTo::css('
-body { margin-left: 256px; }
 .h1, .h2, .h3 {
     margin-top: 0;
     margin-bottom: 5px;
@@ -24,12 +23,12 @@ body { margin-left: 256px; }
 .h1 { font-size: 36px; }
 .h2 { font-size: 30px; margin-top: 15px; }
 .h3 { font-size: 24px; }
-.sidebar {
+.site-sidebar {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    display: block;
+    display: none;
     width: 256px;
     overflow: hidden;
     overflow-y: auto;
@@ -37,7 +36,7 @@ body { margin-left: 256px; }
     background-color: #0f172a;
     color: #fff;
 }
-.sidebar h3 {
+.site-sidebar h3 {
     font-weight: 400;
     text-align: center;
 }
@@ -59,18 +58,10 @@ body { margin-left: 256px; }
 .sidebar-menu a.active,
 .sidebar-menu a:hover { background-color: #0284c7; }
 .subitems { margin-left: 15px; }
-.mainmenu {
-    background-color: #f1f5f9 !important;
-    margin: 0 !important;
-    padding: 0;
-    border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+@media (min-width: 1024px) {
+    body { margin-left: 256px; }
+    .site-sidebar { display: block; }
 }
-.menu-item { padding: 18px 15px !important; }
-.menu-item > a { padding: 0!important; }
-.fomanticui2 .mainmenu .header.item:before { content: none; }
-.fomanticui2 .menu-item:before { content: none !important; }
 .content { padding: 20px; }
 ');
 
@@ -85,12 +76,30 @@ require_once __DIR__.'/components.php';
 
 $content = (string) ob_get_clean();
 
-$form = array_diff((array) scandir(__DIR__.'/../src/Components/Form'), ['.', '..', 'Form.php']);
-$components = array_diff((array) scandir(__DIR__.'/../src/Components/'), ['.', '..', 'Component.php', 'Form', 'Layout']);
-
 $sidebaritems = [
-    'form'       => $form,
-    'components' => $components,
+    'form'       => [
+        'Input',
+        'Select',
+        'Textarea',
+        'Checkbox',
+    ],
+    'components' => [
+        'Accordion',
+        'Alert',
+        'Badge',
+        'Breadcrumbs',
+        'Button',
+        'ButtonGroup',
+        'Card',
+        'Carousel',
+        'Dropdown',
+        'ListGroup',
+        'Menu',
+        'Modal',
+        'Pagination',
+        'Progress',
+        'Tabs',
+    ],
 ];
 
 $frameworks = [

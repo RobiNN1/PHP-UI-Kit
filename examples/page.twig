@@ -1,5 +1,5 @@
-<div class="sidebar">
-    <h3>PHP UI Kit</h3>
+<div class="site-sidebar">
+    <h3 class="h3">PHP UI Kit</h3>
 
     <ul class="sidebar-menu">
         {% for category, items in sidebaritems %}
@@ -7,7 +7,6 @@
                 <a href="#{{ category }}">{{ category|capitalize }}</a>
                 <ul class="subitems">
                     {% for item in items %}
-                        {% set item = item|replace({'.php': ''}) %}
                         <li><a href="#{{ item|lower }}">{{ item }}</a></li>
                     {% endfor %}
                 </ul>
@@ -19,8 +18,6 @@
 <main>
     {{ menu('menu', menuitems, {
         'brand': {'title': 'Examples', 'link': '#'},
-        'class': 'mainmenu',
-        'item_class' : 'menu-item',
     }) }}
     <div class="content">{{ content|raw }}</div>
 </main>

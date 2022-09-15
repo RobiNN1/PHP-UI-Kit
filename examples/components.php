@@ -36,7 +36,7 @@ echo badge('Info', 'info');
 echo badge('Rounded', 'default', ['rounded' => true,]);
 
 echo '<h2 class="h2" id="breadcrumbs">Breadcrumbs</h2>';
-echo breadcrumbs(['Link 1' => 'blink1.php', 'Link 2' => 'blink2.php',]);
+echo breadcrumbs(['Link 1' => 'blink1.php', 'Link 2' => 'blink2.php',], ['attributes' => ['style' => 'display:block;']]);
 echo breadcrumbs(['Link 1' => 'blink1.php', 'Link 2' => 'blink2.php',], ['divider' => '>',]);
 
 echo '<h2 class="h2" id="button">Button</h2>';
@@ -130,10 +130,25 @@ echo dropdown('Dropdown button as link', [
 ])->attributes(['style' => 'display:inline-block;margin-right:10px;']);
 
 echo '<h2 class="h2" id="listgroup">ListGroup</h2>';
+echo row_open().grid_open([100, 33]);
 echo list_group([
     'Item 1',
     'Item 2',
+    'Item 3',
 ]);
+echo grid_close().grid_open([100, 33]);
+echo list_group([
+    ['title' => 'Link1', 'link' => 'link1.php'],
+    ['title' => 'Link2', 'link' => 'link2.php', 'active' => true],
+    ['title' => 'Link3', 'link' => 'link3.php'],
+]);
+echo grid_close().grid_open([100, 33]);
+echo list_group([
+    'Item 1',
+    'Item 2',
+    ['title' => 'Link', 'link' => 'link.php'],
+]);
+echo grid_close().row_close();
 
 echo '<h2 class="h2" id="menu">Menu</h2>';
 echo menu('example', [
