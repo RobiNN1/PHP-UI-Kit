@@ -1,16 +1,8 @@
 <?php
-
 declare(strict_types=1);
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-/**
- * Get a UI Kit object.
- *
- * Note: No need to create this function, it only overrides defaults when using helpers.
- *
- * @return RobiNN\UiKit\UiKit
- */
 function get_ui(): RobiNN\UiKit\UiKit {
     return new RobiNN\UiKit\UiKit([
         'cache'     => __DIR__.'/cache',
@@ -19,420 +11,128 @@ function get_ui(): RobiNN\UiKit\UiKit {
     ]);
 }
 
+$current = get_ui()->config->getFramework();
+
+RobiNN\UiKit\AddTo::css('
+body {
+    margin-left: 256px;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 256px;
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 24px;
+    background-color: #0f172a;
+    color: #fff;
+}
+.sidebar h3 {
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.sidebar-menu,
+.subitems {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.sidebar-menu > li > a,
+.subitems > li > a {
+    font-size: 14px;
+    color: #fff;
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.sidebar-menu > li > a:hover,
+.subitems > li > a:hover {
+    background-color: #0284c7;
+}
+.subitems {
+    margin-left: 15px;
+}
+.mainmenu {
+    background-color: #f1f5f9 !important;
+    margin: 0 !important;
+    padding: 0;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    position: fixed;
+    width: calc(100% - 256px);
+    z-index: 1030;
+}
+.menu-item {
+    padding: 18px 15px !important;
+}
+.menu-item > a {
+    padding: 0!important;
+}
+.fomanticui2 .mainmenu .header.item:before {
+    content: none;
+}
+.fomanticui2 .menu-item:before {
+    content: none !important;
+}
+.content {
+    position: relative;
+    padding: calc(50px + 28px) 28px 28px;
+}
+');
+
 ob_start();
 
-echo container_open(false, ['attributes' => ['style' => 'padding-top: 3rem;padding-bottom: 3rem;']]);
+require_once __DIR__.'/form.php';
+require_once __DIR__.'/components.php';
 
-echo '<div style="text-align:center;margin-bottom:3rem;">
-<h1>PHP UI Kit Examples</h1>
-<h2>Current CSS Framework: <strong>'.get_ui()->config->getFramework().'</strong></h2>';
+$content = (string) ob_get_clean();
+
+$form = array_diff((array) scandir(__DIR__.'/../src/Components/Form'), ['.', '..', 'Form.php']);
+$components = array_diff((array) scandir(__DIR__.'/../src/Components/'), ['.', '..', 'Component.php', 'Form', 'Layout']);
+
+$sidebaritems = [
+    'form'       => $form,
+    'components' => $components,
+];
+
+$frameworks = [
+    'title' => ucfirst($current),
+];
 
 foreach (array_keys(get_ui()->config->getAllFrameworks()) as $framework) {
-    $active = get_ui()->config->getFramework() === $framework ? ' style="font-weight:bold;"' : '';
-    echo '<a'.$active.' href="?fw='.$framework.'">Open '.$framework.'</a> ';
+    $frameworks[] = [
+        'title'  => ucfirst($framework),
+        'link'   => '?fw='.$framework,
+        'active' => $current === $framework,
+    ];
 }
 
-echo '<p>This file shows the basic usage of all components.</p>
-Examples: <a href="/examples/twig/">Entire page written in Twig</a>.
-</div>';
+$github_icon = '<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="16" height="16" class="bi">
+    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+</svg>';
 
-echo '<h3>Forms</h3>';
-echo form_open('post', '', ['attributes' => ['style' => 'margin-top:20px;']]);
-
-echo '<h5>Input sizes</h5>';
-echo row_open();
-echo grid_open([100, 33]);
-echo input('input-small', 'Small', '', ['size' => 'sm']);
-echo grid_close().grid_open([100, 33]);
-echo input('input-defult', 'Default');
-echo grid_close().grid_open([100, 33]);
-echo input('input-large', 'Large', '', ['size' => 'lg']);
-echo grid_close();
-echo row_close();
-
-echo '<h5>Inputs with states</h5>';
-// In Fomantic UI states work only inside .ui.form element
-echo row_open();
-echo grid_open([100, 50]);
-echo input('input-success', 'Success field with text', '', ['state' => 'success', 'feedback_text' => 'Text']);
-echo grid_close().grid_open([100, 50]);
-echo input('input-error', 'Error field with text', '', ['state' => 'error', 'feedback_text' => 'Another Text...']);
-echo grid_close();
-echo row_close();
-
-echo '<h5>Inputs with addons</h5>';
-echo row_open();
-echo grid_open([100, 33]);
-echo input('input-left-addon', 'Left addon', '', ['left_addon' => '€']);
-echo grid_close().grid_open([100, 33]);
-echo input('input-right-addon', 'Right addon', '', ['right_addon' => '@site.com']);
-echo grid_close().grid_open([100, 33]);
-echo input('input-addons', 'Addons', '', ['left_addon' => '€', 'right_addon' => ',00']);
-echo grid_close();
-echo row_close();
-
-echo '<h5>Inputs with button</h5>';
-echo row_open();
-echo grid_open([100, 33]);
-echo input('input-left-action-button', 'Left action button', '', ['left_custom' => button('Left')]);
-echo grid_close().grid_open([100, 33]);
-echo input('input-right-action-button', 'Right action button', '', ['right_custom' => button('Right')]);
-echo grid_close().grid_open([100, 33]);
-echo input('input-action-buttons', 'Action buttons', '', [
-    'left_custom'  => button('Left'),
-    'right_custom' => button('Right'),
-]);
-echo grid_close();
-echo row_close();
-
-echo '<hr>';
-
-$select_optioms = [
-    'item1',
-    'item2',
-    'item3',
-];
-
-echo '<h5>Select sizes</h5>';
-echo row_open();
-echo grid_open([100, 33]);
-echo select('select-small', 'Small', '', $select_optioms, ['size' => 'sm']);
-echo grid_close().grid_open([100, 33]);
-echo select('select-defult', 'Default', '', $select_optioms);
-echo grid_close().grid_open([100, 33]);
-echo select('select-large', 'Large', '', $select_optioms, ['size' => 'lg']);
-echo grid_close();
-echo row_close();
-
-echo '<h5>Selects with states</h5>';
-echo row_open();
-echo grid_open([100, 50]);
-echo select('select-success', 'Success', '', $select_optioms, ['state' => 'success', 'required' => true]);
-echo grid_close().grid_open([100, 50]);
-echo select('select-error', 'Error', '', $select_optioms, ['state' => 'error']);
-echo grid_close();
-echo row_close();
-
-echo row_open();
-echo grid_open([100, 50]);
-echo select('select-success2', 'Success field with text', '', $select_optioms, ['state' => 'success', 'feedback_text' => 'Text...']);
-echo grid_close().grid_open([100, 50]);
-echo select('select-error2', 'Error field with text', '', $select_optioms, ['state' => 'error', 'feedback_text' => 'Text...']);
-echo grid_close().grid_open([100, 50]);
-echo select('select-multiple', 'Select multiple', '', $select_optioms, ['multiple' => true, 'placeholder' => 'Select items']);
-echo grid_close();
-echo row_close();
-
-echo '<h5>Checkbox & Radio</h5>';
-echo checkbox('checkbox', 'Checkbox');
-echo checkbox('radio', 'Radio', '', ['radio' => true]);
-
-echo row_open();
-echo grid_open([100, 50]);
-echo checkbox('multiple-radios', 'Multiple radios', '', [
-    'radio'         => true,
-    'items'         => [
-        0 => 'Radio 1',
-        1 => 'Radio 2',
-        2 => 'Radio 3',
-    ],
-    'state'         => 'error',
-    'feedback_text' => 'Text....',
-    'help_text'     => 'Help text',
-]);
-echo grid_close().grid_open([100, 50]);
-echo checkbox('multiple-checkboxes', 'Multiple checkboxes', '', [
-    'items'         => [
-        0 => 'Checkbox 1',
-        1 => 'Checkbox 2',
-        2 => 'Checkbox 3',
-    ],
-    'state'         => 'success',
-    'feedback_text' => 'Text....',
-    'help_text'     => 'Help text',
-]);
-echo grid_close();
-echo row_close();
-
-echo '<h5>Textarea</h5>';
-echo row_open();
-echo grid_open([100, 25]);
-echo textarea('textarea', 'Textarea');
-echo grid_close().grid_open([100, 25]);
-echo textarea('textarea-disabled', 'Disabled textarea', '...', ['disabled' => true]);
-echo grid_close().grid_open([100, 25]);
-echo textarea('textarea-readonly', 'Readonly textarea', '...', ['readonly' => true]);
-echo grid_close();
-echo row_close();
-
-echo row_open();
-echo grid_open([100, 25]);
-echo textarea('textarea-state', 'Textarea with state', 'Text..', [
-    'state'         => 'success',
-    'feedback_text' => 'Text....',
-    'help_text'     => 'Help text',
-    'required'      => true,
-]);
-echo grid_close().grid_open([100, 25]);
-echo textarea('textarea-error-feedback', 'Error textarea with text', '', [
-    'state'         => 'error',
-    'feedback_text' => 'Please enter text',
-]);
-echo grid_close().grid_open([100, 25]);
-echo textarea('textarea-help', 'Textarea with help text', '', [
-    'help_text' => 'Something..',
-]);
-echo grid_close().grid_open([100, 25]);
-echo textarea('textarea-feedback-help', 'Textarea with feedback and help text', '', [
-    'state'         => 'error',
-    'feedback_text' => 'Please select text',
-    'help_text'     => 'Something..',
-]);
-echo grid_close();
-echo row_close();
-
-echo form_close();
-
-echo '<hr>';
-
-echo '<h3>Components</h3>';
-
-echo '<h4>Accordion</h4>';
-echo accordion('example', [
-    'Title 1' => 'Content 1',
-    'Title 2' => 'Content 2',
-]);
-echo '<hr>';
-
-echo '<h4>Alert</h4>';
-echo row_open();
-echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
-echo alert('Default');
-echo grid_close();
-echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
-echo alert('Success', 'success');
-echo grid_close();
-echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
-echo alert('Warning', 'warning');
-echo grid_close();
-echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
-echo alert('Error', 'error');
-echo grid_close();
-echo grid_open([100, 15, ['bootstrap5' => 'auto']]);
-echo alert('Info', 'info', ['dismiss' => true]);
-echo grid_close();
-echo row_close();
-echo '<hr>';
-
-echo '<h4>Badge</h4>';
-echo badge('Default');
-echo badge('Primary', 'primary');
-echo badge('Success', 'success');
-echo badge('Warning', 'warning');
-echo badge('Error', 'error');
-echo badge('Info', 'info');
-echo badge('Rounded', 'default', ['rounded' => true]);
-echo '<hr>';
-
-echo '<h4>Breadcrumbs</h4>';
-echo breadcrumbs([
-    'Link 1' => 'blink1.php',
-    'Link 2' => 'blink2.php',
-]);
-echo breadcrumbs([
-    'Link 1' => 'blink1.php',
-    'Link 2' => 'blink2.php',
-], [
-    'divider' => '>',
-]);
-echo '<hr>';
-
-echo '<h4>Button</h4>';
-echo button('Default');
-echo button('Primary', 'button', ['color' => 'primary']);
-echo button('Success', 'button', ['color' => 'success']);
-echo button('Warning', 'button', ['color' => 'warning']);
-echo button('Error', 'button', ['color' => 'error']);
-echo button('Info', 'button', ['color' => 'info']);
-echo button('Small', 'button', ['size' => 'sm']);
-echo button('Default');
-echo button('Large', 'button', ['size' => 'lg']);
-echo button('Link', '', ['link' => 'link.php']);
-echo button('Active', '', ['active' => true]);
-echo button('Disabled', '', ['disabled' => true]);
-echo button('No default CSS', '', ['no_classes' => true]);
-echo '<hr>';
-
-echo '<h4>Button group</h4>';
-$btns = [
-    0          => 'First',
-    1          => 'Second',
-    'example'  => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary']],
-    'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata']],
-    'btn1'     => ['title' => 'No value', 'value' => null],
-];
-echo button_group($btns, ['size' => 'sm']);
-echo button_group($btns);
-echo button_group($btns, ['size' => 'lg']);
-echo '<hr>';
-
-echo '<h4>Card</h4>';
-echo row_open();
-echo grid_open([100, 50]);
-echo card([
-    'header' => 'Header',
-    'body'   => 'Body',
-    'footer' => 'Footer',
-]);
-echo grid_close();
-echo grid_open([100, 50]);
-echo card([
-    'body' => '
-    <h3>Title</h3>
-    <h4>Sub title</h4>
-    <p>Text</p>
-    ',
-]);
-echo grid_close();
-echo row_close();
-echo '<hr>';
-
-echo '<h4>Carousel</h4>';
-echo carousel('example', [
-    '<svg style="width:100%;height:300px;" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555">First slide</text>
-    </svg>',
-    '<svg style="width:100%;height:300px;" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555">Second slide</text>
-    </svg>',
-]);
-echo '<hr>';
-
-echo '<h4>Dropdown</h4>';
-echo dropdown('Dropdown', [
-    ['title' => 'Dropdown Item 1', 'link' => 'link1.php'],
-    'divider',
-    ['title' => 'Dropdown Item 2'],
-    ['custom' => '<b>Custom bold text</b>'],
-]);
-echo '<hr>';
-
-echo '<h4>List Group</h4>';
-echo list_group([
-    'Item 1',
-    'Item 2',
-]);
-echo '<hr>';
-
-echo '<h4>Menu</h4>';
-$menu_content = [
-    ['title' => 'Item 1', 'link' => 'link1.php'],
-    ['custom' => button('Button')->options(['class' => 'navbar-btn'], 'bootstrap3')],
-    ['custom' => get_ui()->button
-        ->options(['color' => 'success'])
-        ->attributes(['style' => 'margin-left:10px'], ['bootstrap3', 'bootstrap4', 'bootstrap5']) // This will be applied only when BS is loaded
-        ->options(['class' => 'navbar-btn'], 'bootstrap3') // This will be applied only when BS3 is loaded
-        ->render('Button success'), // The render method must be called last in order to apply options, such as color
-    ],
-    ['title' => 'Item 2', 'link' => 'link2.php', 'active' => true],
-    [
-        'title' => 'Dropdown',
-        ['title' => 'Sub Item 1', 'link' => 'sub_link1.php'],
-        ['title' => 'Sub Item 2', 'link' => 'sub_link2.php'],
-    ],
-    'right' => [
-        ['custom' => button('Button 2')->options(['class' => 'navbar-btn'], 'bootstrap3')],
-        ['title' => 'Right 1', 'link' => 'right1.php'],
-        ['title' => 'Right 2', 'link' => 'right2.php'],
-        [
-            'title' => 'Right Dropdown',
-            ['title' => 'Sub Right Item 1', 'link' => 'sub_right_link1.php'],
-            ['title' => 'Sub Right Item 2', 'link' => 'sub_right_link2.php'],
+$page = get_ui()->addPath(__DIR__.'/')->render('page', [
+    'sidebaritems' => $sidebaritems,
+    'menuitems'    => [
+        $frameworks,
+        'right' => [
+            ['title' => 'Docs', 'link' => 'https://uikit.kelcak.com/', 'new_window' => true],
+            ['title' => $github_icon, 'link' => 'https://github.com/RobiNN1/PHP-UI-Kit', 'new_window' => true],
         ],
     ],
-];
-
-echo menu('example', $menu_content);
-echo menu('example-dark', $menu_content, [
-    'dark' => true,
-]);
-echo '<hr>';
-
-echo '<h4>Modal</h4>';
-$modal_content = [
-    'title'  => 'Modal title',
-    'header' => 'idk',
-    'body'   => 'Modal body',
-    'footer' => 'Random text...',
-];
-
-echo modal('example-default', $modal_content, [
-    'button' => [
-        'title' => 'Open Default Modal',
-    ],
-]);
-echo modal('example-sm', $modal_content, [
-    'button' => [
-        'title' => 'Open Sm Modal',
-    ],
-    'size'   => 'sm',
-]);
-echo modal('example-lg', $modal_content, [
-    'button' => [
-        'title' => 'Open Lg Modal',
-    ],
-    'size'   => 'lg',
-]);
-echo modal('example-fullscreen', $modal_content, [
-    'button' => [
-        'title' => 'Open Fullscreen Modal',
-    ],
-    'size'   => 'fullscreen',
-]);
-echo '<hr>';
-
-echo '<h4>Pagination</h4>';
-echo pagination(range(1, 6), [
-    'link' => 'page.php?p=%s',
-]);
-echo '<hr>';
-
-echo '<h4>Progress</h4>';
-echo progress(40);
-echo progress([43 => 'example']);
-echo progress([13, 30, 50], [
-    'color' => ['error', 'success'],
-]);
-echo progress([15 => 'First', 30 => 'Second', 55 => 'Third'], [
-    'color' => ['error', 'warning', 'success'],
-]);
-echo progress([20, 75], [
-    'auto_colors' => static function (int $num): string {
-        $class = 'error';
-        if ($num > 71) {
-            $class = 'success';
-        } elseif ($num > 55) {
-            $class = '';
-        } elseif ($num > 25) {
-            $class = 'warning';
-        } elseif ($num < 25) {
-            $class = 'error';
-        }
-
-        return $class;
-    },
-]);
-echo '<hr>';
-
-echo '<h4>Tabs</h4>';
-echo tabs('example', [
-    ['title' => 'Tab 1', 'content' => 'Content 1'],
-    ['title' => 'Tab 2', 'content' => 'Content 2'],
-    ['title' => 'Tab 3', 'content' => 'Content 3'],
+    'content'      => $content,
 ]);
 
-echo container_close();
-
-echo layout((string) ob_get_clean(), [
-    'title' => 'PHP UI Kit Examples',
+echo layout($page, [
+    'title'      => 'PHP UI Kit Examples',
+    'attributes' => ['class' => get_ui()->config->getFramework()],
 ]);
