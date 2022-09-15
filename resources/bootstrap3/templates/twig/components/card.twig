@@ -1,7 +1,7 @@
 {% set tag = link ? 'a' : 'div' %}
 <{{ tag }} class="panel panel-default{{ class|space }}"{{ attributes|space|raw }}{{ (link ? ' href="' ~ link ~ '"' : '')|raw }}>
     {% if top_img %}
-        <img class="card-img-top{{ top_img.class|space }}" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
+        <img class="card-img-top img-responsive{{ top_img.class|space }}" src="{{ top_img.src }}" alt="{{ top_img.alt }}">
     {% endif %}
     {% if header %}
         <div class="panel-heading">{{ header|raw }}</div>
