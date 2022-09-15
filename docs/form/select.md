@@ -186,7 +186,7 @@ echo select('select-feedback-help', 'Select with feedback and help text', '', [
     'item2',
     'item3',
 ], [
-    'state'         => 'error',
+    'state'         => 'success',
     'feedback_text' => 'Please select item',
     'help_text'     => 'Something..',
 ]);
@@ -197,12 +197,12 @@ echo select('select-feedback-help', 'Select with feedback and help text', '', [
 ```html
 <div class="mb-1">
     <label for="select-error-feedback" class="form-label">Error select with text</label>
-    <select id="select-error-feedback" name="select-error-feedback" class="form-select is-invalid" aria-label="Error select with text">
+    <select id="select-error-feedback" name="select-error-feedback" class="form-select is-valid" aria-label="Error select with text">
         <option value="0">item1</option>
         <option value="1">item2</option>
         <option value="2">item3</option>
     </select>
-    <div class="invalid-feedback">Please select item</div>
+    <div class="valid-feedback">Please select item</div>
 </div>
 
 <div class="mb-1">
@@ -217,12 +217,12 @@ echo select('select-feedback-help', 'Select with feedback and help text', '', [
 
 <div class="mb-1">
     <label for="select-feedback-help" class="form-label">Select with feedback and help text</label>
-    <select id="select-feedback-help" name="select-feedback-help" class="form-select is-invalid" aria-label="Select with feedback and help text">
+    <select id="select-feedback-help" name="select-feedback-help" class="form-select is-valid" aria-label="Select with feedback and help text">
         <option value="0">item1</option>
         <option value="1">item2</option>
         <option value="2">item3</option>
     </select>
-    <div class="invalid-feedback">Please select item</div>
+    <div class="valid-feedback">Please select item</div>
     <div class="form-text">Something..</div>
 </div>
 ```
