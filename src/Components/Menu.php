@@ -47,17 +47,18 @@ class Menu extends Component {
 
         return $this->tplData([
             'id'    => $id,
-            'items' => $this->items($items, $id, $this->options['dark']),
+            'items' => $this->items($items, $id, $this->options['dark'], $this->options['item_class']),
         ]);
     }
 
     /**
      * @param array<int|string, mixed> $items
      * @param bool                     $dark
+     * @param string                   $item_class
      *
      * @return string
      */
-    private function dropdown(array $items, bool $dark): string {
+    private function dropdown(array $items, bool $dark, string $item_class): string {
         $title = $items['title'];
         array_shift($items);
 
@@ -68,6 +69,7 @@ class Menu extends Component {
                 'link'    => '#',
             ],
             'in_menu' => true,
+            'class'   => $item_class,
         ])->toHtml();
     }
 
@@ -75,17 +77,18 @@ class Menu extends Component {
      * @param array<int|string, mixed> $items
      * @param string                   $id
      * @param bool                     $dark
+     * @param string                   $item_class
      *
      * @return array<int|string, mixed>
      */
-    private function items(array $items, string $id, bool $dark): array {
+    private function items(array $items, string $id, bool $dark, string $item_class): array {
         $items_formatted = [];
 
         foreach ($items as $key => $item) {
             if ($key === 'right') {
-                $items_formatted[$key] = $this->items($item, $id, $dark);
+                $items_formatted[$key] = $this->items($item, $id, $dark, $item_class);
             } elseif (is_array($item) && count($item) !== count($item, COUNT_RECURSIVE)) {
-                $items_formatted[$key]['dropdown'] = $this->dropdown($item, $dark);
+                $items_formatted[$key]['dropdown'] = $this->dropdown($item, $dark, $item_class);
             } else {
                 $items_formatted[$key] = $item;
             }
