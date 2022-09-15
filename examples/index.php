@@ -14,9 +14,16 @@ function get_ui(): RobiNN\UiKit\UiKit {
 $current = get_ui()->config->getFramework();
 
 RobiNN\UiKit\AddTo::css('
-body {
-    margin-left: 256px;
+body { margin-left: 256px; }
+.h1, .h2, .h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 500;
+    line-height: 1.2;
 }
+.h1 { font-size: 36px; }
+.h2 { font-size: 30px; margin-top: 15px; }
+.h3 { font-size: 24px; }
 .sidebar {
     position: fixed;
     top: 0;
@@ -31,12 +38,8 @@ body {
     color: #fff;
 }
 .sidebar h3 {
-    font-size: 28px;
     font-weight: 400;
     text-align: center;
-    margin: 0;
-    padding: 0;
-    margin-bottom: 20px;
 }
 .sidebar-menu,
 .subitems {
@@ -53,13 +56,9 @@ body {
     text-decoration: none;
     border-radius: 4px;
 }
-.sidebar-menu > li > a:hover,
-.subitems > li > a:hover {
-    background-color: #0284c7;
-}
-.subitems {
-    margin-left: 15px;
-}
+.sidebar-menu a.active,
+.sidebar-menu a:hover { background-color: #0284c7; }
+.subitems { margin-left: 15px; }
 .mainmenu {
     background-color: #f1f5f9 !important;
     margin: 0 !important;
@@ -67,27 +66,17 @@ body {
     border: 0 !important;
     border-radius: 0 !important;
     box-shadow: none !important;
-    position: fixed;
-    width: calc(100% - 256px);
-    z-index: 1030;
 }
-.menu-item {
-    padding: 18px 15px !important;
-}
-.menu-item > a {
-    padding: 0!important;
-}
-.fomanticui2 .mainmenu .header.item:before {
-    content: none;
-}
-.fomanticui2 .menu-item:before {
-    content: none !important;
-}
-.content {
-    position: relative;
-    padding: calc(50px + 28px) 28px 28px;
-}
+.menu-item { padding: 18px 15px !important; }
+.menu-item > a { padding: 0!important; }
+.fomanticui2 .mainmenu .header.item:before { content: none; }
+.fomanticui2 .menu-item:before { content: none !important; }
+.content { padding: 20px; }
 ');
+
+RobiNN\UiKit\AddTo::js('document.querySelectorAll(".content a").forEach(link => {
+    link.addEventListener("click", (event) => event.preventDefault());
+});');
 
 ob_start();
 
