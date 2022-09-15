@@ -329,7 +329,7 @@ if (!function_exists('list_group')) {
     /**
      * Render a list group.
      *
-     * @param array<int, mixed>    $items   Array of items.
+     * @param array<int, mixed>    $items   Array of items or multidimensional array.
      * @param array<string, mixed> $options Additional options.
      *
      * @return Component

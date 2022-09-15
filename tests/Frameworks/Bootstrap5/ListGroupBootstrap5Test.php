@@ -19,9 +19,10 @@ final class ListGroupBootstrap5Test extends ListGroupTest {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');
 
-        $this->expected_tpl = '<ul class="list-group">
-    <li class="list-group-item">Item 1</li>
-    <li class="list-group-item">Item 2</li>
-</ul>';
+        $this->expected_tpl = '<div class="list-group">
+    <div class="list-group-item">Item 1</div>
+    <div class="list-group-item">Item 2</div>
+    <a class="list-group-item list-group-item-action" href="link.php">Link</a> 
+</div>';
     }
 }

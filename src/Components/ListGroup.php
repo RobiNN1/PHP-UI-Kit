@@ -28,7 +28,7 @@ class ListGroup extends Component {
     /**
      * Render a list group.
      *
-     * @param array<int, string>   $items   Array of items.
+     * @param array<int, string>   $items   Array of items or multidimensional array.
      * @param array<string, mixed> $options Additional options.
      *
      * @return Component

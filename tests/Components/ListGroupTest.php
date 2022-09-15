@@ -21,6 +21,7 @@ abstract class ListGroupTest extends ComponentTestCase {
         $tpl = $this->uikit->list_group->render([
             'Item 1',
             'Item 2',
+            ['title' => 'Link', 'link' => 'link.php'],
         ]);
 
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
@@ -30,6 +31,7 @@ abstract class ListGroupTest extends ComponentTestCase {
         $this->assertComponentRenderTpl($this->expected_tpl, "{{ list_group([
             'Item 1',
             'Item 2',
+            {'title': 'Link', 'link': 'link.php'}
         ]) }}");
     }
 }

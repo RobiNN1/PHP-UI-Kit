@@ -22,6 +22,7 @@ final class ListGroupFomanticui2Test extends ListGroupTest {
         $this->expected_tpl = '<div class="ui segments">
     <div class="ui segment">Item 1</div>
     <div class="ui segment">Item 2</div>
+    <div class="ui segment"><a href="link.php">Link</a></div>
 </div>';
     }
 }
