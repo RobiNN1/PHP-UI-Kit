@@ -19,7 +19,7 @@ final class MenuFomanticui2Test extends MenuTest {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');
 
-        $this->expected_tpl = '<div class="ui stackable menu">
+        $this->expected_tpl = '<div class="sitemenu ui stackable menu">
     <div class="header item"> <i class="sidebar icon toc"></i> </div>
     <a class="item" href="link1.php">Item 1</a>
     <div class="ui dropdown item">

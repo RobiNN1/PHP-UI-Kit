@@ -1,11 +1,12 @@
 {{ add_to_jquery("$('.ui.menu .toc').on('click', function(){ $(this).parent().parent().find('.item').toggleClass('show'); });") }}
 
 {{ add_to_css('
-.ui.menu .toc {display:none;}
+.sitemenu .toc {display:none;}
 @media only screen and (max-width:767.98px){
-    .ui.menu .toc {display:block;cursor:pointer;}
-    .ui.menu .item:not(.header) {display:none!important;}.ui.menu .item.show:not(.header){display:block!important;}
-    .ui.menu .item.header {display:flex;justify-content:space-between;}
+    .sitemenu .toc {display:block;cursor:pointer;}
+    .sitemenu .item:not(.header) {display:none!important;}
+    .sitemenu .item.show:not(.header){display:block!important;}
+    .sitemenu .item.header {display:flex;justify-content:space-between;}
 }
 ') }}
 
@@ -29,7 +30,7 @@
     </div>
 {% endmacro %}
 
-<div class="ui stackable menu{{ dark ? ' inverted' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
+<div class="sitemenu ui stackable menu{{ dark ? ' inverted' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
     <div class="header item">
         {% if brand.title %}
             <a href="{{ brand.link }}">{{ brand.title|raw }}</a>
