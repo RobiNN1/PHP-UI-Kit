@@ -24,35 +24,64 @@ echo grid_close().row_close();
 
 echo '<hr><h3 class="h3">Input with feedback & help text</h3>';
 echo row_open().grid_open([100, 33]);
-echo input('input-error-feedback', 'Error input with text', '', ['state' => 'error', 'feedback_text' => 'Please enter text',]);
+echo input('input-error-feedback', 'Error input with text', '', [
+    'state'         => 'error',
+    'feedback_text' => 'Please enter text',
+]);
 echo grid_close().grid_open([100, 33]);
-echo input('input-help', 'Input with help text', '', ['help_text' => 'Text must be 10-100 characters long',]);
+echo input('input-help', 'Input with help text', '', [
+    'help_text' => 'Text must be 10-100 characters long',
+]);
 echo grid_close().grid_open([100, 33]);
-echo input('input-feedback-help', 'Input with feedback and help text', '', ['state' => 'success', 'feedback_text' => 'Please enter text', 'help_text' => 'Text must be 10-100 characters long',]);
+echo input('input-feedback-help', 'Input with feedback and help text', '', [
+    'state'         => 'success',
+    'feedback_text' => 'Please enter text',
+    'help_text'     => 'Text must be 10-100 characters long',
+]);
 echo grid_close().row_close();
 
 echo '<hr><h3 class="h3">Input with addons</h3>';
 echo row_open().grid_open([100, 33]);
-echo input('input-left-addon', 'Left addon', '', ['left_addon' => '€']);
+echo input('input-left-addon', 'Left addon', '', [
+    'left_addon' => '€',
+]);
 echo grid_close().grid_open([100, 33]);
-echo input('input-right-addon', 'Right addon', '', ['right_addon' => '@site.com']);
+echo input('input-right-addon', 'Right addon', '', [
+    'right_addon' => '@site.com',
+]);
 echo grid_close().grid_open([100, 33]);
-echo input('input-addons', 'Addons', '', ['left_addon' => '€', 'right_addon' => ',00']);
+echo input('input-addons', 'Addons', '', [
+    'left_addon'  => '€',
+    'right_addon' => ',00',
+]);
 echo grid_close().row_close();
 
 echo row_open().grid_open([100, 33]);
-echo input('input-left-action-button', 'Left action button', '', ['left_custom' => button('Left')]);
+echo input('input-left-action-button', 'Left action button', '', [
+    'left_custom' => button('Left'),
+]);
 echo grid_close().grid_open([100, 33]);
-echo input('input-right-action-button', 'Right action button', '', ['right_custom' => button('Right')]);
+echo input('input-right-action-button', 'Right action button', '', [
+    'right_custom' => button('Right'),
+]);
 echo grid_close().grid_open([100, 33]);
-echo input('input-action-buttons', 'Action buttons', '', ['left_custom' => button('Left'), 'right_custom' => button('Right'),]);
+echo input('input-action-buttons', 'Action buttons', '', [
+    'left_custom'  => button('Left'),
+    'right_custom' => button('Right'),
+]);
 echo grid_close().row_close();
 
-// Everything can be combined, but in some cases you need to add your own css
-echo row_open().grid_open([100, 25]);
-echo input('input-addon-combined', 'Combined addons', '', ['left_addon' => '€', 'right_custom' => button('Right')]);
-echo grid_close().grid_open([100, 25]);
-echo input('input-addon-combined2', 'Combined addons 2', '', ['right_addon' => '€', 'left_custom' => button('Left')]);
+echo '<p class="note">Note: Everything can be combined, but in some cases you need to add your own css.</p>';
+echo row_open().grid_open([100, 50, 25]);
+echo input('input-addon-combined', 'Combined addons', '', [
+    'left_addon'   => '€',
+    'right_custom' => button('Right'),
+]);
+echo grid_close().grid_open([100, 50, 25]);
+echo input('input-addon-combined2', 'Combined addons 2', '', [
+    'right_addon' => '€',
+    'left_custom' => button('Left'),
+]);
 echo grid_close().row_close();
 
 echo '<h2 class="h2" id="select">Select</h2>';
@@ -81,19 +110,35 @@ echo grid_close().row_close();
 
 echo '<hr><h3 class="h3">Select with feedback & help text</h3>';
 echo row_open().grid_open([100, 33]);
-echo select('select-error-feedback', 'Error select with text', '', $select_items, ['state' => 'error', 'feedback_text' => 'Please enter text',]);
+echo select('select-error-feedback', 'Error select with text', '', $select_items, [
+    'state'         => 'error',
+    'feedback_text' => 'Please enter text',
+]);
 echo grid_close().grid_open([100, 33]);
-echo select('select-help', 'Select with help text', '', $select_items, ['help_text' => 'Text must be 10-100 characters long',]);
+echo select('select-help', 'Select with help text', '', $select_items, [
+    'help_text' => 'Text must be 10-100 characters long',
+]);
 echo grid_close().grid_open([100, 33]);
-echo select('select-feedback-help', 'Select with feedback and help text', '', $select_items, ['state' => 'success', 'feedback_text' => 'Please enter text', 'help_text' => 'Text must be 10-100 characters long',]);
+echo select('select-feedback-help', 'Select with feedback and help text', '', $select_items, [
+    'state'         => 'success',
+    'feedback_text' => 'Please enter text',
+    'help_text'     => 'Text must be 10-100 characters long',
+]);
 echo grid_close().row_close();
 
 echo '<hr><h3 class="h3">Select multiple</h3>';
 
-echo row_open().grid_open([100, 25]);
-echo select('select-multiple', 'Select multiple', '', $select_items, ['multiple' => true, 'placeholder' => 'Select items']);
-echo grid_close().grid_open([100, 25]);
-echo select('select-multiple-success', 'Select multiple success', '', $select_items, ['multiple' => true, 'placeholder' => 'Select items', 'state' => 'success',]);
+echo row_open().grid_open([100, 50, 25]);
+echo select('select-multiple', 'Select multiple', '', $select_items, [
+    'multiple'    => true,
+    'placeholder' => 'Select items',
+]);
+echo grid_close().grid_open([100, 50, 25]);
+echo select('select-multiple-success', 'Select multiple success', '', $select_items, [
+    'multiple'    => true,
+    'placeholder' => 'Select items',
+    'state'       => 'success',
+]);
 echo grid_close().row_close();
 
 echo '<h2 class="h2" id="textarea">Textarea</h2>';
@@ -108,11 +153,20 @@ echo grid_close().row_close();
 
 echo '<hr><h3 class="h3">Textarea with feedback & help text</h3>';
 echo row_open().grid_open([100, 33]);
-echo textarea('textarea-error-feedback', 'Error textarea with text', '', ['state' => 'error', 'feedback_text' => 'Please enter text',]);
+echo textarea('textarea-error-feedback', 'Error textarea with text', '', [
+    'state'         => 'error',
+    'feedback_text' => 'Please enter text',
+]);
 echo grid_close().grid_open([100, 33]);
-echo textarea('textarea-help', 'Textarea with help text', '', ['help_text' => 'Text must be 10-100 characters long',]);
+echo textarea('textarea-help', 'Textarea with help text', '', [
+    'help_text' => 'Text must be 10-100 characters long',
+]);
 echo grid_close().grid_open([100, 33]);
-echo textarea('textarea-feedback-help', 'Textarea with feedback and help text', '', ['state' => 'success', 'feedback_text' => 'Please enter text', 'help_text' => 'Text must be 10-100 characters long',]);
+echo textarea('textarea-feedback-help', 'Textarea with feedback and help text', '', [
+    'state'         => 'success',
+    'feedback_text' => 'Please enter text',
+    'help_text'     => 'Text must be 10-100 characters long',
+]);
 echo grid_close().row_close();
 
 echo '<h2 class="h2" id="checkbox">Checkbox</h2>';
@@ -145,28 +199,45 @@ echo row_open().grid_open([100, 50]);
 echo checkbox('checkbox-success', 'Success', 0, ['state' => 'success',]);
 echo checkbox('checkbox-error', 'Error', 0, ['state' => 'error',]);
 echo grid_close().grid_open([100, 50]);
-echo checkbox('radio-success', 'Success', 0, ['state' => 'success', 'radio' => true,]);
-echo checkbox('radio-error', 'Error', 0, ['state' => 'error', 'radio' => true,]);
+echo checkbox('radio-success', 'Success', 0, [
+    'state' => 'success',
+    'radio' => true,
+]);
+echo checkbox('radio-error', 'Error', 0, [
+    'state' => 'error',
+    'radio' => true,
+]);
 echo grid_close().row_close();
 
 echo '<hr><h3 class="h3">Checkbox with feedback & help text</h3>';
 echo row_open().grid_open([100, 33]);
-echo checkbox('checkbox-error-feedback', 'Error checkbox with text', 0, ['state' => 'error', 'feedback_text' => 'Please check this',]);
+echo checkbox('checkbox-error-feedback', 'Error checkbox with text', 0, [
+    'state'         => 'error',
+    'feedback_text' => 'Please check this',
+]);
 echo grid_close().grid_open([100, 33]);
-echo checkbox('checkbox-help', 'Checkbox with help text', 0, ['help_text' => 'Text..',]);
+echo checkbox('checkbox-help', 'Checkbox with help text', 0, [
+    'help_text' => 'Text..',
+]);
 echo grid_close().grid_open([100, 33]);
-echo checkbox('radio-feedback-help', 'Radio with feedback and help text', 0, ['state' => 'success', 'feedback_text' => 'Please check this', 'help_text' => 'Text...', 'radio' => true,]);
+echo checkbox('radio-feedback-help', 'Radio with feedback and help text', 0, [
+    'state'         => 'success',
+    'feedback_text' => 'Please check this',
+    'help_text'     => 'Text...',
+    'radio'         => true,
+]);
 echo grid_close().row_close();
 
 echo '<hr><h3 class="h3">Checkbox with feedback & help text - multiple</h3>';
 echo row_open().grid_open([100, 33]);
 echo checkbox('checkbox-error-feedback-multiple', 'Error checkbox with text - multiple', '', [
-    'items' => [
+    'items'         => [
         0 => 'Checkbox 1',
         1 => 'Checkbox 2',
         2 => 'Checkbox 3',
     ],
-    'state' => 'error', 'feedback_text' => 'Please check this',
+    'state'         => 'error',
+    'feedback_text' => 'Please check this',
 ]);
 echo grid_close().grid_open([100, 33]);
 echo checkbox('checkbox-help-multiple', 'Checkbox with help text - multiple', '', [
@@ -179,12 +250,15 @@ echo checkbox('checkbox-help-multiple', 'Checkbox with help text - multiple', ''
 ]);
 echo grid_close().grid_open([100, 33]);
 echo checkbox('radio-feedback-help-multiple', 'Radio with feedback and help text - multiple', '', [
-    'items' => [
+    'items'         => [
         0 => 'Radio checkbox 1',
         1 => 'Radio checkbox 2',
         2 => 'Radio checkbox 3',
     ],
-    'state' => 'success', 'feedback_text' => 'Please check this', 'help_text' => 'Text...', 'radio' => true,
+    'state'         => 'success',
+    'feedback_text' => 'Please check this',
+    'help_text'     => 'Text...',
+    'radio'         => true,
 ]);
 echo grid_close().row_close();
 
