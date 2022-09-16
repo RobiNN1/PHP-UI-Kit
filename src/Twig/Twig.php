@@ -54,6 +54,7 @@ class Twig {
 
         $this->twig->addExtension(new TwigUiKitExtension($uikit));
 
+        $this->twig->addGlobal('uikit_version', $uikit::VERSION);
         $this->twig->addGlobal('current_framework', $uikit->config->getFramework());
 
         return $this->twig;
