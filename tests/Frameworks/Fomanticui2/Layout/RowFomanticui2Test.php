@@ -19,7 +19,9 @@ final class RowFomanticui2Test extends RowTest {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');
 
-        $this->expected_open_tpl = '<div class="ui grid">';
-        $this->expected_close_tpl = '</div>';
+        $this->expected_open_tpl = '<div class="ui grid">
+    <div class="ui stackable row">';
+        $this->expected_close_tpl = '</div>
+</div>';
     }
 }
