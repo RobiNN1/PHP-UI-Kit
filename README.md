@@ -6,6 +6,20 @@ A toolkit for developing universal web interfaces with support for multiple CSS 
 
 [Documentation](https://uikit.kelcak.com/)
 
+## Use cases
+
+One of the use cases is the use in CMS.
+
+For example, you create a settings page, and you want the page to look good with any css framework.
+So you create a template that the theme creator can copy into the theme and modify as needed,
+which is not a great solution because this template can be changed at any time,
+meaning that any theme that includes this template has to update it as well.
+
+This UI Kit solves this annoyance. How? Just create a settings page with this kit.
+
+Based on your implementation of this kit in your cms, the theme creator sets the css
+framework he wants and the settings page automatically adapts its html.
+
 ## Installation
 
 ```
@@ -45,6 +59,10 @@ echo layout($html, [
 HTML code
 {{ alert('Default') }}
 ```
+
+There are many ways to use this kit, and it's up to you how you use it.
+
+> Note: no need to use `layout()`, you can use own logic as well.
 
 ## Requirements
 
