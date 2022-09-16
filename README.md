@@ -19,6 +19,7 @@ This UI Kit solves this annoyance. How? Just create a settings page with this ki
 
 Based on your implementation of this kit in your cms, the theme creator sets the css
 framework he wants and the settings page automatically adapts its html.
+So the theme creator doesn't have to worry about core templates and can focus on theme development.
 
 ## Installation
 
