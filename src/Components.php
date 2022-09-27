@@ -130,7 +130,7 @@ class Components {
             }
         }
 
-        if (empty($alternatives)) {
+        if (count($alternatives) === 0) {
             return '';
         }
 
