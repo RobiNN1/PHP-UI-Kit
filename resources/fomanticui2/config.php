@@ -42,7 +42,7 @@ return [
                 return $value['fomanticui2'] === 'auto' ? '' : $value['fomanticui2'];
             }
 
-            if (!is_array($value) && !empty($sizes[$index])) {
+            if (!is_array($value) && isset($sizes[$index]) && $sizes[$index] !== '') {
                 $column = ($value * 16) / 100;
                 $columns[$sizes[$index]] = $column < 5 ? ceil($column) : floor($column);
             }
