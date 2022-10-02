@@ -57,16 +57,12 @@ echo button('No default CSS', '', ['no_classes' => true,]);
 
 echo '<h2 class="h2" id="buttongroup">ButtonGroup</h2>';
 $btns = [
-    0          => 'First',
-    1          => 'Second',
-    'example'  => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary'],],
-    'savedata' => ['title' => 'Submit', 'type' => 'submit', 'btn_options' => ['color' => 'success', 'name' => 'savedata'],],
-    'btn1'     => ['title' => 'No value', 'value' => null,],
+    0      => 'Btn1',
+    'btn2' => ['title' => 'Link', 'link' => 'link.php', 'btn_options' => ['color' => 'primary'],],
+    'btn3' => ['title' => 'No value', 'value' => null, 'btn_options' => ['color' => 'success'],],
 ];
 echo button_group($btns, ['size' => 'sm',]);
-echo '<br><br>';
 echo button_group($btns);
-echo '<br><br>';
 echo button_group($btns, ['size' => 'lg',]);
 
 echo '<h2 class="h2" id="card">Card</h2>';
