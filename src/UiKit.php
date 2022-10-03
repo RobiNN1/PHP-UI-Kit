@@ -18,7 +18,7 @@ class UiKit extends Components {
     /**
      * @const string UI Kit version.
      */
-    public const VERSION = '1.0.0';
+    public const VERSION = '1.0.1';
 
     public Config $config;
 

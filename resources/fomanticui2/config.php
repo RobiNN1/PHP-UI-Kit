@@ -132,6 +132,12 @@ return [
             'lg' => 'large',
         ],
     ],
+    'carousel'     => [
+        'files' => [
+            'css' => ['https://cdn.jsdelivr.net/npm/swiper@8.4.2/swiper-bundle.min.css'],
+            'js'  => ['https://cdn.jsdelivr.net/npm/swiper@8.4.2/swiper-bundle.min.js'],
+        ],
+    ],
     'dropdown'     => [
         'button' => [
             'icon' => '<i class="dropdown icon"></i>',

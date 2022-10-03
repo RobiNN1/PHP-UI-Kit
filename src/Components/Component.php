@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit\Components;
 
+use RobiNN\UiKit\AddTo;
 use RobiNN\UiKit\UiKit;
 
 class Component {
@@ -47,6 +48,17 @@ class Component {
     }
 
     /**
+     * Get component name.
+     *
+     * @return string
+     */
+    private function getComponentName(): string {
+        $component_path = explode('/', $this->component);
+
+        return $component_path[array_key_last($component_path)];
+    }
+
+    /**
      * Get correct value from framework options.
      *
      * @param string  $option
@@ -56,11 +68,32 @@ class Component {
      * @return mixed
      */
     public function getOption(string $option, $value, string $component = null) {
-        $component_path = explode('/', $this->component);
-        $opts = $this->uikit->getFrameworkOptions($component ?? $component_path[array_key_last($component_path)]);
+        $opts = $this->uikit->getFrameworkOptions($component ?? $this->getComponentName());
         $default = $opts[$option]['default'] ?? '';
 
         return isset($opts[$option]) && array_key_exists($value, $opts[$option]) ? $opts[$option][$value] : $default;
+    }
+
+    /**
+     * Load component assets.
+     *
+     * @return void
+     */
+    protected function loadComponentAssets(): void {
+        $component_files = $this->uikit->getFrameworkOptions($this->getComponentName());
+        $component_files = $component_files['files'] ?? [];
+
+        if (isset($component_files['css'])) {
+            foreach ($component_files['css'] as $css) {
+                AddTo::head('<link rel="stylesheet" href="'.$css.'">', 'before');
+            }
+        }
+
+        if (isset($component_files['js'])) {
+            foreach ($component_files['js'] as $js) {
+                AddTo::footer('<script src="'.$js.'"></script>', 'before');
+            }
+        }
     }
 
     /**
@@ -71,6 +104,8 @@ class Component {
      * @return string
      */
     protected function tpl(array $data = []): string {
+        $this->loadComponentAssets();
+
         $array = array_merge($this->options, $data);
 
         if (array_key_exists('id', $this->options) && $this->options['id'] !== '') {
