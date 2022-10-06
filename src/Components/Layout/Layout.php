@@ -40,24 +40,22 @@ class Layout extends Component {
         $this->options($options);
 
         if (AddTo::$js !== '') {
-            AddTo::footer('<script>'.AddTo::$js.'</script>');
+            AddTo::footer('<script>'.AddTo::$js.'</script>', 'end');
         }
 
-        $css_codes = '';
         if (AddTo::$css !== '') {
             $minify_css = static fn (string $css): string => (string) preg_replace(
-                ['/\/\*((?!\*\/).)*\*\//', '/\s{2,}/', '/\s*([:;{}])\s*/', '/;}/',],
-                ['', ' ', '$1', '}',],
+                ['/\/\*((?!\*\/).)*\*\//', '/\s{2,}/', '/\s*([:;{}])\s*/', '/;}/'],
+                ['', ' ', '$1', '}'],
                 $css
             );
 
-            $css_codes = '<style>'.($this->options['minify_css'] ? $minify_css(AddTo::$css) : AddTo::$css).'</style>';
+            AddTo::head('<style>'.($this->options['minify_css'] ? $minify_css(AddTo::$css) : AddTo::$css).'</style>', 'end');
         }
 
         return $this->tplData([
             'body'        => $body,
             'head_tags'   => AddTo::getHeadTags(),
-            'css_codes'   => $css_codes,
             'footer_tags' => AddTo::getFooterTags(),
         ]);
     }

@@ -16,12 +16,12 @@ class AddTo {
     /**
      * @var array<string, string>
      */
-    public static array $head = ['before' => '', 'after' => ''];
+    public static array $head = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
 
     /**
      * @var array<string, string>
      */
-    public static array $footer = ['before' => '', 'after' => ''];
+    public static array $footer = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
 
     public static string $js = '';
 
@@ -34,15 +34,20 @@ class AddTo {
      * @param string $order
      */
     public static function head(string $tag, string $order = 'after'): void {
-        $order = in_array($order, ['before', 'after'], true) ? $order : 'after';
+        $order = in_array($order, ['before', 'after', 'end'], true) ? $order : 'after';
 
         if (stripos(self::getHeadTags(), $tag) === false) {
             self::$head[$order] .= $tag;
         }
     }
 
+    /**
+     * Get all header tags.
+     *
+     * @return string
+     */
     public static function getHeadTags(): string {
-        return self::$head['before'].self::$head['after'];
+        return self::$head['before'].self::$head['after'].self::$head['end'];
     }
 
     /**
@@ -52,15 +57,20 @@ class AddTo {
      * @param string $order
      */
     public static function footer(string $tag, string $order = 'after'): void {
-        $order = in_array($order, ['before', 'after'], true) ? $order : 'after';
+        $order = in_array($order, ['before', 'after', 'end'], true) ? $order : 'after';
 
         if (stripos(self::getFooterTags(), $tag) === false) {
             self::$footer[$order] .= $tag;
         }
     }
 
+    /**
+     * Get all footer tags.
+     *
+     * @return string
+     */
     public static function getFooterTags(): string {
-        return self::$footer['before'].self::$footer['after'];
+        return self::$footer['before'].self::$footer['after'].self::$footer['end'];
     }
 
     /**

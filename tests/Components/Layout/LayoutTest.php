@@ -25,10 +25,10 @@ abstract class LayoutTest extends ComponentTestCase {
         $this->uikit = new UiKit(new Config(['framework' => $framework]));
 
         // hide files and scripts that can be changed frequently
-        AddTo::$head = ['before' => '', 'after' => ''];
+        AddTo::$head = ['before' => '', 'after' => '', 'end' => ''];
         AddTo::$js = '';
         AddTo::$css = '';
-        AddTo::$footer = ['before' => '', 'after' => ''];
+        AddTo::$footer = ['before' => '', 'after' => '', 'end' => ''];
     }
 
     public function testLayoutRender(): void {
