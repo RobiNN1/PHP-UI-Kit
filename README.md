@@ -61,7 +61,7 @@ HTML code
 {{ alert('Default') }}
 ```
 
-There are many ways to use this kit, and it's up to you how you use it.
+There are multiple syntaxes available. It's up to you which one you choose.
 
 > Note: no need to use `layout()`, you can use own logic as well.
 
