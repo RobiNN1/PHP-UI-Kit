@@ -413,28 +413,12 @@ if (!function_exists('tabs')) {
 }
 
 if (!function_exists('str_contains')) {
-    /**
-     * PHP 8 Polyfill.
-     *
-     * @param string $haystack
-     * @param string $needle
-     *
-     * @return bool
-     */
     function str_contains(string $haystack, string $needle): bool {
         return '' === $needle || false !== strpos($haystack, $needle);
     }
 }
 
 if (!function_exists('str_ends_with')) {
-    /**
-     * PHP 8 Polyfill.
-     *
-     * @param string $haystack
-     * @param string $needle
-     *
-     * @return bool
-     */
     function str_ends_with(string $haystack, string $needle): bool {
         if ('' === $needle || $needle === $haystack) {
             return true;
