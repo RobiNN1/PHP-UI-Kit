@@ -26,8 +26,8 @@ $options (array) (Optional) Additional options. Default value: []
 echo {{name}}();
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div></div>
 ```
