@@ -225,7 +225,8 @@ echo progress([13, 30, 50], ['color' => ['error', 'success'],]);
 echo progress([15 => 'First', 30 => 'Second', 55 => 'Third'], ['color' => ['error', 'warning', 'success'],]);
 echo progress([20, 75], [
     'auto_colors' => static function (int $num): string {
-        $class = 'error';
+        $class = 'default';
+
         if ($num > 71) {
             $class = 'success';
         } elseif ($num > 55) {
