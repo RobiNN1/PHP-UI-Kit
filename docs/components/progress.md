@@ -44,15 +44,15 @@ echo progress(40);
 
 ```php
 echo progress([20, 75,], [
-    'auto_colors' => function (int $num): string {
-        $class = 'error';
+    'auto_colors' => static function (int $num): string {
+        $class = 'default';
         if ($num > 71) {
             $class = 'success';
-        } else if ($num > 55) {
+        } elseif ($num > 55) {
             $class = '';
-        } else if ($num > 25) {
+        } elseif ($num > 25) {
             $class = 'warning';
-        } else if ($num < 25) {
+        } elseif ($num < 25) {
             $class = 'error';
         }
 
