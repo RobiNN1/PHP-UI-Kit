@@ -19,7 +19,7 @@ $config = new RobiNN\UiKit\Config(); // All options can also be set in construct
 
 ## getCache()
 
-Returns an absolute path, a \Twig\Cache\CacheInterface implementation, or false.
+Returns an absolute path, a `Twig\Cache\CacheInterface` implementation, or false.
 
 ```php
 $tpl_config = [
@@ -29,7 +29,7 @@ $tpl_config = [
 
 ## setCache()
 
-Set an absolute path, a \Twig\Cache\CacheInterface implementation, or false.
+Set an absolute path, a `Twig\Cache\CacheInterface` implementation, or false.
 
 ```php
 $config->setCache(__DIR__.'/path/to/cache');

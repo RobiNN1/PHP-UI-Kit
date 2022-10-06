@@ -2,6 +2,10 @@
 
 Methods that can be used directly from a UI Kit object.
 
+---
+
+> If you are using helpers you can replace `$uikit->` with a `get_ui()->`.
+
 ## Constructor
 
 A Constructor has one paramater - $config, that can be an array or Config object.
@@ -82,7 +86,7 @@ By default, this function uses default config.
 Example, access to a config object:
 
 ```php
-$fw = get_ui()->config->getFramework();
+$fw = $uikit->config->getFramework();
 ```
 
 ## options()

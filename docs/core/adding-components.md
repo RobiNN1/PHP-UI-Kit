@@ -77,7 +77,7 @@ In template
 
 ## Available methods
 
-By extending Component class, your code has access to the `$this->uikit` and these methods
+By extending `Component` class, your code has access to the `$this->uikit` and these methods
 
 ### getAttributes()
 
@@ -129,7 +129,6 @@ $this->tpl([]);
 ```
 
 > The method requires that the `protected string $component = '';` be set.
-
 
 ### tplData()
 
