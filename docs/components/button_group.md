@@ -48,9 +48,9 @@ echo button_group([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="btn-group" role="group">
     <button type="button" class="btn btn-secondary" value="0">First</button>
     <button type="button" class="btn btn-secondary" value="1">Second</button>
@@ -69,9 +69,9 @@ echo button_group([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="btn-group" role="group">
     <button type="button" class="btn btn-secondary" value="0">First</button>
     <button type="button" class="btn btn-secondary" value="1">Second</button>
@@ -104,9 +104,9 @@ echo button_group([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="btn-group btn-group-sm" role="group">
     <button type="button" class="btn btn-secondary" value="0">First</button>
     <button type="button" class="btn btn-secondary" value="1">Second</button>

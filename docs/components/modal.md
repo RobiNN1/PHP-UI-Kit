@@ -51,9 +51,9 @@ echo modal('example', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-example">Open Modal</button>
 <div class="modal fade" id="modal-example" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
@@ -107,9 +107,9 @@ echo modal('example-fullscreen', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-example-sm">Open Small Modal</button>
 <div class="modal fade" id="modal-example-sm" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-sm">

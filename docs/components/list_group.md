@@ -43,9 +43,9 @@ echo list_group([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="list-group">
     <div class="list-group-item">Item 1</div>
     <div class="list-group-item">Item 2</div>
@@ -69,9 +69,9 @@ echo list_group([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="list-group">
     <a class="list-group-item list-group-item-action" href="link1.php">Link1</a>
     <a class="list-group-item list-group-item-action active" href="link2.php">Link2</a>

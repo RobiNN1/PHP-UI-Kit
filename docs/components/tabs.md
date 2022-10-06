@@ -42,9 +42,9 @@ echo tabs('example', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div id="tabs-example">
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item" role="presentation">

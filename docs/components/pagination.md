@@ -37,9 +37,9 @@ echo pagination([1, 2, 3, 4], [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <ul class="pagination">
     <li class="page-item"><a class="page-link" href="page.php?p=1">&laquo;</a></li>
     <li class="page-item active"><a class="page-link" href="page.php?p=1">1</a></li>

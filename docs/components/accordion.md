@@ -34,9 +34,9 @@ echo accordion('example', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="accordion" id="accordion-example">
     <div class="accordion-item">
         <h2 class="accordion-header" id="heading-example1">

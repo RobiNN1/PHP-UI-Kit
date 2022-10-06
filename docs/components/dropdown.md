@@ -51,9 +51,9 @@ echo dropdown('Dropdown', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="dropdown">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>
     <ul class="dropdown-menu">
@@ -76,9 +76,9 @@ echo dropdown('Dropdown', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="dropdown">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>
     <ul class="dropdown-menu dropdown-menu-dark">
@@ -117,9 +117,9 @@ echo dropdown('Dropdown button as link', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="dropdown d-inline-block">
     <button type="button" class="btn btn-success btn-lg dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>
     <ul class="dropdown-menu">

@@ -37,9 +37,9 @@ echo card([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="card">
     <div class="card-header">Card header</div>
     <div class="card-body">Card body</div>
@@ -56,9 +56,9 @@ echo card([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="card">
     <img class="card-img-top" src="path/to/image.jpg" alt="Example image">
     <div class="card-body">Card body</div>
@@ -77,9 +77,9 @@ echo card([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="card text-white bg-secondary">
     <div class="card-header">Card header</div>
     <div class="card-body">Card body</div>
@@ -96,9 +96,9 @@ echo card([
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <a class="card" href="cardlink.php">
     <div class="card-header">Card header</div>
     <div class="card-body">Card body</div>

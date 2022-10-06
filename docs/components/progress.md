@@ -32,9 +32,9 @@ $options (array) (Optional) Additional options.
 echo progress(40);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="progress mb-2">
     <div class="progress-bar" style="width: 40%;">40%</div>
 </div>
@@ -61,9 +61,9 @@ echo progress([20, 75,], [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="progress mb-2">
     <div class="progress-bar bg-danger" style="width: 20%;">20%</div>
     <div class="progress-bar bg-success" style="width: 75%;">75%</div>
@@ -80,9 +80,9 @@ echo progress([15 => 'First', 30 => 'Second', 55 => 'Third',], [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="progress mb-2">
     <div class="progress-bar bg-danger" style="width: 15%;">First 15%</div>
     <div class="progress-bar bg-warning" style="width: 30%;">Second 30%</div>

@@ -48,9 +48,9 @@ $options (array) (Optional) Additional options.
 echo input('example', 'Example input');
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="mb-1">
     <label for="example" class="form-label">Example input</label>
     <input value="" type="text" id="example" name="example" class="form-control" aria-label="Example input">
@@ -71,9 +71,9 @@ echo input('input-large', 'Large', '', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="mb-1">
     <label for="input-small" class="form-label">Small</label>
     <input value="" type="text" id="input-small" name="input-small" class="form-control form-control-sm" aria-label="Small">
@@ -102,9 +102,9 @@ echo input('input-error', 'Error', '', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="mb-1">
     <label for="input-success" class="form-label">Success</label>
     <input value="" type="text" id="input-success" name="input-success" class="form-control is-valid" aria-label="Success">
@@ -135,9 +135,9 @@ echo input('input-feedback-help', 'Input with feedback and help text', '', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="mb-1">
     <label for="input-error-feedback" class="form-label">Error input with text</label>
     <input value="" type="text" id="input-error-feedback" name="input-error-feedback" class="form-control is-invalid" aria-label="Error input with text">
@@ -171,9 +171,9 @@ echo input('search-input', '', '', [
 ]);
 ```
 
-<span class="html-output">HTML Output</span>
+<span class="html-output-title">HTML Output</span>
 
-```html
+```html {.html-output}
 <div class="mb-1">
     <label for="username" class="form-label">Username</label>
     <div class="input-group">
