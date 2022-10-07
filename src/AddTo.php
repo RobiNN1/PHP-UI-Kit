@@ -42,7 +42,7 @@ class AddTo {
     }
 
     /**
-     * Get all header tags.
+     * Get all head tags.
      *
      * @return string
      */
