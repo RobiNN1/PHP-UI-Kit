@@ -58,9 +58,9 @@ echo menu('example', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example">
@@ -105,9 +105,9 @@ echo menu('example-dark', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example-dark">
@@ -146,9 +146,9 @@ echo menu('example-brand', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="link..">Brand title</a>

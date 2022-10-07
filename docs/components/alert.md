@@ -31,9 +31,9 @@ $options (array) (Optional) Additional options.
 echo alert('Default');
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="alert alert-primary" role="alert">Default</div>
 ```
 
@@ -51,9 +51,9 @@ echo alert('Error', 'error');
 echo alert('Info', 'info');
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="alert alert-primary" role="alert">Default</div>
 <div class="alert alert-success" role="alert">Success</div>
 <div class="alert alert-warning" role="alert">Warning</div>
@@ -71,9 +71,9 @@ echo alert('Dismissible', 'default', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="alert alert-primary alert-dismissible" role="alert">
     Dismissible
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

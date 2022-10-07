@@ -40,9 +40,9 @@ $options (array) (Optional) Additional options.
 echo button('Default');
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <button type="button" class="btn btn-secondary">Default</button>
 ```
 
@@ -72,9 +72,9 @@ echo button('Info', 'button', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <button type="button" class="btn btn-secondary">Default</button>
 <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-success">Success</button>
@@ -97,9 +97,9 @@ echo button('Large', 'button', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <button type="button" class="btn btn-secondary btn-sm">Small</button>
 <button type="button" class="btn btn-secondary">Default</button>
 <button type="button" class="btn btn-secondary btn-lg">Large</button>
@@ -113,9 +113,9 @@ echo button('Link', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <a href="link.php" class="btn btn-secondary">Link</a>
 ```
 
@@ -131,9 +131,9 @@ echo button('Disabled', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <button type="button" class="btn btn-secondary active">Active</button>
 <button type="button" class="btn btn-secondary disabled" disabled>Disabled</button>
 ```

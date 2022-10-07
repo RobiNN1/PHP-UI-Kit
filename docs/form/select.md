@@ -49,9 +49,9 @@ echo select('example', 'Example select', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <label for="example" class="form-label">Example select</label>
     <select id="example" name="example" class="form-select" aria-label="Example select">
@@ -88,9 +88,9 @@ echo select('select-large', 'Large', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <label for="select-small" class="form-label">Small</label>
     <select id="select-small" name="select-small" class="form-select form-select-sm" aria-label="Small">
@@ -139,9 +139,9 @@ echo select('select-error', 'Error', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <label for="select-success" class="form-label">Success</label>
     <select id="select-success" name="select-success" class="form-select is-valid" aria-label="Success">
@@ -192,9 +192,9 @@ echo select('select-feedback-help', 'Select with feedback and help text', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <label for="select-error-feedback" class="form-label">Error select with text</label>
     <select id="select-error-feedback" name="select-error-feedback" class="form-select is-valid" aria-label="Error select with text">

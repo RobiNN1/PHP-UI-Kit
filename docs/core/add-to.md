@@ -12,7 +12,7 @@ Append content to head.
 RobiNN\UiKit\AddTo::head('<meta ...>');
 ```
 
-Is also possible to set order by setting `before` or`after` as second argument (`after` is default).
+Is also possible to set order by setting `before` or `after` as second argument (`after` is default).
 
 `before` - these tags will be added first.
 
@@ -58,7 +58,7 @@ RobiNN\UiKit\AddTo::css('body { color: #000; }');
 
 ## getHeadTags()
 
-Get all header tags.
+Get all head tags.
 
 If you have a custom layout, load this method to get UI Kit tags.
 

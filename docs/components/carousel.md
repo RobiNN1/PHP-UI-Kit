@@ -36,9 +36,9 @@ echo carousel('example', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div id="carousel-example" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carousel-example" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -74,9 +74,9 @@ echo carousel('example-slides-only', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div id="carousel-example-slides-only" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active"><img class="d-block w-100" src="path/to/image1.jpg" alt="Slide 1"></div>

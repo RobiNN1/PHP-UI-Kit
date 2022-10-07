@@ -45,9 +45,9 @@ echo checkbox('example-radio', 'Example radio', 0, [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <div class="form-check">
         <input value="0" type="checkbox" id="example-checkbox" name="example-checkbox" class="form-check-input">
@@ -84,9 +84,9 @@ echo checkbox('example-radio-multiple', 'Example radio checkboxes', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <span>Example checkboxes</span>
     <div class="form-check">
@@ -142,9 +142,9 @@ echo checkbox('radio-error', 'Error', 0, [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <div class="form-check">
         <input value="0" type="checkbox" id="checkbox-success" name="checkbox-success" class="form-check-input is-valid">
@@ -194,9 +194,9 @@ echo checkbox('radio-feedback-help', 'Radio with feedback and help text', 0, [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <div class="form-check">
         <input value="0" type="checkbox" id="checkbox-error-feedback" name="checkbox-error-feedback" class="form-check-input is-invalid">

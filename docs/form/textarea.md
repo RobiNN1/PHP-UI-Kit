@@ -43,9 +43,9 @@ $options (array) (Optional) Additional options.
 echo textarea('example', 'Example textarea');
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <label for="example" class="form-label">Example textarea</label>
     <textarea id="example" name="example" rows="4" class="form-control"></textarea>
@@ -64,9 +64,9 @@ echo textarea('textarea-error', 'Error', '', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <label for="textarea-success" class="form-label">Success</label>
     <textarea id="textarea-success" name="textarea-success" rows="4" class="form-control is-valid"></textarea>
@@ -97,9 +97,9 @@ echo textarea('textarea-feedback-help', 'Textarea with feedback and help text', 
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <div class="mb-1">
     <label for="textarea-error-feedback" class="form-label">Error textarea with text</label>
     <textarea id="textarea-error-feedback" name="textarea-error-feedback" rows="4" class="form-control is-invalid"></textarea>

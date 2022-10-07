@@ -31,9 +31,9 @@ $options (array) (Optional) Additional options.
 echo badge('Default');
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <span class="badge bg-secondary">Default</span>
 ```
 
@@ -53,9 +53,9 @@ echo badge('Error', 'error');
 echo badge('Info', 'info');
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <span class="badge bg-secondary">Default</span>
 <span class="badge bg-primary">Primary</span>
 <span class="badge bg-success">Success</span>
@@ -74,8 +74,8 @@ echo badge('Rounded', 'default', [
 ]);
 ```
 
-<span class="html-output-title">HTML Output</span>
+<span class="html-output">HTML Output</span>
 
-```html {.html-output}
+```html
 <span class="badge bg-secondary rounded-pill">Rounded</span>
 ```
