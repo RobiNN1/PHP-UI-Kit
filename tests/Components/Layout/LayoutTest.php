@@ -24,16 +24,12 @@ abstract class LayoutTest extends ComponentTestCase {
     protected function setUp(string $framework = ''): void {
         $this->uikit = new UiKit(new Config(['framework' => $framework]));
 
-        // hide files and scripts that can be changed frequently
-        AddTo::$head = ['before' => '', 'after' => '', 'end' => ''];
-        AddTo::$js = '';
-        AddTo::$css = '';
-        AddTo::$footer = ['before' => '', 'after' => '', 'end' => ''];
+        // remove files and scripts that can be changed frequently, so it's easy to test
+        AddTo::$tests = true;
     }
 
     public function testLayoutRender(): void {
         $tpl = $this->uikit->layout->render($this->expected_framework)->toHtml();
-        $tpl = preg_replace('#<script(.*?)>(.*?)</script>#is', '', $tpl);
 
         $this->assertComponentRender($this->expected_tpl, $tpl);
     }
@@ -42,7 +38,6 @@ abstract class LayoutTest extends ComponentTestCase {
         $tpl = $this->uikit->render('{{ layout(framework) }}', [
             'framework' => $this->expected_framework,
         ], true);
-        $tpl = (string) preg_replace('#<script(.*?)>(.*?)</script>#is', '', $tpl);
 
         $this->assertComponentRenderTpl($this->expected_tpl, $tpl);
     }

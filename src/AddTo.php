@@ -16,16 +16,28 @@ class AddTo {
     /**
      * @var array<string, string>
      */
-    public static array $head = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
+    private static array $head = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
 
     /**
      * @var array<string, string>
      */
-    public static array $footer = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
+    private static array $footer = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
 
+    /**
+     * @interal
+     */
     public static string $js = '';
 
+    /**
+     * @interal
+     */
     public static string $css = '';
+
+    /**
+     * @var bool Set true to remove everything, so it's easy to test.
+     * @interal
+     */
+    public static bool $tests = false;
 
     /**
      * Append content to head.
@@ -36,18 +48,9 @@ class AddTo {
     public static function head(string $tag, string $order = 'after'): void {
         $order = in_array($order, ['before', 'after', 'end'], true) ? $order : 'after';
 
-        if (stripos(self::getHeadTags(), $tag) === false) {
+        if (stripos(self::$head[$order], $tag) === false) {
             self::$head[$order] .= $tag;
         }
-    }
-
-    /**
-     * Get all head tags.
-     *
-     * @return string
-     */
-    public static function getHeadTags(): string {
-        return self::$head['before'].self::$head['after'].self::$head['end'];
     }
 
     /**
@@ -59,18 +62,9 @@ class AddTo {
     public static function footer(string $tag, string $order = 'after'): void {
         $order = in_array($order, ['before', 'after', 'end'], true) ? $order : 'after';
 
-        if (stripos(self::getFooterTags(), $tag) === false) {
+        if (stripos(self::$footer[$order], $tag) === false) {
             self::$footer[$order] .= $tag;
         }
-    }
-
-    /**
-     * Get all footer tags.
-     *
-     * @return string
-     */
-    public static function getFooterTags(): string {
-        return self::$footer['before'].self::$footer['after'].self::$footer['end'];
     }
 
     /**
@@ -93,5 +87,31 @@ class AddTo {
         if (stripos(self::$css, $code) === false) {
             self::$css .= $code;
         }
+    }
+
+    /**
+     * Get all head tags.
+     *
+     * @return string
+     */
+    public static function getHeadTags(): string {
+        if (self::$tests) {
+            return '';
+        }
+
+        return self::$head['before'].self::$head['after'].self::$head['end'];
+    }
+
+    /**
+     * Get all footer tags.
+     *
+     * @return string
+     */
+    public static function getFooterTags(): string {
+        if (self::$tests) {
+            return '';
+        }
+
+        return self::$footer['before'].self::$footer['after'].self::$footer['end'];
     }
 }
