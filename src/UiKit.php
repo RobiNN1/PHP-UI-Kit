@@ -42,8 +42,6 @@ class UiKit extends Components {
 
         $this->config = is_array($config) ? new Config($config) : $config;
         $this->twig = new Twig();
-
-        $this->loadFrameworkAssets();
     }
 
     /**
@@ -101,21 +99,6 @@ class UiKit extends Components {
         }
 
         return $this;
-    }
-
-    /**
-     * Load framework assets.
-     */
-    private function loadFrameworkAssets(): void {
-        $assets = $this->getFrameworkOption('files');
-
-        foreach ($assets['css'] as $css) {
-            AddTo::head('<link rel="stylesheet" href="'.$css.'">', 'before');
-        }
-
-        foreach ($assets['js'] as $js) {
-            AddTo::footer('<script src="'.$js.'"></script>', 'before');
-        }
     }
 
     /**

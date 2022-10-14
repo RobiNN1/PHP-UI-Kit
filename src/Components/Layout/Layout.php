@@ -39,6 +39,29 @@ class Layout extends Component {
     public function render(string $body, array $options = []): Component {
         $this->options($options);
 
+        $this->loadFrameworkAssets();
+        $this->loadScripts();
+
+        return $this->tplData([
+            'body'        => $body,
+            'head_tags'   => AddTo::getHeadTags(),
+            'footer_tags' => AddTo::getFooterTags(),
+        ]);
+    }
+
+    private function loadFrameworkAssets(): void {
+        $assets = $this->uikit->getFrameworkOption('files');
+
+        foreach ($assets['css'] as $css) {
+            AddTo::head('<link rel="stylesheet" href="'.$css.'">', 'before');
+        }
+
+        foreach ($assets['js'] as $js) {
+            AddTo::footer('<script src="'.$js.'"></script>', 'before');
+        }
+    }
+
+    private function loadScripts(): void {
         if (AddTo::$js !== '') {
             AddTo::footer('<script>'.AddTo::$js.'</script>', 'end');
         }
@@ -52,11 +75,5 @@ class Layout extends Component {
 
             AddTo::head('<style>'.($this->options['minify_css'] ? $minify_css(AddTo::$css) : AddTo::$css).'</style>', 'end');
         }
-
-        return $this->tplData([
-            'body'        => $body,
-            'head_tags'   => AddTo::getHeadTags(),
-            'footer_tags' => AddTo::getFooterTags(),
-        ]);
     }
 }
