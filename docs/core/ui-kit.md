@@ -16,12 +16,12 @@ use RobiNN\UiKit\UiKit;
 $uikit = new UiKit();
 ```
 
-## getFrameworkOptions()
+## getFrameworkOption()
 
 Get CSS framework options using "dot" notation.
 
 ```php
-$alert_default = $uikit->getFrameworkOptions('alert.colors.default');
+$alert_default = $uikit->getFrameworkOption('alert.colors.default');
 // alert-primary - if is used BS5
 ```
 

@@ -40,7 +40,7 @@ class Dropdown extends Component {
     public function render(string $title, array $items, array $options = []): Component {
         $this->options($options);
 
-        $fwoptions = $this->uikit->getFrameworkOptions('dropdown.button');
+        $fwoptions = $this->uikit->getFrameworkOption('dropdown.button');
 
         if (isset($fwoptions['class'])) {
             $class = isset($this->options['button']['class']) ? $this->options['button']['class'].' ' : '';

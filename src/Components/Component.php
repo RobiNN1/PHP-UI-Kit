@@ -68,7 +68,7 @@ class Component {
      * @return mixed
      */
     public function getOption(string $option, $value, string $component = null) {
-        $opts = $this->uikit->getFrameworkOptions($component ?? $this->getComponentName());
+        $opts = $this->uikit->getFrameworkOption($component ?? $this->getComponentName());
         $default = $opts[$option]['default'] ?? '';
 
         return isset($opts[$option]) && array_key_exists($value, $opts[$option]) ? $opts[$option][$value] : $default;
@@ -80,8 +80,7 @@ class Component {
      * @return void
      */
     protected function loadComponentAssets(): void {
-        $component_files = $this->uikit->getFrameworkOptions($this->getComponentName());
-        $component_files = $component_files['files'] ?? [];
+        $component_files = $this->uikit->getFrameworkOption($this->getComponentName().'.files');
 
         if (isset($component_files['css'])) {
             foreach ($component_files['css'] as $css) {

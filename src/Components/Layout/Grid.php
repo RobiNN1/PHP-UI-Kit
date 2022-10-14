@@ -38,7 +38,7 @@ class Grid extends Component {
     public function render(array $col_sizes = [100], array $options = []): Component {
         $this->options($options);
 
-        $grid_function = $this->uikit->getFrameworkOptions('grid_func');
+        $grid_function = $this->uikit->getFrameworkOption('grid_func');
 
         return $this->tplData([
             'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',

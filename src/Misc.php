@@ -27,9 +27,11 @@ class Misc {
         }
 
         foreach (explode('.', $key) as $segment) {
-            if (array_key_exists($segment, $array)) {
-                $array = &$array[$segment];
+            if (!is_array($array) || !array_key_exists($segment, $array)) {
+                return [];
             }
+
+            $array = &$array[$segment];
         }
 
         return $array;

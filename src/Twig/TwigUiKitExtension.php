@@ -55,7 +55,7 @@ class TwigUiKitExtension extends AbstractExtension {
         $functions[] = new TwigFunction('add_to_js', [AddTo::class, 'js'], $is_safe);
         $functions[] = new TwigFunction('add_to_css', [AddTo::class, 'css'], $is_safe);
 
-        foreach ($this->uikit->getFrameworkOptions('tpl_funcs') as $function_name => $callback) {
+        foreach ($this->uikit->getFrameworkOption('tpl_funcs') as $function_name => $callback) {
             if (is_callable($callback)) {
                 $functions[] = new TwigFunction($function_name, $callback, $is_safe);
             }

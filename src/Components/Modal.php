@@ -40,7 +40,7 @@ class Modal extends Component {
     public function render(string $id, array $content, array $options = []): Component {
         $this->options($options);
 
-        $fwoptions = $this->uikit->getFrameworkOptions('modal.button');
+        $fwoptions = $this->uikit->getFrameworkOption('modal.button');
 
         if (count($this->options['button']) > 0) {
             if (isset($fwoptions['attributes'])) {

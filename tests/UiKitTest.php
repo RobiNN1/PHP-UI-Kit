@@ -29,7 +29,7 @@ final class UiKitTest extends TestCase {
     public function testFrameworkOptionsSetterGetter(): void {
         $this->uikit->setFrameworkOption('jquery', true);
 
-        $this->assertTrue($this->uikit->getFrameworkOptions('jquery'));
+        $this->assertTrue($this->uikit->getFrameworkOption('jquery'));
     }
 
     public function testAddSuggestions(): void {

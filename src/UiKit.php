@@ -47,24 +47,22 @@ class UiKit extends Components {
     }
 
     /**
-     * Get CSS framework options using "dot" notation.
+     * Get CSS framework option using "dot" notation.
      *
      * @param string $key
      *
      * @return mixed
      */
-    public function getFrameworkOptions(string $key = '') {
-        static $config_array = [];
-
-        $config_array = (array) require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
+    public function getFrameworkOption(string $key) {
+        $config = (array) require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
 
         if (count($this->fw_options)) {
             foreach ($this->fw_options as $option => $value) {
-                Misc::arraySet($config_array, $option, $value);
+                Misc::arraySet($config, $option, $value);
             }
         }
 
-        return Misc::arrayGet($config_array, $key);
+        return Misc::arrayGet($config, $key);
     }
 
     /**
@@ -95,25 +93,27 @@ class UiKit extends Components {
      * @param mixed                          $value
      * @param string|array<int, string>|null $framework
      *
-     * @return void
+     * @return UiKit
      */
-    public function setFrameworkOption(string $option, $value, $framework = null): void {
+    public function setFrameworkOption(string $option, $value, $framework = null): UiKit {
         if ($this->checkFramework($framework)) {
             $this->fw_options[$option] = $value;
         }
+
+        return $this;
     }
 
     /**
      * Load framework assets.
      */
     private function loadFrameworkAssets(): void {
-        $fwoptions = $this->getFrameworkOptions();
+        $assets = $this->getFrameworkOption('files');
 
-        foreach ($fwoptions['files']['css'] as $css) {
+        foreach ($assets['css'] as $css) {
             AddTo::head('<link rel="stylesheet" href="'.$css.'">', 'before');
         }
 
-        foreach ($fwoptions['files']['js'] as $js) {
+        foreach ($assets['js'] as $js) {
             AddTo::footer('<script src="'.$js.'"></script>', 'before');
         }
     }
