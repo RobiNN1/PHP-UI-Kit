@@ -84,13 +84,13 @@ class Component {
 
         if (isset($component_files['css'])) {
             foreach ($component_files['css'] as $css) {
-                AddTo::head('<link rel="stylesheet" href="'.$css.'">', 'before');
+                AddTo::head('<link rel="stylesheet" href="'.$css.'">');
             }
         }
 
         if (isset($component_files['js'])) {
             foreach ($component_files['js'] as $js) {
-                AddTo::footer('<script src="'.$js.'"></script>', 'before');
+                AddTo::footer('<script src="'.$js.'"></script>');
             }
         }
     }
