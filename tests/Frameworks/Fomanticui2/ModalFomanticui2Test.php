@@ -21,6 +21,7 @@ final class ModalFomanticui2Test extends ModalTest {
 
         $this->expected_tpl = '<div class="ui tiny modal" id="modal-test">
     <i class="close icon"></i>
+    <div class="header"> Modal Title </div>
     <div class="content"><b>Testing</b></div>
     <div class="actions">Random text...</div>
 </div>';
