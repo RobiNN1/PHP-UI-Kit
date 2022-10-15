@@ -14,7 +14,7 @@
     {%- if close_button == true -%}
         <i class="close icon"></i>
     {%- endif -%}
-    {%- if content.header -%}
+    {%- if content.header or content.title -%}
         <div class="header">
             {{ content.title|raw }}
             {{ content.header|raw }}

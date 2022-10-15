@@ -1,5 +1,5 @@
 {% if always_open == true %}
-    {{ add_to_js("new bootstrap.Modal(document.getElementById('modal-" ~ id ~ "'), {}).show();") }}
+    {{ add_to_js("$('#modal-" ~ id ~ "').modal({show:true});") }}
 {% endif %}
 
 {% if hide_button == false %}
