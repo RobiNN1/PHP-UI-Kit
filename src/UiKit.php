@@ -34,6 +34,8 @@ class UiKit extends Components {
 
     private Twig $twig;
 
+    private static ?UiKit $instance = null;
+
     /**
      * @param array<string, mixed>|Config $config
      */
@@ -42,6 +44,22 @@ class UiKit extends Components {
 
         $this->config = is_array($config) ? new Config($config) : $config;
         $this->twig = new Twig();
+    }
+
+    /**
+     * Get instance.
+     *
+     * @param array<string, mixed>|Config $config
+     *
+     * @return UiKit
+     */
+    public static function getInstance($config = []): UiKit {
+        if (self::$instance === null) {
+            self::$instance = new self();
+            self::$instance->config = is_array($config) ? new Config($config) : $config;
+        }
+
+        return self::$instance;
     }
 
     /**

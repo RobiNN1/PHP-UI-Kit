@@ -16,6 +16,18 @@ use RobiNN\UiKit\UiKit;
 $uikit = new UiKit();
 ```
 
+## getInstance()
+
+Get instance.
+
+There is one paramater $config, which is the same as in the constructor.
+
+```php
+use RobiNN\UiKit\UiKit;
+
+$uikit = UiKit::getInstance();
+```
+
 ## getFrameworkOption()
 
 Get CSS framework options using "dot" notation.
