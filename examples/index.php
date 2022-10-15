@@ -16,6 +16,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
     return RobiNN\UiKit\UiKit::getInstance([
         'cache'     => __DIR__.'/cache',
         'framework' => $_GET['fw'] ?? 'bootstrap5',
+        //'debug'     => true,
     ]);
 }
 
