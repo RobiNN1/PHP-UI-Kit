@@ -24,11 +24,6 @@ return [
             'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.0/dist/semantic.min.js',
         ],
     ],
-    'tpl_funcs'    => [
-        'add_to_jquery' => static function (string $code): void {
-            RobiNN\UiKit\AddTo::js('$(function(){'.$code.'});');
-        },
-    ],
     'grid_func'    => static function (array $col_sizes): string {
         $sizes = ['', 'tablet', 'computer', 'large screen'];
         $columns = [];
