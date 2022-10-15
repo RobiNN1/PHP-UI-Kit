@@ -1,6 +1,7 @@
 .idea
 *.config
 .DS_Store
+examples/assets
 examples/cache
 vendor
 /.phpunit.result.cache
