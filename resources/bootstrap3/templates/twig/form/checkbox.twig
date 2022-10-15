@@ -3,7 +3,7 @@
         <span>{{ label }}</span>
     {%- endif -%}
     {%- for item_value, title in items -%}
-        <div class="checkbox">
+        <div class="{{ type }}">
             {% if items|length == 1 %}
                 {% set checked = value > 0 ? ' checked' : '' %}
                 {% set id = checkbox_id %}
