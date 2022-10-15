@@ -134,8 +134,8 @@ return [
     ],
     'carousel'     => [
         'files' => [
-            'css' => ['https://cdn.jsdelivr.net/npm/swiper@8.4.2/swiper-bundle.min.css'],
-            'js'  => ['https://cdn.jsdelivr.net/npm/swiper@8.4.2/swiper-bundle.min.js'],
+            'css' => ['https://cdn.jsdelivr.net/npm/swiper@8.4.4/swiper-bundle.min.css'],
+            'js'  => ['https://cdn.jsdelivr.net/npm/swiper@8.4.4/swiper-bundle.min.js'],
         ],
     ],
     'dropdown'     => [
