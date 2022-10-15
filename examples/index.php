@@ -1,14 +1,50 @@
 <?php
+/**
+ * This file is part of UiKit.
+ *
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 require_once __DIR__.'/../vendor/autoload.php';
 
 function get_ui(): RobiNN\UiKit\UiKit {
-    return new RobiNN\UiKit\UiKit([
+    return RobiNN\UiKit\UiKit::getInstance([
         'cache'     => __DIR__.'/cache',
         'framework' => $_GET['fw'] ?? 'bootstrap5',
     ]);
 }
+
+// example of loading local assets (you have to download these files)
+/*$local_assets = [
+    'bootstrap3'  => [
+        'css' => ['./assets/bootstrap3/css/bootstrap.min.css'],
+        'js'  => ['./assets/jquery-3.6.1.min.js', './assets/bootstrap3/js/bootstrap.min.js'],
+    ],
+    'bootstrap4'  => [
+        'css' => ['./assets/bootstrap4/css/bootstrap.min.css'],
+        'js'  => ['./assets/jquery-3.6.1.min.js', './assets/bootstrap4/js/bootstrap.bundle.min.js'],
+    ],
+    'bootstrap5'  => [
+        'css' => ['./assets/bootstrap5/css/bootstrap.min.css'],
+        'js'  => ['./assets/bootstrap5/js/bootstrap.bundle.min.js'],
+    ],
+    'fomanticui2' => [
+        'css' => ['./assets/fomanticui2/semantic.min.css'],
+        'js'  => ['./assets/jquery-3.6.1.min.js', './assets/fomanticui2/semantic.min.js'],
+    ],
+];
+
+get_ui()
+    ->setFrameworkOption('files', $local_assets[get_ui()->config->getFramework()])
+    ->setFrameworkOption('carousel.files', [
+        'css' => ['./assets/fomanticui2/swiper/swiper-bundle.min.css'],
+        'js'  => ['./assets/fomanticui2/swiper/swiper-bundle.min.js'],
+    ], 'fomanticui2');*/
 
 /**
  * @return array<int|string, mixed>
