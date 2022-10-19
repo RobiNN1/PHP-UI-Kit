@@ -1,5 +1,4 @@
 parameters:
-  reportUnmatchedIgnoredErrors: false
   level: 8
   paths:
     - src
@@ -7,8 +6,3 @@ parameters:
     - resources/bootstrap4/config.php
     - resources/bootstrap5/config.php
     - resources/fomanticui2/config.php
-  ignoreErrors:
-    # Ignore properties and methods accessed via magic methods
-    - '#Access to an undefined property RobiNN\\UiKit\\UiKit#'
-    - '#Call to an undefined method RobiNN\\UiKit\\UiKit#'
-    - '#Access to an undefined property object::\$uikit#'
