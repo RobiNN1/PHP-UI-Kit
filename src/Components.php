@@ -68,7 +68,7 @@ class Components {
         static $components = [];
 
         foreach ($this->components as $key => $class) {
-            if ((new $class()) instanceof Component) {
+            if (is_subclass_of($class, Component::class)) {
                 $components[$key] = [
                     'class'      => $class,
                     'open_close' => $this->isPublic($class, 'open') && $this->isPublic($class, 'close'),
