@@ -62,7 +62,7 @@ class Menu extends Component {
         $title = $items['title'];
         array_shift($items);
 
-        return $this->uikit->dropdown->render($title, $items, [
+        return $this->uikit->dropdown($title, $items, [
             'dark'    => $dark,
             'button'  => [
                 'menu_dp' => true,

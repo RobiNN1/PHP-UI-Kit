@@ -91,7 +91,10 @@ class Components {
 
         if (isset($all_components[$name])) {
             $class = new $all_components[$name]['class']();
-            $class->uikit = $this->uikit;
+
+            if (property_exists($class, 'uikit')) {
+                $class->uikit = $this->uikit;
+            }
 
             return $class;
         }
@@ -137,44 +140,6 @@ class Components {
         asort($alternatives);
 
         return sprintf('Did you mean "%s"?', implode('", "', array_keys($alternatives)));
-    }
-
-    /**
-     * Check component.
-     *
-     * @param string $name
-     *
-     * @return bool
-     */
-    public function __isset(string $name) {
-        return isset($this->components[$name]);
-    }
-
-    /**
-     * Create dynamic properties.
-     *
-     * @param string $name
-     *
-     * @return ?object
-     */
-    public function __get(string $name): ?object {
-        if (is_object($this->getComponent($name))) {
-            return $this->getComponent($name);
-        }
-
-        return null;
-    }
-
-    /**
-     * Set component.
-     *
-     * @param string $name
-     * @param string $value
-     *
-     * @return void
-     */
-    public function __set(string $name, string $value) {
-        $this->components[$name] = $value;
     }
 
     /**

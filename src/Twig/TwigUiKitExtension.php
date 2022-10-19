@@ -35,6 +35,10 @@ class TwigUiKitExtension extends AbstractExtension {
         $is_safe = ['is_safe' => ['html']];
 
         foreach ($this->uikit->allComponents() as $name => $component) {
+            if (is_callable([$this->uikit->getComponent($name), 'render'])) {
+                $functions[] = new TwigFunction($name, [$this->uikit->getComponent($name), 'render'], $is_safe);
+            }
+
             if ((bool) $component['open_close'] === true) {
                 if (is_callable([$this->uikit->getComponent($name), 'open'])) {
                     $functions[] = new TwigFunction($name.'_open', [$this->uikit->getComponent($name), 'open'], $is_safe);
@@ -43,10 +47,6 @@ class TwigUiKitExtension extends AbstractExtension {
                 if (is_callable([$this->uikit->getComponent($name), 'close'])) {
                     $functions[] = new TwigFunction($name.'_close', [$this->uikit->getComponent($name), 'close'], $is_safe);
                 }
-            }
-
-            if (is_callable([$this->uikit->getComponent($name), 'render'])) {
-                $functions[] = new TwigFunction($name, [$this->uikit->getComponent($name), 'render'], $is_safe);
             }
         }
 

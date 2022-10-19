@@ -72,7 +72,7 @@ class ButtonGroup extends Component {
                 'link'  => $button['link'] ?? '',
             ];
 
-            $buttons[] = $this->uikit->button->render($title, $type, array_merge($btn, $btn_options))->toHtml();
+            $buttons[] = $this->uikit->button($title, $type, array_merge($btn, $btn_options))->toHtml();
         }
 
         return $buttons;
