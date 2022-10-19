@@ -18,7 +18,7 @@ abstract class {{class_name}}Test extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function test{{class_name}}Render(): void {
-        $tpl = $this->uikit->{{name}}->render();
+        $tpl = $this->uikit->{{name}}();
 
         $this->assertComponentRender($this->expected_tpl, $tpl);
     }
