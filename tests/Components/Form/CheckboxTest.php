@@ -19,7 +19,7 @@ abstract class CheckboxTest extends ComponentTestCase {
     protected string $expected_multiple_tpl;
 
     public function testCheckboxRender(): void {
-        $tpl = $this->uikit->checkbox->render('test', 'Test');
+        $tpl = $this->uikit->checkbox('test', 'Test');
 
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
@@ -29,7 +29,7 @@ abstract class CheckboxTest extends ComponentTestCase {
     }
 
     public function testMultipleCheckboxesRender(): void {
-        $tpl = $this->uikit->checkbox->render('test-multiple', 'Test checkboxes', 0, [
+        $tpl = $this->uikit->checkbox('test-multiple', 'Test checkboxes', 0, [
             'items' => [
                 0 => 'Checkbox 1',
                 1 => 'Checkbox 2',

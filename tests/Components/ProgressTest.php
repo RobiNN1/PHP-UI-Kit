@@ -18,7 +18,7 @@ abstract class ProgressTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testProgressRender(): void {
-        $tpl = $this->uikit->progress->render(27);
+        $tpl = $this->uikit->progress(27);
 
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }

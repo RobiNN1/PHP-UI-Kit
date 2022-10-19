@@ -18,7 +18,7 @@ abstract class CarouselTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testCarouselRender(): void {
-        $tpl = $this->uikit->carousel->render('test', [
+        $tpl = $this->uikit->carousel('test', [
             'Slide 1',
             'Slide 2',
         ]);

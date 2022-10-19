@@ -18,7 +18,7 @@ abstract class PaginationTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testPaginationRender(): void {
-        $tpl = $this->uikit->pagination->render(range(1, 5), [
+        $tpl = $this->uikit->pagination(range(1, 5), [
             'link'     => 'page.php?p=%s',
             'current'  => 3,
             'disabled' => 'prev',

@@ -18,7 +18,7 @@ abstract class CardTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testCardRender(): void {
-        $tpl = $this->uikit->card->render([
+        $tpl = $this->uikit->card([
             'body' => '<h1>Title</h1><p>Testing</p>',
         ]);
 

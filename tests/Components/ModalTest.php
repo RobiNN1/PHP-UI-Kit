@@ -18,7 +18,7 @@ abstract class ModalTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testModalRender(): void {
-        $tpl = $this->uikit->modal->render('test', [
+        $tpl = $this->uikit->modal('test', [
             'title'  => 'Modal Title',
             'body'   => '<b>Testing</b>',
             'footer' => 'Random text...',

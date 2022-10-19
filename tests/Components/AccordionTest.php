@@ -18,7 +18,7 @@ abstract class AccordionTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testAccordionRender(): void {
-        $tpl = $this->uikit->accordion->render('test', [
+        $tpl = $this->uikit->accordion('test', [
             'Title 1' => 'Content 1',
             'Title 2' => 'Content 2',
         ]);

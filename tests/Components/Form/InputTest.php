@@ -18,7 +18,7 @@ abstract class InputTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testInputRender(): void {
-        $tpl = $this->uikit->input->render('test', 'Test', 2);
+        $tpl = $this->uikit->input('test', 'Test', 2);
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }
 

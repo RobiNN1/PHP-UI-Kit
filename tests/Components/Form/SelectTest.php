@@ -18,7 +18,7 @@ abstract class SelectTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testSelectRender(): void {
-        $tpl = $this->uikit->select->render('test', 'Test', 2, [
+        $tpl = $this->uikit->select('test', 'Test', 2, [
             'item1',
             'item2',
             'item3',

@@ -18,7 +18,7 @@ abstract class ButtonTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testButtonRender(): void {
-        $tpl = $this->uikit->button->render('Test');
+        $tpl = $this->uikit->button('Test');
 
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }

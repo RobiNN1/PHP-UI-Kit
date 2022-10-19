@@ -23,14 +23,7 @@ final class CustomComponetTest extends TestCase {
         $this->uikit->addComponent('custom_componet', CustomComponet::class);
     }
 
-    public function testCustomComponentProperty(): void {
-        $this->assertSame('Name: test', $this->uikit->custom_componet->render('test'));
-
-        $this->assertSame('<nav>', $this->uikit->custom_componet->open());
-        $this->assertSame('</nav>', $this->uikit->custom_componet->close());
-    }
-
-    public function testCustomComponentMethods(): void {
+    public function testCustomComponentRender(): void {
         $this->assertSame('Name: test', $this->uikit->custom_componet('test'));
 
         $this->assertSame('<nav>', $this->uikit->custom_componet_open());

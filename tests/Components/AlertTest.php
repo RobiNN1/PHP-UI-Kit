@@ -18,7 +18,7 @@ abstract class AlertTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testAlertRender(): void {
-        $tpl = $this->uikit->alert->render('Default');
+        $tpl = $this->uikit->alert('Default');
 
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }

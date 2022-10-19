@@ -19,13 +19,13 @@ abstract class RowTest extends ComponentTestCase {
     protected string $expected_close_tpl;
 
     public function testOpenRowRender(): void {
-        $tpl = $this->uikit->row->open();
+        $tpl = $this->uikit->row_open();
 
         $this->assertComponentRender($this->expected_open_tpl, $tpl->toHtml());
     }
 
     public function testCloseRowRender(): void {
-        $tpl = $this->uikit->row->close();
+        $tpl = $this->uikit->row_close();
 
         $this->assertComponentRender($this->expected_close_tpl, $tpl);
     }

@@ -18,7 +18,7 @@ abstract class TextareaTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testTextareaRender(): void {
-        $tpl = $this->uikit->textarea->render('test', 'Test');
+        $tpl = $this->uikit->textarea('test', 'Test');
 
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }

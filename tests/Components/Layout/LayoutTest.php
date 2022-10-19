@@ -29,7 +29,7 @@ abstract class LayoutTest extends ComponentTestCase {
     }
 
     public function testLayoutRender(): void {
-        $tpl = $this->uikit->layout->render($this->expected_framework)->toHtml();
+        $tpl = $this->uikit->layout($this->expected_framework)->toHtml();
 
         $this->assertComponentRender($this->expected_tpl, $tpl);
     }

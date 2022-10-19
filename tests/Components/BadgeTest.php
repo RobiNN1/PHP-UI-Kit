@@ -18,7 +18,7 @@ abstract class BadgeTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testBadgeRender(): void {
-        $tpl = $this->uikit->badge->render('Default');
+        $tpl = $this->uikit->badge('Default');
 
         $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
     }

@@ -19,13 +19,13 @@ abstract class ContainerTest extends ComponentTestCase {
     protected string $expected_close_tpl;
 
     public function testOpenContainerRender(): void {
-        $tpl = $this->uikit->container->open();
+        $tpl = $this->uikit->container_open();
 
         $this->assertComponentRender($this->expected_open_tpl, $tpl->toHtml());
     }
 
     public function testCloseContainerRender(): void {
-        $tpl = $this->uikit->container->close();
+        $tpl = $this->uikit->container_close();
 
         $this->assertComponentRender($this->expected_close_tpl, $tpl);
     }

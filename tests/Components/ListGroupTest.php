@@ -18,7 +18,7 @@ abstract class ListGroupTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testListGroupRender(): void {
-        $tpl = $this->uikit->list_group->render([
+        $tpl = $this->uikit->list_group([
             'Item 1',
             'Item 2',
             ['title' => 'Link', 'link' => 'link.php'],

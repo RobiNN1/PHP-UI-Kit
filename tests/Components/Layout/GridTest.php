@@ -27,25 +27,25 @@ abstract class GridTest extends ComponentTestCase {
     protected array $fw_option_tpl;
 
     public function testOpenGridRender(): void {
-        $tpl = $this->uikit->grid->open([100]);
+        $tpl = $this->uikit->grid_open([100]);
 
         $this->assertComponentRender($this->expected_open_tpl, $tpl->toHtml());
     }
 
     public function testCloseGridRender(): void {
-        $tpl = $this->uikit->grid->close();
+        $tpl = $this->uikit->grid_close();
 
         $this->assertComponentRender($this->expected_close_tpl, $tpl);
     }
 
     public function testGridVariants(): void {
-        $tpl_100_50 = $this->uikit->grid->open([100, 50]);
+        $tpl_100_50 = $this->uikit->grid_open([100, 50]);
         $this->assertComponentRender($this->expected_100_50_tpl, $tpl_100_50->toHtml());
 
-        $tpl_fw = $this->uikit->grid->open([100, 50, $this->fw_option_tpl]);
+        $tpl_fw = $this->uikit->grid_open([100, 50, $this->fw_option_tpl]);
         $this->assertComponentRender($this->expected_fw_tpl, $tpl_fw->toHtml());
 
-        $tpl_auto = $this->uikit->grid->open(['auto']);
+        $tpl_auto = $this->uikit->grid_open(['auto']);
         $this->assertComponentRender($this->expected_auto_tpl, $tpl_auto->toHtml());
     }
 

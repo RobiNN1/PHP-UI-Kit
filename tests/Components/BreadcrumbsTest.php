@@ -18,7 +18,7 @@ abstract class BreadcrumbsTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testBreadcrumbsRender(): void {
-        $tpl = $this->uikit->breadcrumbs->render([
+        $tpl = $this->uikit->breadcrumbs([
             'Link 1' => 'link1.php',
             'Link 2' => 'link2.php',
         ]);

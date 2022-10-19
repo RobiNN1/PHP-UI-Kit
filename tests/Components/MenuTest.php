@@ -18,7 +18,7 @@ abstract class MenuTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testMenuRender(): void {
-        $tpl = $this->uikit->menu->render('test', [
+        $tpl = $this->uikit->menu('test', [
             ['title' => 'Item 1', 'link' => 'link1.php'],
             [
                 'title' => 'Dropdown',

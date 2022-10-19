@@ -18,7 +18,7 @@ abstract class TabsTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testTabsRender(): void {
-        $tpl = $this->uikit->tabs->render('test', [
+        $tpl = $this->uikit->tabs('test', [
             ['title' => 'Tab 1', 'content' => 'Content 1'],
             ['title' => 'Tab 2', 'content' => 'Content 2'],
         ]);

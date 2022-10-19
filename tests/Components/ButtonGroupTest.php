@@ -18,7 +18,7 @@ abstract class ButtonGroupTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testButtonGroupRender(): void {
-        $tpl = $this->uikit->button_group->render([
+        $tpl = $this->uikit->button_group([
             1           => 'Yes',
             0           => 'No',
             'delete'    => ['title' => 'Delete', 'btn_options' => ['color' => 'error']],

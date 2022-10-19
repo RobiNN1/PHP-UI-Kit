@@ -18,7 +18,7 @@ abstract class DropdownTest extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testDropdownRender(): void {
-        $tpl = $this->uikit->dropdown->render('Dropdown', [
+        $tpl = $this->uikit->dropdown('Dropdown', [
             ['title' => 'Item 1', 'link' => 'link1.php'],
             'divider',
             ['title' => 'Item 2'],
