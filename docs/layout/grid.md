@@ -71,7 +71,7 @@ HTML output:
 </div>
 ```
 
-The same column width. 
+The same column width.
 Not recommended for layouts that must support multiple css frameworks.
 Since not every framework supports this.
 

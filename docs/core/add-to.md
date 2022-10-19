@@ -18,7 +18,7 @@ Is also possible to set order by setting `before` or `after` as second argument 
 
 `after` - these tags will be added after tags with `before` set.
 
-In this example, main.css will be loaded first and custom.css will be loaded second. 
+In this example, main.css will be loaded first and custom.css will be loaded second.
 If order is not specified, it will be loaded as it's called, custom.css first and main.css second.
 
 ```php

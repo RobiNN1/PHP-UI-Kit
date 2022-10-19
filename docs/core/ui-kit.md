@@ -106,7 +106,7 @@ $fw = $uikit->config->getFramework();
 Set component options.
 
 ```php
-echo $uikit->alert->render('example')->options([]);
+echo $uikit->alert('example')->options([]);
 ```
 
 ## attributes()
@@ -114,7 +114,7 @@ echo $uikit->alert->render('example')->options([]);
 Set component attributes.
 
 ```php
-echo $uikit->alert->render('example')->attributes([]);
+echo $uikit->alert('example')->attributes([]);
 ```
 
 ## toHtml()
@@ -125,5 +125,5 @@ Components return their object, that can be cast to a string (it uses `__toStrin
 Alternatively, you can call this method to do this.
 
 ```php
-$uikit->alert->render('example')->toHtml();
+$uikit->alert('example')->toHtml();
 ```

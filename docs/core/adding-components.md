@@ -31,7 +31,7 @@ $uikit->addComponent('example_component', ExampleComponent::class);
 ```php
 if (!function_exists('example_component')) {
     function example_component(): string {
-        return get_ui()->example_component->render();
+        return get_ui()->example_component();
     }
 }
 ```
@@ -41,17 +41,8 @@ if (!function_exists('example_component')) {
 After initialization, you can use it as all components.
 
 ```php
-echo $uikit->example_component->render();
-```
-
-Or
-
-```php
 echo $uikit->example_component();
 ```
-
-> This is short for `render()` method.
-> The parameters are therefore the same as for the `render()`.
 
 In template
 

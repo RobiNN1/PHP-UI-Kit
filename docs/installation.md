@@ -31,7 +31,7 @@ $uikit->layout(ob_get_clean());
 ```
 
 > `$uikit->` can be replaced by `get_ui()->` function, or simply use for everything helper functions.
-> 
+>
 > Note: when using `get_ui()` and you want custom config, you have to redeclare this function.
 
 #### Echo
@@ -78,7 +78,7 @@ Simply place this function after class autoload.
 
 ```php
 function get_ui(): RobiNN\UiKit\UiKit {
-    return new RobiNN\UiKit\UiKit([
+    return RobiNN\UiKit\UiKit::getInstance([
         'cache'  => __DIR__.'/cache',
     ]);
 }
