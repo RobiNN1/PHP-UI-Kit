@@ -14,6 +14,43 @@ namespace RobiNN\UiKit;
 
 use RobiNN\UiKit\Twig\Twig;
 
+/**
+ * Layout
+ * @method Components\Layout\Layout    layout(string $body, array $options = [])
+ * @method Components\Layout\Container container(bool $fluid = false, array $options = [])
+ * @method Components\Layout\Container container_open(bool $fluid = false, array $options = [])
+ * @method string                      container_close()
+ * @method Components\Layout\Row       row(array $options = [])
+ * @method Components\Layout\Row       row_open(array $options = [])
+ * @method string                      row_close()
+ * @method Components\Layout\Grid      grid(array $col_sizes = [], array $options = [])
+ * @method Components\Layout\Grid      grid_open(array $col_sizes = [100], array $options = [])
+ * @method string                      grid_close()
+ * Form
+ * @method Components\Form\Form     form(string $method = 'post', string $action = '', array $options = [])
+ * @method Components\Form\Form     form_open(string $method = 'post', string $action = '', array $options = [])
+ * @method string                   form_close()
+ * @method Components\Form\Input    input(string $name, string $label = '', $value = '', array $options = [])
+ * @method Components\Form\Select   select(string $name, string $label = '', $value = '', array $items = [], array $options = [])
+ * @method Components\Form\Checkbox checkbox(string $name, string $label = '', $value = 0, array $options = [])
+ * @method Components\Form\Textarea textarea(string $name, string $label = '', $value = '', array $options = [])
+ * Components
+ * @method Components\Accordion   accordion(string $id, array $items, array $options = [])
+ * @method Components\Alert       alert(string $text, string $color = 'default', array $options = [])
+ * @method Components\Badge       badge(string $text, string $color = 'default', array $options = [])
+ * @method Components\Breadcrumbs breadcrumbs(array $links, array $options = [])
+ * @method Components\Button      button(string $title, string $type = 'button', array $options = [])
+ * @method Components\ButtonGroup button_group(array $items, array $options = [])
+ * @method Components\Card        card(array $options = [])
+ * @method Components\Carousel    carousel(string $id, array $slides, array $options = [])
+ * @method Components\Dropdown    dropdown(string $title, array $items, array $options = [])
+ * @method Components\ListGroup   list_group(array $items, array $options = [])
+ * @method Components\Menu        menu(string $id, array $items, array $options = [])
+ * @method Components\Modal       modal(string $id, array $content, array $options = [])
+ * @method Components\Pagination  pagination(array $items, array $options = [])
+ * @method Components\Progress    progress($percent, array $options = [])
+ * @method Components\Tabs        tabs(string $id, array $items, array $options = [])
+ */
 class UiKit extends Components {
     /**
      * @const string UI Kit version.
