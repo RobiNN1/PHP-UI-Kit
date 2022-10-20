@@ -37,7 +37,7 @@ class Tabs extends Component {
     public function render(string $id, array $items, array $options = []): Component {
         $this->options($options);
 
-        return $this->tplData([
+        return $this->setTplData([
             'id'    => $id,
             'items' => $this->items($items),
         ]);

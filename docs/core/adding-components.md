@@ -109,10 +109,14 @@ $this->getOption('colors', 'success');
 $this->getOption('colors', 'success', 'alert');
 ```
 
-### tplData()
+### setTplData()
 
 Set template data.
 
+The component's options are automatically transferred to the template,
+but these data can be modified with this method if needed.
+As well as can add additional data, e.g. values from parameters.
+
 ```php
-$this->tplData([]);
+$this->setTplData([]);
 ```

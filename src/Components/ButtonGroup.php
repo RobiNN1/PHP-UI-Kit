@@ -40,7 +40,7 @@ class ButtonGroup extends Component {
     public function render(array $items, array $options = []): Component {
         $this->options($options);
 
-        return $this->tplData([
+        return $this->setTplData([
             'buttons' => $this->buttons($items, $this->options),
             'size'    => $this->getOption('sizes', $this->options['size']),
         ]);

@@ -84,7 +84,7 @@ class Input extends Component {
             'number', 'password', 'search', 'tel', 'text', 'time', 'url', 'week',
         ];
 
-        return $this->tplData([
+        return $this->setTplData([
             'value'            => $value,
             'label'            => $label,
             'input_id'         => $this->options['input_attributes']['id'],

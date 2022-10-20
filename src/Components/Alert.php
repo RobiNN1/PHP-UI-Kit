@@ -37,7 +37,7 @@ class Alert extends Component {
     public function render(string $text, string $color = 'default', array $options = []): Component {
         $this->options($options);
 
-        return $this->tplData([
+        return $this->setTplData([
             'text'  => $text,
             'color' => $this->getOption('colors', $color),
         ]);

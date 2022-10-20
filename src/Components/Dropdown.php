@@ -56,7 +56,7 @@ class Dropdown extends Component {
             $title .= ' '.$fwoptions['icon'];
         }
 
-        return $this->tplData([
+        return $this->setTplData([
             'items'  => $items,
             'button' => $this->uikit->button($title, 'button', $this->options['button'])->__toString(),
         ]);

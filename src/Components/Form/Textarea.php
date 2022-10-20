@@ -72,7 +72,7 @@ class Textarea extends Component {
 
         $this->options['textarea_attributes']['rows'] = $this->options['rows'];
 
-        return $this->tplData([
+        return $this->setTplData([
             'value'               => $value,
             'label'               => $label,
             'textarea_id'         => $this->options['textarea_attributes']['id'],

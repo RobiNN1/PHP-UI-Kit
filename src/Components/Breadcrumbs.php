@@ -37,7 +37,7 @@ class Breadcrumbs extends Component {
     public function render(array $links, array $options = []): Component {
         $this->options($options);
 
-        return $this->tplData([
+        return $this->setTplData([
             'links' => $links,
         ]);
     }

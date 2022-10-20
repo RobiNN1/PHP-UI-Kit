@@ -59,7 +59,7 @@ class Modal extends Component {
             $this->options['hide_button'] = true;
         }
 
-        return $this->tplData([
+        return $this->setTplData([
             'id'      => $id,
             'content' => $content,
             'size'    => $this->getOption('sizes', $this->options['size']),

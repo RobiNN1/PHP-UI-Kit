@@ -58,7 +58,7 @@ class Progress extends Component {
             $bars = $this->multiple($percent, $this->options, $auto_colors);
         }
 
-        return $this->tplData([
+        return $this->setTplData([
             'bars' => $bars,
         ]);
     }

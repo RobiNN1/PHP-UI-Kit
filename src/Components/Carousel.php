@@ -38,7 +38,7 @@ class Carousel extends Component {
     public function render(string $id, array $slides, array $options = []): Component {
         $this->options($options);
 
-        return $this->tplData([
+        return $this->setTplData([
             'id'     => $id,
             'slides' => $slides,
         ]);

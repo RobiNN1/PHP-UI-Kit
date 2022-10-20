@@ -134,7 +134,7 @@ class Component {
      *
      * @return Component
      */
-    protected function tplData(array $data = []): Component {
+    protected function setTplData(array $data = []): Component {
         $this->tpl_data = $data;
 
         return $this;

@@ -73,7 +73,7 @@ class Select extends Component {
             $this->options['select_attributes']['size'] = 3;
         }
 
-        return $this->tplData([
+        return $this->setTplData([
             'value'             => $value,
             'label'             => $label,
             'items'             => $items,

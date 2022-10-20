@@ -36,7 +36,7 @@ class ListGroup extends Component {
     public function render(array $items, array $options = []): Component {
         $this->options($options);
 
-        return $this->tplData([
+        return $this->setTplData([
             'items' => $items,
         ]);
     }

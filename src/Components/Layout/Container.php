@@ -38,7 +38,7 @@ class Container extends Component {
     public function render(bool $fluid = false, array $options = []): Component {
         $this->options($options);
 
-        return $this->tplData([
+        return $this->setTplData([
             'fluid' => $fluid,
         ]);
     }

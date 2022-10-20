@@ -68,7 +68,7 @@ class Button extends Component {
         $active_class = $this->getOption('states', 'active');
         $disabled_class = $this->getOption('states', 'disabled');
 
-        return $this->tplData([
+        return $this->setTplData([
             'title'         => $title,
             'type'          => in_array($type, ['button', 'submit', 'reset'], true) ? $type : 'button',
             'color'         => $this->getOption('colors', $this->options['color']),

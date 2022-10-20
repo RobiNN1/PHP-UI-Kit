@@ -42,7 +42,7 @@ class Layout extends Component {
         $this->loadFrameworkAssets();
         $this->loadScripts();
 
-        return $this->tplData([
+        return $this->setTplData([
             'body'        => $body,
             'head_tags'   => AddTo::getHeadTags(),
             'footer_tags' => AddTo::getFooterTags(),

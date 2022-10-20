@@ -70,7 +70,7 @@ class Checkbox extends Component {
             ];
         }
 
-        return $this->tplData([
+        return $this->setTplData([
             'value'               => $value,
             'label'               => $label,
             'checkbox_attributes' => $this->getAttributes($this->options['checkbox_attributes']),

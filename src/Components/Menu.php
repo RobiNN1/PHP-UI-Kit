@@ -45,7 +45,7 @@ class Menu extends Component {
             $items['right'] = $right;
         }
 
-        return $this->tplData([
+        return $this->setTplData([
             'id'    => $id,
             'items' => $this->items($items, $id, $this->options['dark'], $this->options['item_class']),
         ]);

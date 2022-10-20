@@ -52,7 +52,7 @@ class Pagination extends Component {
 
         $items = $prev + $items + $next;
 
-        return $this->tplData([
+        return $this->setTplData([
             'items' => $this->items($items, $this->options),
         ]);
     }

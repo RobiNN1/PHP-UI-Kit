@@ -40,7 +40,7 @@ class Grid extends Component {
 
         $grid_function = $this->uikit->getFrameworkOption('grid_func');
 
-        return $this->tplData([
+        return $this->setTplData([
             'grid_class' => is_callable($grid_function) ? $grid_function($col_sizes) : '',
         ]);
     }
