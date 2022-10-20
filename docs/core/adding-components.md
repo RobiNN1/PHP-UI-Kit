@@ -72,7 +72,7 @@ By extending `Component` class, your code has access to the `$this->uikit` and t
 
 ### getAttributes()
 
-Create string from the given array.
+Create string from the given array of attributes.
 
 ```php
 $this->getAttributes([
@@ -108,18 +108,6 @@ $this->getOption('colors', 'success');
 ```php
 $this->getOption('colors', 'success', 'alert');
 ```
-
-### tpl()
-
-Render template.
-
-Method also sets `attributes` option to the template engine.
-
-```php
-$this->tpl([]);
-```
-
-> The method requires that the `protected string $component = '';` be set.
 
 ### tplData()
 

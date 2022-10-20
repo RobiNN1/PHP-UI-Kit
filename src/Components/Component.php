@@ -31,7 +31,18 @@ class Component {
     protected array $tpl_data = [];
 
     /**
-     * Get attributes.
+     * Get component name.
+     *
+     * @return string
+     */
+    private function getComponentName(): string {
+        $component_path = explode('/', $this->component);
+
+        return $component_path[array_key_last($component_path)];
+    }
+
+    /**
+     * Create string from the given array of attributes.
      *
      * @param array<string, mixed> $attributes
      *
@@ -48,17 +59,6 @@ class Component {
     }
 
     /**
-     * Get component name.
-     *
-     * @return string
-     */
-    private function getComponentName(): string {
-        $component_path = explode('/', $this->component);
-
-        return $component_path[array_key_last($component_path)];
-    }
-
-    /**
      * Get correct value from framework options.
      *
      * @param string  $option
@@ -72,6 +72,38 @@ class Component {
         $default = $opts[$option]['default'] ?? '';
 
         return isset($opts[$option]) && array_key_exists($value, $opts[$option]) ? $opts[$option][$value] : $default;
+    }
+
+    /**
+     * Set component attributes.
+     *
+     * @param array<string, mixed>           $attributes
+     * @param string|array<int, string>|null $framework
+     *
+     * @return Component
+     */
+    public function attributes(array $attributes = [], $framework = null): Component {
+        if ($this->uikit->checkFramework($framework)) {
+            $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Set component options.
+     *
+     * @param array<string, mixed>           $options
+     * @param string|array<int, string>|null $framework
+     *
+     * @return Component
+     */
+    public function options(array $options = [], $framework = null): Component {
+        if ($this->uikit->checkFramework($framework)) {
+            $this->options = array_merge($this->options, $options);
+        }
+
+        return $this;
     }
 
     /**
@@ -96,27 +128,6 @@ class Component {
     }
 
     /**
-     * Render template.
-     *
-     * @param array<string, mixed> $data
-     *
-     * @return string
-     */
-    protected function tpl(array $data = []): string {
-        $this->loadComponentAssets();
-
-        $array = array_merge($this->options, $data);
-
-        if (array_key_exists('id', $this->options) && $this->options['id'] !== '') {
-            $this->options['attributes']['id'] = $this->options['id'];
-        }
-
-        $array['attributes'] = $this->getAttributes($this->options['attributes']);
-
-        return $this->uikit->render($this->component, $array);
-    }
-
-    /**
      * Set template data.
      *
      * @param array<string, mixed> $data
@@ -130,43 +141,21 @@ class Component {
     }
 
     /**
-     * Set component options.
-     *
-     * @param array<string, mixed>           $options
-     * @param string|array<int, string>|null $framework
-     *
-     * @return Component
-     */
-    public function options(array $options = [], $framework = null): Component {
-        if ($this->uikit->checkFramework($framework)) {
-            $this->options = array_merge($this->options, $options);
-        }
-
-        return $this;
-    }
-
-    /**
-     * Set component attributes.
-     *
-     * @param array<string, mixed>           $attributes
-     * @param string|array<int, string>|null $framework
-     *
-     * @return Component
-     */
-    public function attributes(array $attributes = [], $framework = null): Component {
-        if ($this->uikit->checkFramework($framework)) {
-            $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
-        }
-
-        return $this;
-    }
-
-    /**
      * Render component.
      *
      * @return string
      */
     public function __toString(): string {
-        return $this->tpl($this->tpl_data);
+        $this->loadComponentAssets();
+
+        $array = array_merge($this->options, $this->tpl_data);
+
+        if (isset($this->options['id']) && $this->options['id'] !== '') {
+            $this->options['attributes']['id'] = $this->options['id'];
+        }
+
+        $array['attributes'] = $this->getAttributes($this->options['attributes']);
+
+        return $this->uikit->render($this->component, $array);
     }
 }
