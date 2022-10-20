@@ -12,9 +12,10 @@ declare(strict_types=1);
 
 namespace Tests\Components;
 
-use PHPUnit\Framework\TestCase;
+use ReflectionException;
 use RobiNN\UiKit\Components\Component;
 use RobiNN\UiKit\UiKit;
+use Tests\TestCase;
 
 final class ComponentTest extends TestCase {
     private Component $component;
@@ -23,8 +24,11 @@ final class ComponentTest extends TestCase {
         $this->component = new Component();
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public function testGetAttributes(): void {
-        $attributes = $this->component->getAttributes([
+        $attributes = self::callMethod($this->component, 'getAttributes', [
             'no_value'     => null,
             'zero'         => 0,
             'one'          => 1,
@@ -35,6 +39,9 @@ final class ComponentTest extends TestCase {
         $this->assertSame('no_value zero="0" one="1" string="test" empty-string=""', $attributes);
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public function testGetOption(): void {
         $this->component->uikit = new UiKit();
         $this->component->uikit->setFrameworkOption('test', [
@@ -44,6 +51,6 @@ final class ComponentTest extends TestCase {
             ],
         ]);
 
-        $this->assertSame('value2', $this->component->getOption('array', 'primary', 'test'));
+        $this->assertSame('value2', self::callMethod($this->component, 'getOption', 'array', 'primary', 'test'));
     }
 }

@@ -1,0 +1,35 @@
+<?php
+/**
+ * This file is part of UiKit.
+ *
+ * Copyright (c) Róbert Kelčák (https://kelcak.com/)
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+declare(strict_types=1);
+
+namespace Tests;
+
+use ReflectionException;
+use ReflectionMethod;
+
+abstract class TestCase extends \PHPUnit\Framework\TestCase {
+    /**
+     * Call private method.
+     *
+     * @param object $object
+     * @param string $name
+     * @param mixed  ...$args
+     *
+     * @return mixed|string
+     * @throws ReflectionException
+     */
+    protected static function callMethod(object $object, string $name, ...$args) {
+        $method = new ReflectionMethod($object, $name);
+        $method->setAccessible(true);
+
+        return $method->invokeArgs($object, $args);
+    }
+}

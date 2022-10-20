@@ -35,7 +35,7 @@ class Component {
      *
      * @return string
      */
-    private function getComponentName(): string {
+    protected function getComponentName(): string {
         $component_path = explode('/', $this->component);
 
         return $component_path[array_key_last($component_path)];
@@ -48,7 +48,7 @@ class Component {
      *
      * @return string
      */
-    public function getAttributes(array $attributes): string {
+    protected function getAttributes(array $attributes): string {
         $array = [];
 
         foreach ($attributes as $attr => $value) {
@@ -67,7 +67,7 @@ class Component {
      *
      * @return mixed
      */
-    public function getOption(string $option, $value, string $component = null) {
+    protected function getOption(string $option, $value, string $component = null) {
         $opts = $this->uikit->getFrameworkOption($component ?? $this->getComponentName());
         $default = $opts[$option]['default'] ?? '';
 
