@@ -70,7 +70,7 @@ class Menu extends Component {
             ],
             'in_menu' => true,
             'class'   => $item_class,
-        ])->toHtml();
+        ])->__toString();
     }
 
     /**

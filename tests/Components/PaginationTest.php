@@ -24,7 +24,7 @@ abstract class PaginationTest extends ComponentTestCase {
             'disabled' => 'prev',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testPaginationInTwig(): void {

@@ -22,7 +22,7 @@ abstract class CardTest extends ComponentTestCase {
             'body' => '<h1>Title</h1><p>Testing</p>',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testCardInTwig(): void {

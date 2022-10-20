@@ -23,7 +23,7 @@ abstract class AccordionTest extends ComponentTestCase {
             'Title 2' => 'Content 2',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testAccordionInTwig(): void {

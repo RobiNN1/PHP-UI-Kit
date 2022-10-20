@@ -61,6 +61,6 @@ class Container extends Component {
      * @return string
      */
     public function close(): string {
-        return $this->render()->options(['close' => true])->toHtml();
+        return $this->render()->options(['close' => true])->__toString();
     }
 }

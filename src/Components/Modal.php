@@ -52,7 +52,7 @@ class Modal extends Component {
                 $this->options['button']['attributes'] = array_merge($attr, $fwoptions['attributes']);
             }
 
-            $button = $this->uikit->button($this->options['button']['title'], 'button', $this->options['button'])->toHtml();
+            $button = $this->uikit->button($this->options['button']['title'], 'button', $this->options['button'])->__toString();
         } else {
             $button = '';
             $this->options['always_open'] = true;

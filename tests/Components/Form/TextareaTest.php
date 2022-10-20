@@ -20,7 +20,7 @@ abstract class TextareaTest extends ComponentTestCase {
     public function testTextareaRender(): void {
         $tpl = $this->uikit->textarea('test', 'Test');
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testTextareaInTwig(): void {

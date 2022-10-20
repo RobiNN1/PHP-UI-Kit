@@ -20,7 +20,7 @@ abstract class ProgressTest extends ComponentTestCase {
     public function testProgressRender(): void {
         $tpl = $this->uikit->progress(27);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testProgressInTwig(): void {

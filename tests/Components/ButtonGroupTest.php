@@ -26,7 +26,7 @@ abstract class ButtonGroupTest extends ComponentTestCase {
             'no-value2' => ['title' => 'No value 2', 'btn_options' => ['value' => null]],
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testButtonGroupInTwig(): void {

@@ -162,15 +162,6 @@ class Component {
     }
 
     /**
-     * Get HTML of a component.
-     *
-     * @return string
-     */
-    public function toHtml(): string {
-        return $this->tpl($this->tpl_data);
-    }
-
-    /**
      * Render component.
      *
      * @return string

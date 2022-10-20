@@ -23,7 +23,7 @@ abstract class BreadcrumbsTest extends ComponentTestCase {
             'Link 2' => 'link2.php',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testBreadcrumbsInTwig(): void {

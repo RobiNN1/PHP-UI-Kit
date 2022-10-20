@@ -24,7 +24,7 @@ abstract class SelectTest extends ComponentTestCase {
             'item3',
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testSelectInTwig(): void {

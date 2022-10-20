@@ -21,7 +21,7 @@ abstract class RowTest extends ComponentTestCase {
     public function testOpenRowRender(): void {
         $tpl = $this->uikit->row_open();
 
-        $this->assertComponentRender($this->expected_open_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_open_tpl, $tpl->__toString());
     }
 
     public function testCloseRowRender(): void {

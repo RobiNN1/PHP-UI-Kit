@@ -20,7 +20,7 @@ abstract class FormTest extends ComponentTestCase {
 
     public function testOpenFormRender(): void {
         $tpl = $this->uikit->form_open('get');
-        $this->assertComponentRender($this->expected_open_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_open_tpl, $tpl->__toString());
     }
 
     public function testCloseFormRender(): void {

@@ -24,7 +24,7 @@ abstract class ListGroupTest extends ComponentTestCase {
             ['title' => 'Link', 'link' => 'link.php'],
         ]);
 
-        $this->assertComponentRender($this->expected_tpl, $tpl->toHtml());
+        $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
     public function testListGroupInTwig(): void {
