@@ -117,13 +117,13 @@ Set component attributes.
 echo $uikit->alert('example')->attributes([]);
 ```
 
-## toHtml()
+## __toString()
 
-Get HTML of a component.
+Render component.
 
-Components return their object, that can be cast to a string (it uses `__toString()` under the hood).
-Alternatively, you can call this method to do this.
+There is no need to use this if you are calling the component with echo or casting it to a string,
+as PHP will do this automatically.
 
 ```php
-$uikit->alert('example')->toHtml();
+echo $uikit->alert('example');
 ```
