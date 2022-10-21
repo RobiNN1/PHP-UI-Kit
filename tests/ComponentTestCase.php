@@ -17,7 +17,7 @@ use Gajus\Dindent\Indenter;
 use PHPUnit\Framework\TestCase;
 use RobiNN\UiKit\UiKit;
 
-class ComponentTestCase extends TestCase {
+abstract class ComponentTestCase extends TestCase {
     public UiKit $uikit;
 
     protected function setUp(): void {
