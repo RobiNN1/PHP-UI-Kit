@@ -60,7 +60,7 @@ class Components {
     /**
      * Get an array of all valid components.
      *
-     * @return array<string, array<string, object|bool>>
+     * @return array<string, string>
      *
      * @internal
      */
@@ -69,10 +69,12 @@ class Components {
 
         foreach ($this->components as $key => $class) {
             if (is_subclass_of($class, Component::class)) {
-                $components[$key] = [
-                    'class'      => $class,
-                    'open_close' => $this->isPublic($class, 'open') && $this->isPublic($class, 'close'),
-                ];
+                $components[$key] = $class;
+
+                if ($this->isPublic($class, 'open') && $this->isPublic($class, 'close')) {
+                    $components[$key.'_open'] = $class;
+                    $components[$key.'_close'] = $class;
+                }
             }
         }
 
@@ -84,22 +86,12 @@ class Components {
      *
      * @param string $name
      *
-     * @return ?object
+     * @return ?string
      */
-    public function getComponent(string $name): ?object {
+    public function getComponent(string $name): ?string {
         $all_components = $this->allComponents();
 
-        if (isset($all_components[$name])) {
-            $class = new $all_components[$name]['class']();
-
-            if (property_exists($class, 'uikit')) {
-                $class->uikit = $this->uikit;
-            }
-
-            return $class;
-        }
-
-        return null;
+        return $all_components[$name] ?? null;
     }
 
     /**
@@ -145,26 +137,30 @@ class Components {
     /**
      * Create dynamic methods.
      *
-     * @param string             $name
-     * @param array<int, string> $arguments
+     * @param string            $name
+     * @param array<int, mixed> $arguments
      *
      * @return Component|string
      */
     public function __call(string $name, array $arguments) {
-        $name_clean = str_replace(['_open', '_close'], '', $name);
+        if (!is_null($this->getComponent($name))) {
+            $component = $this->getComponent($name);
+            $class = new $component();
 
-        if (is_object($this->getComponent($name_clean))) {
-            $component = $this->getComponent($name_clean);
-            $method = $this->isPublic($component, 'render') ? 'render' : null;
-
-            if (str_ends_with($name, '_open') && $this->isPublic($component, 'open')) {
-                $method = 'open';
-            } elseif (str_ends_with($name, '_close') && $this->isPublic($component, 'close')) {
-                $method = 'close';
+            if (property_exists($class, 'uikit')) {
+                $class->uikit = $this->uikit;
             }
 
-            return call_user_func_array(static function (...$parameters) use ($component, $method) {
-                return $component->$method(...$parameters);
+            if (str_ends_with($name, '_open')) {
+                $name = 'open';
+            } elseif (str_ends_with($name, '_close')) {
+                $name = 'close';
+            } else {
+                $name = 'render';
+            }
+
+            return call_user_func_array(static function (...$parameters) use ($class, $name) {
+                return $class->$name(...$parameters);
             }, $arguments);
         }
 

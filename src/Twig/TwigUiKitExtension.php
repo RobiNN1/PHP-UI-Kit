@@ -34,19 +34,11 @@ class TwigUiKitExtension extends AbstractExtension {
 
         $is_safe = ['is_safe' => ['html']];
 
-        foreach ($this->uikit->allComponents() as $name => $component) {
-            if (is_callable([$this->uikit->getComponent($name), 'render'])) {
-                $functions[] = new TwigFunction($name, [$this->uikit->getComponent($name), 'render'], $is_safe);
-            }
-
-            if ((bool) $component['open_close'] === true) {
-                if (is_callable([$this->uikit->getComponent($name), 'open'])) {
-                    $functions[] = new TwigFunction($name.'_open', [$this->uikit->getComponent($name), 'open'], $is_safe);
-                }
-
-                if (is_callable([$this->uikit->getComponent($name), 'close'])) {
-                    $functions[] = new TwigFunction($name.'_close', [$this->uikit->getComponent($name), 'close'], $is_safe);
-                }
+        foreach ($this->uikit->allComponents() as $name => $class) {
+            if (is_callable([$this->uikit, $name])) {
+                $functions[] = new TwigFunction($name, function (...$arguments) use ($name) {
+                    return $this->uikit->$name(...$arguments);
+                }, $is_safe);
             }
         }
 
@@ -55,9 +47,13 @@ class TwigUiKitExtension extends AbstractExtension {
         $functions[] = new TwigFunction('add_to_js', [AddTo::class, 'js'], $is_safe);
         $functions[] = new TwigFunction('add_to_css', [AddTo::class, 'css'], $is_safe);
 
-        foreach ($this->uikit->getFrameworkOption('tpl_funcs') as $function_name => $callback) {
-            if (is_callable($callback)) {
-                $functions[] = new TwigFunction($function_name, $callback, $is_safe);
+        $tpl_func = (array) $this->uikit->getFrameworkOption('tpl_funcs');
+
+        if (count($tpl_func) > 0) {
+            foreach ($tpl_func as $function_name => $callback) {
+                if (is_callable($callback)) {
+                    $functions[] = new TwigFunction($function_name, $callback, $is_safe);
+                }
             }
         }
 
