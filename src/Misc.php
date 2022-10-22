@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
+use ReflectionMethod;
+
 class Misc {
     /**
      * Get an item from an array using "dot" notation.
@@ -80,5 +82,17 @@ class Misc {
         $right_side = $right ? $value.' ' : ' '.$value;
 
         return $value !== null && $value !== '' ? $right_side : '';
+    }
+
+    /**
+     * Check if method exists and is public.
+     *
+     * @param object|string $class
+     * @param string        $method
+     *
+     * @return bool
+     */
+    public static function isPublic($class, string $method): bool {
+        return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();
     }
 }

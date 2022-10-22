@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace RobiNN\UiKit;
 
-use ReflectionMethod;
 use RobiNN\UiKit\Components\Component;
 
 class Components {
@@ -67,13 +66,13 @@ class Components {
     public function allComponents(): array {
         static $components = [];
 
-        foreach ($this->components as $key => $class) {
+        foreach ($this->components as $name => $class) {
             if (is_subclass_of($class, Component::class)) {
-                $components[$key] = $class;
+                $components[$name] = $class;
 
-                if ($this->isPublic($class, 'open') && $this->isPublic($class, 'close')) {
-                    $components[$key.'_open'] = $class;
-                    $components[$key.'_close'] = $class;
+                if (Misc::isPublic($class, 'open') && Misc::isPublic($class, 'close')) {
+                    $components[$name.'_open'] = $class;
+                    $components[$name.'_close'] = $class;
                 }
             }
         }
@@ -118,7 +117,7 @@ class Components {
     public function addSuggestions(string $component_name): string {
         $alternatives = [];
 
-        foreach ($this->allComponents() as $name => $component) {
+        foreach ($this->allComponents() as $name => $class) {
             $lev = levenshtein($component_name, $name);
             if ($lev <= strlen($component_name) / 3 || str_contains($name, $component_name)) {
                 $alternatives[$name] = $lev;
@@ -165,17 +164,5 @@ class Components {
         }
 
         return sprintf('Unknown "%s" function. ', $name).$this->addSuggestions($name);
-    }
-
-    /**
-     * Check if method exists and is public.
-     *
-     * @param object|string $class
-     * @param string        $method
-     *
-     * @return bool
-     */
-    private function isPublic($class, string $method): bool {
-        return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();
     }
 }
