@@ -95,4 +95,21 @@ class Misc {
     public static function isPublic($class, string $method): bool {
         return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();
     }
+
+    /**
+     * Convert fractions to percents.
+     *
+     * @param string|int $value
+     *
+     * @return float|int
+     */
+    public static function convertFractions($value) {
+        if (!is_string($value) && !str_contains((string) $value, '/')) {
+            return $value;
+        }
+
+        [$top, $bottom] = explode('/', (string) $value);
+
+        return 100 * ((int) $top / (int) $bottom);
+    }
 }

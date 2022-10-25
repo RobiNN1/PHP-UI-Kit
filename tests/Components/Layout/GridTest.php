@@ -49,6 +49,14 @@ abstract class GridTest extends ComponentTestCase {
         $this->assertComponentRender($this->expected_auto_tpl, $tpl_auto->__toString());
     }
 
+    public function testGridFractions(): void {
+        $tpl_100_50 = $this->uikit->grid_open(['1/1', '1/2']);
+        $this->assertComponentRender($this->expected_100_50_tpl, $tpl_100_50->__toString());
+
+        $tpl2_100_50 = $this->uikit->grid_open([100, '1/2']);
+        $this->assertComponentRender($this->expected_100_50_tpl, $tpl2_100_50->__toString());
+    }
+
     public function testGridInTwig(): void {
         $this->assertComponentRenderTpl($this->expected_open_tpl, '{{ grid_open([100]) }}');
 

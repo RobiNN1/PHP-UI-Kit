@@ -37,6 +37,7 @@ return [
             }
 
             if (!is_array($value) && isset($sizes[$index])) {
+                $value = RobiNN\UiKit\Misc::convertFractions($value);
                 $column = ($value * 12) / 100;
                 $columns[$sizes[$index]] = $column < 5 ? ceil($column) : floor($column);
             }

@@ -19,19 +19,19 @@ echo accordion('example', [
 ]);
 
 echo '<h2 class="h2" id="alert">Alert</h2>';
-echo row_open().grid_open([100, 15, ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo row_open().grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
 echo alert('Default');
 echo grid_close();
-echo grid_open([100, 15, ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
 echo alert('Success', 'success');
 echo grid_close();
-echo grid_open([100, 15, ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
 echo alert('Warning', 'warning');
 echo grid_close();
-echo grid_open([100, 15, ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
 echo alert('Error', 'error');
 echo grid_close();
-echo grid_open([100, 15, ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
 echo alert('Info', 'info', ['dismiss' => true,]);
 echo grid_close().row_close();
 
@@ -75,13 +75,13 @@ echo button_group($btns);
 echo button_group($btns, ['size' => 'lg',]);
 
 echo '<h2 class="h2" id="card">Card</h2>';
-echo row_open().grid_open([100, 33]);
+echo row_open().grid_open([100, '1/3']);
 echo card([
     'header' => 'Header',
     'body'   => 'Body',
     'footer' => 'Footer',
 ]);
-echo grid_close().grid_open([100, 33]);
+echo grid_close().grid_open([100, '1/3']);
 echo card([
     'body' => '
     <h3>Title</h3>
@@ -89,7 +89,7 @@ echo card([
     <p>Text</p>
     ',
 ]);
-echo grid_close().grid_open([100, 33]);
+echo grid_close().grid_open([100, '1/3']);
 echo card([
     'top_img' => [
         'src' => 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22824%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20'.
@@ -146,19 +146,19 @@ echo dropdown('Dropdown button as link', [
 ])->attributes(['style' => 'display:inline-block;margin-right:10px;']);
 
 echo '<h2 class="h2" id="listgroup">ListGroup</h2>';
-echo row_open().grid_open([100, 33]);
+echo row_open().grid_open([100, '1/3']);
 echo list_group([
     'Item 1',
     'Item 2',
     'Item 3',
 ]);
-echo grid_close().grid_open([100, 33]);
+echo grid_close().grid_open([100, '1/3']);
 echo list_group([
     ['title' => 'Link1', 'link' => 'link1.php'],
     ['title' => 'Link2', 'link' => 'link2.php', 'active' => true],
     ['title' => 'Link3', 'link' => 'link3.php'],
 ]);
-echo grid_close().grid_open([100, 33]);
+echo grid_close().grid_open([100, '1/3']);
 echo list_group([
     'Item 1',
     'Item 2',

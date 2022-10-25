@@ -36,11 +36,13 @@ HTML output:
 </div>
 ```
 
-## Another possible value
+## Column sizes
 
-100% of width on mobile, 50% on larger screen.
 Depending on the framework, multiple values can be added.
 However, the recommended maximum is 4 values.
+
+In the example below, the output will be
+100% width on mobile, 50% on a larger screen.
 
 ```php
 echo grid_open([100, 50]);
@@ -85,5 +87,25 @@ HTML output:
 
 ```xhtml
 <div class="col">
+</div>
+```
+
+## Fractions
+
+A more convenient way is to use fractions instead of writing percentages directly.
+
+Note: Percentages and fractions can be used together.
+An under-the-hood system converts fractions to percentages.
+
+```php
+echo grid_open(['1/1', '1/2']); // is the same as [100, 50]
+// ...
+echo grid_close();
+```
+
+HTML output:
+
+```xhtml
+<div class="col-xs-12 col-sm-6">
 </div>
 ```
