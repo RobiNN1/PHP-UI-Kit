@@ -72,7 +72,7 @@ require_once __DIR__.'/components.php';
 
 $content = (string) ob_get_clean();
 
-$page = get_ui()->addPath(__DIR__.'/')->render('page', [
+$page = get_ui()->addPath(__DIR__.'/', 'examples')->render('@examples/page', [
     'sidebaritems' => [
         'form'       => [
             'Input',
