@@ -154,7 +154,9 @@ class Component {
             $this->options['attributes']['id'] = $this->options['id'];
         }
 
-        $array['attributes'] = $this->getAttributes($this->options['attributes']);
+        if (isset($this->options['attributes'])) {
+            $array['attributes'] = $this->getAttributes($this->options['attributes']);
+        }
 
         return $this->uikit->render($this->component, $array);
     }
