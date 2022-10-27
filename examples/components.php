@@ -19,19 +19,19 @@ echo accordion('example', [
 ]);
 
 echo '<h2 class="h2" id="alert">Alert</h2>';
-echo row_open().grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo row_open().grid_open(['auto', 100, '1/6']);
 echo alert('Default');
 echo grid_close();
-echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open(['auto', 100, '1/6']);
 echo alert('Success', 'success');
 echo grid_close();
-echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open(['auto', 100, '1/6']);
 echo alert('Warning', 'warning');
 echo grid_close();
-echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open(['auto', 100, '1/6']);
 echo alert('Error', 'error');
 echo grid_close();
-echo grid_open([100, '1/6', ['bootstrap4' => 'auto', 'bootstrap5' => 'auto']]);
+echo grid_open(['auto', 100, '1/6']);
 echo alert('Info', 'info', ['dismiss' => true,]);
 echo grid_close().row_close();
 

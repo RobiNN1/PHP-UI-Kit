@@ -29,12 +29,12 @@ return [
         $columns = [];
 
         foreach ($col_sizes as $index => $value) {
-            if ($value === 'auto') {
-                return 'col';
+            if (is_array($value) && isset($value['bootstrap4'])) {
+                return $value['bootstrap4'];
             }
 
-            if (is_array($value) && isset($value['bootstrap4'])) {
-                return $value['bootstrap4'] === 'auto' ? 'col' : $value['bootstrap4'];
+            if ($value === 'auto') {
+                return 'col';
             }
 
             if (!is_array($value) && isset($sizes[$index])) {

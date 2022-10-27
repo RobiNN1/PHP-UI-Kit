@@ -25,5 +25,6 @@ final class GridBootstrap3Test extends GridTest {
         $this->fw_option_tpl = ['bootstrap3' => 'col-xs-9'];
         $this->expected_fw_tpl = '<div class="col-xs-9">';
         $this->expected_auto_tpl = '<div class="">';
+        $this->expected_auto_multiple_tpl = '<div class="col-xs-12 col-sm-6">';
     }
 }

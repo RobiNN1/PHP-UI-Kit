@@ -73,9 +73,11 @@ HTML output:
 </div>
 ```
 
-The same column width.
-Not recommended for layouts that must support multiple css frameworks.
-Since not every framework supports this.
+#### The same column width
+
+Not recommended for layouts that must support multiple css frameworks. Since not every framework supports this.
+
+However, in case the css framework does not support it, fallback values can be set `['auto', 100, '1/2']`.
 
 ```php
 echo grid_open(['auto']);
@@ -90,7 +92,7 @@ HTML output:
 </div>
 ```
 
-## Fractions
+#### Fractions
 
 A more convenient way is to use fractions instead of writing percentages directly.
 

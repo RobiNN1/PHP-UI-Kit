@@ -25,5 +25,6 @@ final class GridBootstrap5Test extends GridTest {
         $this->fw_option_tpl = ['bootstrap5' => 'col-6'];
         $this->expected_fw_tpl = '<div class="col-6">';
         $this->expected_auto_tpl = '<div class="col">';
+        $this->expected_auto_multiple_tpl = '<div class="col">';
     }
 }

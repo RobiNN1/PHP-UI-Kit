@@ -28,13 +28,14 @@ return [
         $sizes = ['', 'tablet', 'computer', 'large screen'];
         $columns = [];
 
-        foreach ($col_sizes as $index => $value) {
-            if ($value === 'auto') {
-                return '';
-            }
+        if (($key = array_search('auto', $col_sizes, true)) !== false) {
+            unset($col_sizes[$key]);
+            $col_sizes = array_values($col_sizes);
+        }
 
+        foreach ($col_sizes as $index => $value) {
             if (is_array($value) && isset($value['fomanticui2'])) {
-                return $value['fomanticui2'] === 'auto' ? '' : $value['fomanticui2'];
+                return $value['fomanticui2'];
             }
 
             if (!is_array($value) && isset($sizes[$index]) && $sizes[$index] !== '') {

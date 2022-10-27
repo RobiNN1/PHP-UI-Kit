@@ -20,6 +20,7 @@ abstract class GridTest extends ComponentTestCase {
     protected string $expected_100_50_tpl;
     protected string $expected_fw_tpl;
     protected string $expected_auto_tpl;
+    protected string $expected_auto_multiple_tpl;
 
     /**
      * @var array<string, string>
@@ -47,6 +48,9 @@ abstract class GridTest extends ComponentTestCase {
 
         $tpl_auto = $this->uikit->grid_open(['auto']);
         $this->assertComponentRender($this->expected_auto_tpl, $tpl_auto->__toString());
+
+        $tpl_auto_multiple = $this->uikit->grid_open(['auto', 100, '1/2']);
+        $this->assertComponentRender($this->expected_auto_multiple_tpl, $tpl_auto_multiple->__toString());
     }
 
     public function testGridFractions(): void {

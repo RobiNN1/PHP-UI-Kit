@@ -28,13 +28,14 @@ return [
         $sizes = ['xs', 'sm', 'md', 'lg'];
         $columns = [];
 
-        foreach ($col_sizes as $index => $value) {
-            if ($value === 'auto') {
-                return '';
-            }
+        if (($key = array_search('auto', $col_sizes, true)) !== false) {
+            unset($col_sizes[$key]);
+            $col_sizes = array_values($col_sizes);
+        }
 
+        foreach ($col_sizes as $index => $value) {
             if (is_array($value) && isset($value['bootstrap3'])) {
-                return $value['bootstrap3'] === 'auto' ? '' : $value['bootstrap3'];
+                return $value['bootstrap3'];
             }
 
             if (!is_array($value) && isset($sizes[$index])) {
