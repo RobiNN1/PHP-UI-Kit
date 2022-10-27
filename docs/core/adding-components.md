@@ -4,19 +4,41 @@ Guide on how to add custom components.
 
 ---
 
-## Create class
+Each component must extend the `Component` class.
+
+## Example 1
+
+A simple component that directly prints content.
 
 ```php
 use RobiNN\UiKit\Components\Component;
 
-final class ExampleComponent extends Component {
+class ExampleComponent extends Component {
     public function render(): string {
         return '...';
     }
 }
 ```
 
-> Each component must extend the `Component` class and must have `render()` method.
+## Example 2
+
+Component with a template.
+
+```php
+use RobiNN\UiKit\Components\Component;
+
+class ExampleComponent extends Component {
+    protected string $component = '@namespace/example_component';
+
+    public function render(string $param): Component {
+        $this->uikit->addPath(__DIR__.'/path/to/tpls', 'namespace');
+
+        return $this->setTplData([
+            'param' => $param,
+        ]);
+    }
+}
+```
 
 ## Adding component to UI Kit
 
@@ -30,7 +52,7 @@ $uikit->addComponent('example_component', ExampleComponent::class);
 
 ```php
 if (!function_exists('example_component')) {
-    function example_component(): string {
+    function example_component() {
         return get_ui()->example_component();
     }
 }
