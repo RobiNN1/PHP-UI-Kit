@@ -13,25 +13,26 @@ declare(strict_types=1);
 namespace RobiNN\UiKit\Components{{namespace}}
 
 class {{class_name}} extends Component {
-    /**
-     * @var string
-     */
     protected string $component = '{{name}}';
+
+    /**
+     * @var array<string, mixed>
+     */
+    protected array $options = [
+        'class'      => '', // Class for wrapper.
+        'attributes' => [], // Array of custom attributes.
+    ];
 
     /**
      * Render {{title}}.
      *
-     * @param array $options Additional options.
+     * @param array<string, mixed> $options Additional options.
      *
-     * @return string
+     * @return Component
      */
-    public function render(array $options = []): string {
-        $this->options = array_merge([
-            'id'         => '', // Wrapper ID.
-            'class'      => '', // Class for wrapper.
-            'attributes' => [], // Array of custom attributes.
-        ], $options);
+    public function render(array $options = []): Component {
+        $this->options($options);
 
-        return $this->tpl();
+        $this->setTplData([]);
     }
 }
