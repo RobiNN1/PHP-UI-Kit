@@ -20,40 +20,38 @@ class Components {
     /**
      * @var array<string, string>
      */
-    private array $components;
+    private array $components = [
+        // Layout
+        'layout'       => Components\Layout\Layout::class,
+        'container'    => Components\Layout\Container::class,
+        'row'          => Components\Layout\Row::class,
+        'grid'         => Components\Layout\Grid::class,
+        // Form
+        'form'         => Components\Form\Form::class,
+        'input'        => Components\Form\Input::class,
+        'select'       => Components\Form\Select::class,
+        'checkbox'     => Components\Form\Checkbox::class,
+        'textarea'     => Components\Form\Textarea::class,
+        // Components
+        'accordion'    => Components\Accordion::class,
+        'alert'        => Components\Alert::class,
+        'badge'        => Components\Badge::class,
+        'breadcrumbs'  => Components\Breadcrumbs::class,
+        'button'       => Components\Button::class,
+        'button_group' => Components\ButtonGroup::class,
+        'card'         => Components\Card::class,
+        'carousel'     => Components\Carousel::class,
+        'dropdown'     => Components\Dropdown::class,
+        'list_group'   => Components\ListGroup::class,
+        'menu'         => Components\Menu::class,
+        'modal'        => Components\Modal::class,
+        'pagination'   => Components\Pagination::class,
+        'progress'     => Components\Progress::class,
+        'tabs'         => Components\Tabs::class,
+    ];
 
     public function __construct(UiKit $uikit) {
         $this->uikit = $uikit;
-
-        $this->components = [
-            // Layout
-            'layout'       => Components\Layout\Layout::class,
-            'container'    => Components\Layout\Container::class,
-            'row'          => Components\Layout\Row::class,
-            'grid'         => Components\Layout\Grid::class,
-            // Form
-            'form'         => Components\Form\Form::class,
-            'input'        => Components\Form\Input::class,
-            'select'       => Components\Form\Select::class,
-            'checkbox'     => Components\Form\Checkbox::class,
-            'textarea'     => Components\Form\Textarea::class,
-            // Components
-            'accordion'    => Components\Accordion::class,
-            'alert'        => Components\Alert::class,
-            'badge'        => Components\Badge::class,
-            'breadcrumbs'  => Components\Breadcrumbs::class,
-            'button'       => Components\Button::class,
-            'button_group' => Components\ButtonGroup::class,
-            'card'         => Components\Card::class,
-            'carousel'     => Components\Carousel::class,
-            'dropdown'     => Components\Dropdown::class,
-            'list_group'   => Components\ListGroup::class,
-            'menu'         => Components\Menu::class,
-            'modal'        => Components\Modal::class,
-            'pagination'   => Components\Pagination::class,
-            'progress'     => Components\Progress::class,
-            'tabs'         => Components\Tabs::class,
-        ];
     }
 
     /**
@@ -82,10 +80,6 @@ class Components {
 
     /**
      * Get component's object.
-     *
-     * @param string $name
-     *
-     * @return ?string
      */
     public function getComponent(string $name): ?string {
         $all_components = $this->allComponents();
@@ -95,11 +89,6 @@ class Components {
 
     /**
      * Register new component.
-     *
-     * @param string $name
-     * @param string $class
-     *
-     * @return void
      */
     public function addComponent(string $name, string $class): void {
         $this->components[$name] = $class;
@@ -107,10 +96,6 @@ class Components {
 
     /**
      * Add a suggestions if the component name is misspelled or does not exist.
-     *
-     * @param string $component_name
-     *
-     * @return string
      *
      * @internal
      */
@@ -136,7 +121,6 @@ class Components {
     /**
      * Create dynamic methods.
      *
-     * @param string            $name
      * @param array<int, mixed> $arguments
      *
      * @return Component|string
@@ -158,9 +142,7 @@ class Components {
                 $name = 'render';
             }
 
-            return call_user_func_array(static function (...$parameters) use ($class, $name) {
-                return $class->$name(...$parameters);
-            }, $arguments);
+            return call_user_func_array(static fn (...$parameters) => $class->$name(...$parameters), $arguments);
         }
 
         return sprintf('Unknown "%s" function. ', $name).$this->addSuggestions($name);

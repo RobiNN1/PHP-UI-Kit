@@ -31,8 +31,6 @@ class Badge extends Component {
      * @param string               $text    Badge text.
      * @param string               $color   Badge color. Possible value: default|primary|success|warning|error|info
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $text, string $color = 'default', array $options = []): Component {
         $this->options($options);

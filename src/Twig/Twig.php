@@ -26,11 +26,7 @@ class Twig {
     /**
      * Init TPL engine.
      *
-     * @param UiKit                 $uikit
-     * @param Config                $config
      * @param array<string, string> $paths
-     *
-     * @return Environment
      */
     public function init(UiKit $uikit, Config $config, array $paths = []): Environment {
         $loader = new FilesystemLoader($config->getFrameworkPath($config->getFramework()).'/templates/twig');
@@ -63,11 +59,7 @@ class Twig {
     /**
      * Render template.
      *
-     * @param string               $tpl
      * @param array<string, mixed> $data
-     * @param bool                 $string
-     *
-     * @return string
      */
     public function render(string $tpl, array $data = [], bool $string = false): string {
         try {

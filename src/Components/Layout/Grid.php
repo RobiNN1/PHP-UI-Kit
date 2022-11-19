@@ -32,8 +32,6 @@ class Grid extends Component {
      *
      * @param array<int, mixed>    $col_sizes Column sizes.
      * @param array<string, mixed> $options   Additional options.
-     *
-     * @return Component
      */
     public function render(array $col_sizes = [100], array $options = []): Component {
         $this->options($options);
@@ -50,8 +48,6 @@ class Grid extends Component {
      *
      * @param array<int, mixed>    $col_sizes Column sizes.
      * @param array<string, mixed> $options   Additional options.
-     *
-     * @return Component
      */
     public function open(array $col_sizes = [100], array $options = []): Component {
         return $this->render($col_sizes, array_merge(['open' => true], $options));
@@ -59,8 +55,6 @@ class Grid extends Component {
 
     /**
      * Render closing tag of the grid.
-     *
-     * @return string
      */
     public function close(): string {
         return $this->render()->options(['close' => true])->__toString();

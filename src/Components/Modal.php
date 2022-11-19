@@ -34,8 +34,6 @@ class Modal extends Component {
      * @param string                $id      The ID of Modal.
      * @param array<string, string> $content Associative array.
      * @param array<string, mixed>  $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $id, array $content, array $options = []): Component {
         $this->options($options);

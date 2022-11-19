@@ -32,8 +32,6 @@ class Container extends Component {
      *
      * @param bool                 $fluid   Container without maximum width.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(bool $fluid = false, array $options = []): Component {
         $this->options($options);
@@ -48,8 +46,6 @@ class Container extends Component {
      *
      * @param bool                 $fluid   Container without maximum width.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function open(bool $fluid = false, array $options = []): Component {
         return $this->render($fluid, array_merge(['open' => true], $options));
@@ -57,8 +53,6 @@ class Container extends Component {
 
     /**
      * Render closing tag of the container.
-     *
-     * @return string
      */
     public function close(): string {
         return $this->render()->options(['close' => true])->__toString();

@@ -36,9 +36,7 @@ class TwigUiKitExtension extends AbstractExtension {
 
         foreach ($this->uikit->allComponents() as $name => $class) {
             if (is_callable([$this->uikit, $name])) {
-                $functions[] = new TwigFunction($name, function (...$arguments) use ($name) {
-                    return $this->uikit->$name(...$arguments);
-                }, $is_safe);
+                $functions[] = new TwigFunction($name, fn (...$arguments) => $this->uikit->$name(...$arguments), $is_safe);
             }
         }
 

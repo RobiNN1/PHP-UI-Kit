@@ -31,8 +31,6 @@ class Accordion extends Component {
      * @param string                $id      Accordion ID.
      * @param array<string, string> $items   Associative array.
      * @param array<string, mixed>  $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $id, array $items, array $options = []): Component {
         $this->options($options);

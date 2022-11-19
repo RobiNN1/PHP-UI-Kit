@@ -30,8 +30,6 @@ class ListGroup extends Component {
      *
      * @param array<int, string>   $items   Array of items or multidimensional array.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(array $items, array $options = []): Component {
         $this->options($options);

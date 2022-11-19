@@ -42,8 +42,6 @@ class Checkbox extends Component {
      * @param string               $label   Checkbox label.
      * @param int|string           $value   Checkbox value.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $name, string $label = '', $value = 0, array $options = []): Component {
         $this->options($options);

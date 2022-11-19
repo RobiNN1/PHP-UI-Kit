@@ -41,9 +41,6 @@ class AddTo {
 
     /**
      * Append content to head.
-     *
-     * @param string $tag
-     * @param string $order
      */
     public static function head(string $tag, string $order = 'after'): void {
         $order = in_array($order, ['before', 'after', 'end'], true) ? $order : 'after';
@@ -55,9 +52,6 @@ class AddTo {
 
     /**
      * Append content to footer.
-     *
-     * @param string $tag
-     * @param string $order
      */
     public static function footer(string $tag, string $order = 'after'): void {
         $order = in_array($order, ['before', 'after', 'end'], true) ? $order : 'after';
@@ -69,8 +63,6 @@ class AddTo {
 
     /**
      * Add JS codes to the output.
-     *
-     * @param string $code
      */
     public static function js(string $code): void {
         if (stripos(self::$js, $code) === false) {
@@ -80,8 +72,6 @@ class AddTo {
 
     /**
      * Add CSS codes to the output.
-     *
-     * @param string $code
      */
     public static function css(string $code): void {
         if (stripos(self::$css, $code) === false) {
@@ -91,8 +81,6 @@ class AddTo {
 
     /**
      * Get all head tags.
-     *
-     * @return string
      */
     public static function getHeadTags(): string {
         if (self::$tests) {
@@ -104,8 +92,6 @@ class AddTo {
 
     /**
      * Get all footer tags.
-     *
-     * @return string
      */
     public static function getFooterTags(): string {
         if (self::$tests) {

@@ -35,8 +35,6 @@ class Card extends Component {
      * Render card.
      *
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(array $options = []): Component {
         $this->options($options);

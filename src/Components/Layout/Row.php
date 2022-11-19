@@ -31,8 +31,6 @@ class Row extends Component {
      * Render row.
      *
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(array $options = []): Component {
         $this->options($options);
@@ -44,8 +42,6 @@ class Row extends Component {
      * Render opening tag of the row.
      *
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function open(array $options = []): Component {
         return $this->render(array_merge(['open' => true], $options));
@@ -53,8 +49,6 @@ class Row extends Component {
 
     /**
      * Render closing tag of the row.
-     *
-     * @return string
      */
     public function close(): string {
         return $this->render()->options(['close' => true])->__toString();

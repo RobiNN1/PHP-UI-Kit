@@ -87,8 +87,6 @@ class UiKit extends Components {
      * Get instance.
      *
      * @param array<string, mixed>|Config $config
-     *
-     * @return UiKit
      */
     public static function getInstance($config = []): UiKit {
         if (self::$instance === null) {
@@ -101,8 +99,6 @@ class UiKit extends Components {
 
     /**
      * Get CSS framework option using "dot" notation.
-     *
-     * @param string $key
      *
      * @return mixed
      */
@@ -122,8 +118,6 @@ class UiKit extends Components {
      * Set something only for a scpefied framework(s).
      *
      * @param string|array<int, string>|null $framework
-     *
-     * @return bool
      */
     public function checkFramework($framework = null): bool {
         if ($framework === null) {
@@ -142,11 +136,8 @@ class UiKit extends Components {
     /**
      * Set CSS framework options using "dot" notation.
      *
-     * @param string                         $option
      * @param mixed                          $value
      * @param string|array<int, string>|null $framework
-     *
-     * @return UiKit
      */
     public function setFrameworkOption(string $option, $value, $framework = null): UiKit {
         if ($this->checkFramework($framework)) {
@@ -159,11 +150,7 @@ class UiKit extends Components {
     /**
      * Render template.
      *
-     * @param string               $tpl
      * @param array<string, mixed> $data
-     * @param bool                 $string
-     *
-     * @return string
      */
     public function render(string $tpl, array $data = [], bool $string = false): string {
         $this->twig->init($this, $this->config, $this->tpl_paths);
@@ -176,11 +163,6 @@ class UiKit extends Components {
      * Add a tpl path with namespace.
      *
      * https://twig.symfony.com/doc/3.x/api.html#built-in-loaders
-     *
-     * @param string $path
-     * @param string $namespace
-     *
-     * @return UiKit
      */
     public function addPath(string $path, string $namespace = '__main__'): UiKit {
         $this->tpl_paths[$namespace] = $path;

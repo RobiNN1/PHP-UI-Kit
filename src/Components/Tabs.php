@@ -31,8 +31,6 @@ class Tabs extends Component {
      * @param string               $id      The ID of Tabs.
      * @param array<int, mixed>    $items   Multidimensional array.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $id, array $items, array $options = []): Component {
         $this->options($options);

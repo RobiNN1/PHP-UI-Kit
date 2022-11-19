@@ -45,8 +45,6 @@ class Select extends Component {
      * @param int|string                    $value   Select value.
      * @param array<string|int, string|int> $items   Select options - array or associative array.
      * @param array<string, mixed>          $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $name, string $label = '', $value = '', array $items = [], array $options = []): Component {
         $this->options($options);

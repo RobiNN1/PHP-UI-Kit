@@ -34,8 +34,6 @@ class ButtonGroup extends Component {
      *
      * @param array<int|string, mixed> $items   Associative array or multidimensional array.
      * @param array<string, mixed>     $options Additional options.
-     *
-     * @return Component
      */
     public function render(array $items, array $options = []): Component {
         $this->options($options);

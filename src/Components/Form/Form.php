@@ -36,8 +36,6 @@ class Form extends Component {
      * @param string               $method  Form method. Possible value: get|post
      * @param string               $action  Form action.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $method = 'post', string $action = '', array $options = []): Component {
         $this->options($options);
@@ -69,8 +67,6 @@ class Form extends Component {
      * @param string               $method  Form method. Possible value: get|post
      * @param string               $action  Form action.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function open(string $method = 'post', string $action = '', array $options = []): Component {
         return $this->render($method, $action, array_merge(['open' => true], $options));
@@ -78,8 +74,6 @@ class Form extends Component {
 
     /**
      * Render closing tag of the form.
-     *
-     * @return string
      */
     public function close(): string {
         return $this->render()->options(['close' => true])->__toString();

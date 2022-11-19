@@ -31,8 +31,6 @@ class Alert extends Component {
      * @param string               $text    Alert text.
      * @param string               $color   Alert color. Possible value: default|success|warning|error|info
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $text, string $color = 'default', array $options = []): Component {
         $this->options($options);

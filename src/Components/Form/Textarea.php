@@ -44,8 +44,6 @@ class Textarea extends Component {
      * @param string               $label   Textarea label.
      * @param int|string           $value   Textarea value.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $name, string $label = '', $value = '', array $options = []): Component {
         $this->options($options);

@@ -49,8 +49,6 @@ class Input extends Component {
      * @param string               $label   Input label.
      * @param int|string           $value   Input value.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $name, string $label = '', $value = '', array $options = []): Component {
         $this->options($options);

@@ -73,8 +73,6 @@ class Config {
 
     /**
      * Get debug option.
-     *
-     * @return bool
      */
     public function getDebug(): bool {
         return $this->debug;
@@ -82,8 +80,6 @@ class Config {
 
     /**
      * Enable TPL debugging.
-     *
-     * @return void
      */
     public function enableDebug(): void {
         $this->debug = true;
@@ -91,8 +87,6 @@ class Config {
 
     /**
      * Get the currently loaded framework.
-     *
-     * @return string
      */
     public function getFramework(): string {
         return $this->framework;
@@ -120,8 +114,6 @@ class Config {
      * Get a path of the currently loaded framework.
      *
      * @param string $framework Framework name.
-     *
-     * @return string
      */
     public function getFrameworkPath(string $framework): string {
         return $this->framework_paths[$framework];
@@ -132,8 +124,6 @@ class Config {
      *
      * @param string $framework Framework name.
      * @param string $path      Absolute path to the famework.
-     *
-     * @return void
      */
     public function setFrameworkPath(string $framework, string $path): void {
         $this->framework_paths[$framework] = $path;

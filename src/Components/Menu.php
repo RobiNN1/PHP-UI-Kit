@@ -32,8 +32,6 @@ class Menu extends Component {
      * @param string                   $id      The ID of Menu.
      * @param array<int|string, mixed> $items   Multidimensional array.
      * @param array<string, mixed>     $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $id, array $items, array $options = []): Component {
         $this->options($options);
@@ -53,10 +51,6 @@ class Menu extends Component {
 
     /**
      * @param array<int|string, mixed> $items
-     * @param bool                     $dark
-     * @param string                   $item_class
-     *
-     * @return string
      */
     private function dropdown(array $items, bool $dark, string $item_class): string {
         $title = $items['title'];
@@ -75,9 +69,6 @@ class Menu extends Component {
 
     /**
      * @param array<int|string, mixed> $items
-     * @param string                   $id
-     * @param bool                     $dark
-     * @param string                   $item_class
      *
      * @return array<int|string, mixed>
      */

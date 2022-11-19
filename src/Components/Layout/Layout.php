@@ -33,8 +33,6 @@ class Layout extends Component {
      *
      * @param string               $body    Site content.
      * @param array<string, mixed> $options Additional options.
-     *
-     * @return Component
      */
     public function render(string $body, array $options = []): Component {
         $this->options($options);

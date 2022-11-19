@@ -19,7 +19,6 @@ class Misc {
      * Get an item from an array using "dot" notation.
      *
      * @param array<int|string, mixed> $array
-     * @param string                   $key
      *
      * @return mixed
      */
@@ -43,7 +42,6 @@ class Misc {
      * Set an array item to a given value using "dot" notation.
      *
      * @param array<int|string, mixed> $array
-     * @param string                   $array_key
      * @param mixed                    $value
      *
      * @return array<int|string, mixed>
@@ -72,11 +70,6 @@ class Misc {
 
     /**
      * Add space to the left or the right side.
-     *
-     * @param ?string $value
-     * @param bool    $right
-     *
-     * @return string
      */
     public static function space(?string $value, bool $right = false): string {
         $right_side = $right ? $value.' ' : ' '.$value;
@@ -88,9 +81,6 @@ class Misc {
      * Check if method exists and is public.
      *
      * @param object|string $class
-     * @param string        $method
-     *
-     * @return bool
      */
     public static function isPublic($class, string $method): bool {
         return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();

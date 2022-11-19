@@ -30,11 +30,6 @@ class Component {
      */
     protected array $tpl_data = [];
 
-    /**
-     * Get component name.
-     *
-     * @return string
-     */
     protected function getComponentName(): string {
         $component_path = explode('/', $this->component);
 
@@ -45,8 +40,6 @@ class Component {
      * Create string from the given array of attributes.
      *
      * @param array<string, mixed> $attributes
-     *
-     * @return string
      */
     protected function getAttributes(array $attributes): string {
         $array = [];
@@ -61,9 +54,7 @@ class Component {
     /**
      * Get correct value from framework options.
      *
-     * @param string  $option
-     * @param mixed   $value
-     * @param ?string $component
+     * @param mixed $value
      *
      * @return mixed
      */
@@ -79,8 +70,6 @@ class Component {
      *
      * @param array<string, mixed>           $attributes
      * @param string|array<int, string>|null $framework
-     *
-     * @return Component
      */
     public function attributes(array $attributes = [], $framework = null): Component {
         if ($this->uikit->checkFramework($framework)) {
@@ -95,8 +84,6 @@ class Component {
      *
      * @param array<string, mixed>           $options
      * @param string|array<int, string>|null $framework
-     *
-     * @return Component
      */
     public function options(array $options = [], $framework = null): Component {
         if ($this->uikit->checkFramework($framework)) {
@@ -106,11 +93,6 @@ class Component {
         return $this;
     }
 
-    /**
-     * Load component assets.
-     *
-     * @return void
-     */
     protected function loadComponentAssets(): void {
         $component_files = $this->uikit->getFrameworkOption($this->getComponentName().'.files');
 
@@ -131,8 +113,6 @@ class Component {
      * Set template data.
      *
      * @param array<string, mixed> $data
-     *
-     * @return Component
      */
     protected function setTplData(array $data = []): Component {
         $this->tpl_data = $data;
@@ -140,11 +120,6 @@ class Component {
         return $this;
     }
 
-    /**
-     * Render component.
-     *
-     * @return string
-     */
     public function __toString(): string {
         $this->loadComponentAssets();
 
