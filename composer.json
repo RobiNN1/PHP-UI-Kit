@@ -23,7 +23,7 @@
     "source": "https://github.com/RobiNN1/PHP-UI-Kit"
   },
   "require": {
-    "php": ">=7.4",
+    "php": ">=8.1",
     "twig/twig": "^3.4"
   },
   "require-dev": {

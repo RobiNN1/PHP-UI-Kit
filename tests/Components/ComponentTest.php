@@ -12,16 +12,26 @@ declare(strict_types=1);
 
 namespace Tests\Components;
 
+use PHPUnit\Framework\TestCase;
 use ReflectionException;
+use ReflectionMethod;
 use RobiNN\UiKit\Components\Component;
 use RobiNN\UiKit\UiKit;
-use Tests\TestCase;
 
 final class ComponentTest extends TestCase {
     private Component $component;
 
     protected function setUp(): void {
         $this->component = new Component();
+    }
+
+    /**
+     * Call private method.
+     *
+     * @throws ReflectionException
+     */
+    protected static function callMethod(object $object, string $name, mixed ...$args): mixed {
+        return (new ReflectionMethod($object, $name))->invokeArgs($object, $args);
     }
 
     /**

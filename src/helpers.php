@@ -116,7 +116,7 @@ if (!function_exists('input')) {
      * @param int|string           $value   Input value.
      * @param array<string, mixed> $options Additional options.
      */
-    function input(string $name, string $label = '', $value = '', array $options = []): RobiNN\UiKit\Components\Form\Input {
+    function input(string $name, string $label = '', int|string $value = '', array $options = []): RobiNN\UiKit\Components\Form\Input {
         return get_ui()->input($name, $label, $value, $options);
     }
 }
@@ -131,7 +131,7 @@ if (!function_exists('select')) {
      * @param array<string|int, string|int> $items   Select options - array or associative array.
      * @param array<string, mixed>          $options Additional options.
      */
-    function select(string $name, string $label = '', $value = '', array $items = [], array $options = []): RobiNN\UiKit\Components\Form\Select {
+    function select(string $name, string $label = '', int|string $value = '', array $items = [], array $options = []): RobiNN\UiKit\Components\Form\Select {
         return get_ui()->select($name, $label, $value, $items, $options);
     }
 }
@@ -145,7 +145,7 @@ if (!function_exists('checkbox')) {
      * @param int|string           $value   Checkbox value.
      * @param array<string, mixed> $options Additional options.
      */
-    function checkbox(string $name, string $label = '', $value = 0, array $options = []): RobiNN\UiKit\Components\Form\Checkbox {
+    function checkbox(string $name, string $label = '', int|string $value = 0, array $options = []): RobiNN\UiKit\Components\Form\Checkbox {
         return get_ui()->checkbox($name, $label, $value, $options);
     }
 }
@@ -159,7 +159,7 @@ if (!function_exists('textarea')) {
      * @param int|string           $value   Textarea value.
      * @param array<string, mixed> $options Additional options.
      */
-    function textarea(string $name, string $label = '', $value = '', array $options = []): RobiNN\UiKit\Components\Form\Textarea {
+    function textarea(string $name, string $label = '', int|string $value = '', array $options = []): RobiNN\UiKit\Components\Form\Textarea {
         return get_ui()->textarea($name, $label, $value, $options);
     }
 }
@@ -331,10 +331,10 @@ if (!function_exists('progress')) {
     /**
      * Render progress.
      *
-     * @param array<int, mixed>|int $percent Percents, an array or asociative array for multiple bars.
+     * @param int|array<int, mixed> $percent Percents, an array or asociative array for multiple bars.
      * @param array<string, mixed>  $options Additional options.
      */
-    function progress($percent, array $options = []): RobiNN\UiKit\Components\Progress {
+    function progress(int|array $percent, array $options = []): RobiNN\UiKit\Components\Progress {
         return get_ui()->progress($percent, $options);
     }
 }
@@ -349,27 +349,5 @@ if (!function_exists('tabs')) {
      */
     function tabs(string $id, array $items, array $options = []): RobiNN\UiKit\Components\Tabs {
         return get_ui()->tabs($id, $items, $options);
-    }
-}
-
-if (!function_exists('str_contains')) {
-    function str_contains(string $haystack, string $needle): bool {
-        return '' === $needle || false !== strpos($haystack, $needle);
-    }
-}
-
-if (!function_exists('str_ends_with')) {
-    function str_ends_with(string $haystack, string $needle): bool {
-        if ('' === $needle || $needle === $haystack) {
-            return true;
-        }
-
-        if ('' === $haystack) {
-            return false;
-        }
-
-        $needleLength = strlen($needle);
-
-        return $needleLength <= strlen($haystack) && 0 === substr_compare($haystack, $needle, -$needleLength);
     }
 }

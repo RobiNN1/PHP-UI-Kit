@@ -53,12 +53,8 @@ class Component {
 
     /**
      * Get correct value from framework options.
-     *
-     * @param mixed $value
-     *
-     * @return mixed
      */
-    protected function getOption(string $option, $value, string $component = null) {
+    protected function getOption(string $option, mixed $value, string $component = null): mixed {
         $opts = $this->uikit->getFrameworkOption($component ?? $this->getComponentName());
         $default = $opts[$option]['default'] ?? '';
 
@@ -69,9 +65,9 @@ class Component {
      * Set component attributes.
      *
      * @param array<string, mixed>           $attributes
-     * @param string|array<int, string>|null $framework
+     * @param array<int, string>|string|null $framework
      */
-    public function attributes(array $attributes = [], $framework = null): Component {
+    public function attributes(array $attributes = [], array|string $framework = null): Component {
         if ($this->uikit->checkFramework($framework)) {
             $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
         }
@@ -83,9 +79,9 @@ class Component {
      * Set component options.
      *
      * @param array<string, mixed>           $options
-     * @param string|array<int, string>|null $framework
+     * @param array<int, string>|string|null $framework
      */
-    public function options(array $options = [], $framework = null): Component {
+    public function options(array $options = [], array|string $framework = null): Component {
         if ($this->uikit->checkFramework($framework)) {
             $this->options = array_merge($this->options, $options);
         }

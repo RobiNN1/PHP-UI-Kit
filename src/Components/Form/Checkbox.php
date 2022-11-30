@@ -43,7 +43,7 @@ class Checkbox extends Component {
      * @param int|string           $value   Checkbox value.
      * @param array<string, mixed> $options Additional options.
      */
-    public function render(string $name, string $label = '', $value = 0, array $options = []): Component {
+    public function render(string $name, string $label = '', int|string $value = 0, array $options = []): Component {
         $this->options($options);
 
         $this->options['checkbox_id'] = $this->options['checkbox_id'] !== '' ? $this->options['checkbox_id'] : $name;

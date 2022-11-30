@@ -19,10 +19,8 @@ class Misc {
      * Get an item from an array using "dot" notation.
      *
      * @param array<int|string, mixed> $array
-     *
-     * @return mixed
      */
-    public static function arrayGet(array $array, string $key) {
+    public static function arrayGet(array $array, string $key): mixed {
         if (array_key_exists($key, $array)) {
             return $array[$key];
         }
@@ -42,11 +40,10 @@ class Misc {
      * Set an array item to a given value using "dot" notation.
      *
      * @param array<int|string, mixed> $array
-     * @param mixed                    $value
      *
      * @return array<int|string, mixed>
      */
-    public static function arraySet(array &$array, string $array_key, $value): array {
+    public static function arraySet(array &$array, string $array_key, mixed $value): array {
         $keys = explode('.', $array_key);
 
         foreach ($keys as $i => $key) {
@@ -79,21 +76,15 @@ class Misc {
 
     /**
      * Check if method exists and is public.
-     *
-     * @param object|string $class
      */
-    public static function isPublic($class, string $method): bool {
+    public static function isPublic(object|string $class, string $method): bool {
         return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();
     }
 
     /**
      * Convert fractions to percents.
-     *
-     * @param string|int $value
-     *
-     * @return float|int
      */
-    public static function convertFractions($value) {
+    public static function convertFractions(int|string $value): float|int {
         if (!is_string($value) && !str_contains((string) $value, '/')) {
             return $value;
         }

@@ -28,7 +28,7 @@ abstract class ComponentTestCase extends TestCase {
         try {
             $indenter = new Indenter();
             $actual_indented = $indenter->indent($actual);
-        } catch (RuntimeException $e) {
+        } catch (RuntimeException) {
             $actual_indented = $actual;
         }
 

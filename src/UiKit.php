@@ -86,9 +86,9 @@ class UiKit extends Components {
     /**
      * Get instance.
      *
-     * @param array<string, mixed>|Config $config
+     * @param Config|array<string, mixed> $config
      */
-    public static function getInstance($config = []): UiKit {
+    public static function getInstance(Config|array $config = []): UiKit {
         if (self::$instance === null) {
             self::$instance = new self();
             self::$instance->config = is_array($config) ? new Config($config) : $config;
@@ -99,10 +99,8 @@ class UiKit extends Components {
 
     /**
      * Get CSS framework option using "dot" notation.
-     *
-     * @return mixed
      */
-    public function getFrameworkOption(string $key) {
+    public function getFrameworkOption(string $key): mixed {
         $config = (array) require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
 
         if (count($this->fw_options)) {
@@ -117,9 +115,9 @@ class UiKit extends Components {
     /**
      * Set something only for a scpefied framework(s).
      *
-     * @param string|array<int, string>|null $framework
+     * @param array<int, string>|string|null $framework
      */
-    public function checkFramework($framework = null): bool {
+    public function checkFramework(array|string $framework = null): bool {
         if ($framework === null) {
             return true;
         }
@@ -136,10 +134,9 @@ class UiKit extends Components {
     /**
      * Set CSS framework options using "dot" notation.
      *
-     * @param mixed                          $value
-     * @param string|array<int, string>|null $framework
+     * @param array<int, string>|string|null $framework
      */
-    public function setFrameworkOption(string $option, $value, $framework = null): UiKit {
+    public function setFrameworkOption(string $option, mixed $value, array|string $framework = null): UiKit {
         if ($this->checkFramework($framework)) {
             $this->fw_options[$option] = $value;
         }

@@ -13,10 +13,7 @@ declare(strict_types=1);
 namespace RobiNN\UiKit;
 
 class Config {
-    /**
-     * @var mixed
-     */
-    private $cache;
+    private mixed $cache;
 
     private bool $debug;
 
@@ -55,10 +52,8 @@ class Config {
 
     /**
      * Get cache.
-     *
-     * @return mixed
      */
-    public function getCache() {
+    public function getCache(): mixed {
         return $this->cache;
     }
 
@@ -67,7 +62,7 @@ class Config {
      *
      * @param mixed $cache An absolute path, a \Twig\Cache\CacheInterface implementation, or false.
      */
-    public function setCache($cache): void {
+    public function setCache(mixed $cache): void {
         $this->cache = $cache;
     }
 

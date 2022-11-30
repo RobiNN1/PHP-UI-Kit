@@ -45,7 +45,7 @@ class Textarea extends Component {
      * @param int|string           $value   Textarea value.
      * @param array<string, mixed> $options Additional options.
      */
-    public function render(string $name, string $label = '', $value = '', array $options = []): Component {
+    public function render(string $name, string $label = '', int|string $value = '', array $options = []): Component {
         $this->options($options);
 
         $this->options['textarea_id'] = $this->options['textarea_id'] !== '' ? $this->options['textarea_id'] : $name;
