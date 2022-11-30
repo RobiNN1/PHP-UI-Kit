@@ -14,8 +14,9 @@ namespace RobiNN\UiKit\Components;
 
 use RobiNN\UiKit\AddTo;
 use RobiNN\UiKit\UiKit;
+use Stringable;
 
-class Component {
+class Component implements Stringable {
     public UiKit $uikit;
 
     protected string $component = '';
@@ -83,7 +84,7 @@ class Component {
      */
     public function options(array $options = [], array|string $framework = null): Component {
         if ($this->uikit->checkFramework($framework)) {
-            $this->options = array_merge($this->options, $options);
+            $this->options = [...$this->options, ...$options];
         }
 
         return $this;
@@ -119,7 +120,7 @@ class Component {
     public function __toString(): string {
         $this->loadComponentAssets();
 
-        $array = array_merge($this->options, $this->tpl_data);
+        $array = [...$this->options, ...$this->tpl_data];
 
         if (isset($this->options['id']) && $this->options['id'] !== '') {
             $this->options['attributes']['id'] = $this->options['id'];

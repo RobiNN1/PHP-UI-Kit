@@ -52,10 +52,7 @@ use RobiNN\UiKit\Twig\Twig;
  * @method Components\Tabs        tabs(string $id, array $items, array $options = [])
  */
 class UiKit extends Components {
-    /**
-     * @const string UI Kit version.
-     */
-    public const VERSION = '1.0.0';
+    final public const VERSION = '1.0.0';
 
     public Config $config;
 
@@ -69,7 +66,7 @@ class UiKit extends Components {
      */
     private array $tpl_paths = [];
 
-    private Twig $twig;
+    private readonly Twig $twig;
 
     private static ?UiKit $instance = null;
 

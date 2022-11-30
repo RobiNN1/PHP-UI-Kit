@@ -20,10 +20,7 @@ use Twig\TwigFilter;
 use Twig\TwigFunction;
 
 class TwigUiKitExtension extends AbstractExtension {
-    private UiKit $uikit;
-
-    public function __construct(UiKit $uikit) {
-        $this->uikit = $uikit;
+    public function __construct(private readonly UiKit $uikit) {
     }
 
     /**
@@ -40,10 +37,10 @@ class TwigUiKitExtension extends AbstractExtension {
             }
         }
 
-        $functions[] = new TwigFunction('add_to_head', [AddTo::class, 'head'], $is_safe);
-        $functions[] = new TwigFunction('add_to_footer', [AddTo::class, 'footer'], $is_safe);
-        $functions[] = new TwigFunction('add_to_js', [AddTo::class, 'js'], $is_safe);
-        $functions[] = new TwigFunction('add_to_css', [AddTo::class, 'css'], $is_safe);
+        $functions[] = new TwigFunction('add_to_head', AddTo::head(...), $is_safe);
+        $functions[] = new TwigFunction('add_to_footer', AddTo::footer(...), $is_safe);
+        $functions[] = new TwigFunction('add_to_js', AddTo::js(...), $is_safe);
+        $functions[] = new TwigFunction('add_to_css', AddTo::css(...), $is_safe);
 
         $tpl_func = (array) $this->uikit->getFrameworkOption('tpl_funcs');
 
@@ -63,7 +60,7 @@ class TwigUiKitExtension extends AbstractExtension {
      */
     public function getFilters(): array {
         return [
-            new TwigFilter('space', [Misc::class, 'space']),
+            new TwigFilter('space', Misc::space(...)),
         ];
     }
 }

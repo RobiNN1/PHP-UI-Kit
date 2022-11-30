@@ -15,8 +15,6 @@ namespace RobiNN\UiKit;
 use RobiNN\UiKit\Components\Component;
 
 class Components {
-    private UiKit $uikit;
-
     /**
      * @var array<string, string>
      */
@@ -50,8 +48,7 @@ class Components {
         'tabs'         => Components\Tabs::class,
     ];
 
-    public function __construct(UiKit $uikit) {
-        $this->uikit = $uikit;
+    public function __construct(private readonly UiKit $uikit) {
     }
 
     /**

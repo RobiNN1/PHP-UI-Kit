@@ -44,7 +44,7 @@ class Row extends Component {
      * @param array<string, mixed> $options Additional options.
      */
     public function open(array $options = []): Component {
-        return $this->render(array_merge(['open' => true], $options));
+        return $this->render([...['open' => true], ...$options]);
     }
 
     /**

@@ -69,7 +69,7 @@ class Form extends Component {
      * @param array<string, mixed> $options Additional options.
      */
     public function open(string $method = 'post', string $action = '', array $options = []): Component {
-        return $this->render($method, $action, array_merge(['open' => true], $options));
+        return $this->render($method, $action, [...['open' => true], ...$options]);
     }
 
     /**

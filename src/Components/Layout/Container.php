@@ -48,7 +48,7 @@ class Container extends Component {
      * @param array<string, mixed> $options Additional options.
      */
     public function open(bool $fluid = false, array $options = []): Component {
-        return $this->render($fluid, array_merge(['open' => true], $options));
+        return $this->render($fluid, [...['open' => true], ...$options]);
     }
 
     /**

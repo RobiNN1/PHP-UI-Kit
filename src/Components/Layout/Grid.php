@@ -50,7 +50,7 @@ class Grid extends Component {
      * @param array<string, mixed> $options   Additional options.
      */
     public function open(array $col_sizes = [100], array $options = []): Component {
-        return $this->render($col_sizes, array_merge(['open' => true], $options));
+        return $this->render($col_sizes, [...['open' => true], ...$options]);
     }
 
     /**
