@@ -72,8 +72,8 @@ if (!function_exists('grid_open') && !function_exists('grid_close')) {
     /**
      * Render opening tag of the grid.
      *
-     * @param array<int, mixed>    $col_sizes Column sizes.
-     * @param array<string, mixed> $options   Additional options.
+     * @param array<int, int|string> $col_sizes Column sizes.
+     * @param array<string, mixed>   $options   Additional options.
      */
     function grid_open(array $col_sizes = [100], array $options = []): RobiNN\UiKit\Components\Layout\Grid {
         return get_ui()->grid_open($col_sizes, $options);
@@ -207,8 +207,8 @@ if (!function_exists('breadcrumbs')) {
     /**
      * Render breadcrumbs.
      *
-     * @param array<string, mixed> $links   Associative array.
-     * @param array<string, mixed> $options Additional options.
+     * @param array<string, string> $links   Associative array.
+     * @param array<string, mixed>  $options Additional options.
      */
     function breadcrumbs(array $links, array $options = []): RobiNN\UiKit\Components\Breadcrumbs {
         return get_ui()->breadcrumbs($links, $options);
@@ -232,8 +232,8 @@ if (!function_exists('button_group')) {
     /**
      * Render a button group.
      *
-     * @param array<int|string, mixed> $items   Associative array or multidimensional array.
-     * @param array<string, mixed>     $options Additional options.
+     * @param array<int|string, array<string, mixed>|string> $items   Associative array or multidimensional array.
+     * @param array<string, mixed>                           $options Additional options.
      */
     function button_group(array $items, array $options = []): RobiNN\UiKit\Components\ButtonGroup {
         return get_ui()->button_group($items, $options);
@@ -268,9 +268,9 @@ if (!function_exists('dropdown')) {
     /**
      * Render dropdown.
      *
-     * @param string               $title   Button title.
-     * @param array<int, mixed>    $items   Multidimensional array.
-     * @param array<string, mixed> $options Additional options.
+     * @param string                                   $title   Button title.
+     * @param array<int, array<string, string>|string> $items   Multidimensional array.
+     * @param array<string, mixed>                     $options Additional options.
      */
     function dropdown(string $title, array $items, array $options = []): RobiNN\UiKit\Components\Dropdown {
         return get_ui()->dropdown($title, $items, $options);
@@ -281,8 +281,8 @@ if (!function_exists('list_group')) {
     /**
      * Render a list group.
      *
-     * @param array<int, mixed>    $items   Array of items or multidimensional array.
-     * @param array<string, mixed> $options Additional options.
+     * @param array<int, array<string, bool|string>|string> $items   Array of items or multidimensional array.
+     * @param array<string, mixed>                          $options Additional options.
      */
     function list_group(array $items, array $options = []): RobiNN\UiKit\Components\ListGroup {
         return get_ui()->list_group($items, $options);
@@ -319,8 +319,8 @@ if (!function_exists('pagination')) {
     /**
      * Render pagination.
      *
-     * @param array<string|int, mixed> $items   Array of items.
-     * @param array<string, mixed>     $options Additional options.
+     * @param array<int|string, int|string> $items   Array of items.
+     * @param array<string, mixed>          $options Additional options.
      */
     function pagination(array $items, array $options = []): RobiNN\UiKit\Components\Pagination {
         return get_ui()->pagination($items, $options);
@@ -331,8 +331,8 @@ if (!function_exists('progress')) {
     /**
      * Render progress.
      *
-     * @param int|array<int, mixed> $percent Percents, an array or asociative array for multiple bars.
-     * @param array<string, mixed>  $options Additional options.
+     * @param int|array<int, int|string> $percent Percents, an array or asociative array for multiple bars.
+     * @param array<string, mixed>       $options Additional options.
      */
     function progress(int|array $percent, array $options = []): RobiNN\UiKit\Components\Progress {
         return get_ui()->progress($percent, $options);
@@ -343,9 +343,9 @@ if (!function_exists('tabs')) {
     /**
      * Render tabs.
      *
-     * @param string               $id      The ID of Tabs.
-     * @param array<int, mixed>    $items   Multidimensional array.
-     * @param array<string, mixed> $options Additional options.
+     * @param string                                 $id      The ID of Tabs.
+     * @param array<int, array<string, bool|string>> $items   Multidimensional array.
+     * @param array<string, mixed>                   $options Additional options.
      */
     function tabs(string $id, array $items, array $options = []): RobiNN\UiKit\Components\Tabs {
         return get_ui()->tabs($id, $items, $options);

@@ -21,10 +21,6 @@ use RobiNN\UiKit\UiKit;
 final class ComponentTest extends TestCase {
     private Component $component;
 
-    protected function setUp(): void {
-        $this->component = new Component();
-    }
-
     /**
      * Call private method.
      *
@@ -32,6 +28,10 @@ final class ComponentTest extends TestCase {
      */
     protected static function callMethod(object $object, string $name, mixed ...$args): mixed {
         return (new ReflectionMethod($object, $name))->invokeArgs($object, $args);
+    }
+
+    protected function setUp(): void {
+        $this->component = new Component();
     }
 
     /**

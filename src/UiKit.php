@@ -71,9 +71,9 @@ class UiKit extends Components {
     private static ?UiKit $instance = null;
 
     /**
-     * @param array<string, mixed>|Config $config
+     * @param Config|array<string, mixed> $config
      */
-    public function __construct($config = []) {
+    public function __construct(Config|array $config = []) {
         parent::__construct($this);
 
         $this->config = is_array($config) ? new Config($config) : $config;
@@ -81,14 +81,11 @@ class UiKit extends Components {
     }
 
     /**
-     * Get instance.
-     *
      * @param Config|array<string, mixed> $config
      */
     public static function getInstance(Config|array $config = []): UiKit {
         if (self::$instance === null) {
-            self::$instance = new self();
-            self::$instance->config = is_array($config) ? new Config($config) : $config;
+            self::$instance = new self($config);
         }
 
         return self::$instance;

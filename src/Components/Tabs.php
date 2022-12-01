@@ -28,9 +28,9 @@ class Tabs extends Component {
     /**
      * Render tabs.
      *
-     * @param string               $id      The ID of Tabs.
-     * @param array<int, mixed>    $items   Multidimensional array.
-     * @param array<string, mixed> $options Additional options.
+     * @param string                                 $id      The ID of Tabs.
+     * @param array<int, array<string, bool|string>> $items   Multidimensional array.
+     * @param array<string, mixed>                   $options Additional options.
      */
     public function render(string $id, array $items, array $options = []): Component {
         $this->options($options);
@@ -42,9 +42,9 @@ class Tabs extends Component {
     }
 
     /**
-     * @param array<int, mixed> $items
+     * @param array<int, array<string, bool|string>> $items
      *
-     * @return array<int, mixed>
+     * @return array<int, array<string, bool|string>>
      */
     private function items(array $items): array {
         // Add 'active' item if missing
@@ -55,7 +55,7 @@ class Tabs extends Component {
         }
 
         $active_tab = array_search(true, array_column($items, 'active'), true);
-        $active_tab = $active_tab !== false ? $active_tab : 0;
+        $active_tab_id = $active_tab !== false ? $active_tab : 0;
 
         $items_ = [];
         $i = 0;
@@ -63,7 +63,7 @@ class Tabs extends Component {
             $items_[$key] = [
                 'title'   => $content['title'],
                 'content' => $content['content'],
-                'active'  => $active_tab === $i,
+                'active'  => $active_tab_id === $i,
             ];
 
             $i++;

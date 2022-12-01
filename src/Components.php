@@ -119,10 +119,8 @@ class Components {
      * Create dynamic methods.
      *
      * @param array<int, mixed> $arguments
-     *
-     * @return Component|string
      */
-    public function __call(string $name, array $arguments) {
+    public function __call(string $name, array $arguments): Component|string {
         if (!is_null($this->getComponent($name))) {
             $component = $this->getComponent($name);
             $class = new $component();
@@ -139,7 +137,7 @@ class Components {
                 $name = 'render';
             }
 
-            return call_user_func_array(static fn (...$parameters) => $class->$name(...$parameters), $arguments);
+            return $class->$name(...$arguments);
         }
 
         return sprintf('Unknown "%s" function. ', $name).$this->addSuggestions($name);

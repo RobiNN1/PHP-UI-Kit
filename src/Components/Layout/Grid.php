@@ -30,8 +30,8 @@ class Grid extends Component {
     /**
      * Render grid.
      *
-     * @param array<int, mixed>    $col_sizes Column sizes.
-     * @param array<string, mixed> $options   Additional options.
+     * @param array<int, int|string> $col_sizes Column sizes.
+     * @param array<string, mixed>   $options   Additional options.
      */
     public function render(array $col_sizes = [100], array $options = []): Component {
         $this->options($options);
@@ -46,8 +46,8 @@ class Grid extends Component {
     /**
      * Render opening tag of the grid.
      *
-     * @param array<int, mixed>    $col_sizes Column sizes.
-     * @param array<string, mixed> $options   Additional options.
+     * @param array<int, int|string> $col_sizes Column sizes.
+     * @param array<string, mixed>   $options   Additional options.
      */
     public function open(array $col_sizes = [100], array $options = []): Component {
         return $this->render($col_sizes, [...['open' => true], ...$options]);

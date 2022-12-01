@@ -34,8 +34,8 @@ class Pagination extends Component {
     /**
      * Render pagination.
      *
-     * @param array<string|int, mixed> $items   Array of items.
-     * @param array<string, mixed>     $options Additional options.
+     * @param array<int|string, int|string> $items   Array of items.
+     * @param array<string, mixed>          $options Additional options.
      */
     public function render(array $items, array $options = []): Component {
         $this->options($options);
@@ -56,7 +56,7 @@ class Pagination extends Component {
     }
 
     /**
-     * @param array<string|int, mixed> $items
+     * @param array<int|string, mixed> $items
      * @param array<string, mixed>     $options
      *
      * @return array<string|int, mixed>

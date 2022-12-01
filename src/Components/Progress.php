@@ -31,8 +31,8 @@ class Progress extends Component {
     /**
      * Render progress.
      *
-     * @param int|array<int, mixed> $percent Percents, an array or asociative array for multiple bars.
-     * @param array<string, mixed>  $options Additional options.
+     * @param int|array<int, int|string> $percent Percents, an array or asociative array for multiple bars.
+     * @param array<string, mixed>       $options Additional options.
      */
     public function render(int|array $percent, array $options = []): Component {
         $this->options($options);
@@ -64,8 +64,8 @@ class Progress extends Component {
     /**
      * Multiple bars.
      *
-     * @param array<int, mixed>    $percent
-     * @param array<string, mixed> $options
+     * @param array<int, int|string> $percent
+     * @param array<string, mixed>   $options
      *
      * @return array<int, mixed>
      */

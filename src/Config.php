@@ -36,9 +36,9 @@ class Config {
         ], $options);
 
         $this->cache = $options['cache'];
-        $this->debug = $options['debug'];
-        $this->framework = $options['framework'];
-        $this->framework_paths = $options['framework_paths'];
+        $this->debug = (bool) $options['debug'];
+        $this->framework = (string) $options['framework'];
+        $this->framework_paths = (array) $options['framework_paths'];
 
         $resources = __DIR__.'/../resources/';
         $frameworks = array_diff((array) scandir($resources), ['.', '..']);

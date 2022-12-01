@@ -50,7 +50,7 @@ class Menu extends Component {
     }
 
     /**
-     * @param array<int|string, mixed> $items
+     * @param array<string, string> $items
      */
     private function dropdown(array $items, bool $dark, string $item_class): string {
         $title = $items['title'];

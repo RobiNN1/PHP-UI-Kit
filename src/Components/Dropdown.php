@@ -31,9 +31,9 @@ class Dropdown extends Component {
     /**
      * Render dropdown.
      *
-     * @param string               $title   Button title.
-     * @param array<int, mixed>    $items   Multidimensional array.
-     * @param array<string, mixed> $options Additional options.
+     * @param string                                   $title   Button title.
+     * @param array<int, array<string, string>|string> $items   Multidimensional array.
+     * @param array<string, mixed>                     $options Additional options.
      */
     public function render(string $title, array $items, array $options = []): Component {
         $this->options($options);

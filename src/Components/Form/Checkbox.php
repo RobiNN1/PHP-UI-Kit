@@ -49,7 +49,7 @@ class Checkbox extends Component {
         $this->options['checkbox_id'] = $this->options['checkbox_id'] !== '' ? $this->options['checkbox_id'] : $name;
 
         if ($name !== '') {
-            $name .= $this->options['radio'] === false && !str_ends_with($name, '[]') && count($this->options['items']) > 0 ? '[]' : '';
+            $name .= $this->options['radio'] === false && !str_ends_with($name, '[]') && count((array) $this->options['items']) > 0 ? '[]' : '';
             $this->options['checkbox_attributes']['name'] = $name;
         }
 
@@ -61,7 +61,7 @@ class Checkbox extends Component {
             $this->options['checkbox_attributes']['disabled'] = null;
         }
 
-        if (count($this->options['items']) === 0) {
+        if (count((array) $this->options['items']) === 0) {
             $value = $value === '' ? 0 : $value;
             $this->options['items'] = [
                 $value => $label,

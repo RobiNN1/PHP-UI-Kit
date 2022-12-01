@@ -170,7 +170,7 @@ echo '<h2 class="h2" id="menu">Menu</h2>';
 echo menu('example', [
     ['title' => 'Link 1', 'link' => 'link1.php'],
     [
-        'custom' => button('Button') // Any HTML
+        'custom' => (string) button('Button') // Any HTML
         ->options(['class' => 'navbar-btn'], 'bootstrap3'),
     ],
     // Dropdown, you can use all dropdown options (e.g. divider) as well
@@ -194,7 +194,7 @@ echo menu('example', [
 echo '<p class="note">Note: Dark variant might not be available for all frameworks.</p>';
 echo menu('example-dark', [
     [
-        'custom' => button('Button', 'button', ['color' => 'success'])
+        'custom' => (string) button('Button', 'button', ['color' => 'success'])
             ->options(['class' => 'navbar-btn'], 'bootstrap3'),
     ],
     ['title' => 'Link 1', 'link' => 'link1.php'],
