@@ -75,7 +75,7 @@ class Progress extends Component {
         foreach ($percent as $bar => $title) {
             $color = is_array($options['color']) ? ($options['color'][$i] ?? 'default') : $options['color'];
 
-            $is_assoc = static fn ($arr) => ([] !== $arr) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
+            $is_assoc = static fn ($arr) => ($arr !== []) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
             $int = $is_assoc($percent) ? $bar : $title;
 
             if ($auto_colors) {

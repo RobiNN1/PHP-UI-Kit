@@ -55,7 +55,7 @@ class Component implements Stringable {
     /**
      * Get correct value from framework options.
      */
-    protected function getOption(string $option, mixed $value, string $component = null): mixed {
+    protected function getOption(string $option, mixed $value, ?string $component = null): mixed {
         $opts = $this->uikit->getFrameworkOption($component ?? $this->getComponentName());
         $default = $opts[$option]['default'] ?? '';
 
@@ -68,7 +68,7 @@ class Component implements Stringable {
      * @param array<string, mixed>           $attributes
      * @param array<int, string>|string|null $framework
      */
-    public function attributes(array $attributes = [], array|string $framework = null): Component {
+    public function attributes(array $attributes = [], array|string|null $framework = null): Component {
         if ($this->uikit->checkFramework($framework)) {
             $this->options['attributes'] = array_merge($this->options['attributes'], $attributes);
         }
@@ -82,7 +82,7 @@ class Component implements Stringable {
      * @param array<string, mixed>           $options
      * @param array<int, string>|string|null $framework
      */
-    public function options(array $options = [], array|string $framework = null): Component {
+    public function options(array $options = [], array|string|null $framework = null): Component {
         if ($this->uikit->checkFramework($framework)) {
             $this->options = [...$this->options, ...$options];
         }

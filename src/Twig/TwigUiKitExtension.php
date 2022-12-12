@@ -24,7 +24,7 @@ class TwigUiKitExtension extends AbstractExtension {
     }
 
     /**
-     * @return TwigFunction[]
+     * @return array<TwigFunction>
      */
     public function getFunctions(): array {
         $functions = [];
@@ -56,7 +56,7 @@ class TwigUiKitExtension extends AbstractExtension {
     }
 
     /**
-     * @return TwigFilter[]
+     * @return array<TwigFilter>
      */
     public function getFilters(): array {
         return [

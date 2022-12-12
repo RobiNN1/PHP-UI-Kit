@@ -91,6 +91,6 @@ class Misc {
 
         [$top, $bottom] = explode('/', (string) $value);
 
-        return 100 * ((int) $top / (int) $bottom);
+        return 100 * (int) $top / (int) $bottom;
     }
 }

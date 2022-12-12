@@ -14,16 +14,6 @@ namespace RobiNN\UiKit;
 
 class AddTo {
     /**
-     * @var array<string, string>
-     */
-    private static array $head = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
-
-    /**
-     * @var array<string, string>
-     */
-    private static array $footer = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
-
-    /**
      * @interal
      */
     public static string $js = '';
@@ -35,9 +25,20 @@ class AddTo {
 
     /**
      * @var bool Set true to remove everything, so it's easy to test.
+     *
      * @interal
      */
     public static bool $tests = false;
+
+    /**
+     * @var array<string, string>
+     */
+    private static array $head = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
+
+    /**
+     * @var array<string, string>
+     */
+    private static array $footer = ['before' => '', 'after' => '', 'end' => '']; // `end` is for internal purposes
 
     /**
      * Append content to head.

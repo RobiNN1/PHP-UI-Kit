@@ -16,6 +16,7 @@ use RobiNN\UiKit\Twig\Twig;
 
 /**
  * Layout
+ *
  * @method Components\Layout\Layout    layout(string $body, array $options = [])
  * @method Components\Layout\Container container(bool $fluid = false, array $options = [])
  * @method Components\Layout\Container container_open(bool $fluid = false, array $options = [])
@@ -26,7 +27,9 @@ use RobiNN\UiKit\Twig\Twig;
  * @method Components\Layout\Grid      grid(array $col_sizes = [], array $options = [])
  * @method Components\Layout\Grid      grid_open(array $col_sizes = [100], array $options = [])
  * @method string                      grid_close()
+ *
  * Form
+ *
  * @method Components\Form\Form     form(string $method = 'post', string $action = '', array $options = [])
  * @method Components\Form\Form     form_open(string $method = 'post', string $action = '', array $options = [])
  * @method string                   form_close()
@@ -34,7 +37,9 @@ use RobiNN\UiKit\Twig\Twig;
  * @method Components\Form\Select   select(string $name, string $label = '', $value = '', array $items = [], array $options = [])
  * @method Components\Form\Checkbox checkbox(string $name, string $label = '', $value = 0, array $options = [])
  * @method Components\Form\Textarea textarea(string $name, string $label = '', $value = '', array $options = [])
+ *
  * Components
+ *
  * @method Components\Accordion   accordion(string $id, array $items, array $options = [])
  * @method Components\Alert       alert(string $text, string $color = 'default', array $options = [])
  * @method Components\Badge       badge(string $text, string $color = 'default', array $options = [])
@@ -111,7 +116,7 @@ class UiKit extends Components {
      *
      * @param array<int, string>|string|null $framework
      */
-    public function checkFramework(array|string $framework = null): bool {
+    public function checkFramework(array|string|null $framework = null): bool {
         if ($framework === null) {
             return true;
         }
@@ -130,7 +135,7 @@ class UiKit extends Components {
      *
      * @param array<int, string>|string|null $framework
      */
-    public function setFrameworkOption(string $option, mixed $value, array|string $framework = null): UiKit {
+    public function setFrameworkOption(string $option, mixed $value, array|string|null $framework = null): UiKit {
         if ($this->checkFramework($framework)) {
             $this->fw_options[$option] = $value;
         }
