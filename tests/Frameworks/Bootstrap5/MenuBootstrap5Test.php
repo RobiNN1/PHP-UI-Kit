@@ -19,7 +19,7 @@ final class MenuBootstrap5Test extends MenuTest {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');
 
-        $this->expected_tpl = '<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        $this->expected_tpl = '<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-test"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbar-test">

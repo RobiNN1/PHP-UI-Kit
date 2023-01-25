@@ -16,7 +16,7 @@
             {% endif %}
         </div>
     {% endif %}
-    <input value="{{ value }}" type="{{ type }}"{{ input_attributes|space|raw }} class="form-control{{  input_class|space }}" aria-label="{{ label }}">
+    <input value="{{ value }}" type="{{ type }}"{{ input_attributes|space|raw }} class="form-control{{ input_class|space }}" aria-label="{{ label }}">
     {% if right_addon or right_custom %}
         <div class="input-group-{{ right_custom ? 'btn' : 'addon' }}">
             {{ right_custom|raw }}

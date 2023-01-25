@@ -81,7 +81,7 @@ echo dropdown('Dropdown', [
 ```html
 <div class="dropdown">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>
-    <ul class="dropdown-menu dropdown-menu-dark">
+    <ul class="dropdown-menu" data-bs-theme="dark">
         <li><a class="dropdown-item" href="darklink1.php">Link 1</a></li>
         <li><span class="dropdown-item-text">Item</span></li>
     </ul>

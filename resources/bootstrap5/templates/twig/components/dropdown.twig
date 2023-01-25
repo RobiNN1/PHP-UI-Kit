@@ -2,7 +2,7 @@
 
 <{{ tag }} class="{{ in_menu ? 'nav-item ' : '' }}dropdown{{ class|space }}"{{ attributes|space|raw }}>
     {{- button|raw -}}
-    <ul class="dropdown-menu{{ dark ? ' dropdown-menu-dark' : '' }}">
+    <ul class="dropdown-menu"{{ dark ? ' data-bs-theme="dark"' : '' }}>
         {% for item in items %}
             {% set active = item.active ? ' active' : '' %}
             {% set new_window = item.new_window ? ' target="_blank"' : '' %}

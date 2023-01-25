@@ -91,4 +91,4 @@ All options can be found [here](core/config.md).
 
 ## Requirements
 
-- PHP 8.1 or higher
+- PHP 8.2 or higher

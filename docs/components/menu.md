@@ -61,7 +61,7 @@ echo menu('example', [
 <span class="html-output">HTML Output</span>
 
 ```html
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example">
             <span class="navbar-toggler-icon"></span>
@@ -108,7 +108,7 @@ echo menu('example-dark', [
 <span class="html-output">HTML Output</span>
 
 ```html
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example-dark">
             <span class="navbar-toggler-icon"></span>
@@ -120,7 +120,7 @@ echo menu('example-dark', [
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                    <ul class="dropdown-menu dropdown-menu-dark">
+                    <ul class="dropdown-menu" data-bs-theme="dark">
                         <li><a class="dropdown-item" href="sub_link1.php">Sub Link 1</a></li>
                         <li><a class="dropdown-item" href="sub_link2.php">Sub Link 2</a></li>
                     </ul>
@@ -149,7 +149,7 @@ echo menu('example-brand', [
 <span class="html-output">HTML Output</span>
 
 ```html
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="link..">Brand title</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-example-brand">

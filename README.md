@@ -67,7 +67,7 @@ There are multiple syntaxes available. It's up to you which one you choose.
 
 ## Requirements
 
-- PHP >= 8.1
+- PHP >= 8.2
 
 ## Testing
 

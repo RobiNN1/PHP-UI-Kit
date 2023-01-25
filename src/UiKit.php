@@ -57,7 +57,7 @@ use RobiNN\UiKit\Twig\Twig;
  * @method Components\Tabs        tabs(string $id, array $items, array $options = [])
  */
 class UiKit extends Components {
-    final public const VERSION = '1.0.0';
+    final public const VERSION = '1.1.0';
 
     public Config $config;
 
