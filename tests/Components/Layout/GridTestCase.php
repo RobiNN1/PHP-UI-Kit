@@ -14,7 +14,7 @@ namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-abstract class GridTest extends ComponentTestCase {
+abstract class GridTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;
     protected string $expected_close_tpl;
     protected string $expected_100_50_tpl;

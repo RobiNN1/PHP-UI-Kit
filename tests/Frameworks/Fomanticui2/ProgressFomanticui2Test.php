@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\ProgressTest;
+use Tests\Components\ProgressTestCase;
 
-final class ProgressFomanticui2Test extends ProgressTest {
+final class ProgressFomanticui2Test extends ProgressTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

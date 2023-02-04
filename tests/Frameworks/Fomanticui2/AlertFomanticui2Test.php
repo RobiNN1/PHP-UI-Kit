@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\AlertTest;
+use Tests\Components\AlertTestCase;
 
-final class AlertFomanticui2Test extends AlertTest {
+final class AlertFomanticui2Test extends AlertTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

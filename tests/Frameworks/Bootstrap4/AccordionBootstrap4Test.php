@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\AccordionTest;
+use Tests\Components\AccordionTestCase;
 
-final class AccordionBootstrap4Test extends AccordionTest {
+final class AccordionBootstrap4Test extends AccordionTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

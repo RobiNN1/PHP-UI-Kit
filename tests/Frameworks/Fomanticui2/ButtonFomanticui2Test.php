@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\ButtonTest;
+use Tests\Components\ButtonTestCase;
 
-final class ButtonFomanticui2Test extends ButtonTest {
+final class ButtonFomanticui2Test extends ButtonTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

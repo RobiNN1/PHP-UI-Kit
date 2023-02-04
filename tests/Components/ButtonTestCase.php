@@ -10,20 +10,20 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components\Form;
+namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class TextareaTest extends ComponentTestCase {
+abstract class ButtonTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
-    public function testTextareaRender(): void {
-        $tpl = $this->uikit->textarea('test', 'Test');
+    public function testButtonRender(): void {
+        $tpl = $this->uikit->button('Test');
 
         $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
-    public function testTextareaInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_tpl, '{{ textarea(\'test\', \'Test\') }}');
+    public function testButtonInTwig(): void {
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ button('Test') }}");
     }
 }

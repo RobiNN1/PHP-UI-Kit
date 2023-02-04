@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5\Form;
 
-use Tests\Components\Form\FormTest;
+use Tests\Components\Form\FormTestCase;
 
-final class FormBootstrap5Test extends FormTest {
+final class FormBootstrap5Test extends FormTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

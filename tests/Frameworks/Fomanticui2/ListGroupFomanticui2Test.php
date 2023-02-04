@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\ListGroupTest;
+use Tests\Components\ListGroupTestCase;
 
-final class ListGroupFomanticui2Test extends ListGroupTest {
+final class ListGroupFomanticui2Test extends ListGroupTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

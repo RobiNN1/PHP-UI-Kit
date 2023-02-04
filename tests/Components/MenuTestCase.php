@@ -14,7 +14,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class MenuTest extends ComponentTestCase {
+abstract class MenuTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testMenuRender(): void {

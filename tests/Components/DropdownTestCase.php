@@ -14,7 +14,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class DropdownTest extends ComponentTestCase {
+abstract class DropdownTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testDropdownRender(): void {

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\CarouselTest;
+use Tests\Components\CarouselTestCase;
 
-final class CarouselBootstrap3Test extends CarouselTest {
+final class CarouselBootstrap3Test extends CarouselTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

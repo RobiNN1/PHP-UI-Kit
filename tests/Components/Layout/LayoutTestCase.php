@@ -17,7 +17,7 @@ use RobiNN\UiKit\Config;
 use RobiNN\UiKit\UiKit;
 use Tests\ComponentTestCase;
 
-abstract class LayoutTest extends ComponentTestCase {
+abstract class LayoutTestCase extends ComponentTestCase {
     protected string $expected_tpl;
     protected string $expected_framework;
 

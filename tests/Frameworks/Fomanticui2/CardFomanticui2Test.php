@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\CardTest;
+use Tests\Components\CardTestCase;
 
-final class CardFomanticui2Test extends CardTest {
+final class CardFomanticui2Test extends CardTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5\Form;
 
-use Tests\Components\Form\CheckboxTest;
+use Tests\Components\Form\CheckboxTestCase;
 
-final class CheckboxBootstrap5Test extends CheckboxTest {
+final class CheckboxBootstrap5Test extends CheckboxTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

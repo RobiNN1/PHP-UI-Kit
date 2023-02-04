@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\BadgeTest;
+use Tests\Components\BadgeTestCase;
 
-final class BadgeFomanticui2Test extends BadgeTest {
+final class BadgeFomanticui2Test extends BadgeTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

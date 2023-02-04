@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\BreadcrumbsTest;
+use Tests\Components\BreadcrumbsTestCase;
 
-final class BreadcrumbsBootstrap3Test extends BreadcrumbsTest {
+final class BreadcrumbsBootstrap3Test extends BreadcrumbsTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

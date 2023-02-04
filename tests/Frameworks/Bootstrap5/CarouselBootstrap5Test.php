@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\CarouselTest;
+use Tests\Components\CarouselTestCase;
 
-final class CarouselBootstrap5Test extends CarouselTest {
+final class CarouselBootstrap5Test extends CarouselTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2\Layout;
 
-use Tests\Components\Layout\LayoutTest;
+use Tests\Components\Layout\LayoutTestCase;
 
-final class LayoutFomanticui2Test extends LayoutTest {
+final class LayoutFomanticui2Test extends LayoutTestCase {
     protected function setUp(string $framework = ''): void {
         parent::setUp('fomanticui2');
 

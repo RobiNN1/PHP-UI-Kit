@@ -10,20 +10,20 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components;
+namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-abstract class BadgeTest extends ComponentTestCase {
+abstract class TextareaTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
-    public function testBadgeRender(): void {
-        $tpl = $this->uikit->badge('Default');
+    public function testTextareaRender(): void {
+        $tpl = $this->uikit->textarea('test', 'Test');
 
         $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
-    public function testBadgeInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_tpl, "{{ badge('Default') }}");
+    public function testTextareaInTwig(): void {
+        $this->assertComponentRenderTpl($this->expected_tpl, '{{ textarea(\'test\', \'Test\') }}');
     }
 }

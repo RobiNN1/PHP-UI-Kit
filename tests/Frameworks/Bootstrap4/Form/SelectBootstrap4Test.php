@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4\Form;
 
-use Tests\Components\Form\SelectTest;
+use Tests\Components\Form\SelectTestCase;
 
-final class SelectBootstrap4Test extends SelectTest {
+final class SelectBootstrap4Test extends SelectTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

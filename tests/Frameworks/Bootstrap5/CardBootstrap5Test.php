@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\CardTest;
+use Tests\Components\CardTestCase;
 
-final class CardBootstrap5Test extends CardTest {
+final class CardBootstrap5Test extends CardTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

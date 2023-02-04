@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\ButtonGroupTest;
+use Tests\Components\ButtonGroupTestCase;
 
-final class ButtonGroupBootstrap4Test extends ButtonGroupTest {
+final class ButtonGroupBootstrap4Test extends ButtonGroupTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\ProgressTest;
+use Tests\Components\ProgressTestCase;
 
-final class ProgressBootstrap3Test extends ProgressTest {
+final class ProgressBootstrap3Test extends ProgressTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

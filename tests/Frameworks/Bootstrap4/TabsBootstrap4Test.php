@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\TabsTest;
+use Tests\Components\TabsTestCase;
 
-final class TabsBootstrap4Test extends TabsTest {
+final class TabsBootstrap4Test extends TabsTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

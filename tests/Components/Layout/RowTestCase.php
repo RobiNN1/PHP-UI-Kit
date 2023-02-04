@@ -10,27 +10,29 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components\Form;
+namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-abstract class FormTest extends ComponentTestCase {
+abstract class RowTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;
     protected string $expected_close_tpl;
 
-    public function testOpenFormRender(): void {
-        $tpl = $this->uikit->form_open('get');
+    public function testOpenRowRender(): void {
+        $tpl = $this->uikit->row_open();
+
         $this->assertComponentRender($this->expected_open_tpl, $tpl->__toString());
     }
 
-    public function testCloseFormRender(): void {
-        $tpl = $this->uikit->form_close();
+    public function testCloseRowRender(): void {
+        $tpl = $this->uikit->row_close();
+
         $this->assertComponentRender($this->expected_close_tpl, $tpl);
     }
 
-    public function testFormInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_open_tpl, "{{ form_open('get') }}");
+    public function testRowInTwig(): void {
+        $this->assertComponentRenderTpl($this->expected_open_tpl, '{{ row_open() }}');
 
-        $this->assertComponentRenderTpl($this->expected_close_tpl, '{{ form_close() }}');
+        $this->assertComponentRenderTpl($this->expected_close_tpl, '{{ row_close() }}');
     }
 }

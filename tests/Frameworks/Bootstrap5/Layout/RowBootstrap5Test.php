@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5\Layout;
 
-use Tests\Components\Layout\RowTest;
+use Tests\Components\Layout\RowTestCase;
 
-final class RowBootstrap5Test extends RowTest {
+final class RowBootstrap5Test extends RowTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\CarouselTest;
+use Tests\Components\CarouselTestCase;
 
-final class CarouselFomanticui2Test extends CarouselTest {
+final class CarouselFomanticui2Test extends CarouselTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

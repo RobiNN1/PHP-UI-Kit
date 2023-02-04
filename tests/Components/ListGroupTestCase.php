@@ -14,7 +14,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class ListGroupTest extends ComponentTestCase {
+abstract class ListGroupTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testListGroupRender(): void {

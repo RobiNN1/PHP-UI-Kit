@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\PaginationTest;
+use Tests\Components\PaginationTestCase;
 
-final class PaginationBootstrap5Test extends PaginationTest {
+final class PaginationBootstrap5Test extends PaginationTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

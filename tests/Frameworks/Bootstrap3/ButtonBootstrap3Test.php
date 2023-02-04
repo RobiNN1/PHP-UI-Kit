@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\ButtonTest;
+use Tests\Components\ButtonTestCase;
 
-final class ButtonBootstrap3Test extends ButtonTest {
+final class ButtonBootstrap3Test extends ButtonTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

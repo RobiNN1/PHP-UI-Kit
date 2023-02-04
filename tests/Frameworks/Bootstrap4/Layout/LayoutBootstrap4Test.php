@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4\Layout;
 
-use Tests\Components\Layout\LayoutTest;
+use Tests\Components\Layout\LayoutTestCase;
 
-final class LayoutBootstrap4Test extends LayoutTest {
+final class LayoutBootstrap4Test extends LayoutTestCase {
     protected function setUp(string $framework = ''): void {
         parent::setUp('bootstrap4');
 

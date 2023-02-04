@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5\Layout;
 
-use Tests\Components\Layout\GridTest;
+use Tests\Components\Layout\GridTestCase;
 
-final class GridBootstrap5Test extends GridTest {
+final class GridBootstrap5Test extends GridTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

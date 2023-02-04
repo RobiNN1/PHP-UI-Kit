@@ -14,7 +14,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class ModalTest extends ComponentTestCase {
+abstract class ModalTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testModalRender(): void {

@@ -14,7 +14,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class ButtonGroupTest extends ComponentTestCase {
+abstract class ButtonGroupTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testButtonGroupRender(): void {

@@ -14,16 +14,22 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class ProgressTest extends ComponentTestCase {
+abstract class CarouselTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
-    public function testProgressRender(): void {
-        $tpl = $this->uikit->progress(27);
+    public function testCarouselRender(): void {
+        $tpl = $this->uikit->carousel('test', [
+            'Slide 1',
+            'Slide 2',
+        ]);
 
         $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
-    public function testProgressInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_tpl, '{{ progress(27) }}');
+    public function testCarouselInTwig(): void {
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ carousel('test', [
+            'Slide 1',
+            'Slide 2',
+        ]) }}");
     }
 }

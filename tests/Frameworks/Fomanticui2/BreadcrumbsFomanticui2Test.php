@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\BreadcrumbsTest;
+use Tests\Components\BreadcrumbsTestCase;
 
-final class BreadcrumbsFomanticui2Test extends BreadcrumbsTest {
+final class BreadcrumbsFomanticui2Test extends BreadcrumbsTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

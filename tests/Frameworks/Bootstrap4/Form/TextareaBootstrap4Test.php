@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4\Form;
 
-use Tests\Components\Form\TextareaTest;
+use Tests\Components\Form\TextareaTestCase;
 
-final class TextareaBootstrap4Test extends TextareaTest {
+final class TextareaBootstrap4Test extends TextareaTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

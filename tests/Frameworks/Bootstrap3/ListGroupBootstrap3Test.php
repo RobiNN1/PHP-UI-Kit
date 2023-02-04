@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\ListGroupTest;
+use Tests\Components\ListGroupTestCase;
 
-final class ListGroupBootstrap3Test extends ListGroupTest {
+final class ListGroupBootstrap3Test extends ListGroupTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

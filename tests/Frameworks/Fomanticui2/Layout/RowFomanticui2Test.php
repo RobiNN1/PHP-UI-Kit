@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2\Layout;
 
-use Tests\Components\Layout\RowTest;
+use Tests\Components\Layout\RowTestCase;
 
-final class RowFomanticui2Test extends RowTest {
+final class RowFomanticui2Test extends RowTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

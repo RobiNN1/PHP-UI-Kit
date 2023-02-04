@@ -14,7 +14,7 @@ namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-abstract class SelectTest extends ComponentTestCase {
+abstract class SelectTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testSelectRender(): void {

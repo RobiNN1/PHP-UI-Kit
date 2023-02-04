@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\DropdownTest;
+use Tests\Components\DropdownTestCase;
 
-final class DropdownBootstrap3Test extends DropdownTest {
+final class DropdownBootstrap3Test extends DropdownTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

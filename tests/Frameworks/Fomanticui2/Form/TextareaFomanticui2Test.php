@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2\Form;
 
-use Tests\Components\Form\TextareaTest;
+use Tests\Components\Form\TextareaTestCase;
 
-final class TextareaFomanticui2Test extends TextareaTest {
+final class TextareaFomanticui2Test extends TextareaTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

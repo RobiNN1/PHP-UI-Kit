@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\ModalTest;
+use Tests\Components\ModalTestCase;
 
-final class ModalBootstrap4Test extends ModalTest {
+final class ModalBootstrap4Test extends ModalTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

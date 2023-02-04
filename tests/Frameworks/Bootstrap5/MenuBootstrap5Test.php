@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\MenuTest;
+use Tests\Components\MenuTestCase;
 
-final class MenuBootstrap5Test extends MenuTest {
+final class MenuBootstrap5Test extends MenuTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

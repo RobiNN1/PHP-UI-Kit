@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\AlertTest;
+use Tests\Components\AlertTestCase;
 
-final class AlertBootstrap4Test extends AlertTest {
+final class AlertBootstrap4Test extends AlertTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

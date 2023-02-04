@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\MenuTest;
+use Tests\Components\MenuTestCase;
 
-final class MenuFomanticui2Test extends MenuTest {
+final class MenuFomanticui2Test extends MenuTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

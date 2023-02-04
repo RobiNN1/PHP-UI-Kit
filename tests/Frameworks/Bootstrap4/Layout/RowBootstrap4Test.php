@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4\Layout;
 
-use Tests\Components\Layout\RowTest;
+use Tests\Components\Layout\RowTestCase;
 
-final class RowBootstrap4Test extends RowTest {
+final class RowBootstrap4Test extends RowTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

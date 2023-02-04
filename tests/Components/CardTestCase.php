@@ -14,16 +14,20 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class AlertTest extends ComponentTestCase {
+abstract class CardTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
-    public function testAlertRender(): void {
-        $tpl = $this->uikit->alert('Default');
+    public function testCardRender(): void {
+        $tpl = $this->uikit->card([
+            'body' => '<h1>Title</h1><p>Testing</p>',
+        ]);
 
         $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
-    public function testAlertInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_tpl, "{{ alert('Default') }}");
+    public function testCardInTwig(): void {
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ card({
+            'body': '<h1>Title</h1><p>Testing</p>',
+        }) }}");
     }
 }

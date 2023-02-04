@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\BadgeTest;
+use Tests\Components\BadgeTestCase;
 
-final class BadgeBootstrap5Test extends BadgeTest {
+final class BadgeBootstrap5Test extends BadgeTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

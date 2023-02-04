@@ -14,7 +14,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class TabsTest extends ComponentTestCase {
+abstract class TabsTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testTabsRender(): void {

@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\TabsTest;
+use Tests\Components\TabsTestCase;
 
-final class TabsBootstrap3Test extends TabsTest {
+final class TabsBootstrap3Test extends TabsTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

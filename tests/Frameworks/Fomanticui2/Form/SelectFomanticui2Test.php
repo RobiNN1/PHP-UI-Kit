@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2\Form;
 
-use Tests\Components\Form\SelectTest;
+use Tests\Components\Form\SelectTestCase;
 
-final class SelectFomanticui2Test extends SelectTest {
+final class SelectFomanticui2Test extends SelectTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

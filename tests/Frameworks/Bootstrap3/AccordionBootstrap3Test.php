@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap3;
 
-use Tests\Components\AccordionTest;
+use Tests\Components\AccordionTestCase;
 
-final class AccordionBootstrap3Test extends AccordionTest {
+final class AccordionBootstrap3Test extends AccordionTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap3');

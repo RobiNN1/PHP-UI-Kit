@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4\Form;
 
-use Tests\Components\Form\InputTest;
+use Tests\Components\Form\InputTestCase;
 
-final class InputBootstrap4Test extends InputTest {
+final class InputBootstrap4Test extends InputTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

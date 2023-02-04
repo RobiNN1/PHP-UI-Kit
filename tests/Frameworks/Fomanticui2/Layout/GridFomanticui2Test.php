@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2\Layout;
 
-use Tests\Components\Layout\GridTest;
+use Tests\Components\Layout\GridTestCase;
 
-final class GridFomanticui2Test extends GridTest {
+final class GridFomanticui2Test extends GridTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

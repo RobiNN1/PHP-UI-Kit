@@ -14,22 +14,22 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class BreadcrumbsTest extends ComponentTestCase {
+abstract class AccordionTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
-    public function testBreadcrumbsRender(): void {
-        $tpl = $this->uikit->breadcrumbs([
-            'Link 1' => 'link1.php',
-            'Link 2' => 'link2.php',
+    public function testAccordionRender(): void {
+        $tpl = $this->uikit->accordion('test', [
+            'Title 1' => 'Content 1',
+            'Title 2' => 'Content 2',
         ]);
 
         $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
-    public function testBreadcrumbsInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_tpl, "{{ breadcrumbs({
-            'Link 1': 'link1.php',
-            'Link 2': 'link2.php',
+    public function testAccordionInTwig(): void {
+        $this->assertComponentRenderTpl($this->expected_tpl, "{{ accordion('test', {
+            'Title 1': 'Content 1',
+            'Title 2': 'Content 2',
         }) }}");
     }
 }

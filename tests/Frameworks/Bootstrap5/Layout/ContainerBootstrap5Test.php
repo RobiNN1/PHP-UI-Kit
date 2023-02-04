@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap5\Layout;
 
-use Tests\Components\Layout\ContainerTest;
+use Tests\Components\Layout\ContainerTestCase;
 
-final class ContainerBootstrap5Test extends ContainerTest {
+final class ContainerBootstrap5Test extends ContainerTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap5');

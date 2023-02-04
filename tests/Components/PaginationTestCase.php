@@ -14,7 +14,7 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class PaginationTest extends ComponentTestCase {
+abstract class PaginationTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
     public function testPaginationRender(): void {

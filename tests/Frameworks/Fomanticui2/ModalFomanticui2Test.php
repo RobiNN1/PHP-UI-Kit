@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\ModalTest;
+use Tests\Components\ModalTestCase;
 
-final class ModalFomanticui2Test extends ModalTest {
+final class ModalFomanticui2Test extends ModalTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

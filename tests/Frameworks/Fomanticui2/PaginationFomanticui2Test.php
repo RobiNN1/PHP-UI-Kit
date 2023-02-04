@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\PaginationTest;
+use Tests\Components\PaginationTestCase;
 
-final class PaginationFomanticui2Test extends PaginationTest {
+final class PaginationFomanticui2Test extends PaginationTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

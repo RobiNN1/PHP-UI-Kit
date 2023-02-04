@@ -18,7 +18,7 @@ use ReflectionMethod;
 use RobiNN\UiKit\Components\Component;
 use RobiNN\UiKit\UiKit;
 
-final class ComponentTest extends TestCase {
+final class ComponentTestCase extends TestCase {
     private Component $component;
 
     /**

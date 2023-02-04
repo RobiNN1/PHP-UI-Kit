@@ -14,20 +14,16 @@ namespace Tests\Components;
 
 use Tests\ComponentTestCase;
 
-abstract class CardTest extends ComponentTestCase {
+abstract class ProgressTestCase extends ComponentTestCase {
     protected string $expected_tpl;
 
-    public function testCardRender(): void {
-        $tpl = $this->uikit->card([
-            'body' => '<h1>Title</h1><p>Testing</p>',
-        ]);
+    public function testProgressRender(): void {
+        $tpl = $this->uikit->progress(27);
 
         $this->assertComponentRender($this->expected_tpl, $tpl->__toString());
     }
 
-    public function testCardInTwig(): void {
-        $this->assertComponentRenderTpl($this->expected_tpl, "{{ card({
-            'body': '<h1>Title</h1><p>Testing</p>',
-        }) }}");
+    public function testProgressInTwig(): void {
+        $this->assertComponentRenderTpl($this->expected_tpl, '{{ progress(27) }}');
     }
 }

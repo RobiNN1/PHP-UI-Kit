@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\BreadcrumbsTest;
+use Tests\Components\BreadcrumbsTestCase;
 
-final class BreadcrumbsBootstrap4Test extends BreadcrumbsTest {
+final class BreadcrumbsBootstrap4Test extends BreadcrumbsTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('bootstrap4');

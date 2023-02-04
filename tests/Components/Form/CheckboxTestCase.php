@@ -14,7 +14,7 @@ namespace Tests\Components\Form;
 
 use Tests\ComponentTestCase;
 
-abstract class CheckboxTest extends ComponentTestCase {
+abstract class CheckboxTestCase extends ComponentTestCase {
     protected string $expected_tpl;
     protected string $expected_multiple_tpl;
 

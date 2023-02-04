@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\AccordionTest;
+use Tests\Components\AccordionTestCase;
 
-final class AccordionFomanticui2Test extends AccordionTest {
+final class AccordionFomanticui2Test extends AccordionTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');

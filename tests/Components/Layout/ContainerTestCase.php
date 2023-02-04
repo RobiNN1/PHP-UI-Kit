@@ -14,7 +14,7 @@ namespace Tests\Components\Layout;
 
 use Tests\ComponentTestCase;
 
-abstract class ContainerTest extends ComponentTestCase {
+abstract class ContainerTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;
     protected string $expected_close_tpl;
 

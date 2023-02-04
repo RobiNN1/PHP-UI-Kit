@@ -12,9 +12,9 @@ declare(strict_types=1);
 
 namespace Tests\Frameworks\Fomanticui2\Form;
 
-use Tests\Components\Form\InputTest;
+use Tests\Components\Form\InputTestCase;
 
-final class InputFomanticui2Test extends InputTest {
+final class InputFomanticui2Test extends InputTestCase {
     protected function setUp(): void {
         parent::setUp();
         $this->uikit->config->setFramework('fomanticui2');
