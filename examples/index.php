@@ -24,11 +24,11 @@ function get_ui(): RobiNN\UiKit\UiKit {
 /*$local_assets = [
     'bootstrap3'  => [
         'css' => ['./assets/bootstrap3/css/bootstrap.min.css'],
-        'js'  => ['./assets/jquery-3.6.1.min.js', './assets/bootstrap3/js/bootstrap.min.js'],
+        'js'  => ['./assets/jquery-3.6.3.min.js', './assets/bootstrap3/js/bootstrap.min.js'],
     ],
     'bootstrap4'  => [
         'css' => ['./assets/bootstrap4/css/bootstrap.min.css'],
-        'js'  => ['./assets/jquery-3.6.1.min.js', './assets/bootstrap4/js/bootstrap.bundle.min.js'],
+        'js'  => ['./assets/jquery-3.6.3.min.js', './assets/bootstrap4/js/bootstrap.bundle.min.js'],
     ],
     'bootstrap5'  => [
         'css' => ['./assets/bootstrap5/css/bootstrap.min.css'],
@@ -36,7 +36,7 @@ function get_ui(): RobiNN\UiKit\UiKit {
     ],
     'fomanticui2' => [
         'css' => ['./assets/fomanticui2/semantic.min.css'],
-        'js'  => ['./assets/jquery-3.6.1.min.js', './assets/fomanticui2/semantic.min.js'],
+        'js'  => ['./assets/jquery-3.6.3.min.js', './assets/fomanticui2/semantic.min.js'],
     ],
 ];
 
