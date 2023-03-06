@@ -28,7 +28,7 @@
   },
   "require-dev": {
     "gajus/dindent": "^2.0",
-    "phpstan/phpstan": "^1.9",
+    "phpstan/phpstan": "^1.10",
     "phpunit/phpunit": "^10.0"
   },
   "minimum-stability": "dev",
