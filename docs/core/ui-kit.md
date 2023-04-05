@@ -92,7 +92,7 @@ $uikit->addComponent('example_component', ExampleComponent::class);
 
 Get a UI Kit object.
 
-This helper function can be used to easily access a UI Kit object and after overriding can set in it custom config.
+This helper function can be used to easily access a UI Kit object, and after overriding can set in it custom config.
 By default, this function uses default config.
 
 Example, access to a config object:

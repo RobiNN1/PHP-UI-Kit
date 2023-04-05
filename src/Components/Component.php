@@ -53,7 +53,7 @@ class Component implements Stringable {
     }
 
     /**
-     * Get correct value from framework options.
+     * Get the correct value from framework options.
      */
     protected function getOption(string $option, mixed $value, ?string $component = null): mixed {
         $opts = $this->uikit->getFrameworkOption($component ?? $this->getComponentName());

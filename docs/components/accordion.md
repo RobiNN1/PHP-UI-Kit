@@ -18,12 +18,12 @@ $options (array) (Optional) Additional options.
 
 #### Available options
 
-| Name       | Type   | Default | Description                    |
-|------------|--------|---------|--------------------------------|
-| class      | string | ''      | Class for wrapper.             |
-| attributes | array  | []      | Array of custom attributes.    |
-| item_class | string | ''      | Class for item.                |
-| first_open | bool   | true    | Set false to close first item. |
+| Name       | Type   | Default | Description                        |
+|------------|--------|---------|------------------------------------|
+| class      | string | ''      | Class for wrapper.                 |
+| attributes | array  | []      | Array of custom attributes.        |
+| item_class | string | ''      | Class for item.                    |
+| first_open | bool   | true    | Set false to close the first item. |
 
 ## Basic Usage
 

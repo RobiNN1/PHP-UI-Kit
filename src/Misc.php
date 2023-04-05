@@ -75,7 +75,7 @@ class Misc {
     }
 
     /**
-     * Check if method exists and is public.
+     * Check if the method exists and is public.
      */
     public static function isPublic(object|string $class, string $method): bool {
         return method_exists($class, $method) && (new ReflectionMethod($class, $method))->isPublic();

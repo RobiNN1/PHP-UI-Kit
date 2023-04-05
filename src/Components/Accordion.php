@@ -22,7 +22,7 @@ class Accordion extends Component {
         'class'      => '', // Class for wrapper.
         'attributes' => [], // Array of custom attributes.
         'item_class' => '', // Class for item.
-        'first_open' => true, // Set false to close first item.
+        'first_open' => true, // Set false to close the first item.
     ];
 
     /**
