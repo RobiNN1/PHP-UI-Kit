@@ -17,10 +17,10 @@ declare(strict_types=1);
 return [
     'files'        => [
         'css' => [
-            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css',
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css',
         ],
         'js'  => [
-            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js',
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js',
         ],
     ],
     'grid_func'    => static function (array $col_sizes): string {
