@@ -20,7 +20,7 @@ return [
             'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css',
         ],
         'js'  => [
-            'https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js',
             'https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js',
         ],
     ],

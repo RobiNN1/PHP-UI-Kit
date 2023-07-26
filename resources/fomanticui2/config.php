@@ -20,7 +20,7 @@ return [
             'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.css',
         ],
         'js'  => [
-            'https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js',
             'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.js',
         ],
     ],
@@ -131,8 +131,8 @@ return [
     ],
     'carousel'     => [
         'files' => [
-            'css' => ['https://cdn.jsdelivr.net/npm/swiper@9.2.0/swiper-bundle.min.css'],
-            'js'  => ['https://cdn.jsdelivr.net/npm/swiper@9.2.0/swiper-bundle.min.js'],
+            'css' => ['https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css'],
+            'js'  => ['https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js'],
         ],
     ],
     'dropdown'     => [
