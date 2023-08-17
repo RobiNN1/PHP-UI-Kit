@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\DropdownTestCase;
+use RobiNN\UiKit\Tests\Components\DropdownTestCase;
 
 final class DropdownBootstrap4Test extends DropdownTestCase {
     protected function setUp(): void {

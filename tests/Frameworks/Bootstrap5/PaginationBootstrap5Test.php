@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\PaginationTestCase;
+use RobiNN\UiKit\Tests\Components\PaginationTestCase;
 
 final class PaginationBootstrap5Test extends PaginationTestCase {
     protected function setUp(): void {

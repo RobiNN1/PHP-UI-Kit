@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2\Form;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2\Form;
 
-use Tests\Components\Form\FormTestCase;
+use RobiNN\UiKit\Tests\Components\Form\FormTestCase;
 
 final class FormFomanticui2Test extends FormTestCase {
     protected function setUp(): void {

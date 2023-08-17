@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\CardTestCase;
+use RobiNN\UiKit\Tests\Components\CardTestCase;
 
 final class CardBootstrap4Test extends CardTestCase {
     protected function setUp(): void {

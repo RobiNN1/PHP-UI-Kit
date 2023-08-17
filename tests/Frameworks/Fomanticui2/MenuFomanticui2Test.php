@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\MenuTestCase;
+use RobiNN\UiKit\Tests\Components\MenuTestCase;
 
 final class MenuFomanticui2Test extends MenuTestCase {
     protected function setUp(): void {

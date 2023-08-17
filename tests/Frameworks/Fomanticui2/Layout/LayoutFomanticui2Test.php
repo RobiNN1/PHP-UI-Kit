@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2\Layout;
 
-use Tests\Components\Layout\LayoutTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\LayoutTestCase;
 
 final class LayoutFomanticui2Test extends LayoutTestCase {
     protected function setUp(string $framework = ''): void {

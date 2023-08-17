@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4\Layout;
 
-use Tests\Components\Layout\GridTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\GridTestCase;
 
 final class GridBootstrap4Test extends GridTestCase {
     protected function setUp(): void {

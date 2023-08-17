@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\AccordionTestCase;
+use RobiNN\UiKit\Tests\Components\AccordionTestCase;
 
 final class AccordionBootstrap4Test extends AccordionTestCase {
     protected function setUp(): void {

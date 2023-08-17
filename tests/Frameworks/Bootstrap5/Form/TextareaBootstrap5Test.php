@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5\Form;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5\Form;
 
-use Tests\Components\Form\TextareaTestCase;
+use RobiNN\UiKit\Tests\Components\Form\TextareaTestCase;
 
 final class TextareaBootstrap5Test extends TextareaTestCase {
     protected function setUp(): void {

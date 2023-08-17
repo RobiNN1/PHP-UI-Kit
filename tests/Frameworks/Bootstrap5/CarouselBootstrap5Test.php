@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\CarouselTestCase;
+use RobiNN\UiKit\Tests\Components\CarouselTestCase;
 
 final class CarouselBootstrap5Test extends CarouselTestCase {
     protected function setUp(): void {

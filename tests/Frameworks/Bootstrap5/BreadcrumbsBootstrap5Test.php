@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\BreadcrumbsTestCase;
+use RobiNN\UiKit\Tests\Components\BreadcrumbsTestCase;
 
 final class BreadcrumbsBootstrap5Test extends BreadcrumbsTestCase {
     protected function setUp(): void {

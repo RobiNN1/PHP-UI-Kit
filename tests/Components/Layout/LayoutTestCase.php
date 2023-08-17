@@ -10,12 +10,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components\Layout;
+namespace RobiNN\UiKit\Tests\Components\Layout;
 
 use RobiNN\UiKit\AddTo;
 use RobiNN\UiKit\Config;
+use RobiNN\UiKit\Tests\ComponentTestCase;
 use RobiNN\UiKit\UiKit;
-use Tests\ComponentTestCase;
 
 abstract class LayoutTestCase extends ComponentTestCase {
     protected string $expected_tpl;

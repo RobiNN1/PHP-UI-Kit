@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\CarouselTestCase;
+use RobiNN\UiKit\Tests\Components\CarouselTestCase;
 
 final class CarouselFomanticui2Test extends CarouselTestCase {
     protected function setUp(): void {

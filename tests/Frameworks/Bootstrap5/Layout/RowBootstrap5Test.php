@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5\Layout;
 
-use Tests\Components\Layout\RowTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\RowTestCase;
 
 final class RowBootstrap5Test extends RowTestCase {
     protected function setUp(): void {

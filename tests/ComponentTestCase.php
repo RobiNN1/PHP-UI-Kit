@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace RobiNN\UiKit\Tests;
 
 use Gajus\Dindent\Exception\RuntimeException;
 use Gajus\Dindent\Indenter;
@@ -28,6 +28,10 @@ abstract class ComponentTestCase extends TestCase {
         try {
             $indenter = new Indenter();
             $actual_indented = $indenter->indent($actual);
+
+            // bugfix for unwanted whitespace at the end of string
+            $html = array_map(static fn ($html) => rtrim($html), explode("\n", $actual_indented));
+            $actual_indented = implode("\n", $html);
         } catch (RuntimeException) {
             $actual_indented = $actual;
         }

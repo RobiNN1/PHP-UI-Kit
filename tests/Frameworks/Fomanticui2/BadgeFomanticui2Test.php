@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\BadgeTestCase;
+use RobiNN\UiKit\Tests\Components\BadgeTestCase;
 
 final class BadgeFomanticui2Test extends BadgeTestCase {
     protected function setUp(): void {

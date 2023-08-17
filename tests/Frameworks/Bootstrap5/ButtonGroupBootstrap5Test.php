@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\ButtonGroupTestCase;
+use RobiNN\UiKit\Tests\Components\ButtonGroupTestCase;
 
 final class ButtonGroupBootstrap5Test extends ButtonGroupTestCase {
     protected function setUp(): void {

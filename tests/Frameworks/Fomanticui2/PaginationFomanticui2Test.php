@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\PaginationTestCase;
+use RobiNN\UiKit\Tests\Components\PaginationTestCase;
 
 final class PaginationFomanticui2Test extends PaginationTestCase {
     protected function setUp(): void {

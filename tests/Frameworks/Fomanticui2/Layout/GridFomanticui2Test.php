@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2\Layout;
 
-use Tests\Components\Layout\GridTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\GridTestCase;
 
 final class GridFomanticui2Test extends GridTestCase {
     protected function setUp(): void {

@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap3\Form;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap3\Form;
 
-use Tests\Components\Form\CheckboxTestCase;
+use RobiNN\UiKit\Tests\Components\Form\CheckboxTestCase;
 
 final class CheckboxBootstrap3Test extends CheckboxTestCase {
     protected function setUp(): void {
@@ -23,7 +23,7 @@ final class CheckboxBootstrap3Test extends CheckboxTestCase {
     <div class="checkbox">
         <label for="test">
             <input value="0" type="checkbox" id="test" name="test">
-            Test 
+            Test
         </label>
     </div>
 </div>';
@@ -33,19 +33,19 @@ final class CheckboxBootstrap3Test extends CheckboxTestCase {
     <div class="checkbox">
         <label for="test-multiple0">
             <input value="0" type="checkbox" id="test-multiple0" name="test-multiple[]" checked>
-            Checkbox 1 
+            Checkbox 1
         </label>
     </div>
     <div class="checkbox">
         <label for="test-multiple1">
             <input value="1" type="checkbox" id="test-multiple1" name="test-multiple[]">
-            Checkbox 2 
+            Checkbox 2
         </label>
     </div>
     <div class="checkbox">
         <label for="test-multiple2">
             <input value="2" type="checkbox" id="test-multiple2" name="test-multiple[]">
-            Checkbox 3 
+            Checkbox 3
         </label>
     </div>
 </div>';

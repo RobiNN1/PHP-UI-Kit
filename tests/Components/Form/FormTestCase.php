@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components\Form;
+namespace RobiNN\UiKit\Tests\Components\Form;
 
-use Tests\ComponentTestCase;
+use RobiNN\UiKit\Tests\ComponentTestCase;
 
 abstract class FormTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;

@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\MenuTestCase;
+use RobiNN\UiKit\Tests\Components\MenuTestCase;
 
 final class MenuBootstrap5Test extends MenuTestCase {
     protected function setUp(): void {

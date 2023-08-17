@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\CustomComponets;
+namespace RobiNN\UiKit\Tests\CustomComponets;
 
-use Tests\ComponentTestCase;
+use RobiNN\UiKit\Tests\ComponentTestCase;
 
 final class TestTwigTest extends ComponentTestCase {
     protected string $expected_tpl;

@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\ListGroupTestCase;
+use RobiNN\UiKit\Tests\Components\ListGroupTestCase;
 
 final class ListGroupFomanticui2Test extends ListGroupTestCase {
     protected function setUp(): void {

@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\CustomComponets;
+namespace RobiNN\UiKit\Tests\CustomComponets;
 
 use RobiNN\UiKit\Components\Component;
 

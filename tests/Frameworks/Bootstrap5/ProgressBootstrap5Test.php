@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\ProgressTestCase;
+use RobiNN\UiKit\Tests\Components\ProgressTestCase;
 
 final class ProgressBootstrap5Test extends ProgressTestCase {
     protected function setUp(): void {

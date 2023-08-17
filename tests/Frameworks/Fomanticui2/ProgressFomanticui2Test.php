@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\ProgressTestCase;
+use RobiNN\UiKit\Tests\Components\ProgressTestCase;
 
 final class ProgressFomanticui2Test extends ProgressTestCase {
     protected function setUp(): void {

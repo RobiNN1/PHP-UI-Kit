@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5;
 
-use Tests\Components\AlertTestCase;
+use RobiNN\UiKit\Tests\Components\AlertTestCase;
 
 final class AlertBootstrap5Test extends AlertTestCase {
     protected function setUp(): void {

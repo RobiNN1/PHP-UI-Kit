@@ -10,7 +10,7 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components;
+namespace RobiNN\UiKit\Tests\Components;
 
 use PHPUnit\Framework\TestCase;
 use ReflectionException;

@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2\Layout;
 
-use Tests\Components\Layout\ContainerTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\ContainerTestCase;
 
 final class ContainerFomanticui2Test extends ContainerTestCase {
     protected function setUp(): void {

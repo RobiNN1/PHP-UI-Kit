@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5\Layout;
 
-use Tests\Components\Layout\ContainerTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\ContainerTestCase;
 
 final class ContainerBootstrap5Test extends ContainerTestCase {
     protected function setUp(): void {

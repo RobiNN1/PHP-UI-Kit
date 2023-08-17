@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2\Form;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2\Form;
 
-use Tests\Components\Form\CheckboxTestCase;
+use RobiNN\UiKit\Tests\Components\Form\CheckboxTestCase;
 
 final class CheckboxFomanticui2Test extends CheckboxTestCase {
     protected function setUp(): void {

@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\ModalTestCase;
+use RobiNN\UiKit\Tests\Components\ModalTestCase;
 
 final class ModalBootstrap4Test extends ModalTestCase {
     protected function setUp(): void {

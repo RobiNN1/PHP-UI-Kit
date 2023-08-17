@@ -43,7 +43,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "tests/"
+      "RobiNN\\UiKit\\Tests\\": "tests/"
     }
   },
   "config": {

@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2\Layout;
 
-use Tests\Components\Layout\RowTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\RowTestCase;
 
 final class RowFomanticui2Test extends RowTestCase {
     protected function setUp(): void {

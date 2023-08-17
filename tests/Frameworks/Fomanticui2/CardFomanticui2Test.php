@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\CardTestCase;
+use RobiNN\UiKit\Tests\Components\CardTestCase;
 
 final class CardFomanticui2Test extends CardTestCase {
     protected function setUp(): void {

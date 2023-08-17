@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\TabsTestCase;
+use RobiNN\UiKit\Tests\Components\TabsTestCase;
 
 final class TabsBootstrap4Test extends TabsTestCase {
     protected function setUp(): void {

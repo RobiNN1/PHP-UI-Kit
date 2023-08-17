@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5\Form;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5\Form;
 
-use Tests\Components\Form\CheckboxTestCase;
+use RobiNN\UiKit\Tests\Components\Form\CheckboxTestCase;
 
 final class CheckboxBootstrap5Test extends CheckboxTestCase {
     protected function setUp(): void {

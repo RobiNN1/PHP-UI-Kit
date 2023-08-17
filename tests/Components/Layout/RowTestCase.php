@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components\Layout;
+namespace RobiNN\UiKit\Tests\Components\Layout;
 
-use Tests\ComponentTestCase;
+use RobiNN\UiKit\Tests\ComponentTestCase;
 
 abstract class RowTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;

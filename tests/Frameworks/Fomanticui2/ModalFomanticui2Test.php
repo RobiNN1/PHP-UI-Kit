@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Fomanticui2;
+namespace RobiNN\UiKit\Tests\Frameworks\Fomanticui2;
 
-use Tests\Components\ModalTestCase;
+use RobiNN\UiKit\Tests\Components\ModalTestCase;
 
 final class ModalFomanticui2Test extends ModalTestCase {
     protected function setUp(): void {

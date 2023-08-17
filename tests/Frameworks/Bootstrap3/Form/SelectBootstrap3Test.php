@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap3\Form;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap3\Form;
 
-use Tests\Components\Form\SelectTestCase;
+use RobiNN\UiKit\Tests\Components\Form\SelectTestCase;
 
 final class SelectBootstrap3Test extends SelectTestCase {
     protected function setUp(): void {

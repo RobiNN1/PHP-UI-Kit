@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4\Form;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4\Form;
 
-use Tests\Components\Form\InputTestCase;
+use RobiNN\UiKit\Tests\Components\Form\InputTestCase;
 
 final class InputBootstrap4Test extends InputTestCase {
     protected function setUp(): void {

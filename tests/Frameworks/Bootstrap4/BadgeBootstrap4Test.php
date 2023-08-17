@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap4;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap4;
 
-use Tests\Components\BadgeTestCase;
+use RobiNN\UiKit\Tests\Components\BadgeTestCase;
 
 final class BadgeBootstrap4Test extends BadgeTestCase {
     protected function setUp(): void {

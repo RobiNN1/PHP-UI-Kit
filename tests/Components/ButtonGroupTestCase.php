@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Components;
+namespace RobiNN\UiKit\Tests\Components;
 
-use Tests\ComponentTestCase;
+use RobiNN\UiKit\Tests\ComponentTestCase;
 
 abstract class ButtonGroupTestCase extends ComponentTestCase {
     protected string $expected_tpl;

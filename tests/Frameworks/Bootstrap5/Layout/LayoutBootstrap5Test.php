@@ -10,9 +10,9 @@
 
 declare(strict_types=1);
 
-namespace Tests\Frameworks\Bootstrap5\Layout;
+namespace RobiNN\UiKit\Tests\Frameworks\Bootstrap5\Layout;
 
-use Tests\Components\Layout\LayoutTestCase;
+use RobiNN\UiKit\Tests\Components\Layout\LayoutTestCase;
 
 final class LayoutBootstrap5Test extends LayoutTestCase {
     protected function setUp(string $framework = ''): void {
