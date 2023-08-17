@@ -331,7 +331,7 @@ if (!function_exists('progress')) {
     /**
      * Render progress.
      *
-     * @param int|array<int, int|string> $percent Percents, an array or asociative array for multiple bars.
+     * @param int|array<int, int|string> $percent Percentage, an array or asociative array for multiple bars.
      * @param array<string, mixed>       $options Additional options.
      */
     function progress(int|array $percent, array $options = []): RobiNN\UiKit\Components\Progress {

@@ -10,7 +10,7 @@ progress( mixed $percent [, array $options = [] ] ) : string
 
 ## Parameters
 
-$percent (int|array) (Required) Percents, an array or asociative array for multiple bars.
+$percent (int|array) (Required) Percentage, an array or asociative array for multiple bars.
 
 $options (array) (Optional) Additional options.
 

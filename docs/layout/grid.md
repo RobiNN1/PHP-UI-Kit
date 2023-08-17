@@ -39,7 +39,7 @@ HTML output:
 ## Column sizes
 
 Depending on the framework, multiple values can be added.
-However, the recommended maximum is 4 values.
+However, the recommended maximum is four values.
 
 In the example below, the output will be
 100% width on mobile, 50% on a larger screen.

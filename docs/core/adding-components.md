@@ -107,7 +107,7 @@ $this->getAttributes([
 
 ### getOption()
 
-Get correct value from framework options.
+Get the correct value from framework options.
 
 ```php
 // E.g. alert component
