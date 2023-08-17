@@ -99,14 +99,14 @@ class Components {
     public function addSuggestions(string $component_name): string {
         $alternatives = [];
 
-        foreach ($this->allComponents() as $name => $class) {
+        foreach (array_keys($this->allComponents()) as $name) {
             $lev = levenshtein($component_name, $name);
             if ($lev <= strlen($component_name) / 3 || str_contains($name, $component_name)) {
                 $alternatives[$name] = $lev;
             }
         }
 
-        if (count($alternatives) === 0) {
+        if ($alternatives === []) {
             return '';
         }
 

@@ -31,7 +31,7 @@ class TwigUiKitExtension extends AbstractExtension {
 
         $is_safe = ['is_safe' => ['html']];
 
-        foreach ($this->uikit->allComponents() as $name => $class) {
+        foreach (array_keys($this->uikit->allComponents()) as $name) {
             if (is_callable([$this->uikit, $name])) {
                 $functions[] = new TwigFunction($name, fn (...$arguments) => $this->uikit->$name(...$arguments), $is_safe);
             }
@@ -44,11 +44,9 @@ class TwigUiKitExtension extends AbstractExtension {
 
         $tpl_func = (array) $this->uikit->getFrameworkOption('tpl_funcs');
 
-        if (count($tpl_func) > 0) {
-            foreach ($tpl_func as $function_name => $callback) {
-                if (is_callable($callback)) {
-                    $functions[] = new TwigFunction($function_name, $callback, $is_safe);
-                }
+        foreach ($tpl_func as $function_name => $callback) {
+            if (is_callable($callback)) {
+                $functions[] = new TwigFunction($function_name, $callback, $is_safe);
             }
         }
 

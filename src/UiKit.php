@@ -102,10 +102,8 @@ class UiKit extends Components {
     public function getFrameworkOption(string $key): mixed {
         $config = (array) require realpath($this->config->getFrameworkPath($this->config->getFramework())).'/config.php';
 
-        if (count($this->fw_options)) {
-            foreach ($this->fw_options as $option => $value) {
-                Misc::arraySet($config, $option, $value);
-            }
+        foreach ($this->fw_options as $option => $value) {
+            Misc::arraySet($config, $option, $value);
         }
 
         return Misc::arrayGet($config, $key);
@@ -122,12 +120,10 @@ class UiKit extends Components {
         }
 
         if (is_array($framework)) {
-            $fw = in_array($this->config->getFramework(), $framework, true);
-        } else {
-            $fw = $this->config->getFramework() === $framework;
+            return in_array($this->config->getFramework(), $framework, true);
         }
 
-        return $fw;
+        return $this->config->getFramework() === $framework;
     }
 
     /**
