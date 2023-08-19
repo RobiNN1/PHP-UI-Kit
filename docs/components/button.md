@@ -1,6 +1,6 @@
 # button()
 
-Show the button where you need, as action button or a link.
+Show the button where you need it, as an action button or a link.
 
 ---
 

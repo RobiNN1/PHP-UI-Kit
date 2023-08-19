@@ -63,7 +63,7 @@ class AddTo {
     }
 
     /**
-     * Add JS codes to the output.
+     * Add JS code to the output.
      */
     public static function js(string $code): void {
         if (stripos(self::$js, $code) === false) {
@@ -72,7 +72,7 @@ class AddTo {
     }
 
     /**
-     * Add CSS codes to the output.
+     * Add CSS code to the output.
      */
     public static function css(string $code): void {
         if (stripos(self::$css, $code) === false) {

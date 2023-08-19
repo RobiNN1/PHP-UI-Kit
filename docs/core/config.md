@@ -5,7 +5,7 @@ An overview of all configuration options.
 ---
 
 ```php
-$config = new RobiNN\UiKit\Config(); // All options can also be set in constructor
+$config = new RobiNN\UiKit\Config(); // All options can also be set in the constructor
 ```
 
 #### Available options
@@ -79,7 +79,7 @@ $fw_path = $config->getFrameworkPath($framework);
 
 ## setFrameworkPath()
 
-Set path to the framework.
+Set the path to the framework.
 
 ```php
 $config->setFrameworkPath('bootstrap5', __DIR__.'/path/to/bootstrap5');

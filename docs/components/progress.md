@@ -72,7 +72,7 @@ echo progress([20, 75,], [
 
 ## With titles and different colors
 
-In this case, every bar will have title and different color.
+In this case, every bar will have a title and different color.
 
 ```php
 echo progress([15 => 'First', 30 => 'Second', 55 => 'Third',], [

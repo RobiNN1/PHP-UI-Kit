@@ -115,7 +115,7 @@ class Config {
     }
 
     /**
-     * Set path to the framework.
+     * Set the path to the framework.
      *
      * @param string $framework Framework name.
      * @param string $path      Absolute path to the famework.

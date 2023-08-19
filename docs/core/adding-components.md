@@ -94,7 +94,7 @@ By extending `Component` class, your code has access to the `$this->uikit` and t
 
 ### getAttributes()
 
-Create string from the given array of attributes.
+Create a string from the given array of attributes.
 
 ```php
 $this->getAttributes([

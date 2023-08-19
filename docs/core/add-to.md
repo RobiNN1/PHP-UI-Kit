@@ -42,7 +42,7 @@ RobiNN\UiKit\AddTo::footer('<script>...</script>');
 
 ## js()
 
-Add JS codes to the output. It's loaded in the footer.
+Add JS code to the output. It's loaded in the footer.
 
 ```php
 RobiNN\UiKit\AddTo::js('let uikit = "";');
@@ -50,7 +50,7 @@ RobiNN\UiKit\AddTo::js('let uikit = "";');
 
 ## css()
 
-Add CSS codes to the output.
+Add CSS code to the output.
 
 ```php
 RobiNN\UiKit\AddTo::css('body { color: #000; }');

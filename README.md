@@ -8,18 +8,21 @@ A toolkit for developing universal web interfaces with support for multiple CSS 
 
 ## Use cases
 
-One of the use cases is the use in CMS.
+This UI Kit comes into play in CMS, among other scenarios.
 
-For example, you create a settings page, and you want the page to look good with any css framework.
-So you create a template that the theme creator can copy into the theme and modify as needed,
-which is not a great solution because this template can be changed at any time,
-meaning that any theme that includes this template has to update it as well.
+Take, for instance, the making of a settings page.
+The goal is to have this page seamlessly blend with any CSS framework.
+The typical approach involves creating a modifiable template which theme
+designers can incorporate into their themes.
+However, this solution is far from optimal since changes to the template
+require updates across all themes using it.
 
-This UI Kit solves this annoyance. How? Just create a settings page with this kit.
+This is where our UI Kit excels. It allows you to construct a settings page directly using the kit.
 
-Based on your implementation of this kit in your cms, the theme creator sets the css
-framework he wants and the settings page automatically adapts its html.
-So the theme creator doesn't have to worry about core templates and can focus on theme development.
+Depending on how you've applied this kit within your project, the theme designer can select the desired CSS framework,
+and the settings page automatically adjusts its HTML code.
+Thus, the focus of the theme creator remains solely
+on theme development, without the need to maintain core templates.
 
 ## Installation
 

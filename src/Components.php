@@ -92,7 +92,7 @@ class Components {
     }
 
     /**
-     * Add a suggestions if the component name is misspelled or does not exist.
+     * Add a suggestion if the component name is misspelled or does not exist.
      *
      * @internal
      */

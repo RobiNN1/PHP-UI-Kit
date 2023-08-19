@@ -23,8 +23,8 @@ When is used `button-value => options` method, is possible to set these options:
 | class       | string          | ''        | Button class.                                                         |
 | btn_options | array           | []        | Button options, see [available button options](button.md).            |
 
-> All these options can be set via btn_options,
-> but for convenience a common options (title, value, link, type and class) is possible to set directly.
+> All these options can be set via `btn_options`,
+> but for convenience common options (title, value, link, type and class) cen be set directly.
 
 $options (array) (Optional) Additional options.
 

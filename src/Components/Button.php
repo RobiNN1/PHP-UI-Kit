@@ -32,7 +32,7 @@ class Button extends Component {
         'icon'       => '', // Button icon.
         'icon_right' => false, // Show the icon on the right.
         'no_classes' => false, // Set true to remove default classes.
-        'menu_dp'    => false, // Set true if is used as menu dropdown button. @internal
+        'menu_dp'    => false, // Set true if is used as a menu dropdown button. @internal
     ];
 
     /**

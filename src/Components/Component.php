@@ -38,7 +38,7 @@ class Component implements Stringable {
     }
 
     /**
-     * Create string from the given array of attributes.
+     * Create a string from the given array of attributes.
      *
      * @param array<string, mixed> $attributes
      */
