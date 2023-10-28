@@ -13,11 +13,11 @@ declare(strict_types=1);
 return [
     'files'        => [
         'css' => [
-            'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.css',
+            'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.css',
         ],
         'js'  => [
-            'https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js',
-            'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.2/dist/semantic.min.js',
+            'https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.3/dist/semantic.min.js',
         ],
     ],
     'grid_func'    => static function (array $col_sizes): string {
@@ -127,8 +127,8 @@ return [
     ],
     'carousel'     => [
         'files' => [
-            'css' => ['https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css'],
-            'js'  => ['https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js'],
+            'css' => ['https://cdn.jsdelivr.net/npm/swiper@11.0.3/swiper-bundle.min.css'],
+            'js'  => ['https://cdn.jsdelivr.net/npm/swiper@11.0.3/swiper-bundle.min.js'],
         ],
     ],
     'dropdown'     => [
