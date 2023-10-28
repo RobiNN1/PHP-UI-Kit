@@ -1,11 +1,7 @@
 <?php
 /**
  * This file is part of UiKit.
- *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -43,7 +39,7 @@ class Progress extends Component {
 
         if (!is_array($percent)) {
             $color = is_array($this->options['color']) ? $this->options['color'][0] : $this->options['color'];
-            if ($auto_colors) {
+            if ($auto_colors !== null) {
                 $color = $auto_colors($percent);
             }
 
@@ -75,10 +71,10 @@ class Progress extends Component {
         foreach ($percent as $bar => $title) {
             $color = is_array($options['color']) ? ($options['color'][$i] ?? 'default') : $options['color'];
 
-            $is_assoc = static fn ($arr) => ($arr !== []) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
+            $is_assoc = static fn ($arr): bool => ($arr !== []) && array_keys($arr) !== range(0, (is_countable($arr) ? count($arr) : 0) - 1);
             $int = $is_assoc($percent) ? $bar : $title;
 
-            if ($auto_colors) {
+            if ($auto_colors !== null) {
                 $color = $auto_colors((int) $int);
             }
 
@@ -90,7 +86,7 @@ class Progress extends Component {
                 'percent' => $int,
             ];
 
-            $i++;
+            ++$i;
         }
 
         return $bars;

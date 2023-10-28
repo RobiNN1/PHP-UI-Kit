@@ -1,11 +1,7 @@
 <?php
 /**
  * This file is part of UiKit.
- *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -74,7 +70,7 @@ class Pagination extends Component {
             $items[$key] = [
                 'link'     => sprintf($options['link'], $item),
                 'title'    => $prev ?: $title,
-                'current'  => !($key === 'prev' || $key === 'next') && $item === $options['current'],
+                'current'  => $key !== 'prev' && $key !== 'next' && $item === $options['current'],
                 'disabled' => $item === $options['disabled'] || $disabled_prev || $disabled_next,
             ];
         }

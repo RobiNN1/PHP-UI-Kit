@@ -1,11 +1,7 @@
 <?php
 /**
  * This file is part of UiKit.
- *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -27,7 +23,7 @@ final class ConfigTest extends TestCase {
 
         $this->config->setCache($value);
 
-        $this->assertEquals($value, $this->config->getCache());
+        $this->assertSame($value, $this->config->getCache());
     }
 
     public function testDebugSetterGetter(): void {
@@ -41,7 +37,7 @@ final class ConfigTest extends TestCase {
 
         $this->config->setFramework($value);
 
-        $this->assertEquals($value, $this->config->getFramework());
+        $this->assertSame($value, $this->config->getFramework());
     }
 
     public function testFrameworkPathSetterGetter(): void {
@@ -50,6 +46,6 @@ final class ConfigTest extends TestCase {
 
         $this->config->setFrameworkPath($framework, $value);
 
-        $this->assertEquals($value, $this->config->getFrameworkPath($framework));
+        $this->assertSame($value, $this->config->getFrameworkPath($framework));
     }
 }

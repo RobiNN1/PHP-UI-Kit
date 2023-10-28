@@ -1,11 +1,7 @@
 <?php
 /**
  * This file is part of UiKit.
- *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -28,12 +24,13 @@ class Config {
      * @param array<string, mixed> $options
      */
     public function __construct(array $options = []) {
-        $options = array_merge([
+        $options = [
             'cache'           => false, // An absolute path, a \Twig\Cache\CacheInterface implementation, or false.
             'debug'           => false, // TPL engine debugging.
             'framework'       => 'bootstrap5', // CSS Framework.
             'framework_paths' => [], // Path to CSS Framework, each Framework can be in a different path.
-        ], $options);
+            ...$options,
+        ];
 
         $this->cache = $options['cache'];
         $this->debug = (bool) $options['debug'];

@@ -1,11 +1,7 @@
 <?php
 /**
  * This file is part of UiKit.
- *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -30,7 +26,7 @@ abstract class ComponentTestCase extends TestCase {
             $actual_indented = $indenter->indent($actual);
 
             // bugfix for unwanted whitespace at the end of string
-            $html = array_map(static fn ($html) => rtrim($html), explode("\n", $actual_indented));
+            $html = array_map(static fn ($html): string => rtrim((string) $html), explode("\n", $actual_indented));
             $actual_indented = implode("\n", $html);
         } catch (RuntimeException) {
             $actual_indented = $actual;

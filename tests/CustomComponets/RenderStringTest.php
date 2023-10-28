@@ -1,11 +1,7 @@
 <?php
 /**
  * This file is part of UiKit.
- *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -28,7 +24,7 @@ final class RenderStringTest extends ComponentTestCase {
     }
 
     public function testCustomComponentInTwig(): void {
-        $this->assertComponentRenderTpl('Name: test', '{{ render_string(\'test\') }}');
+        $this->assertComponentRenderTpl('Name: test', "{{ render_string('test') }}");
         $this->assertComponentRenderTpl('<nav>', '{{ render_string_open() }}');
         $this->assertComponentRenderTpl('</nav>', '{{ render_string_close() }}');
     }

@@ -1,11 +1,7 @@
 <?php
 /**
  * This file is part of UiKit.
- *
  * Copyright (c) Róbert Kelčák (https://kelcak.com/)
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
  */
 
 declare(strict_types=1);
@@ -18,7 +14,7 @@ use ReflectionMethod;
 use RobiNN\UiKit\Components\Component;
 use RobiNN\UiKit\UiKit;
 
-final class ComponentTestCase extends TestCase {
+final class ComponentTest extends TestCase {
     private Component $component;
 
     /**
@@ -26,7 +22,7 @@ final class ComponentTestCase extends TestCase {
      *
      * @throws ReflectionException
      */
-    protected static function callMethod(object $object, string $name, mixed ...$args): mixed {
+    private function callMethod(object $object, string $name, mixed ...$args): mixed {
         return (new ReflectionMethod($object, $name))->invokeArgs($object, $args);
     }
 
@@ -38,7 +34,7 @@ final class ComponentTestCase extends TestCase {
      * @throws ReflectionException
      */
     public function testGetAttributes(): void {
-        $attributes = self::callMethod($this->component, 'getAttributes', [
+        $attributes = $this->callMethod($this->component, 'getAttributes', [
             'no_value'     => null,
             'zero'         => 0,
             'one'          => 1,
@@ -61,6 +57,6 @@ final class ComponentTestCase extends TestCase {
             ],
         ]);
 
-        $this->assertSame('value2', self::callMethod($this->component, 'getOption', 'array', 'primary', 'test'));
+        $this->assertSame('value2', $this->callMethod($this->component, 'getOption', 'array', 'primary', 'test'));
     }
 }
