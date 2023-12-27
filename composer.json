@@ -29,7 +29,7 @@
   "require-dev": {
     "gajus/dindent": "^2.0",
     "phpstan/phpstan": "^1.10",
-    "phpunit/phpunit": "^10.4"
+    "phpunit/phpunit": "^10.5"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
