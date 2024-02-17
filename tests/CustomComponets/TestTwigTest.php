@@ -11,7 +11,7 @@ namespace RobiNN\UiKit\Tests\CustomComponets;
 use RobiNN\UiKit\Tests\ComponentTestCase;
 
 final class TestTwigTest extends ComponentTestCase {
-    protected string $expected_tpl;
+    private string $expected_tpl;
 
     protected function setUp(): void {
         parent::setUp();

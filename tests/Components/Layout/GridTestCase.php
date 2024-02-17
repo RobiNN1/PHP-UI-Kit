@@ -12,10 +12,15 @@ use RobiNN\UiKit\Tests\ComponentTestCase;
 
 abstract class GridTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;
+
     protected string $expected_close_tpl;
+
     protected string $expected_100_50_tpl;
+
     protected string $expected_fw_tpl;
+
     protected string $expected_auto_tpl;
+
     protected string $expected_auto_multiple_tpl;
 
     /**

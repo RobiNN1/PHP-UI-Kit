@@ -85,7 +85,7 @@ class UiKit extends Components {
      * @param Config|array<string, mixed> $config
      */
     public static function getInstance(Config|array $config = []): UiKit {
-        if (self::$instance === null) {
+        if (!self::$instance instanceof self) {
             self::$instance = new self($config);
         }
 

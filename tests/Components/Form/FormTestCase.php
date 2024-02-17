@@ -12,6 +12,7 @@ use RobiNN\UiKit\Tests\ComponentTestCase;
 
 abstract class FormTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;
+
     protected string $expected_close_tpl;
 
     public function testOpenFormRender(): void {

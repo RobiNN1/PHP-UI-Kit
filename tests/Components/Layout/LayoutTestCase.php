@@ -15,6 +15,7 @@ use RobiNN\UiKit\UiKit;
 
 abstract class LayoutTestCase extends ComponentTestCase {
     protected string $expected_tpl;
+
     protected string $expected_framework;
 
     protected function setUp(string $framework = ''): void {

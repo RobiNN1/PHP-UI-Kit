@@ -12,6 +12,7 @@ use RobiNN\UiKit\Tests\ComponentTestCase;
 
 abstract class ContainerTestCase extends ComponentTestCase {
     protected string $expected_open_tpl;
+
     protected string $expected_close_tpl;
 
     public function testOpenContainerRender(): void {
