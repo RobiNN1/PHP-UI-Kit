@@ -24,12 +24,12 @@
   },
   "require": {
     "php": ">=8.2",
-    "twig/twig": "^3.8"
+    "twig/twig": "^3.9"
   },
   "require-dev": {
     "gajus/dindent": "^2.0",
     "phpstan/phpstan": "^1.10",
-    "phpunit/phpunit": "^11.0"
+    "phpunit/phpunit": "^11.1"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
