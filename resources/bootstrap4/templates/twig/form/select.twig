@@ -1,0 +1,21 @@
+{% set select_size = size ? ' custom-select-' ~ size : '' %}
+
+<div class="mb-1{{ class|space }}"{{ attributes|space|raw }}>
+    {% if label %}
+        <label for="{{ select_id }}" class="form-label">{{ label }}</label>
+    {% endif %}
+    <select{{ select_attributes|space|raw }} class="custom-select{{ select_size ~ select_class|space ~ state|space }}" aria-label="{{ label }}">
+        {% if placeholder %}
+            <option disabled selected>{{ placeholder }}</option>
+        {% endif %}
+        {% for item_value, item_title in items %}
+            <option value="{{ item_value }}"{{ item_value == value ? ' selected' : '' }}>{{ item_title }}</option>
+        {% endfor %}
+    </select>
+    {% if feedback_text %}
+        <div class="{{ state == 'is-invalid' ? 'in' : '' }}valid-feedback">{{ feedback_text|raw }}</div>
+    {% endif %}
+    {% if help_text %}
+        <div class="form-text text-muted">{{ help_text|raw }}</div>
+    {% endif %}
+</div>

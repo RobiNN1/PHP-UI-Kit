@@ -1,0 +1,23 @@
+{{ add_to_js("$('.ui.dropdown').dropdown();") }}
+
+<div class="ui dropdown{{ dark ? ' inverted' : '' }}{{ in_menu ? ' item' : '' }}{{ class|space }}"{{ attributes|space|raw }}>
+    {{- button|raw -}}
+    <div class="menu">
+        {%- for item in items -%}
+            {% set active = item.active ? ' active' : '' %}
+            {%- set new_window = item.new_window ? ' target="_blank"' : '' -%}
+
+            {%- if item == 'divider' -%}
+                <div class="divider"></div>
+            {% elseif item.custom %}
+                {{- item.custom|raw -}}
+            {% else %}
+                {%- if item.link -%}
+                    <a class="item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}"{{ new_window|raw }}>{{ item.title|raw }}</a>
+                {%- else -%}
+                    <span class="item{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span>
+                {%- endif -%}
+            {% endif %}
+        {%- endfor -%}
+    </div>
+</div>

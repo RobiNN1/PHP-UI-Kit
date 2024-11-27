@@ -1,0 +1,7 @@
+<div class="ui {{ color|space(true) }}message{{ class|space }}"{{ attributes|space|raw }}>
+    {{- text|raw -}}
+    {%- if dismiss -%}
+        {{ add_to_js("$('.message .close').on('click', function(){$(this).closest('.message').transition('fade');});") }}
+        <i class="close icon"></i>
+    {% endif %}
+</div>

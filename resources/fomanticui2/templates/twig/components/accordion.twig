@@ -1,0 +1,15 @@
+{{ add_to_js("$('.ui.accordion').accordion();") }}
+
+<div class="ui styled fluid accordion{{ class|space }}" id="accordion-{{ id }}"{{ attributes|space|raw }}>
+    {% for title, body in items %}
+        {% set active = first_open and loop.first ? ' active' : '' %}
+
+        <div class="title{{ active }}">
+            <i class="dropdown icon"></i>
+            {{- title|raw -}}
+        </div>
+        <div class="content{{ active }}">
+            {{- body|raw -}}
+        </div>
+    {% endfor %}
+</div>

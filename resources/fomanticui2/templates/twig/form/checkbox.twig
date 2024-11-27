@@ -1,0 +1,26 @@
+<div class="grouped fields{{ state|space ~ class|space }}"{{ attributes|space|raw }}>
+    {% if items|length > 1 %}
+        <span>{{ label }}</span>
+    {%- endif -%}
+    {%- for item_value, title in items -%}
+        <div class="field">
+            <div class="ui checkbox{{ type == 'radio' ? ' radio' : '' }}">
+                {% if items|length == 1 %}
+                    {% set checked = value > 0 ? ' checked' : '' %}
+                    {% set id = checkbox_id %}
+                {% else %}
+                    {% set checked = item_value == value ? ' checked' : '' %}
+                    {% set id = checkbox_id ~ item_value %}
+                {% endif %}
+                <input value="{{ item_value }}" type="{{ type }}" id="{{ id }}"{{ checkbox_attributes|space|raw }}{{ checked }}>
+                <label for="{{ id }}">{{ title }}</label>
+                {% if feedback_text and loop.last %}
+                    <div class="ui pointing basic label">{{ feedback_text|raw }}</div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+    {% if help_text %}
+        <div><small>{{ help_text|raw }}</small></div>
+    {% endif %}
+</div>

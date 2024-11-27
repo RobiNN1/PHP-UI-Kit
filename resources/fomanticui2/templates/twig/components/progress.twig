@@ -1,0 +1,7 @@
+<div class="ui progress{{ class|space }}" data-percent{{ attributes|space|raw }}>
+    {% for bar in bars %}
+        <div class="bar{{ bar.color|space ~ item_class|space }}" style="width: {{ bar.percent }}%;">
+            <div class="progress centered">{{ bar.title }}</div>
+        </div>
+    {% endfor %}
+</div>

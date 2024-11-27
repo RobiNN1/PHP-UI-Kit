@@ -1,0 +1,22 @@
+<div class="field{{ state|space }}"{{ attributes|space|raw }}>
+    {% if label %}
+        <label for="{{ select_id }}">{{ label }}</label>
+    {% endif %}
+    <div class="fluid{{ size|space ~ class|space }}">
+        {% set class = (multiple ? 'ui dropdown fluid' : '') ~ select_class %}
+        <select{{ select_attributes|space|raw }}{{ (class ? ' class="' ~ class ~ '"' : '')|raw }} aria-label="{{ label }}">
+            {% if placeholder %}
+                <option disabled selected>{{ placeholder }}</option>
+            {% endif %}
+            {% for item_value, item_title in items %}
+                <option value="{{ item_value }}"{{ item_value == value ? ' selected' : '' }}>{{ item_title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    {% if feedback_text %}
+        <div class="ui pointing basic label">{{ feedback_text|raw }}</div>
+    {% endif %}
+    {% if help_text %}
+        <div><small>{{ help_text|raw }}</small></div>
+    {% endif %}
+</div>

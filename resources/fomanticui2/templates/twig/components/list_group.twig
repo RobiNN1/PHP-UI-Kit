@@ -1,0 +1,11 @@
+<div class="ui segments{{ class|space }}"{{ attributes|space|raw }}>
+    {% for item in items %}
+        {% if item is iterable and item.link %}
+            {% set active = item.active ? ' active' : '' %}
+            {% set new_window = item.new_window ? ' target="_blank"' : '' %}
+            <div class="ui segment{{ item_class|space ~ item.class|space }}{{ active }}"><a href="{{ item.link }}"{{ new_window|raw }}>{{ item.title|raw }}</a></div>
+        {% else %}
+            <div class="ui segment{{ item_class|space }}">{{ item|raw }}</div>
+        {% endif %}
+    {% endfor %}
+</div>

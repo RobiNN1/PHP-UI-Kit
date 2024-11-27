@@ -1,0 +1,19 @@
+{{ add_to_css('.swiper{width:100%;height:auto;}') }}
+{{ add_to_js('new Swiper("#carousel-' ~ id ~ '",{loop:true,pagination:{el:".swiper-pagination"},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}});') }}
+
+<div id="carousel-{{ id }}" class="swiper{{ class|space }}"{{ attributes|space|raw }}>
+    <div class="swiper-wrapper">
+        {% for slide in slides %}
+            <div class="swiper-slide{{ item_class|space }}">{{ slide|raw }}</div>
+        {% endfor %}
+    </div>
+
+    {% if indicators %}
+        <div class="swiper-pagination"></div>
+    {% endif %}
+
+    {% if controls %}
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    {% endif %}
+</div>

@@ -1,0 +1,20 @@
+<div id="carousel-{{ id }}" class="carousel slide{{ class|space }}" data-ride="carousel"{{ attributes|space|raw }}>
+    {% if indicators %}
+        <ol class="carousel-indicators">
+            {% for slide in slides %}
+                <li data-target="#carousel-{{ id }}" data-slide-to="{{ loop.index0 }}"{{ loop.first ? ' class="active" aria-current="true"' : ''|raw }}></li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+
+    <div class="carousel-inner">
+        {% for slide in slides %}
+            <div class="item{{ item_class|space }}{{ loop.first ? ' active' : '' }}">{{ slide|raw }}</div>
+        {% endfor %}
+    </div>
+
+    {% if controls %}
+        <a class="left carousel-control" href="#carousel-{{ id }}" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+        <a class="right carousel-control" href="#carousel-{{ id }}" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+    {% endif %}
+</div>

@@ -1,0 +1,50 @@
+{% macro menu_item(item, item_class) %}
+    {% set active = item.active ? ' active' : '' %}
+    {% set new_window = item.new_window ? ' target="_blank"' : '' %}
+    <li class="nav-item"><a class="nav-link{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}"{{ new_window|raw }}>{{ item.title|raw }}</a></li>
+{% endmacro %}
+
+{% macro right(items, item_class) %}
+    </ul><ul class="nav navbar-nav navbar-right">
+    {% for item in items %}
+        {% if item.dropdown %}
+            {{ item.dropdown|raw }}
+        {% elseif item.custom %}
+            <li class="nav-item">{{ item.custom|raw }}</li>
+        {% else %}
+            {{ _self.menu_item(item, item_class) }}
+        {% endif %}
+    {% endfor %}
+{% endmacro %}
+{% set color = dark ? 'inverse' : 'default' %}
+<nav class="navbar navbar-{{ color }}{{ class|space }}"{{ attributes|space|raw }}>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"  data-target="#navbar-{{ id }}" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {% if brand.title %}
+                <a class="navbar-brand" href="{{ brand.link }}">{{ brand.title|raw }}</a>
+            {% endif %}
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-{{ id }}">
+            <ul class="nav navbar-nav">
+                {% for key, item in items %}
+                    {% if key == 'right' %}
+                        {{ _self.right(item, item_class) }}
+                    {% elseif item.dropdown %}
+                        {{ item.dropdown|raw }}
+                    {% elseif item.custom %}
+                        <li class="nav-item">{{ item.custom|raw }}</li>
+                    {% else %}
+                        {{ _self.menu_item(item, item_class) }}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>

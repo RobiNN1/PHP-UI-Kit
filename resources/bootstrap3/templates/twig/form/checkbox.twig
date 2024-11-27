@@ -1,0 +1,27 @@
+<div class="form-group{{ class|space ~ state|space }}"{{ attributes|space|raw }}>
+    {% if items|length > 1 %}
+        <span>{{ label }}</span>
+    {%- endif -%}
+    {%- for item_value, title in items -%}
+        <div class="{{ type }}">
+            {% if items|length == 1 %}
+                {% set checked = value > 0 ? ' checked' : '' %}
+                {% set id = checkbox_id %}
+            {% else %}
+                {% set checked = item_value == value ? ' checked' : '' %}
+                {% set id = checkbox_id ~ item_value %}
+            {% endif %}
+
+            <label for="{{ id }}">
+                <input value="{{ item_value }}" type="{{ type }}" id="{{ id }}"{{ checkbox_attributes|space|raw }}{{ checked }}>
+                {{ title }}
+            </label>
+            {% if feedback_text and loop.last %}
+                <div class="help-block">{{ feedback_text|raw }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% if help_text %}
+        <div class="text-muted">{{ help_text|raw }}</div>
+    {% endif %}
+</div>

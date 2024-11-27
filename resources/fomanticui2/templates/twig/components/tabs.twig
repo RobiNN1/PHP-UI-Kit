@@ -1,0 +1,18 @@
+{{ add_to_js("$('.tabular.menu .item').tab();") }}
+
+<div id="tabs-{{ id }}">
+    <div class="ui tabular menu{{ class|space }}"{{ attributes|space|raw }}>
+        {% for item in items %}
+            {% set tab_id = id ~ '-tab' ~ loop.index %}
+            {% set active = item.active ? ' active' : '' %}
+            <div class="item{{ nav_item_class|space ~ active }}" data-tab="{{ tab_id }}">{{ item.title|raw }}</div>
+        {% endfor %}
+    </div>
+    <div class="tab-content">
+        {% for item in items %}
+            {% set tab_id = id ~ '-tab' ~ loop.index %}
+            {% set active = item.active ? ' active' : '' %}
+            <div class="ui tab{{ tab_item_class|space ~ active }}" data-tab="{{ tab_id }}">{{ item.content|raw }}</div>
+        {% endfor %}
+    </div>
+</div>

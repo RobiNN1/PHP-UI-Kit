@@ -1,0 +1,11 @@
+<div class="list-group{{ class|space }}"{{ attributes|space|raw }}>
+    {% for item in items %}
+        {% if item is iterable and item.link %}
+            {% set active = item.active ? ' active' : '' %}
+            {% set new_window = item.new_window ? ' target="_blank"' : '' %}
+            <a class="list-group-item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}"{{ new_window|raw }}>{{ item.title|raw }}</a>
+        {% else %}
+            <div class="list-group-item{{ item_class|space }}">{{ item|raw }}</div>
+        {% endif %}
+    {% endfor %}
+</div>

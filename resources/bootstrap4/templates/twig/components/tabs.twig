@@ -1,0 +1,18 @@
+<div id="tabs-{{ id }}">
+    <ul class="nav nav-tabs{{ class|space }}" role="tablist"{{ attributes|space|raw }}>
+        {% for item in items %}
+            <li class="nav-item{{ nav_item_class|space }}" role="presentation">
+                {% set tab_id = id ~ '-tab' ~ loop.index %}
+                {% set active = item.active ? ' active' : '' %}
+                <button class="nav-link{{ active }}" id="{{ tab_id }}-link" data-toggle="tab" data-target="#{{ tab_id }}" type="button" role="tab" aria-controls="{{ tab_id }}">{{ item.title|raw }}</button>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="tab-content">
+        {% for item in items %}
+            {% set tab_id = id ~ '-tab' ~ loop.index %}
+            {% set active = item.active ? ' show active' : '' %}
+            <div class="tab-pane fade{{ tab_item_class|space ~ active }}" id="{{ tab_id }}" role="tabpanel" aria-labelledby="{{ tab_id }}-link">{{ item.content|raw }}</div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="panel-group{{ class|space }}" id="accordion-{{ id }}"{{ attributes|space|raw }}>
+    {% for title, body in items %}
+        {% set collapse_id = id ~ loop.index %}
+
+        <div class="panel panel-default{{ item_class|space }}">
+            <div class="panel-heading" >
+                <h4 class="panel-title" id="heading-{{ collapse_id }}">
+                    <a{{ first_open and loop.first ? '' : ' class="collapsed"' }} type="button"
+                            data-toggle="collapse" data-target="#collapse-{{ collapse_id }}" aria-expanded="true"
+                            aria-controls="collapse-{{ collapse_id }}">{{ title|raw }}</a>
+                </h4>
+            </div>
+            <div id="collapse-{{ collapse_id }}" class="panel-collapse collapse{{ first_open and loop.first ? ' in' : '' }}"
+                 aria-labelledby="heading-{{ collapse_id }}" data-parent="#accordion-{{ id }}">
+                <div class="panel-body">{{ body|raw }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

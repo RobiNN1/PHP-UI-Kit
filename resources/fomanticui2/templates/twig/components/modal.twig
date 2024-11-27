@@ -1,0 +1,29 @@
+{% if always_open == true %}
+    {{ add_to_js("$('#modal-" ~ id ~ "').modal('show');") }}
+{% else %}
+    {{ add_to_js("$('#modal-" ~ id ~ "').modal({closable:" ~ (close_button == true ? 'true' : 'false') ~ "});") }}
+{% endif %}
+
+{% if hide_button == false %}
+    {{ add_to_js("$('#toggle-modal-" ~ id ~ "').click(function(){$('#modal-" ~ id ~ "').modal('show');});") }}
+
+    {{ button|raw }}
+{% endif %}
+
+<div class="ui{{ size|space }} modal{{ class|space }}" id="modal-{{ id }}"{{ attributes|space|raw }}>
+    {%- if close_button == true -%}
+        <i class="close icon"></i>
+    {%- endif -%}
+    {%- if content.header or content.title -%}
+        <div class="header">
+            {{ content.title|raw }}
+            {{ content.header|raw }}
+        </div>
+    {%- endif -%}
+    {%- if content.body -%}
+        <div class="content">{{ content.body|raw }}</div>
+    {% endif %}
+    {% if content.footer %}
+        <div class="actions">{{ content.footer|raw }}</div>
+    {% endif %}
+</div>

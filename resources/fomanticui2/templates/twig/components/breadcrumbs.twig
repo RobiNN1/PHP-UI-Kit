@@ -1,0 +1,12 @@
+<div class="ui breadcrumb{{ class|space }}"{{ attributes|space|raw }}>
+    {% for title, link in links %}
+        {%- if loop.last -%}
+            <div class="active section">{{ title|raw }}</div>
+        {%- else -%}
+            <a class="section{{ item_class|space }}" href="{{ link }}">{{ title|raw }}</a>
+        {%- endif -%}
+        {%- if not loop.last -%}
+            <div class="divider"> {{ divider }} </div>
+        {%- endif -%}
+    {% endfor %}
+</div>

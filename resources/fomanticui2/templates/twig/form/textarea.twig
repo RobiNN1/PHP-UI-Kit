@@ -1,0 +1,14 @@
+<div class="field{{ state|space }}"{{ attributes|space|raw }}>
+    {% if label %}
+        <label for="{{ textarea_id }}">{{ label }}</label>
+    {% endif %}
+    <div class="fluid{{ class|space }}">
+        <textarea{{ textarea_attributes|space|raw }}{{ (textarea_class ? ' class="' ~ textarea_class ~ '"' : '')|raw }}>{{ value }}</textarea>
+    </div>
+    {% if feedback_text %}
+        <div class="ui pointing basic label">{{ feedback_text|raw }}</div>
+    {% endif %}
+    {% if help_text %}
+        <div><small>{{ help_text|raw }}</small></div>
+    {% endif %}
+</div>

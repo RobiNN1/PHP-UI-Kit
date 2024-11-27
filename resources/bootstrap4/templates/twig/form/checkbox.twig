@@ -1,0 +1,24 @@
+<div class="mb-1{{ class|space }}"{{ attributes|space|raw }}>
+    {% if items|length > 1 %}
+        <span>{{ label }}</span>
+    {%- endif -%}
+    {%- for item_value, title in items -%}
+        <div class="custom-control custom-{{ type }} form-check">
+            {% if items|length == 1 %}
+                {% set checked = value > 0 ? ' checked' : '' %}
+                {% set id = checkbox_id %}
+            {% else %}
+                {% set checked = item_value == value ? ' checked' : '' %}
+                {% set id = checkbox_id ~ item_value %}
+            {% endif %}
+            <input value="{{ item_value }}" type="{{ type }}" id="{{ id }}"{{ checkbox_attributes|space|raw }} class="custom-control-input{{ state|space }}"{{ checked }}>
+            <label for="{{ id }}" class="custom-control-label">{{ title }}</label>
+            {% if feedback_text and loop.last %}
+                <div class="{{ state == 'is-invalid' ? 'in' : '' }}valid-feedback">{{ feedback_text|raw }}</div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% if help_text %}
+        <div class="form-text text-muted">{{ help_text|raw }}</div>
+    {% endif %}
+</div>

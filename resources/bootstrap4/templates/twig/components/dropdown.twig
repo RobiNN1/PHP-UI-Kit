@@ -1,0 +1,23 @@
+{% set tag = in_menu ? 'li' : 'div' %}
+
+<{{ tag }} class="{{ in_menu ? 'nav-item ' : '' }}dropdown{{ class|space }}"{{ attributes|space|raw }}>
+    {{- button|raw -}}
+    <ul class="dropdown-menu{{ dark ? ' dropdown-menu-dark' : '' }}">
+        {% for item in items %}
+            {% set active = item.active ? ' active' : '' %}
+            {% set new_window = item.new_window ? ' target="_blank"' : '' %}
+
+            {% if item == 'divider' %}
+                <li><hr class="dropdown-divider"></li>
+            {% elseif item.custom %}
+                <li>{{ item.custom|raw }}</li>
+            {% else %}
+                {% if item.link %}
+                    <li><a class="dropdown-item{{ item_class|space ~ item.class|space }}{{ active }}" href="{{ item.link }}"{{ new_window|raw }}>{{ item.title|raw }}</a></li>
+                {% else %}
+                    <li><span class="dropdown-item-text{{ item_class|space ~ item.class|space }}{{ active }}">{{ item.title|raw }}</span></li>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ul>
+</{{ tag }}>
