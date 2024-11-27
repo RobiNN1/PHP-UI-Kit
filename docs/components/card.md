@@ -67,7 +67,7 @@ echo card([
 
 ## Colored
 
-Simply use the framework's color utilits or add custom class.
+Use the framework's color utilits or add custom class.
 
 ```php
 echo card([

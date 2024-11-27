@@ -36,7 +36,7 @@ $uikit->layout(ob_get_clean());
 
 #### Echo
 
-Simply print everything with echo.
+Print everything with echo.
 
 ```php
 ob_start();
@@ -74,7 +74,7 @@ HTML code
 
 If you use components with helper functions, the simplest way to change config is to override `get_ui()` function.
 
-Simply place this function after class autoload.
+Place this function after class autoload.
 
 ```php
 function get_ui(): RobiNN\UiKit\UiKit {

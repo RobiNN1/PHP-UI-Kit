@@ -27,7 +27,7 @@ echo grid_close().grid_open([100, '1/2']);
 echo input('input-error', 'Error', '', ['state' => 'error',]);
 echo grid_close().row_close();
 
-echo '<hr><h3 class="h3">Input with feedback & help text</h3>';
+echo '<hr><h3 class="h3">Input with feedback and helptext</h3>';
 echo row_open().grid_open([100, '1/3']);
 echo input('input-error-feedback', 'Error input with text', '', [
     'state'         => 'error',
@@ -76,7 +76,7 @@ echo input('input-action-buttons', 'Action buttons', '', [
 ]);
 echo grid_close().row_close();
 
-echo '<p class="note">Note: Everything can be combined, but in some cases you need to add your own css.</p>';
+echo '<p class="note">Note: Everything can be combined, but in some cases you need to add your own CSS.</p>';
 echo row_open().grid_open([100, '1/2', '1/4']);
 echo input('input-addon-combined', 'Combined addons', '', [
     'left_addon'   => '€',
@@ -113,7 +113,7 @@ echo grid_close().grid_open([100, '1/2']);
 echo select('select-error', 'Error', '', $select_items, ['state' => 'error',]);
 echo grid_close().row_close();
 
-echo '<hr><h3 class="h3">Select with feedback & help text</h3>';
+echo '<hr><h3 class="h3">Select with feedback and helptext</h3>';
 echo row_open().grid_open([100, '1/3']);
 echo select('select-error-feedback', 'Error select with text', '', $select_items, [
     'state'         => 'error',
@@ -156,7 +156,7 @@ echo grid_close().grid_open([100, '1/3']);
 echo textarea('textarea-error', 'Error', '', ['state' => 'error',]);
 echo grid_close().row_close();
 
-echo '<hr><h3 class="h3">Textarea with feedback & help text</h3>';
+echo '<hr><h3 class="h3">Textarea with feedback and helptext</h3>';
 echo row_open().grid_open([100, '1/3']);
 echo textarea('textarea-error-feedback', 'Error textarea with text', '', [
     'state'         => 'error',
@@ -214,7 +214,7 @@ echo checkbox('radio-error', 'Error', 0, [
 ]);
 echo grid_close().row_close();
 
-echo '<hr><h3 class="h3">Checkbox with feedback & help text</h3>';
+echo '<hr><h3 class="h3">Checkbox with feedback and helptext</h3>';
 echo row_open().grid_open([100, '1/3']);
 echo checkbox('checkbox-error-feedback', 'Error checkbox with text', 0, [
     'state'         => 'error',
@@ -233,7 +233,7 @@ echo checkbox('radio-feedback-help', 'Radio with feedback and help text', 0, [
 ]);
 echo grid_close().row_close();
 
-echo '<hr><h3 class="h3">Checkbox with feedback & help text - multiple</h3>';
+echo '<hr><h3 class="h3">Checkbox with feedback and helptext multiple</h3>';
 echo row_open().grid_open([100, '1/3']);
 echo checkbox('checkbox-error-feedback-multiple', 'Error checkbox with text - multiple', '', [
     'items'         => [

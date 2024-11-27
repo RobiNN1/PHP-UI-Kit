@@ -29,7 +29,7 @@ abstract class GridTestCase extends ComponentTestCase {
     protected array $fw_option_tpl;
 
     public function testOpenGridRender(): void {
-        $tpl = $this->uikit->grid_open([100]);
+        $tpl = $this->uikit->grid_open();
 
         $this->assertComponentRender($this->expected_open_tpl, $tpl->__toString());
     }

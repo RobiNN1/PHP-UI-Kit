@@ -14,7 +14,7 @@ composer require robinn/uikit
 
 ## Basic Usage
 
-Simply print everything with echo.
+Print everything with echo.
 
 ```php
 ob_start();
@@ -48,7 +48,7 @@ HTML code
 
 There are multiple syntaxes available. It's up to you which one you choose.
 
-> Note: no need to use `layout()`, you can use own logic as well.
+> Note: no need to use `layout()`, you can use your own logic as well.
 
 ## Requirements
 

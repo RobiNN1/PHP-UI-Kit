@@ -20,7 +20,7 @@ class AddTo {
     public static string $css = '';
 
     /**
-     * @var bool Set true to remove everything, so it's easy to test.
+     * @var bool Set true to remove everything (for tests).
      *
      * @interal
      */

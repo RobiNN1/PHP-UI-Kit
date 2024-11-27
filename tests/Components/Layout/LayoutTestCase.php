@@ -21,7 +21,6 @@ abstract class LayoutTestCase extends ComponentTestCase {
     protected function setUp(string $framework = ''): void {
         $this->uikit = new UiKit(new Config(['framework' => $framework]));
 
-        // remove files and scripts that can be changed frequently, so it's easy to test
         AddTo::$tests = true;
     }
 

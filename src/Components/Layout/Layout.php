@@ -18,7 +18,7 @@ class Layout extends Component {
      * @var array<string, mixed>
      */
     protected array $options = [
-        'lang'       => 'en', // Site lang (used for html lang attribute).
+        'lang'       => 'en', // Site lang (used for HTML lang attribute).
         'title'      => 'UI Kit', // Site title.
         'attributes' => [], // Array of custom attributes.
         'minify_css' => true, // Minify CSS code.

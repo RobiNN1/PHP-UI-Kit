@@ -81,7 +81,7 @@ echo grid_close().grid_open([100, '1/3']);
 echo card([
     'body' => '
     <h3>Title</h3>
-    <h4>Sub title</h4>
+    <h4>Subtitle</h4>
     <p>Text</p>
     ',
 ]);

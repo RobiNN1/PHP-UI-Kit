@@ -75,9 +75,9 @@ HTML output:
 
 #### The same column width
 
-Not recommended for layouts that must support multiple css frameworks. Since not every framework supports this.
+Not recommended for layouts that must support multiple CSS frameworks. Since not every framework has support for this.
 
-However, in case the css framework does not support it, fallback values can be set `['auto', 100, '1/2']`.
+However, in case the CSS framework does not support it, fallback values can be set `['auto', 100, '1/2']`.
 
 ```php
 echo grid_open(['auto']);

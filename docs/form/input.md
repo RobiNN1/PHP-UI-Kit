@@ -147,14 +147,14 @@ echo input('input-feedback-help', 'Input with feedback and help text', '', [
 <div class="mb-1">
     <label for="input-help" class="form-label">Input with help text</label>
     <input value="" type="text" id="input-help" name="input-help" class="form-control" aria-label="Input with help text">
-    <div class="form-text">Text must be 10-100 characters long</div>
+    <div class="form-text">Text must be 10–100 characters long</div>
 </div>
 
 <div class="mb-1">
     <label for="input-feedback-help" class="form-label">Input with feedback and help text</label>
     <input value="" type="text" id="input-feedback-help" name="input-feedback-help" class="form-control is-valid" aria-label="Input with feedback and help text">
     <div class="valid-feedback">Please enter text</div>
-    <div class="form-text">Text must be 10-100 characters long</div>
+    <div class="form-text">Text must be 10–100 characters long</div>
 </div>
 ```
 
