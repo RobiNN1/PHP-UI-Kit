@@ -2,10 +2,7 @@ parameters:
   level: 8
   paths:
     - src
-    - resources/bootstrap3/config.php
-    - resources/bootstrap4/config.php
     - resources/bootstrap5/config.php
-    - resources/fomanticui2/config.php
   ignoreErrors:
     -
       identifier: missingType.iterableValue
