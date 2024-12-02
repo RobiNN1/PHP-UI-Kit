@@ -4,8 +4,6 @@ A toolkit for developing universal web interfaces with support for multiple CSS 
 
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=RobiNN1.PHP-UI-Kit)
 
-[Documentation](https://uikit.kelcak.com/)
-
 ## Installation
 
 ```
