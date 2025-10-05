@@ -133,7 +133,7 @@ class Components {
                 $name = 'render';
             }
 
-            return $class->$name(...$arguments);
+            return $class->$name(...$arguments); /* @phpstan-ignore-line */
         }
 
         return sprintf('Unknown "%s" function. ', $name).$this->addSuggestions($name);
