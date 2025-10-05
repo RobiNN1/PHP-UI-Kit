@@ -8,7 +8,7 @@ Methods that can be used directly from a UI Kit object.
 
 ## Constructor
 
-A Constructor has one paramater - $config, that can be an array or Config object.
+A Constructor has one parameter - $config, that can be an array or Config object.
 
 ```php
 use RobiNN\UiKit\UiKit;
@@ -20,7 +20,7 @@ $uikit = new UiKit();
 
 Get instance.
 
-There is one paramater $config, which is the same as in the constructor.
+There is one parameter $config, which is the same as in the constructor.
 
 ```php
 use RobiNN\UiKit\UiKit;

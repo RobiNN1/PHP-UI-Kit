@@ -10,19 +10,19 @@ namespace RobiNN\UiKit;
 
 class AddTo {
     /**
-     * @interal
+     * @internal
      */
     public static string $js = '';
 
     /**
-     * @interal
+     * @internal
      */
     public static string $css = '';
 
     /**
      * @var bool Set true to remove everything (for tests).
      *
-     * @interal
+     * @internal
      */
     public static bool $tests = false;
 

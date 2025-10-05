@@ -73,7 +73,7 @@ echo select('select-small', 'Small', '', [
     'size' => 'sm',
 ]);
 
-echo select('select-defult', 'Default', '', [
+echo select('select-default', 'Default', '', [
     'item1',
     'item2',
     'item3',
@@ -101,8 +101,8 @@ echo select('select-large', 'Large', '', [
 </div>
 
 <div class="mb-1">
-    <label for="select-defult" class="form-label">Default</label>
-    <select id="select-defult" name="select-defult" class="form-select" aria-label="Default">
+    <label for="select-default" class="form-label">Default</label>
+    <select id="select-default" name="select-default" class="form-select" aria-label="Default">
         <option value="0">item1</option>
         <option value="1">item2</option>
         <option value="2">item3</option>

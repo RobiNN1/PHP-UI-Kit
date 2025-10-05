@@ -64,7 +64,7 @@ echo input('input-small', 'Small', '', [
     'size' => 'sm',
 ]);
 
-echo input('input-defult', 'Default');
+echo input('input-default', 'Default');
 
 echo input('input-large', 'Large', '', [
     'size' => 'lg',
@@ -80,8 +80,8 @@ echo input('input-large', 'Large', '', [
 </div>
 
 <div class="mb-1">
-    <label for="input-defult" class="form-label">Default</label>
-    <input value="" type="text" id="input-defult" name="input-defult" class="form-control" aria-label="Default">
+    <label for="input-default" class="form-label">Default</label>
+    <input value="" type="text" id="input-default" name="input-default" class="form-control" aria-label="Default">
 </div>
 
 <div class="mb-1">

@@ -115,7 +115,7 @@ class Config {
      * Set the path to the framework.
      *
      * @param string $framework Framework name.
-     * @param string $path      Absolute path to the famework.
+     * @param string $path      Absolute path to the framework.
      */
     public function setFrameworkPath(string $framework, string $path): void {
         $this->framework_paths[$framework] = $path;
